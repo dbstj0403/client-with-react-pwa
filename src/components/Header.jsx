@@ -7,4 +7,6 @@ function Header() {
 
 export default Header;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  font-size: 5rem;
+`;
