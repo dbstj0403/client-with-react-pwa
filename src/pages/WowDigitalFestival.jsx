@@ -7,4 +7,7 @@ function WowDigitalFestival() {
 
 export default WowDigitalFestival;
 
-const Title = styled.div``;
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+`;
