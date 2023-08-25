@@ -15,7 +15,7 @@ export default Layout;
 
 const MainContainer = styled.div`
   position: relative;
-  max-width: 480px;
+  max-width: 768px;
   height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
   background-color: white;

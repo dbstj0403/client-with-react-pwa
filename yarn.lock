@@ -4948,6 +4948,7 @@ __metadata:
     react-router-dom: ^6.14.2
     react-scripts: 5.0.1
     styled-components: ^6.0.7
+    styled-reset: ^4.5.1
     vite: ^4.4.9
     vite-plugin-svgr: ^3.2.0
     web-vitals: ^2.1.4
@@ -12881,6 +12882,15 @@ __metadata:
     babel-plugin-styled-components:
       optional: true
   checksum: 38645f38f145225e456f8f9303f5be1d988180e0e3d84d1f3e1d14fb006c7deb69704745e266d61016616a154938697d011a0bff6eaeb7dd25dbba659e2411f7
+  languageName: node
+  linkType: hard
+
+"styled-reset@npm:^4.5.1":
+  version: 4.5.1
+  resolution: "styled-reset@npm:4.5.1"
+  peerDependencies:
+    styled-components: ">=4.0.0 || >=5.0.0 || >=6.0.0"
+  checksum: ff6c5bbc738017a535a5e74cc3b2e7112652691c8e4acae700fe3d051f870035e2d911e6629a9a626349ccc58ba9842b83793bd9111f4e1c9e1fa695f773d2b8
   languageName: node
   linkType: hard
 
