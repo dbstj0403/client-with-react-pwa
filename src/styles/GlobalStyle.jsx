@@ -34,10 +34,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
     html {
-        font-size: 14px; /* Default font size */
+        font-size: 16px; /* Default font size */
         /* Media query for mobile */
         @media (min-width: 450px) and (max-width: 600px) {
-            font-size: 12px;
+            font-size: 13px;
         }
         @media (max-width: 450px) {
             font-size: 10px;
