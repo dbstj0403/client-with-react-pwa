@@ -8,5 +8,5 @@ function Header() {
 export default Header;
 
 const Wrapper = styled.div`
-  font-size: 5rem;
+  font-size: 2rem;
 `;

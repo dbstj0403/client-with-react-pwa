@@ -34,13 +34,13 @@ const GlobalStyles = createGlobalStyle`
     }
 
     html {
-        font-size: 10px; /* Default font size */
+        font-size: 16px; /* Default font size */
         /* Media query for mobile */
-        @media (min-width: 375px) and (max-width: 550px) {
-            font-size: 8px;
+        @media (min-width: 450px) and (max-width: 600px) {
+            font-size: 13px;
         }
-        @media (max-width: 375px) {
-            font-size: 6px;
+        @media (max-width: 450px) {
+            font-size: 10px;
         }
     }
 `;
