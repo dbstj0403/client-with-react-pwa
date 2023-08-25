@@ -10,12 +10,12 @@ const theme = {
   },
   fontStyles: {
     mainTitle: `
-          font-family: "Pretendard", sans-serif;
-          font-size: 3.2rem;
-          font-weight: 700;
-          font-style: normal;
-          line-height: 3.2rem;
-        `,
+        font-family: "Pretendard", sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        font-style: normal;
+        line-height: 3.2rem;
+      `,
     subTitle: `
           font-family: "Pretendard", sans-serif;
           font-size: 2.4rem;
