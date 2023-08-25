@@ -8,5 +8,6 @@ function Header() {
 export default Header;
 
 const Wrapper = styled.div`
-  font-size: 2rem;
+  font-size: 5rem;
+  ${(props) => props.theme.fontStyles.mainTitle}
 `;
