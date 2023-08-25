@@ -32,11 +32,9 @@ const Layout = () => {
   return (
     <Container>
       <SideBar innerRef={mainContainerRef} isOpen={isOpen} />
-      <MainContainer isOpen={isOpen}>
-        <Header innerRef={mainContainerRef} isOpen={isOpen} />
-        {isOpen && <DarkOverlay isOpen={isOpen} />}
-        <Outlet />
-      </MainContainer>
+      <Header innerRef={mainContainerRef} isOpen={isOpen} />
+      {isOpen && <DarkOverlay isOpen={isOpen} />}
+      <Outlet />
     </Container>
   );
 };
@@ -48,14 +46,6 @@ const Container = styled.div`
   max-width: 768px;
   min-height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
-`;
-
-const MainContainer = styled.div`
-  display: flex;
-  height: 100vh;
-  background-image: url(${background});
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 const DarkOverlay = styled.div`
