@@ -6,7 +6,7 @@ export default function PubCard({ data }) {
       <PubCardImage alt={'부스카드 이미지'} src={data.image} />
       <PubCardTextWrapper>
         <span>{data.owns}</span>
-        <span>{data.page}</span>
+        <span>Page {data.page}</span>
         <span>{data.mainMenu}</span>
         <p>{data.introduction}</p>
       </PubCardTextWrapper>
@@ -31,6 +31,9 @@ const PubCardTextWrapper = styled.div`
   display: flex;
   margin-left: 2.1rem;
   flex-direction: column;
+  span {
+    margin-bottom: 0.7rem;
+  }
   span:first-child {
     ${(props) => props.theme.fontStyles.subFont2}
   }
