@@ -9,4 +9,6 @@ export default Header;
 
 const Wrapper = styled.div`
   font-size: 5rem;
+  height: 6rem;
+  border: 2px solid;
 `;
