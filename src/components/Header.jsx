@@ -1,14 +1,16 @@
 import { DrawerIcon } from '@/assets/icons/DrawerIcon';
 import { HongikLogo } from '@/assets/image/HongikLogo';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import SideBar from './SideBar';
+import SideBar from './sidebar/SideBar';
+import { useRecoilState } from 'recoil';
+import { sideState } from '@/libs/store';
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleSide = () => {
+  const [isOpen, setIsOpen] = useRecoilState(sideState);
+  const toggleSide = (e) => {
+    e.stopPropagation();
     setIsOpen(true);
-    console.log(isOpen);
   };
 
   return (
@@ -16,7 +18,6 @@ function Header() {
       <DrawerDiv role="button" onClick={toggleSide}>
         <DrawerIcon />
       </DrawerDiv>
-      <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <LogoWrapper>
         <HongikLogo />
       </LogoWrapper>
@@ -36,6 +37,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 6rem;
   z-index: 100;
+  ${(props) => props.theme.fontStyles.mainTitle}
 `;
 
 const DrawerDiv = styled.div`
@@ -61,9 +63,8 @@ const BackgroundBlur = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px); */
   background-color: rgba(255, 255, 255, 0.1);
   z-index: -1;
   font-size: 5rem;
-  ${(props) => props.theme.fontStyles.mainTitle}
 `;

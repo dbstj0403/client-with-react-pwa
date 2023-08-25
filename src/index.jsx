@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
@@ -14,7 +15,9 @@ root.render(
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <BrowserRouter>
-        <App />
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
