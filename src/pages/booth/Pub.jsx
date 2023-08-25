@@ -38,9 +38,9 @@ export default function Pub() {
   ];
   return (
     <PubPageWrapper>
-      <PubCategoryName>
+      <PubPageTitle>
         <span>주점</span>
-      </PubCategoryName>
+      </PubPageTitle>
       <PubMapWrapper>
         <PubMainMap alt={'주점 지도1'} src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" />
         <PubCategory categories={pubCategory} setCategoryText={setCategoryText} />
@@ -66,8 +66,8 @@ const PubPageWrapper = styled.div`
   align-items: center;
 `;
 
-const PubCategoryName = styled.div`
-  padding: 3.6rem 0;
+const PubPageTitle = styled.div`
+  padding: 1.6rem 0;
   span {
     ${(props) => props.theme.fontStyles.mainTitle}
   }
@@ -105,6 +105,5 @@ const AreaText = styled.div`
 `;
 
 const PubCards = styled.div`
-  display: flex;
-  flex-direction: column;
+  margin-top: 1rem;
 `;

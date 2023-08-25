@@ -15,11 +15,11 @@ export default function PubCard({ data }) {
 }
 
 const PubCardWrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.06);
   padding: 2.1rem;
-  height: 17rem;
   display: flex;
-  margin: 0.9rem 0;
+  height: 17rem;
+  margin-bottom: 1.8rem;
 `;
 
 const PubCardImage = styled.img`
@@ -39,13 +39,13 @@ const PubCardTextWrapper = styled.div`
   }
   span:nth-child(2),
   :nth-child(3),
-  :last-child {
+  p {
     ${(props) => props.theme.fontStyles.subFont3}
   }
   span:nth-child(3) {
     font-weight: 700;
   }
-  span:last-child {
+  p {
     font-size: 1.4rem;
   }
 `;
