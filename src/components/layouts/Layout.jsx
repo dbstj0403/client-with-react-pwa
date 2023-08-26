@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../Header';
+import React from 'react';
 
 const Layout = () => {
   return (
@@ -15,6 +16,7 @@ export default Layout;
 
 const MainContainer = styled.div`
   position: relative;
+  min-width: 375px;
   max-width: 768px;
   height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
