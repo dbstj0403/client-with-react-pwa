@@ -68,6 +68,7 @@ const PubPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 2rem;
 `;
 
 const PubCategoryName = styled.div`
@@ -75,12 +76,17 @@ const PubCategoryName = styled.div`
   span {
     ${(props) => props.theme.fontStyles.mainTitle}
   }
+  width: 100%;
+  border-bottom: 1px solid #e3e3e3;
+  display: flex;
+  justify-content: center;
 `;
 
 const PubMapWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3.6rem;
 `;
 
 const PubMainMap = styled.img`
@@ -95,10 +101,9 @@ const PubBooths = styled.div`
 `;
 
 const AreaText = styled.div`
-  margin-top: 1.8rem;
+  margin-top: 3.6rem;
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
   span {
     ${(props) => props.theme.fontStyles.subTitle}
   }

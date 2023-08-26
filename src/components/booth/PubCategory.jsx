@@ -33,7 +33,6 @@ export default function PubCategory({ categories, setCategoryText }) {
 
 const PubCategoryWrapper = styled.div`
   margin-top: 1.8rem;
-  padding: 1rem 0;
   width: 34.2rem;
 `;
 
