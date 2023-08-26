@@ -1,27 +1,32 @@
-import FoodTruckCard from '@/components/booth/FoodTruckCard';
+import BlackBoothCard from '@/components/booth/BlackBoothCard';
 import styled from 'styled-components';
 
 export default function FoodTruck() {
   const foodTruckData = [
     {
+      image: 'https://cdn.pixabay.com/photo/2015/10/22/18/58/chicken-1001767_1280.jpg',
       number: 1,
-      brand: 'KFC',
-      menu: '치킨',
+      name: 'KFC',
+      introduce: '치킨을 판매하는 브랜드입니다.',
     },
     {
+      image: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
       number: 2,
-      brand: '맘스터치',
-      menu: '햄버거',
+      name: '맘스터치',
+      introduce: '햄버거를 판매하는 브랜드입니다.',
     },
     {
+      image:
+        'https://media.istockphoto.com/id/1394500853/ko/%EC%82%AC%EC%A7%84/%EC%BD%98%ED%81%AC%EB%A6%AC%ED%8A%B8-%EB%B0%B0%EA%B2%BD-%EC%9C%84%EC%97%90-%EA%B3%B5%EC%98%88-%EC%A2%85%EC%9D%B4%EC%97%90-%EB%91%90-%EA%B0%9C%EC%9D%98-%EB%A7%9B%EC%9E%88%EB%8A%94-%ED%95%AB%EB%8F%84%EA%B7%B8.webp?b=1&s=612x612&w=0&k=20&c=ImxCfRkWMQ1PIXLR0ztp75qZ57HxLGHQ_5s-umXDhec=',
       number: 1,
-      brand: '명랑핫도그',
-      menu: '핫도그',
+      name: '명랑핫도그',
+      introduce: '핫도그를 판매하는 브랜드입니다.',
     },
     {
+      image: 'https://cdn.pixabay.com/photo/2019/11/01/05/57/ramen-4593402_1280.jpg',
       number: 1,
-      brand: '인생라면',
-      menu: '라면',
+      name: '인생라면',
+      introduce: '라면',
     },
   ];
   return (
@@ -35,7 +40,7 @@ export default function FoodTruck() {
       />
       <FoodTruckBooths>
         {foodTruckData.map((foodTruck, index) => {
-          return <FoodTruckCard key={foodTruck.brand} data={foodTruck} />;
+          return <BlackBoothCard key={foodTruck.brand} data={foodTruck} />;
         })}
       </FoodTruckBooths>
     </FoodTruckPageWrapper>
@@ -56,11 +61,10 @@ const FoodTruckPageTitle = styled.div`
 `;
 
 const FoodTruckMap = styled.img`
-  width: 29.8rem;
-  height: 15.7rem;
+  width: 33.5rem;
+  height: 19rem;
 `;
 
 const FoodTruckBooths = styled.div`
   margin-top: 2.9rem;
-  width: 29.6rem;
 `;
