@@ -38,6 +38,9 @@ export default function FoodTruck() {
         alt={'푸드트럭 이미지'}
         src="https://media.istockphoto.com/id/1415170044/ko/%EC%82%AC%EC%A7%84/%EC%95%BC%EC%99%B8-%EA%B1%B0%EB%A6%AC-%EC%9D%8C%EC%8B%9D-%EC%B6%95%EC%A0%9C-%EC%95%BC%EC%99%B8-%EC%B2%A0%ED%8C%90%EC%97%90%EC%84%9C-%EC%9A%94%EB%A6%AC%ED%95%98%EB%8A%94-%EC%86%8C%EC%8B%9C%EC%A7%80-%EA%B3%A0%EA%B8%B0-%EB%B0%8F-%EA%B0%90%EC%9E%90-%EC%9A%94%EB%A6%AC-%EC%88%98%EC%84%9D.webp?b=1&s=612x612&w=0&k=20&c=aKzeRd3r6ZOexBKV4i5QSqDESh6pSc_1CxtX1XoIr1I="
       />
+      <FoodTruckCount>
+        <span>16개 부스</span>
+      </FoodTruckCount>
       <FoodTruckBooths>
         {foodTruckData.map((foodTruck, index) => {
           return <BlackBoothCard key={foodTruck.brand} data={foodTruck} />;
@@ -51,20 +54,35 @@ const FoodTruckPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 2rem;
 `;
 
 const FoodTruckPageTitle = styled.div`
-  padding: 1.6rem 0;
+  padding: 3.6rem 0;
   span {
     ${(props) => props.theme.fontStyles.mainTitle}
   }
+  border-bottom: 1px solid #e3e3e3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const FoodTruckMap = styled.img`
   width: 33.5rem;
   height: 19rem;
+  margin-top: 3.6rem;
+  margin-bottom: 6rem;
 `;
 
-const FoodTruckBooths = styled.div`
-  margin-top: 2.9rem;
+const FoodTruckCount = styled.div`
+  span {
+    ${(props) => props.theme.fontStyles.subTitle}
+    font-size:2.8rem;
+    font-weight: 500;
+    line-height: 3.6rem;
+  }
+  width: 100%;
 `;
+
+const FoodTruckBooths = styled.div``;
