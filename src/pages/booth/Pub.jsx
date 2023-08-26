@@ -10,28 +10,32 @@ export default function Pub() {
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '예술학과 주점',
-      page: '1-1',
+      page: 1,
+      position: 1,
       mainMenu: '국물떡볶이',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
     },
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '컴퓨터공학과 주점',
-      page: '1-2',
+      page: 1,
+      position: 2,
       mainMenu: '감자튀김',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
     },
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '경영학과 주점',
-      page: '1-1',
+      page: 2,
+      position: 1,
       mainMenu: '닭꼬치',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
     },
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '화학공학과 주점',
-      page: '1-2',
+      page: 2,
+      position: 2,
       mainMenu: '계란말이',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
     },
@@ -87,7 +91,7 @@ const PubMainMap = styled.img`
 const PubBooths = styled.div`
   display: flex;
   flex-direction: column;
-  width: 31.3rem;
+  width: 33.5rem;
 `;
 
 const AreaText = styled.div`
