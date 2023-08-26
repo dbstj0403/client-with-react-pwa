@@ -1,3 +1,4 @@
+import HorizontalLine from '@/components/common/HorizontalLine';
 import { DaySelector, TimeTable } from '@/components/stage';
 import theme from '@/styles/theme';
 import React, { useMemo, useState } from 'react';
@@ -5,7 +6,7 @@ import styled from 'styled-components';
 
 function CentralStage() {
   /** 축제 시작 날짜 */
-  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-08-25').getTime() / 1000.0), []);
+  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-08-26').getTime() / 1000.0), []);
 
   const [day, setDay] = useState(() => {
     const todayDate = new Date();
@@ -24,9 +25,11 @@ function CentralStage() {
 
   return (
     <MainSection>
-      <Title>중앙무대</Title>
+      <Title>무대</Title>
+      <Hr />
       <Map />
       <StageSchedule>중앙무대 일정</StageSchedule>
+      <Hr />
       <DaySelector selectedDay={day} onClick={(day) => setDay(day)} />
       <TimeTable day={day} />
     </MainSection>
@@ -41,32 +44,33 @@ const MainSection = styled.section`
   align-items: center;
 
   border: 1px solid black;
-  padding: 1.6rem 1.4rem;
+  padding: 4rem 2rem;
 `;
 
 const Map = styled.div`
-  width: 31.9rem;
+  width: 33.5rem;
   height: 18.9rem;
 
   border: 1px solid black;
 
-  margin-bottom: 6.5rem;
+  margin-bottom: 8rem;
 `;
 
 const Title = styled.header`
   width: 100%;
 
-  margin-bottom: 1.6rem;
-
   text-align: center;
   ${theme.fontStyles.mainTitle}
 `;
 
-const StageSchedule = styled.p`
-  margin-bottom: 1.6rem;
+const Hr = styled(HorizontalLine)`
+  margin-top: 3.6rem;
+  margin-bottom: 3.6rem;
+`;
 
+const StageSchedule = styled.p`
   text-align: center;
-  ${theme.fontStyles.subTitle}
+  ${theme.fontStyles.mainTitle}
 `;
 
 export default CentralStage;
