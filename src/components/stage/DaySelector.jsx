@@ -31,7 +31,7 @@ function DaySelector({ selectedDay, onClick }) {
   return (
     <Container>
       {days.map((day) => (
-        <Label key={day.id} highlight={day.id === selectedDay} onClick={() => onClick(day.id)}>
+        <Label key={day.id} selected={day.id === selectedDay} onClick={() => onClick(day.id)}>
           {day.title} {day.id === selectedDay && day.date}
         </Label>
       ))}
@@ -48,7 +48,7 @@ const Container = styled.section`
   margin-bottom: 3.6rem;
 `;
 
-const Label = styled.p`
+const Label = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,8 +57,8 @@ const Label = styled.p`
   font-family: Pretendard;
   font-style: normal;
 
-  ${({ highlight }) =>
-    highlight
+  ${({ selected }) =>
+    selected
       ? `
       color: #ECECEC;
       font-weight: 400;
