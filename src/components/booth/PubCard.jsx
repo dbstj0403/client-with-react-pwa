@@ -3,7 +3,17 @@ import styled from 'styled-components';
 export default function PubCard({ data }) {
   return (
     <PubCardWrapper>
-      <PubCardImage alt={'부스카드 이미지'} src={data.image} />
+      <PubCardImage image={data.image}>
+        {data.page === 1 ? (
+          <PubCardFold1>
+            <span>{data.position}</span>
+          </PubCardFold1>
+        ) : (
+          <PubCardFold2>
+            <span>{data.position}</span>
+          </PubCardFold2>
+        )}
+      </PubCardImage>
       <PubCardTextWrapper>
         <PubOwner>{data.owns}</PubOwner>
         <PubPosition>
@@ -27,9 +37,49 @@ const PubCardWrapper = styled.div`
   border-bottom: 1px solid #e6e6e6;
 `;
 
-const PubCardImage = styled.img`
+const PubCardImage = styled.div`
   width: 11.6rem;
   height: 8rem;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  position: relative;
+`;
+
+const PubCardFold1 = styled.div`
+  width: 0px;
+  height: 0px;
+  border-right: 3.6rem solid #0075ff;
+  border-left: 0px solid transparent;
+  border-top: 3.6rem solid #ffffff;
+  span {
+    ${(props) => props.theme.fontStyles.subFont1}
+    font-size:1rem;
+    line-height: 1rem;
+    color: ${(props) => props.theme.colors.white};
+    position: absolute;
+    top: 2.5rem;
+    left: 2.7rem;
+  }
+`;
+
+const PubCardFold2 = styled.div`
+  width: 0px;
+  height: 0px;
+  border-top: 3.6rem solid #0083fc;
+  border-left: 0px solid transparent;
+  border-right: 3.6rem solid #ffffff;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  span {
+    ${(props) => props.theme.fontStyles.subFont1}
+    font-size:1rem;
+    line-height: 1rem;
+    color: ${(props) => props.theme.colors.white};
+    position: absolute;
+    bottom: 2.4rem;
+    left: 0.2rem;
+  }
 `;
 
 const PubCardTextWrapper = styled.div`
