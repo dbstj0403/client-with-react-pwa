@@ -11,7 +11,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/stage" element={<CentralStage />} />
-        <Route path="/hongik-zone" element={<HongikZone />} />
+        <Route path="/hongikzone" element={<HongikZone />} />
       </Route>
     </Routes>
   );
