@@ -1,3 +1,6 @@
+import FacilityCardsWrapper from '@/components/facilities/FacilityCardsWrapper';
+import FacilityMapWrapper from '@/components/facilities/FacilityMapWrapper';
+import FacilitySubTitle from '@/components/facilities/FacilitySubTitle';
 import { facilitiesCategory } from '@/components/state/booth/FacilitiesCategory';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -15,12 +18,15 @@ export default function Facilities() {
       <FacilitiesCategory>
         {facilitiesCategory.map((category, index) => {
           return (
-            <CategoryBox isClicked={categoryState === index}>
+            <CategoryBox key={category} isClicked={categoryState === index}>
               <span onClick={() => categoryClicked(index)}>{category}</span>
             </CategoryBox>
           );
         })}
       </FacilitiesCategory>
+      <FacilityMapWrapper categoryState={categoryState} />
+      <FacilitySubTitle categoryState={categoryState} />
+      <FacilityCardsWrapper categoryState={categoryState} />
     </FacilitiesPageWrapper>
   );
 }
@@ -54,6 +60,6 @@ const CategoryBox = styled.div`
   padding: 0.8rem 1.2rem;
   span {
     ${(props) => props.theme.fontStyles.subFont1}
-    color:${(props) => (props.isClicked ? '#000000' : '0 ')}
+    color:${(props) => (props.isClicked ? '#000000' : '#C4C4C4')}
   }
 `;
