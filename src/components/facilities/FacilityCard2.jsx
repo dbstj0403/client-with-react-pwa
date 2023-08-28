@@ -30,15 +30,14 @@ const FacilityMapPosition = styled.div`
   margin-bottom: 0.4rem;
   span {
     color: ${(props) => props.theme.colors.white};
-    ${(props) => props.theme.fontStyles.subFont3};
-    font-weight: 600;
+    ${(props) => props.theme.fontStyles.subHead1};
     line-height: 1.6rem;
   }
 `;
 
 const FacilityBuildingPosition = styled.div`
   span {
-    ${(props) => props.theme.fontStyles.subFont1};
+    ${(props) => props.theme.fontStyles.head5};
   }
   span:last-child {
     color: #0075ff;
