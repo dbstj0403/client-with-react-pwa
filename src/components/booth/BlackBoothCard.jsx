@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default function BlackBoothCard({ data }) {
   return (
-    <CardWrapper>
+    <CardWrapper data-aos="fade-right" data-aos-duration="800">
       <BoothCardImage alt={'부스 이미지'} src={data.image} />
       <BoothText>
         <BoothNumber>

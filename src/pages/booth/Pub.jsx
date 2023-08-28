@@ -1,7 +1,7 @@
 import PubCard from '@/components/booth/PubCard';
 import PubCategory from '@/components/booth/PubCategory';
 import { pubCategory } from '@/state/booth/pubCategoryState';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 export default function Pub() {

@@ -43,7 +43,7 @@ export default function FoodTruck() {
       </FoodTruckCount>
       <FoodTruckBooths>
         {foodTruckData.map((foodTruck, index) => {
-          return <BlackBoothCard key={foodTruck.brand} data={foodTruck} />;
+          return <BlackBoothCard key={foodTruck.name} data={foodTruck} />;
         })}
       </FoodTruckBooths>
     </FoodTruckPageWrapper>

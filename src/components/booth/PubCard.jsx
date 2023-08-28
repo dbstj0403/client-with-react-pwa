@@ -1,6 +1,6 @@
-import AOS from 'aos';
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import AOS from 'aos';
 
 export default function PubCard({ data }) {
   useEffect(() => {
