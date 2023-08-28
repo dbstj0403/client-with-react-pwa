@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import React from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
+import LineUp from '@/components/wowDj/LineUp';
+import moveTopBtnIcon from '@/icons/moveTopBtnIcon.svg';
 
 function WowDigitalFestival() {
+  const goToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Container>
       <Title>와우 디제잉 페스티벌</Title>
@@ -14,6 +20,11 @@ function WowDigitalFestival() {
       <Hrdiv />
       <ImgContainer>지 도 사 진</ImgContainer>
       <InfoCard />
+      <LineUp />
+      <MoveToTopBtn onClick={goToTop}>
+        <img src={moveTopBtnIcon} alt="" />
+        <BtnText>맨 위로</BtnText>
+      </MoveToTopBtn>
     </Container>
   );
 }
@@ -60,4 +71,29 @@ const ImgContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 4rem;
+`;
+const MoveToTopBtn = styled.button`
+  width: 11.2rem;
+  height: 4.8rem;
+  border-radius: 4rem;
+  padding: 1.2rem 2rem 1.2rem 2rem;
+  background-color: black;
+  color: white;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+    padding-right: 0.2rem;
+  }
+  display: flex;
+  justify-content: space-between;
+`;
+const BtnText = styled.p`
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  letter-spacing: 0em;
+  text-align: left;
 `;
