@@ -68,6 +68,7 @@ const CategoryBox = styled.div`
   padding: 0.8rem 1.2rem;
   span {
     ${(props) => props.theme.fontStyles.subFont1}
-    color:${(props) => (props.isClicked ? '#000000' : '#C4C4C4')}
+    color:${(props) => (props.isClicked ? '#000000' : '#C4C4C4')};
+    transition: color 0.3s ease;
   }
 `;

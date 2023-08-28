@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layouts/Layout';
-import { Home } from './pages/Home';
+import Home from './pages/Home';
 import Facilities from './pages/Facilities';
 import Pub from './pages/booth/Pub';
 import FoodTruck from './pages/booth/FoodTruck';

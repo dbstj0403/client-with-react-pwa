@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import AOS from 'aos';
 
 export default function PubCard({ data }) {
+  useEffect(() => {
+    AOS.init();
+  });
   return (
-    <PubCardWrapper>
+    <PubCardWrapper data-aos={data.page === 1 ? 'fade-right' : 'fade-left'} data-aos-duration="800">
       <PubCardImage image={data.image}>
         {data.page === 1 ? (
           <PubCardFold1>
