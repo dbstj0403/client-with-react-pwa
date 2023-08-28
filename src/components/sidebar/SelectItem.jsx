@@ -23,16 +23,16 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('hongikzone')} active={page === 'hongikzone'}>
         홍익존
       </SelectOption>
-      <SelectOption onClick={() => handleSelectOptionClick('booth')} active={page === 'booth'}>
+      <SelectOption onClick={() => handleSelectOptionClick('booth/foodtruck')} active={page === 'booth/foodtruck'}>
         수익 부스
       </SelectOption>
-      <SelectOption onClick={() => handleSelectOptionClick('alcohol')} active={page === 'alchol'}>
+      <SelectOption onClick={() => handleSelectOptionClick('booth/pub')} active={page === 'booth/pub'}>
         주점
       </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('wowdjfest')} active={page === 'wowdjfest'}>
         와우 디제잉 페스티벌
       </SelectOption>
-      <SelectOption onClick={() => handleSelectOptionClick('convenient')} active={page === 'convenient'}>
+      <SelectOption onClick={() => handleSelectOptionClick('facilities')} active={page === 'facilities'}>
         기타 편의시설
       </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('madeby')} active={page === 'madeby'}>

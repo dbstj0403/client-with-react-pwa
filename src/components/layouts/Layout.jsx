@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import Header from '../Header';
 import { sideState } from '@/libs/store';
 import SideBar from '../sidebar/SideBar';
-import background from '../../assets/image/background.svg';
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useRecoilState(sideState);
+
   const mainContainerRef = useRef(null);
 
   // 사이드바 외부 클릭시 닫히는 함수
