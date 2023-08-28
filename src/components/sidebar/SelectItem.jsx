@@ -23,7 +23,7 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('hongikzone')} active={page === 'hongikzone'}>
         홍익존
       </SelectOption>
-      <SelectOption onClick={() => handleSelectOptionClick('booth/foodtruck')} active={page === 'booth/foodtruck'}>
+      <SelectOption onClick={() => handleSelectOptionClick('booth')} active={page === 'booth'}>
         수익 부스
       </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('booth/pub')} active={page === 'booth/pub'}>

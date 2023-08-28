@@ -43,6 +43,7 @@ export default Layout;
 
 const Container = styled.div`
   position: relative;
+  min-width: 375px;
   max-width: 768px;
   min-height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
