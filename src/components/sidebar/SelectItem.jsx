@@ -29,6 +29,9 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('booth/pub')} active={page === 'booth/pub'}>
         주점
       </SelectOption>
+      <SelectOption onClick={() => handleSelectOptionClick('booth/foodtruck')} active={page === 'booth/foodtruck'}>
+        푸드트럭
+      </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('wowdjfest')} active={page === 'wowdjfest'}>
         와우 디제잉 페스티벌
       </SelectOption>

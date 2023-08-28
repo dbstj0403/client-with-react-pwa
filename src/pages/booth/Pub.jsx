@@ -1,11 +1,19 @@
 import PubCard from '@/components/booth/PubCard';
 import PubCategory from '@/components/booth/PubCategory';
 import { pubCategory } from '@/state/booth/pubCategoryState';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('booth/pub');
+  }, []);
+
   const boothData = [
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',

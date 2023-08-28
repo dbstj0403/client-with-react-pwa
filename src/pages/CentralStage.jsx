@@ -1,10 +1,18 @@
 import HorizontalLine from '@/components/common/HorizontalLine';
 import { DaySelector, TimeTable } from '@/components/stage';
 import theme from '@/styles/theme';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 function CentralStage() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('stage');
+  }, []);
+
   /** 축제 시작 날짜 */
   const festivalStartDate = useMemo(() => Math.floor(new Date('2023-08-26').getTime() / 1000.0), []);
 

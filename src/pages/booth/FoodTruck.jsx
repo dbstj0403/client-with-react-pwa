@@ -1,7 +1,16 @@
 import BlackBoothCard from '@/components/booth/BlackBoothCard';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
+import { useEffect } from 'react';
 
 export default function FoodTruck() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('booth/foodtruck');
+  }, []);
+
   const foodTruckData = [
     {
       image: 'https://cdn.pixabay.com/photo/2015/10/22/18/58/chicken-1001767_1280.jpg',
@@ -29,6 +38,7 @@ export default function FoodTruck() {
       introduce: '라면',
     },
   ];
+
   return (
     <FoodTruckPageWrapper>
       <FoodTruckPageTitle>

@@ -52,6 +52,7 @@ const SideBar = ({ innerRef, ...props }) => {
       window.removeEventListener('click', handleClose);
     };
   }, [isOpen]);
+
   return (
     <SideBarWrapper isOpen={isOpen} ref={innerRef} {...props}>
       <Top>
