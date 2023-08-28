@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import theme from './../../styles/theme';
-import { menuName } from './../../constants/menuName';
+import theme from '../../styles/theme';
+import { menuName } from '../../constants/menuName';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
 function RoadMap() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { slogan, slogan1, slogan2, slogan3, slogan4 } from './../../constants/slogan';
-import theme from './../../styles/theme';
+import { slogan, slogan1, slogan2, slogan3, slogan4 } from '../../constants/slogan';
+import theme from '../../styles/theme';
 
 function Landing() {
   return (

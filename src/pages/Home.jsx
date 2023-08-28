@@ -1,8 +1,8 @@
 import React from 'react';
-import Landing from './../components/main/Landing';
-import Campus from './../components/main/Campus';
-import RoadMap from './../components/main/Roadmap';
-import Schedule from './../components/main/Schedule';
+import Landing from './main/Landing';
+import Campus from './main/Campus';
+import RoadMap from './main/Roadmap';
+import Schedule from './main/Schedule';
 
 function Home() {
   return (
