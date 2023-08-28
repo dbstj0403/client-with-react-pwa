@@ -74,7 +74,7 @@ const PubPageWrapper = styled.div`
 const PubPageTitle = styled.div`
   padding: 1.6rem 0;
   span {
-    ${(props) => props.theme.fontStyles.mainTitle}
+    ${(props) => props.theme.fontStyles.head1}
   }
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
@@ -104,12 +104,14 @@ const AreaText = styled.div`
   margin-top: 3.6rem;
   display: flex;
   flex-direction: column;
-  span {
-    ${(props) => props.theme.fontStyles.subTitle}
+  span:first-child {
+    ${(props) => props.theme.fontStyles.head3}
   }
   span:last-child {
     margin-top: 0.8rem;
     color: rgba(0, 0, 0, 0.3);
+    ${(props) => props.theme.fontStyles.body1}
+    line-height: 2.4rem;
   }
 `;
 
