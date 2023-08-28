@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import InfoCard from '@/components/wowDj/InfoCard';
 
 function WowDigitalFestival() {
   return (
@@ -11,6 +12,8 @@ function WowDigitalFestival() {
         이런 저런 디제잉을 디제이가 합니다.
       </TitleInfo>
       <Hrdiv />
+      <ImgContainer>지 도 사 진</ImgContainer>
+      <InfoCard />
     </Container>
   );
 }
@@ -19,7 +22,7 @@ export default WowDigitalFestival;
 const Container = styled.div`
   display: flex;
   margin: 0 auto;
-  width: 32.7rem;
+  width: 33.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,11 +45,19 @@ const TitleInfo = styled.div`
   line-height: 2.6rem;
   text-align: center;
 `;
-
 const Hrdiv = styled.div`
-  width: 32.7rem;
+  width: 33.5rem;
   height: 0.1rem;
   background-color: lightgray;
   margin-top: 2rem;
   margin-bottom: 2rem;
+`;
+const ImgContainer = styled.div`
+  width: 33.5rem;
+  height: 48.4rem;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
 `;
