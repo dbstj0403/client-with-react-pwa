@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import Header from '../Header';
+import Header from './Header';
 import { sideState } from '@/libs/store';
 import SideBar from '../sidebar/SideBar';
+import Footer from './Footer';
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useRecoilState(sideState);
@@ -35,6 +36,7 @@ const Layout = () => {
       <Header innerRef={mainContainerRef} isOpen={isOpen} />
       {isOpen && <DarkOverlay isOpen={isOpen} />}
       <Outlet />
+      <Footer />
     </Container>
   );
 };
