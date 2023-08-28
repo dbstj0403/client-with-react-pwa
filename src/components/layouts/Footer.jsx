@@ -42,7 +42,7 @@ const FooterContainer = styled.div`
   width: 100%;
   background-color: #d9d9d9;
   padding: 2rem;
-  min-height: 11.8rem;
+  height: 100%;
   font-family: 'Pretendard';
   font-weight: 400;
 `;
