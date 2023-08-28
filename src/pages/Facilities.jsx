@@ -49,7 +49,7 @@ const FacilitiesPageWrapper = styled.div`
 const FacilitiesPageTitle = styled.div`
   padding: 3.6rem 0;
   span {
-    ${(props) => props.theme.fontStyles.mainTitle}
+    ${(props) => props.theme.fontStyles.head1}
   }
   width: 100%;
   display: flex;
@@ -67,7 +67,7 @@ const FacilitiesCategory = styled.div`
 const CategoryBox = styled.div`
   padding: 0.8rem 1.2rem;
   span {
-    ${(props) => props.theme.fontStyles.subFont1}
+    ${(props) => props.theme.fontStyles.head5}
     color:${(props) => (props.isClicked ? '#000000' : '#C4C4C4')};
     transition: color 0.3s ease;
   }

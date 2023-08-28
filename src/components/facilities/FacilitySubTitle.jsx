@@ -49,7 +49,8 @@ const FacilityIcon = styled.div`
 
 const SubTitle = styled.div`
   span {
-    ${(props) => props.theme.fontStyles.subTitle}
-    line-height:3.8rem
+    ${(props) => props.theme.fontStyles.head3}
+    font-weight: 700;
+    line-height: 3.8rem;
   }
 `;

@@ -21,16 +21,14 @@ const CardTitle = styled.div`
   padding-bottom: 0.8rem;
   border-bottom: 1px solid #e3e3e3;
   span {
-    ${(props) => props.theme.fontStyles.subFont1}
-    font-weight:700
+    ${(props) => props.theme.fontStyles.head4}
   }
 `;
 
 const CardDetail = styled.div`
   padding: 0.8rem 0;
   span {
-    ${(props) => props.theme.fontStyles.subFont3}
-    line-height: 2.4rem;
+    ${(props) => props.theme.fontStyles.subHead1}
     font-weight: 400;
   }
 `;
