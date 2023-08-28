@@ -1,7 +1,7 @@
 import FacilityCardsWrapper from '@/components/facilities/FacilityCardsWrapper';
 import FacilityMapWrapper from '@/components/facilities/FacilityMapWrapper';
 import FacilitySubTitle from '@/components/facilities/FacilitySubTitle';
-import { facilitiesCategory } from '@/components/state/booth/FacilitiesCategory';
+import { facilitiesCategory } from '@/constants/FacilitiesCategory';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
