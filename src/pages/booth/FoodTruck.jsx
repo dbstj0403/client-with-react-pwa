@@ -60,7 +60,7 @@ const FoodTruckPageWrapper = styled.div`
 const FoodTruckPageTitle = styled.div`
   padding: 3.6rem 0;
   span {
-    ${(props) => props.theme.fontStyles.mainTitle}
+    ${(props) => props.theme.fontStyles.head1}
   }
   border-bottom: 1px solid #e3e3e3;
   width: 100%;
@@ -77,9 +77,8 @@ const FoodTruckMap = styled.img`
 
 const FoodTruckCount = styled.div`
   span {
-    ${(props) => props.theme.fontStyles.subTitle}
+    ${(props) => props.theme.fontStyles.subHead2}
     font-size:2.8rem;
-    font-weight: 500;
     line-height: 3.6rem;
   }
   width: 100%;
