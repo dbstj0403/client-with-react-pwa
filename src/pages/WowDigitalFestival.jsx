@@ -19,7 +19,7 @@ export default WowDigitalFestival;
 const Container = styled.div`
   display: flex;
   margin: 0 auto;
-  width: 32.7rem;
+  width: 33.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,9 +42,8 @@ const TitleInfo = styled.div`
   line-height: 2.6rem;
   text-align: center;
 `;
-
 const Hrdiv = styled.div`
-  width: 32.7rem;
+  width: 33.5rem;
   height: 0.1rem;
   background-color: lightgray;
   margin-top: 2rem;
