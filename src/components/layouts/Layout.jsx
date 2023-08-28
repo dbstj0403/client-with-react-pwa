@@ -9,7 +9,6 @@ import Footer from './Footer';
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useRecoilState(sideState);
-
   const mainContainerRef = useRef(null);
 
   // 사이드바 외부 클릭시 닫히는 함수
@@ -58,4 +57,5 @@ const DarkOverlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
 `;

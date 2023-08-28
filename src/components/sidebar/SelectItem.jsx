@@ -58,7 +58,7 @@ const SelectOption = styled.div`
   align-items: center;
   padding: 1.6rem 0 1.6rem 2.4rem;
   color: ${(props) => (props.active ? 'rgba(0, 117, 255, 1)' : theme.colors.black)};
-  ${(props) => props.theme.fontStyles.subFont1};
+  ${(props) => props.theme.fontStyles.head5};
   &:hover {
     background-color: rgba(246, 246, 246, 1);
   }
