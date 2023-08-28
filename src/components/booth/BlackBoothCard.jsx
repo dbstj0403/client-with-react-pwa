@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import AOS from 'aos';
 
 export default function BlackBoothCard({ data }) {
+  useEffect(() => {
+    AOS.init();
+  });
   return (
-    <CardWrapper data-aos="fade-right" data-aos-duration="800">
+    <CardWrapper data-aos="fade-up" data-aos-duration="800">
       <BoothCardImage alt={'부스 이미지'} src={data.image} />
       <BoothText>
         <BoothNumber>
