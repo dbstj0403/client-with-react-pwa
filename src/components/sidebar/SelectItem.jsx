@@ -35,7 +35,7 @@ const SelectItem = () => {
       >
         푸드트럭
       </SelectOption>
-      <SelectOption onClick={() => handleSelectOptionClick('wowdjfest')} active={page === 'wowdjfest' ? 1 : 0}>
+      <SelectOption onClick={() => handleSelectOptionClick('wowdjfestival')} active={page === 'wowdjfestival' ? 1 : 0}>
         와우 디제잉 페스티벌
       </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('facilities')} active={page === 'facilities' ? 1 : 0}>

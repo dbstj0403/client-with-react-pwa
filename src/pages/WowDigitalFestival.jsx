@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
-import moveTopBtnIcon from '@/icons/moveTopBtnIcon.svg';
+import moveTopBtnIcon from '@/assets/icons/moveTopBtnIcon.svg';
 
 function WowDigitalFestival() {
   const goToTop = () => {
