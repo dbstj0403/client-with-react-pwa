@@ -1,6 +1,6 @@
 import PubCard from '@/components/booth/PubCard';
 import PubCategory from '@/components/booth/PubCategory';
-import { pubCategory } from '@/state/booth/pubCategoryState';
+import { pubCategory } from '@/constants/pubCategoryState';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
