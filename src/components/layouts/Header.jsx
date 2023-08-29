@@ -67,4 +67,6 @@ const BackgroundBlur = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
   z-index: -1;
   font-size: 5rem;
+  height: 6rem;
+  border: 2px solid;
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layouts/Layout';
+import WowDigitalFestival from './pages/WowDigitalFestival';
 import Home from './pages/Home';
 import Facilities from './pages/Facilities';
 import Pub from './pages/booth/Pub';
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/wowdjfestival" element={<WowDigitalFestival />} />
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/booth/pub" element={<Pub />} />
         <Route path="/booth/foodtruck" element={<FoodTruck />} />
