@@ -17,7 +17,7 @@ function Footer() {
         <Margin mg={2} />
         <LikelionLogo />
       </Wrap>
-      <Wrap pd={2} sz={0.8} isClick onClick={goToMadeBy}>
+      <Wrap pd={2} sz={0.8} isclick="true" onClick={goToMadeBy}>
         만든이들
       </Wrap>
       <Wrap pd={1}>
@@ -53,17 +53,9 @@ const Wrap = styled.div`
   align-items: center;
   padding-top: ${(props) => `${props.pd}` + 'rem'};
   font-size: ${(props) => `${props.sz}` + 'rem'};
-  cursor: ${(props) => (props.isClick ? 'pointer' : '')};
+  cursor: ${(props) => (props.isclick ? 'pointer' : '')};
 `;
 
 const Margin = styled.div`
   width: ${(props) => `${props.mg}` + 'rem'};
-`;
-
-const TextWrap = styled.div`
-  height: 2.1rem;
-  margin-top: 4.1rem;
-  align-items: center;
-  display: flex;
-  justify-content: center;
 `;

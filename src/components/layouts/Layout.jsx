@@ -31,9 +31,9 @@ const Layout = () => {
 
   return (
     <Container>
-      <SideBar innerRef={mainContainerRef} isOpen={isOpen} />
-      <Header innerRef={mainContainerRef} isOpen={isOpen} />
-      {isOpen && <DarkOverlay isOpen={isOpen} />}
+      <SideBar innerRef={mainContainerRef} />
+      <Header innerRef={mainContainerRef} />
+      {isOpen && <DarkOverlay />}
       <Outlet />
       <Footer />
     </Container>
