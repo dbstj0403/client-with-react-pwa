@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { ReactComponent as MedicalIcon } from '@/icons/medicalIcon.svg';
-import { ReactComponent as RestRoomIcon } from '@/icons/restroomIcon.svg';
-import { ReactComponent as CigarIcon } from '@/icons/cigarIcon.svg';
-import { ReactComponent as StudentCouncilIcon } from '@/icons/studentCouncilIcon.svg';
+import { ReactComponent as MedicalIcon } from '@/assets/icons/medicalIcon.svg';
+import { ReactComponent as RestRoomIcon } from '@/assets/icons/restroomIcon.svg';
+import { ReactComponent as CigarIcon } from '@/assets/icons/cigarIcon.svg';
+import { ReactComponent as StudentCouncilIcon } from '@/assets/icons/studentCouncilIcon.svg';
 
 export default function FacilitySubTitle({ categoryState }) {
   return (
@@ -49,7 +49,8 @@ const FacilityIcon = styled.div`
 
 const SubTitle = styled.div`
   span {
-    ${(props) => props.theme.fontStyles.subTitle}
-    line-height:3.8rem
+    ${(props) => props.theme.fontStyles.head3}
+    font-weight: 700;
+    line-height: 3.8rem;
   }
 `;

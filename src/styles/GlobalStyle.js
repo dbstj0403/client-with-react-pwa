@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
         line-height: 1;
         font-family: 'Noto Sans KR', sans-serif;
         background-color: #ffffff;
-        //margin-bottom: 100px;
+        /* margin-bottom: 100px; */
     }
     ol, ul{
         list-style: none;

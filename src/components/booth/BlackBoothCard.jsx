@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import AOS from 'aos';
 
 export default function BlackBoothCard({ data }) {
+  useEffect(() => {
+    AOS.init();
+  });
   return (
-    <CardWrapper>
+    <CardWrapper data-aos="fade-up" data-aos-duration="800">
       <BoothCardImage alt={'부스 이미지'} src={data.image} />
       <BoothText>
         <BoothNumber>
@@ -43,8 +48,7 @@ const BoothNumber = styled.div`
   align-items: center;
   margin-bottom: 0.8rem;
   span {
-    ${(props) => props.theme.fontStyles.subFont3}
-    font-weight:600;
+    ${(props) => props.theme.fontStyles.subHead1}
     line-height: 1.6rem;
   }
 `;
@@ -53,15 +57,14 @@ const BoothName = styled.div`
   margin-bottom: 0.8rem;
   span {
     color: ${(props) => props.theme.colors.white};
-    ${(props) => props.theme.fontStyles.subFont1}
+    ${(props) => props.theme.fontStyles.head5}
   }
 `;
 
 const BoothIntroduction = styled.p`
   color: rgba(255, 255, 255, 0.8);
-  ${(props) => props.theme.fontStyles.subFont3}
+  ${(props) => props.theme.fontStyles.subHead1}
   font-weight:400;
-  line-height: 2.4rem;
   padding: 1.2rem 0;
   border-top: 1px solid transparent;
   border-image: linear-gradient(to right, white, black);

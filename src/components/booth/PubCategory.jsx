@@ -46,8 +46,9 @@ const CategoryTextBox = styled.div`
   padding: 0.7rem 1rem;
   border-radius: 0.3rem;
   background-color: ${(props) => (props.isClicked ? 'blue' : null)};
+  transition: background-color 0.25s ease;
   span {
-    ${(props) => props.theme.fontStyles.subFont1}
+    ${(props) => props.theme.fontStyles.head5}
     color:${(props) => (props.isClicked ? '#f0f0f0' : 'rgba(0,0,0,0.3)')}
   }
 `;
