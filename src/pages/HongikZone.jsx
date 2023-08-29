@@ -1,9 +1,17 @@
 import HorizontalLine from '@/components/common/HorizontalLine';
 import theme from '@/styles/theme';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 function HongikZone() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('hongikzone');
+  }, []);
+
   return (
     <MainSection>
       <Title>홍익존</Title>

@@ -2,7 +2,7 @@ import { DrawerIcon } from '@/assets/icons/DrawerIcon';
 import { HongikLogo } from '@/assets/image/HongikLogo';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import SideBar from './sidebar/SideBar';
+import SideBar from '../sidebar/SideBar';
 import { useRecoilState } from 'recoil';
 import { sideState } from '@/libs/store';
 
