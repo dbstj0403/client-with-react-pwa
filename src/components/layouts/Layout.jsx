@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import Header from '../Header';
+import Header from './Header';
 import { sideState } from '@/libs/store';
 import SideBar from '../sidebar/SideBar';
+import Footer from './Footer';
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useRecoilState(sideState);
-
   const mainContainerRef = useRef(null);
 
   // 사이드바 외부 클릭시 닫히는 함수
@@ -31,10 +31,11 @@ const Layout = () => {
 
   return (
     <Container>
-      <SideBar innerRef={mainContainerRef} isOpen={isOpen} />
-      <Header innerRef={mainContainerRef} isOpen={isOpen} />
-      {isOpen && <DarkOverlay isOpen={isOpen} />}
+      <SideBar innerRef={mainContainerRef} />
+      <Header innerRef={mainContainerRef} />
+      {isOpen && <DarkOverlay />}
       <Outlet />
+      <Footer />
     </Container>
   );
 };
@@ -56,4 +57,5 @@ const DarkOverlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
 `;
