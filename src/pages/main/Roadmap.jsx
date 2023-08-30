@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 import { menuName } from '../../constants/menuName';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 
 function RoadMap() {
   const [current, setCurrent] = useState(0);
@@ -19,7 +18,7 @@ function RoadMap() {
       </MemuBox>
       <HongikMap src="/img/hongikmap.png" alt="hongikmap" />
       <MapGuide>
-        <FaMapMarkerAlt size="2.4rem" color={theme.colors.mapMarker} />
+        <LocationDot />
         <Guide>
           {`지도 내에서 `}
           <Underline>{`해당 영역의 핀`}</Underline>
@@ -33,13 +32,13 @@ function RoadMap() {
 export default RoadMap;
 
 const Container = styled.section`
-  height: 68rem;
+  height: 72rem;
   padding: 0 2rem;
 `;
 
 const Title = styled.h1`
   padding: 6rem 0 3.6rem 0;
-  color: ${theme.colors.black};
+  color: ${theme.colors.white};
 
   ${theme.fontStyles.head1};
 
@@ -47,7 +46,7 @@ const Title = styled.h1`
 `;
 
 const HorizonBar = styled.hr`
-  border: 0.1rem solid ${theme.colors.lightgray};
+  border: 0.1rem solid ${theme.colors.gray800};
 `;
 
 const MemuBox = styled.div`
@@ -63,7 +62,7 @@ const MemuBox = styled.div`
 const MenuItem = styled.span`
   grid-area: ${(props) => `button${props.idx}`};
   padding: 1.2rem;
-  color: ${(props) => (props.active ? theme.colors.black : theme.colors.menuDisabled)};
+  color: ${(props) => (props.active ? theme.colors.white : theme.colors.gray700)};
   ${(props) => (props.active ? theme.fontStyles.head4 : theme.fontStyles.head5)};
   text-align: center;
   white-space: nowrap;
@@ -79,13 +78,14 @@ const HongikMap = styled.img`
 const MapGuide = styled.div`
   display: flex;
   align-items: center;
+  margin: 0 auto;
   padding: 1.8rem 2rem;
 `;
 
 const Guide = styled.div`
   margin-left: 1.6rem;
 
-  color: ${theme.colors.mapMarker};
+  color: ${theme.colors.gray200};
   ${theme.fontStyles.body3};
   white-space: pre-line;
 `;
@@ -95,4 +95,11 @@ const Underline = styled.span`
   ${theme.fontStyles.body3};
 
   text-decoration: underline;
+`;
+
+const LocationDot = styled.div`
+  width: 2.4rem;
+  height: 2.4rem;
+
+  background: url('/img/pinIcon.png') no-repeat;
 `;
