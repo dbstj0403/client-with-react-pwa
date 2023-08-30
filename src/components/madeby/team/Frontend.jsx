@@ -21,7 +21,7 @@ export function Frontend() {
       <Spacing height={4.8} />
       <Member profileimg={jinhoImg} name={'김진호'} major={'경영학과 17'} inst={'contact: jinokim98'} />
       <Spacing height={4.8} />
-      <Member profileimg={''} name={'김현민'} major={''} inst={''} />
+      <Member profileimg={''} name={'김현민'} major={'컴퓨터공학과 19'} inst={''} />
       <Spacing height={4.8} />
       <Member profileimg={''} name={'김초연'} major={'컴퓨터공학과 21'} inst={''} />
       <Spacing height={4.8} />
