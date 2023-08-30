@@ -59,10 +59,12 @@ const SelectOption = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 1.6rem 0 1.6rem 2.4rem;
-  color: ${(props) => (props.active ? 'rgba(0, 117, 255, 1)' : theme.colors.black)};
+  padding: 1.6rem 0 1.6rem ${(props) => (props.active ? '2.2rem' : '2.4rem')};
+  color: ${theme.colors.white};
+  box-sizing: border-box;
+  border-left: ${(props) => (props.active ? `0.2rem solid ${theme.colors.green}` : `${theme.colors.white}`)};
   ${(props) => props.theme.fontStyles.head5};
   &:hover {
-    background-color: rgba(246, 246, 246, 1);
+    background-color: ${theme.colors.gray800};
   }
 `;
