@@ -48,8 +48,8 @@ function TimeTable({ day, onSwipe }) {
   const settings = {
     dots: false,
     arrows: false,
-    speed: 500,
     rows: 3,
+    fade: true,
   };
 
   return (
