@@ -1,7 +1,9 @@
-export const slogan = `2023
-홍익대동제
-화양연화 ; Page
-9.13 - 9.15`;
+export const year = `2023`;
+
+export const title = `홍익대동제
+화양연화 ; Page`;
+
+export const period = `9.13 - 9.15`;
 
 export const slogan1 = `花樣年華
 가장 아름다운 우리의 청춘`;
