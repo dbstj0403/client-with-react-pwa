@@ -5,8 +5,11 @@ import footerimg from '@/assets/image/footerimg.svg';
 import { MadeByIcon } from '@/assets/icons/footer/MadeByIcon';
 import { Instagram } from '@/assets/icons/footer/Instagram';
 import { GoThrough } from '@/assets/icons/footer/GoThrough';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 function Footer() {
+  const [page, isPage] = useRecoilState(pageState);
   const goToMadeBy = () => {
     window.location.replace('/madeby');
   };
@@ -17,7 +20,7 @@ function Footer() {
         <FooterLogo />
       </ImgWrap>
       <Spacing height={0.8} />
-      <GoToMadeBy onClick={goToMadeBy}>
+      <GoToMadeBy ismadeby={page} onClick={goToMadeBy}>
         만든이들
         <MadeByIcon />
       </GoToMadeBy>
@@ -45,7 +48,7 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 55.6rem;
+  height: 100%;
 `;
 
 const ImgWrap = styled.div`
@@ -68,7 +71,7 @@ const Spacing = styled.div`
 `;
 
 const GoToMadeBy = styled.div`
-  display: flex;
+  display: ${(props) => (props.ismadeby === 'madeby' ? 'none' : 'flex')};
   justify-content: center;
   color: ${theme.colors.green};
   cursor: pointer;
@@ -93,4 +96,5 @@ const CopyRight = styled.div`
   text-align: center;
   color: #656565;
   ${theme.fontStyles.body5};
+  margin-bottom: 6rem;
 `;
