@@ -5,7 +5,7 @@ import { Member } from '../Member';
 export function Backend() {
   return (
     <TeamInst>
-      <HeadTitle>백엔드팀</HeadTitle>
+      <HeadTitle>백엔드</HeadTitle>
       <Spacing height={0.8} />
       <BodyText>
         시스템 설계 및 배포와

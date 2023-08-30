@@ -1,18 +1,17 @@
-import theme from '@/styles/theme';
 import styled from 'styled-components';
+import theme from '@/styles/theme';
 import { Member } from '../Member';
+import taehwiImg from '@/assets/image/madeby/profile/태휘.jpg';
 
-export function Design() {
+export function Leader() {
   return (
     <TeamInst>
-      <HeadTitle>디자인</HeadTitle>
-      <Spacing height={0.8} />
-      <BodyText>내용을 채우겠습니다!</BodyText>
+      <HeadTitle>총괄</HeadTitle>
       <Spacing height={6} />
       <Member
-        profileimg={''}
-        name={'윤여진'}
-        major={'시각디자인학과 18'}
+        profileimg={taehwiImg}
+        name={'이태휘'}
+        major={'컴퓨터공학과 18'}
         inst={'여기까지가 20자입니다 여러분 여기까'}
       />
     </TeamInst>
@@ -28,14 +27,6 @@ const TeamInst = styled.div`
 
 const HeadTitle = styled.div`
   ${theme.fontStyles.head3};
-`;
-
-const BodyText = styled.div`
-  padding-top: 1.6rem;
-  color: #a4a4a4;
-  font-size: 1.6rem !important;
-  ${theme.fontStyles.body1};
-  text-align: center;
 `;
 
 const Spacing = styled.div`

@@ -10,6 +10,7 @@ import { Manage } from '@/components/madeby/team/Manage';
 import { Design } from '@/components/madeby/team/Design';
 import { Frontend } from '@/components/madeby/team/Frontend';
 import { Backend } from '@/components/madeby/team/Backend';
+import { Leader } from '@/components/madeby/team/Leader';
 
 function MadeBy() {
   const [page, isPage] = useRecoilState(pageState);
@@ -25,6 +26,8 @@ function MadeBy() {
       </Inst>
       <LikelionInst />
       <Spacing height={12} />
+      <Leader />
+      <Spacing height={14.8} />
       <Manage />
       <Spacing height={14.8} />
       <Design />

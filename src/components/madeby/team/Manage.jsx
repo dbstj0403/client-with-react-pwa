@@ -5,7 +5,7 @@ import { Member } from '../Member';
 export function Manage() {
   return (
     <TeamInst>
-      <HeadTitle>기획팀</HeadTitle>
+      <HeadTitle>기획</HeadTitle>
       <Spacing height={0.8} />
       <BodyText>
         사용자 중심 사고를 바탕으로
