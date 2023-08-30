@@ -26,14 +26,14 @@ function CentralStage() {
     const currentDays = (todaySeconds - festivalStartDate) / 86400;
 
     if (currentDays < 1) {
-      return 0;
+      return -30;
     }
     if (currentDays < 2) {
-      setRotate(30);
+      setRotate(0);
       return 1;
     }
     if (currentDays < 3) {
-      setRotate(60);
+      setRotate(30);
       return 2;
     } else {
       return 'Finished';
