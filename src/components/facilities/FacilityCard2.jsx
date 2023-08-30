@@ -40,6 +40,6 @@ const FacilityBuildingPosition = styled.div`
     ${(props) => props.theme.fontStyles.head5};
   }
   span:last-child {
-    color: #0075ff;
+    color: #42cf61;
   }
 `;
