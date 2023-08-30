@@ -52,7 +52,7 @@ export default function FoodTruck() {
         <span>16개 부스</span>
       </FoodTruckCount>
       <FoodTruckBooths>
-        {foodTruckData.map((foodTruck, index) => {
+        {foodTruckData.map((foodTruck) => {
           return <BlackBoothCard key={foodTruck.name} data={foodTruck} />;
         })}
       </FoodTruckBooths>
@@ -65,6 +65,7 @@ const FoodTruckPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 2rem;
+  padding-top: 6rem;
 `;
 
 const FoodTruckPageTitle = styled.div`
