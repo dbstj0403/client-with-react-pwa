@@ -74,10 +74,13 @@ const SideBarWrapper = styled.div`
   height: 100%;
   display: ${(props) => (props.isopen === 'true' ? 'block' : 'none')};
   animation: ${(props) => (props.isopen === 'true' ? fadeIn : fadeOut)} 0.4s ease;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.black};
   animation-fill-mode: forwards;
   z-index: 999;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const Top = styled.div`
   height: 6rem;
