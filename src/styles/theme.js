@@ -1,17 +1,15 @@
 const theme = {
   colors: {
+    gray900: '#0A0A0A ',
+    gray800: '#1D1D1D ',
     black: '#000000',
-    white: '#ffffff',
-    darkWhite: '#f0f0f0',
-    lightblack: '#313131',
-    lightgray: '#DFDFDF',
-    cardBackground: '#F4F4F4',
-    cardClicked: '#0083FC',
-    menuDisabled: '#cccccc',
-    mapMarker: '#4B4B4B',
-    blue: '#0075FF',
-    lightblue: '#D9EAFC',
-    darkblue: '#045AFF',
+    background: '#000000',
+    green: '#42CF61',
+    white: '#FFFFFF',
+    gray200: '#BEBEBE',
+    gray300: '#A4A4A4 ',
+    gray700: '#3D3D3D ',
+    gray400: '#6A6A6A ',
   },
   fontStyles: {
     head1: `

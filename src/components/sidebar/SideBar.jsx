@@ -52,8 +52,9 @@ const SideBar = ({ innerRef, ...props }) => {
       window.removeEventListener('click', handleClose);
     };
   }, [isOpen]);
+
   return (
-    <SideBarWrapper isOpen={isOpen} ref={innerRef} {...props}>
+    <SideBarWrapper isopen={isOpen ? 'true' : 'false'} ref={innerRef} {...props}>
       <Top>
         <HongikLogo />
         <CloseDiv onClick={() => setIsOpen(false)}>
@@ -71,12 +72,15 @@ const SideBarWrapper = styled.div`
   position: fixed;
   width: 29.5rem;
   height: 100%;
-  display: ${(props) => (props.isOpen ? 'block' : 'none')};
-  animation: ${(props) => (props.isOpen ? fadeIn : props.isOpen === false ? fadeOut : '')} 0.4s ease;
-  background-color: ${theme.colors.white};
+  display: ${(props) => (props.isopen === 'true' ? 'block' : 'none')};
+  animation: ${(props) => (props.isopen === 'true' ? fadeIn : fadeOut)} 0.4s ease;
+  background-color: ${theme.colors.black};
   animation-fill-mode: forwards;
   z-index: 999;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const Top = styled.div`
   height: 6rem;

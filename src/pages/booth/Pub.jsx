@@ -1,11 +1,19 @@
 import PubCard from '@/components/booth/PubCard';
 import PubCategory from '@/components/booth/PubCategory';
-import { pubCategory } from '@/state/booth/pubCategoryState';
-import { useState } from 'react';
+import { pubCategory } from '@/constants/pubCategoryState';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('booth/pub');
+  }, []);
+
   const boothData = [
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
@@ -74,7 +82,7 @@ const PubPageWrapper = styled.div`
 const PubPageTitle = styled.div`
   padding: 1.6rem 0;
   span {
-    ${(props) => props.theme.fontStyles.mainTitle}
+    ${(props) => props.theme.fontStyles.head1}
   }
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
@@ -104,12 +112,14 @@ const AreaText = styled.div`
   margin-top: 3.6rem;
   display: flex;
   flex-direction: column;
-  span {
-    ${(props) => props.theme.fontStyles.subTitle}
+  span:first-child {
+    ${(props) => props.theme.fontStyles.head3}
   }
   span:last-child {
     margin-top: 0.8rem;
     color: rgba(0, 0, 0, 0.3);
+    ${(props) => props.theme.fontStyles.body1}
+    line-height: 2.4rem;
   }
 `;
 

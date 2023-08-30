@@ -1,11 +1,19 @@
 import FacilityCardsWrapper from '@/components/facilities/FacilityCardsWrapper';
 import FacilityMapWrapper from '@/components/facilities/FacilityMapWrapper';
 import FacilitySubTitle from '@/components/facilities/FacilitySubTitle';
-import { facilitiesCategory } from '@/components/state/booth/FacilitiesCategory';
-import { useState } from 'react';
+import { facilitiesCategory } from '@/constants/FacilitiesCategory';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 export default function Facilities() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('facilities');
+  }, []);
+
   const [categoryState, setCategoryState] = useState(0);
   const categoryClicked = (index) => {
     setCategoryState(index);
@@ -41,7 +49,7 @@ const FacilitiesPageWrapper = styled.div`
 const FacilitiesPageTitle = styled.div`
   padding: 3.6rem 0;
   span {
-    ${(props) => props.theme.fontStyles.mainTitle}
+    ${(props) => props.theme.fontStyles.head1}
   }
   width: 100%;
   display: flex;
@@ -59,7 +67,7 @@ const FacilitiesCategory = styled.div`
 const CategoryBox = styled.div`
   padding: 0.8rem 1.2rem;
   span {
-    ${(props) => props.theme.fontStyles.subFont1}
+    ${(props) => props.theme.fontStyles.head5}
     color:${(props) => (props.isClicked ? '#000000' : '#C4C4C4')};
     transition: color 0.3s ease;
   }
