@@ -2,7 +2,6 @@ import theme from '@/styles/theme';
 import styled from 'styled-components';
 
 export function Member({ profileimg, name, major, inst }) {
-  console.log({ profileimg });
   return (
     <Container>
       <ProfileImg img={profileimg}></ProfileImg>
