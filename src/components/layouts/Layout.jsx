@@ -50,6 +50,7 @@ const Container = styled.div`
   min-height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
   background-color: ${theme.colors.black};
+  color: ${theme.colors.white};
 `;
 
 const DarkOverlay = styled.div`

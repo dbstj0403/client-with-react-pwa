@@ -61,7 +61,6 @@ const LogoWrapper = styled.div`
 const BackgroundBlur = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
   backdrop-filter: blur(4px);
   background-color: #1616161a;
   z-index: -1;
