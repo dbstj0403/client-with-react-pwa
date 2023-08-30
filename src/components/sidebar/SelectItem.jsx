@@ -29,14 +29,14 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('booth/pub')} active={page === 'booth/pub' ? 1 : 0}>
         주점
       </SelectOption>
+      <SelectOption onClick={() => handleSelectOptionClick('wowdjfestival')} active={page === 'wowdjfestival' ? 1 : 0}>
+        와우 디제잉 페스티벌
+      </SelectOption>
       <SelectOption
         onClick={() => handleSelectOptionClick('booth/foodtruck')}
         active={page === 'booth/foodtruck' ? 1 : 0}
       >
         푸드트럭
-      </SelectOption>
-      <SelectOption onClick={() => handleSelectOptionClick('wowdjfestival')} active={page === 'wowdjfestival' ? 1 : 0}>
-        와우 디제잉 페스티벌
       </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('facilities')} active={page === 'facilities' ? 1 : 0}>
         기타 편의시설
