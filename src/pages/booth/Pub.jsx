@@ -78,6 +78,7 @@ const PubPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 2rem;
+  padding-top: 6rem;
 `;
 
 const PubPageTitle = styled.div`
