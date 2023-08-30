@@ -16,7 +16,7 @@ export function LikelionInst() {
           전국 최대 규모의 대학 연합 IT 동아리입니다.
         </BodyText>
         <BodyText>
-          멋쟁이사자처럼 10기와 11기 구성원들이
+          홍익대학교 멋쟁이사자처럼 11기 구성원들이
           <br />
           화양연화; Page 기획 및 개발에 참여하여
           <br />
