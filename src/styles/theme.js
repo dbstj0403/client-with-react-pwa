@@ -10,6 +10,9 @@ const theme = {
     gray300: '#A4A4A4 ',
     gray700: '#3D3D3D ',
     gray400: '#6A6A6A ',
+    white200: '#FFFFFF33',
+    black13: '#0D0D0DE5',
+    black19: '#131313E5',
   },
   fontStyles: {
     head1: `
@@ -63,7 +66,7 @@ const theme = {
         `,
     body1: `
           font-family: "Pretendard", sans-serif;
-          font-size: 1.8rem;
+          font-size: 1.6rem;
           font-weight: 400;
           font-style: normal;
           line-height: 2.8rem;
