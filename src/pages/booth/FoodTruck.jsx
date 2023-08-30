@@ -65,6 +65,7 @@ const FoodTruckPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 2rem;
+  padding-top: 6rem;
 `;
 
 const FoodTruckPageTitle = styled.div`
