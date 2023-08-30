@@ -29,14 +29,14 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('booth/pub')} active={page === 'booth/pub' ? 1 : 0}>
         주점
       </SelectOption>
+      <SelectOption onClick={() => handleSelectOptionClick('wowdjfestival')} active={page === 'wowdjfestival' ? 1 : 0}>
+        와우 디제잉 페스티벌
+      </SelectOption>
       <SelectOption
         onClick={() => handleSelectOptionClick('booth/foodtruck')}
         active={page === 'booth/foodtruck' ? 1 : 0}
       >
         푸드트럭
-      </SelectOption>
-      <SelectOption onClick={() => handleSelectOptionClick('wowdjfest')} active={page === 'wowdjfest' ? 1 : 0}>
-        와우 디제잉 페스티벌
       </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('facilities')} active={page === 'facilities' ? 1 : 0}>
         기타 편의시설
@@ -59,10 +59,12 @@ const SelectOption = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 1.6rem 0 1.6rem 2.4rem;
-  color: ${(props) => (props.active ? 'rgba(0, 117, 255, 1)' : theme.colors.black)};
+  padding: 1.6rem 0 1.6rem ${(props) => (props.active ? '2.2rem' : '2.4rem')};
+  color: ${theme.colors.white};
+  box-sizing: border-box;
+  border-left: ${(props) => (props.active ? `0.2rem solid ${theme.colors.green}` : 'none')};
   ${(props) => props.theme.fontStyles.head5};
   &:hover {
-    background-color: rgba(246, 246, 246, 1);
+    background-color: ${theme.colors.gray800};
   }
 `;

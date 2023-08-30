@@ -6,6 +6,7 @@ import Header from './Header';
 import { sideState } from '@/libs/store';
 import SideBar from '../sidebar/SideBar';
 import Footer from './Footer';
+import theme from '@/styles/theme';
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useRecoilState(sideState);
@@ -48,14 +49,14 @@ const Container = styled.div`
   max-width: 768px;
   min-height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
+  background-color: ${theme.colors.black};
+  color: ${theme.colors.white};
 `;
 
 const DarkOverlay = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #131313b2;
   z-index: 1;
 `;

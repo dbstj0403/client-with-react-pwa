@@ -29,12 +29,13 @@ function Header() {
 export default Header;
 
 const Wrapper = styled.div`
-  position: sticky;
+  max-width: 76.8em;
+  width: 100%;
+  position: fixed;
   display: flex;
   top: 0;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   height: 6rem;
   z-index: 100;
   ${(props) => props.theme.fontStyles.mainTitle}
@@ -59,12 +60,9 @@ const LogoWrapper = styled.div`
 
 const BackgroundBlur = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #1616161a;
   z-index: -1;
-  font-size: 5rem;
+  height: 6rem;
 `;
