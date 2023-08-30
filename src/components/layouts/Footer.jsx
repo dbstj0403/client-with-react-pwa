@@ -16,6 +16,7 @@ function Footer() {
 
   return (
     <FooterContainer>
+      <Spacing height={3.6} />
       <ImgWrap>
         <FooterLogo />
       </ImgWrap>
