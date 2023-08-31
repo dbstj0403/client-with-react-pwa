@@ -8,7 +8,7 @@ export default Campus;
 
 const CampusImage = styled.img`
   width: 100%;
-  height: 52rem;
+  height: 24rem;
 
   object-fit: cover;
 `;
