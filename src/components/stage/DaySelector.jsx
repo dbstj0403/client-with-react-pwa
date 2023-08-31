@@ -30,9 +30,9 @@ function DaySelector({ selectedDay, onClick }) {
 
   return (
     <Container>
-      {days.map((day) => (
-        <Label key={day.id} selected={day.id === selectedDay} onClick={() => onClick(day.id)}>
-          {day.title} {day.id === selectedDay && day.date}
+      {days.map((day, index) => (
+        <Label key={day.id} selected={index === selectedDay} onClick={() => onClick(day.id)}>
+          {day.title} {index === selectedDay && day.date}
         </Label>
       ))}
     </Container>
@@ -44,8 +44,11 @@ const Container = styled.section`
   justify-content: space-between;
   align-items: center;
 
+  z-index: 999;
+
   width: 33.5rem;
-  margin-bottom: 3.6rem;
+  margin-top: 6rem;
+  margin-bottom: 4.8rem;
 `;
 
 const Label = styled.div`
@@ -53,26 +56,25 @@ const Label = styled.div`
   justify-content: center;
   align-items: center;
 
-  font-size: 1.8rem;
-  font-family: Pretendard;
-  font-style: normal;
+  ${({ theme }) => theme.fontStyles.body1}
 
-  ${({ selected }) =>
+  ${({ selected, theme }) =>
     selected
       ? `
-      color: #ECECEC;
-      font-weight: 400;
-      width: 15.6rem;
-      height: 3.4rem;
+      width: 15.8rem;
+      height: 4.4rem;
+
+      color: ${theme.colors.white};
+
       transition: width 0.3s ease;
       border-radius: 4.8rem;
-      background: #0075ff;
+      background: rgba(30, 30, 30, 0.7);
+      backdrop-filter: blur(6px);
       `
       : `
       width: 6rem;
-      color: #BEBEBE;
       
-      font-weight: 500;
+      color: ${theme.colors.gray200};
   `};
 `;
 

@@ -62,6 +62,7 @@ const SideBar = ({ innerRef, ...props }) => {
         </CloseDiv>
       </Top>
       <SelectItem />
+      <Spacing />
     </SideBarWrapper>
   );
 };
@@ -93,4 +94,8 @@ const Top = styled.div`
 
 const CloseDiv = styled.div`
   margin-left: auto;
+`;
+
+const Spacing = styled.div`
+  height: 11.1rem;
 `;
