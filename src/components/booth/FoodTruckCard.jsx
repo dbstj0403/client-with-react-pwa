@@ -2,14 +2,12 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 
-export default function BlackBoothCard({ data }) {
-  console.log(data.number);
+export default function FoodTruckCard({ data }) {
   useEffect(() => {
     AOS.init();
   });
   return (
-    <CardWrapper data-aos="fade-up" data-aos-duration="800">
-      <BoothCardImage alt={'부스 이미지'} src={data.image} />
+    <CardWrapper data-aos="fade-up" data-aos-duration="800" data-aos-once>
       <BoothText>
         <BoothNumber>
           <span>{data.number}</span>
@@ -24,15 +22,10 @@ export default function BlackBoothCard({ data }) {
 }
 
 const CardWrapper = styled.div`
-  background-color: #000;
+  background-color: ${(props) => props.theme.colors.background};
   width: 33.5rem;
-  height: 38.8rem;
-  margin-top: 3.2rem;
-`;
-
-const BoothCardImage = styled.img`
-  height: 18.4rem;
-  width: 100%;
+  height: 15.6rem;
+  margin-top: 2.4rem;
 `;
 
 const BoothText = styled.div`
@@ -64,7 +57,7 @@ const BoothName = styled.div`
 `;
 
 const BoothIntroduction = styled.p`
-  color: rgba(255, 255, 255, 0.8);
+  color: ${(props) => props.theme.colors.gray300};
   ${(props) => props.theme.fontStyles.subHead1}
   font-weight:400;
   padding: 1.2rem 0;
