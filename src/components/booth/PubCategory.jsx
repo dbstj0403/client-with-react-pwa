@@ -11,14 +11,14 @@ export default function PubCategory({ categories, setCategoryText }) {
     <PubCategoryWrapper>
       <Categories>
         {categories.map((category, index) => (
-          <CategoryTextBox key={category} isClicked={index === categoryState}>
+          <CategoryTextBox key={category.name} isClicked={index === categoryState} isPageOne={category.page === 1}>
             <span
               onClick={() => {
                 categoryClicked(index);
-                setCategoryText(category);
+                setCategoryText(category.name);
               }}
             >
-              {category}
+              {category.name}
             </span>
           </CategoryTextBox>
         ))}
@@ -32,7 +32,6 @@ export default function PubCategory({ categories, setCategoryText }) {
 }
 
 const PubCategoryWrapper = styled.div`
-  margin-top: 1.8rem;
   width: 34.2rem;
 `;
 
@@ -40,16 +39,18 @@ const Categories = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 2.4rem 0;
 `;
 
 const CategoryTextBox = styled.div`
-  padding: 0.7rem 1rem;
-  border-radius: 0.3rem;
-  background-color: ${(props) => (props.isClicked ? 'blue' : null)};
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.2rem;
+  background-color: ${(props) =>
+    props.isClicked ? (props.isPageOne ? 'rgba(66, 207, 97, 0.2)' : 'rgba(255, 137, 215, 0.20)') : null};
   transition: background-color 0.25s ease;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) => (props.isClicked ? '#f0f0f0' : 'rgba(0,0,0,0.3)')}
+    color:${(props) => (props.isClicked ? (props.isPageOne ? props.theme.colors.green : '#FF89D7') : null)};
   }
 `;
 

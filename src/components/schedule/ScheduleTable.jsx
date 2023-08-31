@@ -72,6 +72,9 @@ const Item = styled.div`
   border-top: 0.1rem solid ${theme.colors.gray800};
   border-bottom: 0.1rem solid ${theme.colors.gray800};
 
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+
   &:last-child {
     border-bottom: none;
   }
