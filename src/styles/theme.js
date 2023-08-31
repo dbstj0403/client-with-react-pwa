@@ -65,7 +65,7 @@ const theme = {
           line-height: 2.6rem;
         `,
     body1: `
-          font-family: "Pretendard", sans-serif;
+          font-family: "Pretendard Variable", sans-serif;
           font-size: 1.6rem;
           font-weight: 400;
           font-style: normal;
