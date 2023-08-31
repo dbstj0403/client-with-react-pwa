@@ -38,7 +38,6 @@ const HeadTitle = styled.div`
 const BodyText = styled.div`
   padding-top: 1.6rem;
   color: #a4a4a4;
-  font-size: 1.6rem !important;
   ${theme.fontStyles.body1};
   text-align: center;
 `;

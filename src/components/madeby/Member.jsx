@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export function Member({ profileimg, name, major, inst }) {
   return (
     <Container>
-      <ProfileImg img={profileimg}></ProfileImg>
+      <ProfileImg img={profileimg} />
       <Spacing height={1.6} />
       <Name>{name}</Name>
       <Spacing height={0.6} />
@@ -85,6 +85,5 @@ const Green = styled.div`
 
 const Inst = styled.div`
   ${theme.fontStyles.body1};
-  font-size: 1.6rem !important;
   color: #8a8a8a;
 `;
