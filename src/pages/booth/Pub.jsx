@@ -1,3 +1,4 @@
+import React from 'react';
 import PubCard from '@/components/booth/PubCard';
 import PubCategory from '@/components/booth/PubCategory';
 import { pubCategory } from '@/constants/pubCategoryState';
@@ -77,15 +78,15 @@ const PubPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 2rem;
+  padding-top: 6rem;
 `;
 
 const PubPageTitle = styled.div`
-  padding: 1.6rem 0;
+  padding: 3.6rem 0;
   span {
     ${(props) => props.theme.fontStyles.head1}
   }
   width: 100%;
-  border-bottom: 1px solid #e3e3e3;
   display: flex;
   justify-content: center;
 `;
@@ -94,7 +95,6 @@ const PubMapWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3.6rem;
 `;
 
 const PubMainMap = styled.img`
@@ -116,8 +116,8 @@ const AreaText = styled.div`
     ${(props) => props.theme.fontStyles.head3}
   }
   span:last-child {
-    margin-top: 0.8rem;
-    color: rgba(0, 0, 0, 0.3);
+    margin-top: 0.4rem;
+    color: ${(props) => props.theme.colors.gray400};
     ${(props) => props.theme.fontStyles.body1}
     line-height: 2.4rem;
   }
