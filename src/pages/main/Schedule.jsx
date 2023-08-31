@@ -6,6 +6,8 @@ function Schedule() {
   return (
     <Container>
       <TopImage />
+      <MiddleImage />
+      <BottomImage />
       <Title>일정 소개</Title>
       <ScheduleTable />
       <ScheduleTable />
@@ -35,13 +37,38 @@ const Title = styled.h1`
 
 const TopImage = styled.div`
   position: absolute;
-  top: 7.2rem;
-  right: 4.5rem;
+  top: 6.7rem;
+  right: 5.5rem;
 
   width: 24.7rem;
   height: 30.8rem;
-  transform: scaleY(-1) rotate(-60deg);
 
-  background: url('/img/main-background.png') center center no-repeat;
+  background: url('/img/page4.png') center center no-repeat;
+  background-blend-mode: hard-light;
+`;
+
+const MiddleImage = styled.div`
+  position: absolute;
+  top: 39.7rem;
+  left: -7.5rem;
+
+  width: 24.7rem;
+  height: 30.8rem;
+  transform: rotate(-5deg);
+
+  background: url('/img/page5.png') center center no-repeat;
+  background-blend-mode: hard-light;
+`;
+
+const BottomImage = styled.div`
+  position: absolute;
+  top: 84rem;
+  right: -9.5rem;
+
+  width: 24.7rem;
+  height: 30.8rem;
+  transform: scaleX(-1) rotate(-155deg);
+
+  background: url('/img/page2.png') center center no-repeat;
   background-blend-mode: hard-light;
 `;
