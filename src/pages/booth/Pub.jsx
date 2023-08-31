@@ -87,7 +87,6 @@ const PubPageTitle = styled.div`
     ${(props) => props.theme.fontStyles.head1}
   }
   width: 100%;
-  border-bottom: 1px solid #e3e3e3;
   display: flex;
   justify-content: center;
 `;
