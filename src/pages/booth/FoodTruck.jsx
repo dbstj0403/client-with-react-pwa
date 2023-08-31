@@ -1,8 +1,8 @@
-import BlackBoothCard from '@/components/booth/BlackBoothCard';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
+import FoodTruckCard from '@/components/booth/FoodTruckCard';
 
 export default function FoodTruck() {
   const [page, isPage] = useRecoilState(pageState);
@@ -53,7 +53,7 @@ export default function FoodTruck() {
       </FoodTruckCount>
       <FoodTruckBooths>
         {foodTruckData.map((foodTruck) => {
-          return <BlackBoothCard key={foodTruck.name} data={foodTruck} />;
+          return <FoodTruckCard key={foodTruck.name} data={foodTruck} />;
         })}
       </FoodTruckBooths>
     </FoodTruckPageWrapper>
@@ -73,7 +73,6 @@ const FoodTruckPageTitle = styled.div`
   span {
     ${(props) => props.theme.fontStyles.head1}
   }
-  border-bottom: 1px solid #e3e3e3;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -82,7 +81,6 @@ const FoodTruckPageTitle = styled.div`
 const FoodTruckMap = styled.img`
   width: 33.5rem;
   height: 19rem;
-  margin-top: 3.6rem;
   margin-bottom: 6rem;
 `;
 
