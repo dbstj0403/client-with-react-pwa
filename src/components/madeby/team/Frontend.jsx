@@ -18,9 +18,21 @@ export function Frontend() {
         작업을 수행합니다.
       </BodyText>
       <Spacing height={6} />
-      <Member profileimg={youngunImg} name={'계용운'} major={'컴퓨터공학과 17'} inst={'github/@yongun2'} />
+      <Member
+        profileimg={youngunImg}
+        name={'계용운'}
+        major={'컴퓨터공학과 17'}
+        inst={'github/@yongun2'}
+        github={'yongun2'}
+      />
       <Spacing height={4.8} />
-      <Member profileimg={jinhoImg} name={'김진호'} major={'경영학과 17'} inst={'contact: jinokim98'} />
+      <Member
+        profileimg={jinhoImg}
+        name={'김진호'}
+        major={'경영학과 17'}
+        inst={'contact: jinokim98'}
+        insta={'jinokim98'}
+      />
       <Spacing height={4.8} />
       <Member
         profileimg={hyeonminImg}
@@ -29,7 +41,15 @@ export function Frontend() {
         inst={'최고가 되고싶은 개발자 김현민입니다.'}
       />
       <Spacing height={4.8} />
-      <Member profileimg={''} name={'김초연'} major={'컴퓨터공학과 21'} inst={''} />
+      <Member
+        profileimg={''}
+        name={'김초연'}
+        major={'컴퓨터공학과 21'}
+        inst={''}
+        // insta={'keep_cy'}
+        // github={'choyeon2e'}
+        // etc={'https://velog.io/@choyeon2e'}
+      />
       <Spacing height={4.8} />
       <Member profileimg={''} name={'원윤서'} major={'컴퓨터공학과 21'} inst={''} />
     </TeamInst>
