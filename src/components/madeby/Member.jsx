@@ -40,7 +40,6 @@ const ProfileImg = styled.div`
   background-image: url(${(props) => props.img});
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 `;
 
 const Spacing = styled.div`
