@@ -15,9 +15,11 @@ export function Backend() {
         전반적인 Life Cycle을 구성합니다.
       </BodyText>
       <Spacing height={6} />
-      <Member profileimg={''} name={'박신영'} major={'예술학과 17'} inst={'여기까지가 20자입니다 여러분 여기까'} />
+      <Member profileimg={''} name={'김슬기'} major={'컴퓨터공학과 19'} inst={'여기까지가 20자입니다 여러분 여기까'} />
       <Spacing height={4.8} />
-      <Member profileimg={''} name={'주한아'} major={'경영학과 19'} inst={'여기까지가 20자입니다 여러분 여기까'} />
+      <Member profileimg={''} name={'서혜원'} major={'컴퓨터공학과 20'} inst={'여기까지가 20자입니다 여러분 여기까'} />
+      <Spacing height={4.8} />
+      <Member profileimg={''} name={'이한비'} major={'컴퓨터공학과 21'} inst={'여기까지가 20자입니다 여러분 여기까'} />
     </TeamInst>
   );
 }
@@ -36,7 +38,6 @@ const HeadTitle = styled.div`
 const BodyText = styled.div`
   padding-top: 1.6rem;
   color: #a4a4a4;
-  font-size: 1.6rem !important;
   ${theme.fontStyles.body1};
   text-align: center;
 `;

@@ -42,5 +42,4 @@ const BodyText = styled.div`
   padding-top: 1.6rem;
   color: #a4a4a4;
   ${theme.fontStyles.body1};
-  font-size: 1.6rem !important;
 `;

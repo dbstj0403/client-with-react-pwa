@@ -77,7 +77,7 @@ const SideBarWrapper = styled.div`
   animation: ${(props) => (props.isopen === 'true' ? fadeIn : fadeOut)} 0.4s ease;
   background-color: ${theme.colors.black};
   animation-fill-mode: forwards;
-  z-index: 999;
+  z-index: 1001;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
