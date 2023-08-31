@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 import { menuName } from '../../constants/menuName';
+import HongikMapImage from '@/constants/HongikMapImage';
 
 function RoadMap() {
   const [current, setCurrent] = useState(0);
@@ -16,7 +17,7 @@ function RoadMap() {
           </MenuItem>
         ))}
       </MemuBox>
-      <HongikMap src="/img/hongikmap.png" alt="hongikmap" />
+      <HongikMapImage index={current} />
       <MapGuide>
         <LocationDot />
         <Guide>
@@ -66,13 +67,6 @@ const MenuItem = styled.span`
   ${(props) => (props.active ? theme.fontStyles.head4 : theme.fontStyles.head5)};
   text-align: center;
   white-space: nowrap;
-`;
-
-const HongikMap = styled.img`
-  width: 100%;
-  height: 19rem;
-  margin-bottom: 1.6rem;
-  object-fit: contain;
 `;
 
 const MapGuide = styled.div`
