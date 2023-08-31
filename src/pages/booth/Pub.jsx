@@ -117,8 +117,8 @@ const AreaText = styled.div`
     ${(props) => props.theme.fontStyles.head3}
   }
   span:last-child {
-    margin-top: 0.8rem;
-    color: rgba(0, 0, 0, 0.3);
+    margin-top: 0.4rem;
+    color: ${(props) => props.theme.colors.gray400};
     ${(props) => props.theme.fontStyles.body1}
     line-height: 2.4rem;
   }
