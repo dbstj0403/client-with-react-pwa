@@ -7,7 +7,7 @@ export default function PubCard({ data }) {
     AOS.init();
   });
   return (
-    <PubCardWrapper data-aos={data.page === 1 ? 'fade-right' : 'fade-left'} data-aos-duration="800">
+    <PubCardWrapper data-aos={data.page === 1 ? 'flip-left' : 'flip-right'} data-aos-duration="1500" data-aos-once>
       <PubCardImage image={data.image}>
         {data.page === 1 ? (
           <PubCardFold1>
@@ -55,7 +55,7 @@ const PubCardFold1 = styled.div`
   height: 0px;
   border-right: 3.6rem solid #0075ff;
   border-left: 0px solid transparent;
-  border-top: 3.6rem solid #ffffff;
+  border-top: 3.6rem solid ${(props) => props.theme.colors.background};
   span {
     ${(props) => props.theme.fontStyles.subHead1}
     font-size:1rem;
@@ -72,7 +72,7 @@ const PubCardFold2 = styled.div`
   height: 0px;
   border-top: 3.6rem solid #0083fc;
   border-left: 0px solid transparent;
-  border-right: 3.6rem solid #ffffff;
+  border-right: 3.6rem solid ${(props) => props.theme.colors.background};
   position: absolute;
   right: 0;
   bottom: 0;
