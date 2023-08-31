@@ -124,7 +124,7 @@ const DevideCircle = styled.div`
   width: 0.2rem;
   height: 0.2rem;
   border-radius: 50%;
-  background-color: #000000;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 const PubMainMenu = styled.div`

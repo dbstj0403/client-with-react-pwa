@@ -82,7 +82,7 @@ const PubPageWrapper = styled.div`
 `;
 
 const PubPageTitle = styled.div`
-  padding: 1.6rem 0;
+  padding: 3.6rem 0;
   span {
     ${(props) => props.theme.fontStyles.head1}
   }
@@ -95,7 +95,6 @@ const PubMapWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3.6rem;
 `;
 
 const PubMainMap = styled.img`
