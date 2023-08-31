@@ -62,6 +62,7 @@ const SideBar = ({ innerRef, ...props }) => {
         </CloseDiv>
       </Top>
       <SelectItem />
+      <Spacing />
     </SideBarWrapper>
   );
 };
@@ -76,7 +77,7 @@ const SideBarWrapper = styled.div`
   animation: ${(props) => (props.isopen === 'true' ? fadeIn : fadeOut)} 0.4s ease;
   background-color: ${theme.colors.black};
   animation-fill-mode: forwards;
-  z-index: 999;
+  z-index: 1001;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
@@ -93,4 +94,8 @@ const Top = styled.div`
 
 const CloseDiv = styled.div`
   margin-left: auto;
+`;
+
+const Spacing = styled.div`
+  height: 11.1rem;
 `;

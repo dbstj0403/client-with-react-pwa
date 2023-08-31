@@ -34,9 +34,11 @@ function InfoCard() {
 }
 export default InfoCard;
 const InfoContainer = styled.div`
+  margin: 0 auto;
   margin-top: 13rem;
   width: 33.5rem;
-  //height: 67.2rem;
+  position: relative;
+  z-index: 3;
 `;
 
 const InfoBox = styled.div`
@@ -54,7 +56,6 @@ const InfouNumber = styled.div`
   background-color: rgba(255, 255, 255, 0.2);
   color: black;
   text-align: center;
-  //styleName: Subhead4;
   font-family: Pretendard Variable;
   font-size: 1.6rem;
   font-weight: 600;

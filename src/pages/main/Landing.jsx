@@ -1,18 +1,22 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { slogan, slogan1, slogan2, slogan3, slogan4 } from '../../constants/slogan';
+import { title, slogan1, year, period } from '../../constants/slogan';
 import theme from '../../styles/theme';
 
 function Landing() {
   return (
     <Container>
-      <Slogan>{slogan}</Slogan>
-      <SloganDesc>
-        <Ment>{slogan1}</Ment>
-        <Ment>{slogan2}</Ment>
-        <Ment>{slogan3}</Ment>
-        <Ment>{slogan4}</Ment>
-      </SloganDesc>
+      <TitleSection>
+        <Background>
+          <Year>{year}</Year>
+          <Title>{title}</Title>
+          <Period>{period}</Period>
+        </Background>
+      </TitleSection>
+      <SloganSection>{slogan1}</SloganSection>
+      <Aside>
+        <Image />
+      </Aside>
     </Container>
   );
 }
@@ -20,33 +24,77 @@ function Landing() {
 export default Landing;
 
 const Container = styled.section`
-  height: 86rem;
+  position: relative;
+  height: 84rem;
+
+  padding: 8.9rem 3.4rem 10.8rem 3.4rem;
+  background-color: ${theme.colors.black};
 `;
 
-const Slogan = styled.h1`
-  padding: 10rem 0 3.6rem 0;
-  color: ${theme.colors.black};
+const TitleSection = styled.section`
+  width: 100%;
+`;
 
+const Background = styled.div`
+  width: 24.7rem;
+  height: 30.8rem;
+  margin: 0 auto;
+  padding: 9.6rem 1.9rem 4.8rem 1.9rem;
+
+  background: url('/img/main-background.png') center center no-repeat;
+  background-blend-mode: hard-light;
+`;
+
+const Year = styled.header`
+  font-family: 'SUIT Variable';
+  ${theme.fontStyles.head3};
+  background: linear-gradient(180deg, ${theme.colors.white} 0%, rgba(255, 255, 255, 0) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+`;
+
+const Title = styled.header`
+  color: ${theme.colors.white};
   ${theme.fontStyles.head2};
 
   text-align: center;
   white-space: pre-line;
 `;
 
-const SloganDesc = styled.div`
-  color: ${theme.colors.lightblack};
+const Period = styled.div`
+  color: ${theme.colors.white};
+  font-family: 'SUIT Variable';
+  ${theme.fontStyles.head3};
 
+  text-align: center;
+`;
+
+const SloganSection = styled.section`
+  margin: 1.7rem 0;
+
+  background: linear-gradient(0deg, ${theme.colors.white} 0%, rgba(255, 255, 255, 0) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   ${theme.fontStyles.subHead2};
 
   text-align: center;
   white-space: pre-line;
 `;
 
-const Ment = styled.div`
-  font-size: 1.6rem;
-  line-height: 162.5%;
+const Aside = styled.aside`
+  width: 30.3rem;
+  height: 24.8rem;
+  padding: 0 0.0133rem 0.0351rem 0.1rem;
+`;
 
-  &:not(:last-child) {
-    margin-bottom: 1.6rem;
-  }
+const Image = styled.div`
+  width: 100%;
+  height: 100%;
+  background: url('/img/main-background.png') center center no-repeat;
+  background-size: contain;
+  transform: rotate(-87.845deg);
+  background-blend-mode: hard-light;
 `;

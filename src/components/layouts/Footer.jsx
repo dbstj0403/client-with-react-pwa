@@ -16,6 +16,7 @@ function Footer() {
 
   return (
     <FooterContainer>
+      <Spacing height={3.6} />
       <ImgWrap>
         <FooterLogo />
       </ImgWrap>
@@ -44,12 +45,7 @@ function Footer() {
 
 export default Footer;
 
-const FooterContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`;
+const FooterContainer = styled.div``;
 
 const ImgWrap = styled.div`
   display: flex;

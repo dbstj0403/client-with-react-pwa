@@ -4,7 +4,8 @@ import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
 import moveTopBtnIcon from '@/assets/icons/moveTopBtnIcon.svg';
 import MapImg from '../assets/image/djFestivalMapImg.svg';
-import djFestivalBackImg1 from '../assets/image/djFestivalBackImg1.png';
+import backgroundImg1 from '../assets/image/FestivalBackground.svg';
+import backgroundImg2 from '../assets/image/InfoCardBackground.svg';
 
 function WowDigitalFestival() {
   const goToTop = () => {
@@ -25,11 +26,23 @@ function WowDigitalFestival() {
           <img src={MapImg} alt="" className="mapImg" />
         </ImgContainer>
         <ImgContainer2>
-          <img src={djFestivalBackImg1} alt="" />
+          <img src={backgroundImg1} alt="" />
         </ImgContainer2>
       </ImgWrapper>
-      <InfoCard />
-      <LineUp />
+
+      <ImgWrapper>
+        <InfoCard />
+        <ImgContainer3>
+          <img src={backgroundImg2} alt="" />
+        </ImgContainer3>
+      </ImgWrapper>
+      <ImgWrapper>
+        <LineUp />
+        <ImgContainer4>
+          <img src={backgroundImg2} alt="" />
+        </ImgContainer4>
+      </ImgWrapper>
+
       <MoveToTopBtn onClick={goToTop}>
         <img src={moveTopBtnIcon} alt="" />
         <BtnText>맨 위로</BtnText>
@@ -42,11 +55,11 @@ export default WowDigitalFestival;
 const Container = styled.div`
   display: flex;
   margin: 0 auto;
-  width: 33.5rem;
-  display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 const Title = styled.div`
   font-family: Inter;
@@ -64,13 +77,14 @@ const TitleInfo = styled.div`
 `;
 
 const ImgWrapper = styled.div`
-  width: 100%;
+  width: 37.5rem;
   position: relative;
 `;
 const ImgContainer = styled.div`
-  width: 100%;
+  width: 33.5rem;
   height: 48.4rem;
   margin-top: 2rem;
+  margin: 0 auto;
   img {
     width: 33.5rem;
     height: 48.4rem;
@@ -78,11 +92,36 @@ const ImgContainer = styled.div`
 `;
 const ImgContainer2 = styled.div`
   position: absolute;
-  bottom: -16.5rem;
-  left: -1.8rem;
+  bottom: -25.5rem;
+  left: -5rem;
+  width: 50rem;
+  height: 40rem;
+
   img {
     width: 23.679rem;
     height: 29.317rem;
+    mix-blend-mode: exclusion;
+  }
+`;
+const ImgContainer3 = styled.div`
+  position: absolute;
+  bottom: -6rem;
+  left: 15rem;
+  img {
+    width: 23.679rem;
+    height: 29.317rem;
+  }
+`;
+const ImgContainer4 = styled.div`
+  position: absolute;
+  top: 129rem;
+  right: 24rem;
+
+  img {
+    width: 23.679rem;
+    height: 29.317rem;
+    transform: rotate(80deg);
+    mix-blend-mode: exclusion;
   }
 `;
 const MoveToTopBtn = styled.button`
