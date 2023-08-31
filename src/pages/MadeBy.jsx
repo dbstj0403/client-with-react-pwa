@@ -1,5 +1,4 @@
 import { pageState } from '@/libs/store';
-import theme from '@/styles/theme';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
@@ -42,12 +41,7 @@ function MadeBy() {
 
 export default MadeBy;
 
-const MadeByContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+const MadeByContainer = styled.div``;
 
 const Inst = styled.div`
   display: flex;
