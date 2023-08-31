@@ -16,7 +16,6 @@ export default function FacilityCard2({ data }) {
 
 const FacilityCardWrapper = styled.div`
   padding: 1.8rem 2rem;
-  border-bottom: 1px solid #e3e3e3;
 `;
 
 const FacilityMapPosition = styled.div`
@@ -26,10 +25,10 @@ const FacilityMapPosition = styled.div`
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 50%;
-  background-color: #000;
+  background: rgba(255, 255, 255, 0.2);
   margin-bottom: 0.4rem;
   span {
-    color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.background};
     ${(props) => props.theme.fontStyles.subHead1};
     line-height: 1.6rem;
   }

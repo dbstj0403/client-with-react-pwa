@@ -19,7 +19,6 @@ const FacilityCardWrapper = styled.div`
 
 const CardTitle = styled.div`
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid #e3e3e3;
   span {
     ${(props) => props.theme.fontStyles.head4}
   }
