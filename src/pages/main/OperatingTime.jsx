@@ -30,6 +30,7 @@ const Container = styled.section`
   padding: 0 2rem;
 
   overflow: hidden;
+  background-color: ${theme.colors.background};
 `;
 
 const ItemContainer = styled.div``;
