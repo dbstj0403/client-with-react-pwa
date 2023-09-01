@@ -20,12 +20,23 @@ export default Slogan;
 const Container = styled.section`
   position: relative;
   height: 68rem;
-  padding: 15rem 3.4rem;
-
+  padding: 0 0 15rem 0;
   overflow: hidden;
+  background-color: ${theme.colors.background};
+
+  &::before {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 15rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(0.4rem);
+    content: '';
+  }
 `;
 
 const Text = styled.div`
+  padding: 0 3.4rem;
   color: ${theme.colors.gray200};
 
   ${theme.fontStyles.body1};
