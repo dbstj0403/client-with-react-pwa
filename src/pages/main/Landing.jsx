@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { title, slogan1, year, period } from '../../constants/slogan';
 import theme from '../../styles/theme';
 
-function Landing() {
+function Landing(props) {
+  const [top, setTop] = useState(0);
+  const [fix, setFix] = useState(false);
+
+  const handleScroll = () => {
+    if (props.scroll >= 0 && props.scroll <= 20) {
+      setFix(false);
+      return 0;
+    } else if (props.scroll > 20 && props.scroll <= 100) {
+      setFix(false);
+      return -props.scroll + 118;
+    } else {
+      setFix(true);
+      return -80;
+    }
+  };
+
+  useEffect(() => {
+    setTop(handleScroll());
+  }, [props.scroll]);
+
   return (
-    <Container>
+    <Container scroll={top} fix={fix ? 1 : 0}>
       <TitleSection>
         <Background>
           <Year>{year}</Year>
@@ -24,7 +44,9 @@ function Landing() {
 export default Landing;
 
 const Container = styled.section`
-  position: relative;
+  width: 100%;
+  position: ${(props) => (props.fix ? 'fixed' : 'relative')};
+  top: ${(props) => (!props.fix ? `${props.scroll / 4}rem` : '-6rem')};
   height: 84rem;
 
   padding: 8.9rem 3.4rem 10.8rem 3.4rem;
