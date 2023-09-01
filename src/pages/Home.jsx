@@ -33,4 +33,5 @@ export default Home;
 
 const Container = styled.div`
   position: relative;
+  height: 530rem;
 `;
