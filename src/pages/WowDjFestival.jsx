@@ -33,6 +33,7 @@ function WowDigitalFestival() {
           <img src={backgroundImg2} alt="" />
         </ImgContainer3>
       </ImgWrapper>
+
       <ImgWrapper>
         <LineUp />
         <ImgContainer4>
@@ -64,12 +65,11 @@ const Title = styled.div`
 `;
 const TitleInfo = styled.div`
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   color: ${(props) => props.theme.colors.gray300};
   ${(props) => props.theme.fontStyles.body1};
   text-align: center;
 `;
-
 const ImgWrapper = styled.div`
   width: 37.5rem;
   position: relative;
@@ -90,7 +90,6 @@ const ImgContainer2 = styled.div`
   left: -5rem;
   width: 50rem;
   height: 40rem;
-
   img {
     width: 23.679rem;
     height: 29.317rem;
@@ -110,7 +109,6 @@ const ImgContainer4 = styled.div`
   position: absolute;
   top: 129rem;
   right: 24rem;
-
   img {
     width: 23.679rem;
     height: 29.317rem;

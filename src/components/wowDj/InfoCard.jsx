@@ -36,9 +36,9 @@ export default InfoCard;
 const InfoContainer = styled.div`
   margin: 0 auto;
   margin-top: 13rem;
+  z-index: 1;
   width: 33.5rem;
   position: relative;
-  z-index: 3;
 `;
 
 const InfoBox = styled.div`
