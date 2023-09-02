@@ -25,7 +25,7 @@ function Landing(props) {
   }, [props.scroll]);
 
   return (
-    <Container scroll={top} fix={fix ? 1 : 0} display={props.scroll < 1000 ? 1 : 0}>
+    <Container scroll={top} fix={fix ? 1 : 0} display={props.scroll < 1800 ? 1 : 0}>
       <TitleSection>
         <Background>
           <Year>{year}</Year>
