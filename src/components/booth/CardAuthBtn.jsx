@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function PubCardAuthBtn({ contents }) {
+export default function CardAuthBtn({ contents }) {
   return (
     <div
       style={{

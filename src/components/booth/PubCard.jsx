@@ -5,7 +5,7 @@ import AOS from 'aos';
 import { ReactComponent as DeleteIcon } from '@/assets/icons/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
-import PubCardAuthBtn from './PubCardAuthBtn';
+import CardAuthBtn from './CardAuthBtn';
 
 export default function PubCard({ data, boothAdding }) {
   useEffect(() => {
@@ -70,9 +70,9 @@ export default function PubCard({ data, boothAdding }) {
         </PubCardTextWrapper>
       </PubCardMainContent>
       {isAuth && !isEditing ? (
-        <PubCardAuthBtn contents={deleteAndEdit} />
+        <CardAuthBtn contents={deleteAndEdit} />
       ) : isAuth && isEditing ? (
-        <PubCardAuthBtn contents={save} />
+        <CardAuthBtn contents={save} />
       ) : null}
     </PubCardWrapper>
   );
