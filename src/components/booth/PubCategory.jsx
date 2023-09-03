@@ -50,7 +50,8 @@ const CategoryTextBox = styled.div`
   transition: background-color 0.25s ease;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) => (props.isClicked ? (props.isPageOne ? props.theme.colors.green : '#FF89D7') : null)};
+    color:${(props) =>
+      props.isClicked ? (props.isPageOne ? props.theme.colors.green : '#FF89D7') : props.theme.colors.gray700};
   }
 `;
 

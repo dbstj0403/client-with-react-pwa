@@ -1,44 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
+import { ReactComponent as DeleteIcon } from '@/assets/icons/deleteIcon.svg';
+import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
+import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
+import PubCardAuthBtn from './PubCardAuthBtn';
 
-export default function PubCard({ data }) {
+export default function PubCard({ data, boothAdding }) {
   useEffect(() => {
     AOS.init();
   });
+  const [isEditing, setIsEditing] = useState(false);
+  const isAuth = true;
+  const deleteBtnClicked = () => {
+    alert('삭제하시겠습니까?');
+  };
+  const editBtnClicked = () => {
+    setIsEditing(true);
+  };
+  const saveBtnClicked = () => {
+    alert('저장되었습니다');
+    setIsEditing(false);
+  };
+  const deleteAndEdit = [
+    {
+      icon: DeleteIcon,
+      text: '삭제',
+      onClick: deleteBtnClicked,
+    },
+    {
+      icon: EditIcon,
+      text: '수정',
+      onClick: editBtnClicked,
+    },
+  ];
+  const save = [
+    {
+      icon: SaveIcon,
+      text: '저장',
+      onClick: saveBtnClicked,
+    },
+  ];
   return (
     <PubCardWrapper data-aos={data.page === 1 ? 'flip-left' : 'flip-right'} data-aos-duration="1500" data-aos-once>
-      <PubCardImage image={data.image}>
-        {data.page === 1 ? (
-          <PubCardFold1>
+      <PubCardMainContent>
+        <PubCardImage image={data.image}>
+          {data.page === 1 ? (
+            <PubCardFold1>
+              <span>{data.position}</span>
+            </PubCardFold1>
+          ) : (
+            <PubCardFold2>
+              <span>{data.position}</span>
+            </PubCardFold2>
+          )}
+        </PubCardImage>
+        <PubCardTextWrapper>
+          <PubOwner>{data.owns}</PubOwner>
+          <PubPosition>
+            <PubPage isPageOne={data.page === 1}>
+              <span>Page {data.page}</span>
+            </PubPage>
+            <DevideCircle />
             <span>{data.position}</span>
-          </PubCardFold1>
-        ) : (
-          <PubCardFold2>
-            <span>{data.position}</span>
-          </PubCardFold2>
-        )}
-      </PubCardImage>
-      <PubCardTextWrapper>
-        <PubOwner>{data.owns}</PubOwner>
-        <PubPosition>
-          <PubPage isPageOne={data.page === 1}>
-            <span>Page {data.page}</span>
-          </PubPage>
-          <DevideCircle />
-          <span>{data.position}</span>
-        </PubPosition>
-        <PubMainMenu>{data.mainMenu}</PubMainMenu>
-        <PubIntroduce>{data.introduction}</PubIntroduce>
-      </PubCardTextWrapper>
+          </PubPosition>
+          <PubMainMenu>{data.mainMenu}</PubMainMenu>
+          <PubIntroduce>{data.introduction}</PubIntroduce>
+        </PubCardTextWrapper>
+      </PubCardMainContent>
+      {isAuth && !isEditing ? (
+        <PubCardAuthBtn contents={deleteAndEdit} />
+      ) : isAuth && isEditing ? (
+        <PubCardAuthBtn contents={save} />
+      ) : null}
     </PubCardWrapper>
   );
 }
 
 const PubCardWrapper = styled.div`
   padding: 2.4rem 0;
-  height: 17rem;
+  height: 18.2rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const PubCardMainContent = styled.div`
   display: flex;
 `;
 
@@ -91,6 +138,7 @@ const PubCardTextWrapper = styled.div`
   display: flex;
   margin-left: 1.2rem;
   flex-direction: column;
+  width: 19.5rem;
 `;
 
 const PubOwner = styled.span`
