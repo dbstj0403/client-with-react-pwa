@@ -42,9 +42,12 @@ const Title = styled.p`
 `;
 
 const Map = styled.div`
-  border: 1px solid white;
   width: 33.5rem;
   height: 27.8rem;
+
+  background-size: cover;
+  background-image: url('img/hongikzone.jpg');
+  background-repeat: no-repeat;
 
   margin-top: 3.6rem;
   margin-bottom: 3.3rem;
