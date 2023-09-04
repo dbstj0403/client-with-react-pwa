@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
+import AddingBoothCard from '@/components/booth/AddingBoothCard';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
@@ -55,6 +56,14 @@ export default function Pub() {
       mainMenu: '계란말이',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
     },
+    {
+      image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
+      owns: '화학공학과 주점',
+      page: 2,
+      position: 2,
+      mainMenu: '계란말이',
+      introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
+    },
   ];
   return (
     <PubPageWrapper>
@@ -77,9 +86,11 @@ export default function Pub() {
           <span>{categoryText} 구역</span>
           <span>14개 부스</span>
         </AreaText>
+        {boothAdding ? <AddingBoothCard /> : null}
+
         <PubCards>
           {boothData.map((booth, index) => {
-            return <PubCard key={booth.owns + index} data={booth} boothAdding={boothAdding} />;
+            return <PubCard key={booth.owns + index} data={booth} />;
           })}
         </PubCards>
       </PubBooths>

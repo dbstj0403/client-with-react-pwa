@@ -7,7 +7,7 @@ import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import CardAuthBtn from './CardAuthBtn';
 
-export default function PubCard({ data, boothAdding }) {
+export default function PubCard({ data }) {
   useEffect(() => {
     AOS.init();
   });
@@ -27,11 +27,13 @@ export default function PubCard({ data, boothAdding }) {
     {
       icon: DeleteIcon,
       text: '삭제',
+      active: true,
       onClick: deleteBtnClicked,
     },
     {
       icon: EditIcon,
       text: '수정',
+      active: true,
       onClick: editBtnClicked,
     },
   ];
@@ -39,6 +41,7 @@ export default function PubCard({ data, boothAdding }) {
     {
       icon: SaveIcon,
       text: '저장',
+      active: true,
       onClick: saveBtnClicked,
     },
   ];
