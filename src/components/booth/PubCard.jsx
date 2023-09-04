@@ -6,6 +6,7 @@ import { ReactComponent as DeleteIcon } from '@/assets/icons/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import CardAuthBtn from './CardAuthBtn';
+import EditingBoothCard from './EditingBoothCard';
 
 export default function PubCard({ data }) {
   useEffect(() => {
@@ -37,15 +38,9 @@ export default function PubCard({ data }) {
       onClick: editBtnClicked,
     },
   ];
-  const save = [
-    {
-      icon: SaveIcon,
-      text: '저장',
-      active: true,
-      onClick: saveBtnClicked,
-    },
-  ];
-  return (
+  return isEditing ? (
+    <EditingBoothCard data={data} setIsEditing={setIsEditing} />
+  ) : (
     <PubCardWrapper data-aos={data.page === 1 ? 'flip-left' : 'flip-right'} data-aos-duration="1500" data-aos-once>
       <PubCardMainContent>
         <PubCardImage image={data.image}>
@@ -72,11 +67,7 @@ export default function PubCard({ data }) {
           <PubIntroduce>{data.introduction}</PubIntroduce>
         </PubCardTextWrapper>
       </PubCardMainContent>
-      {isAuth && !isEditing ? (
-        <CardAuthBtn contents={deleteAndEdit} />
-      ) : isAuth && isEditing ? (
-        <CardAuthBtn contents={save} />
-      ) : null}
+      {isAuth ? <CardAuthBtn contents={deleteAndEdit} /> : null}
     </PubCardWrapper>
   );
 }

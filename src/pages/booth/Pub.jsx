@@ -28,8 +28,7 @@ export default function Pub() {
       page: 1,
       position: 1,
       mainMenu: '국물떡볶이',
-      introduction:
-        '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.서비스 많이 드립니다.서비스 많이 드립니다.',
+      introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
     },
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
