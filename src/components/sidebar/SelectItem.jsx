@@ -36,7 +36,7 @@ const SelectItem = () => {
         주점
       </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('wowdjfestival')} active={page === 'wowdjfestival' ? 1 : 0}>
-        와우 디제잉 페스티벌
+        와우 디제이 페스티벌
       </SelectOption>
       <SelectOption
         onClick={() => handleSelectOptionClick('booth/foodtruck')}

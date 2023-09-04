@@ -46,9 +46,9 @@ export function Frontend() {
         name={'김초연'}
         major={'컴퓨터공학과 21'}
         inst={''}
-        // insta={'keep_cy'}
+        insta={'keep_cy'}
         // github={'choyeon2e'}
-        // etc={'https://velog.io/@choyeon2e'}
+        etc={'https://velog.io/@choyeon2e'}
       />
       <Spacing height={4.8} />
       <Member profileimg={''} name={'원윤서'} major={'컴퓨터공학과 21'} inst={''} />
