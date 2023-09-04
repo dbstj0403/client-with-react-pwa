@@ -2,25 +2,26 @@ import styled from 'styled-components';
 import React from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
-
-import MapImg from '../assets/image/djFestivalMapImg.svg';
+import { useState } from 'react';
+import djFestivalMapImg from '../assets/image/djFestivalMapImg.png';
 import backgroundImg1 from '../assets/image/FestivalBackground.svg';
 import backgroundImg2 from '../assets/image/InfoCardBackground.svg';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function WowDigitalFestival() {
+  const [isAuth, setIsAuth] = useState(false);
   return (
     <Container>
-      <Title>와우 디제잉 페스티벌</Title>
+      <Title>와우 디제이 페스티벌</Title>
       <TitleInfo>
-        와우 디제잉 페스티벌이란 이런 저런
-        <br /> 페스티벌 디제이가 와서 디제잉을 합니다. <br />
-        이런 저런 디제잉을 디제이가 합니다.
+        와우 디제이 페스티벌은 <br />
+        다양한 매력을 가진 DJ들이 찾아와 자신만의 음악을 <br /> 사람들과 즐기는 페스티벌입니다. <br />
+        다양한 컨텐츠가 준비되어 있으니 많은 관심 부탁드립니다.
       </TitleInfo>
 
       <ImgWrapper>
         <ImgContainer>
-          <img src={MapImg} alt="" className="mapImg" />
+          <img src={djFestivalMapImg} alt="" className="mapImg" />
         </ImgContainer>
         <ImgContainer2>
           <img src={backgroundImg1} alt="" />

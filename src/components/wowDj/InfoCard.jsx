@@ -7,27 +7,17 @@ function InfoCard() {
       <InfoBox height="15rem" backgroundColor="rgb(13,13,13,0.9)">
         <InfouNumber>1</InfouNumber>
         <InfoTitle>진행 시간</InfoTitle>
-        <InfoText>18:00 ~ 24:00</InfoText>
+        <InfoText>각 일 19시 ~ 24시</InfoText>
       </InfoBox>
       <InfoBox height="15rem" backgroundColor="rgb(19,19,19, 0.9)">
         <InfouNumber>2</InfouNumber>
         <InfoTitle>입장 가격</InfoTitle>
-        <InfoText>5,000만 원</InfoText>
+        <InfoText>홍익대학교 재학생, 휴학생 및 졸업 유예생 5000원 / 외부인 20000원</InfoText>
       </InfoBox>
       <InfoBox backgroundColor="rgb(13,13,13,0.9)">
         <InfouNumber>3</InfouNumber>
         <InfoTitle>주의사항</InfoTitle>
-        <InfoText>
-          안전에 유의해 주세요안전에 유의해 주세요안전에 유의해 주세요안전에 유의해 주세요안전에 유의해 주세요 안전에
-          유의해 주세요안전에 유의해 주세요안전에 유의해 주세요안전에 유의해 주세요안전에 유의해 주세요안전에 유의해
-          주세요 안전에 유의해 주세요안전에 유의해 주세요안전에 유의해 주세요안전에 유의해 주세요안전에 유의해
-          주세요안전에 유의해 주세요
-        </InfoText>
-      </InfoBox>
-      <InfoBox height="15rem" backgroundColor="rgb(19,19,19, 0.9)">
-        <InfouNumber>4</InfouNumber>
-        <InfoTitle>일정</InfoTitle>
-        <InfoText>어쩌고</InfoText>
+        <InfoText>과음 / 흡연 금지</InfoText>
       </InfoBox>
     </InfoContainer>
   );
