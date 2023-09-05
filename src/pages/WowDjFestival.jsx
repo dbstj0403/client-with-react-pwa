@@ -15,7 +15,7 @@ function WowDigitalFestival() {
       <Title>와우 디제이 페스티벌</Title>
       <TitleInfo>
         와우 디제이 페스티벌은 <br />
-        다양한 매력을 가진 DJ들이 찾아와 자신만의 음악을 <br /> 사람들과 즐기는 페스티벌입니다. <br />
+        다양한 매력을 가진 DJ들이 찾아와 <br /> 자신만의 음악을 사람들과 즐기는 페스티벌입니다. <br />
         다양한 컨텐츠가 준비되어 있으니 많은 관심 부탁드립니다.
       </TitleInfo>
 
@@ -58,7 +58,6 @@ const Container = styled.div`
   overflow: hidden;
 `;
 const Title = styled.div`
-  font-family: Inter;
   margin-top: 3rem;
   ${(props) => props.theme.fontStyles.head1};
   margin-top: 12rem;

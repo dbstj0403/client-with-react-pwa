@@ -9,6 +9,7 @@ import FoodTruck from './pages/booth/FoodTruck';
 import CentralStage from './pages/CentralStage';
 import HongikZone from './pages/HongikZone';
 import MadeBy from './pages/MadeBy';
+import Entrance from './pages/Entrance';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/wowdjfestival" element={<WowDjFestival />} />
+        <Route path="/entrance" element={<Entrance />} />
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/booth/pub" element={<Pub />} />
         <Route path="/booth/foodtruck" element={<FoodTruck />} />
