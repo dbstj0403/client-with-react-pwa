@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useEffect } from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
 import { useState } from 'react';
@@ -7,9 +7,17 @@ import djFestivalMapImg from '../assets/image/djFestivalMapImg.png';
 import backgroundImg1 from '../assets/image/FestivalBackground.svg';
 import backgroundImg2 from '../assets/image/InfoCardBackground.svg';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 function WowDigitalFestival() {
   const [isAuth, setIsAuth] = useState(false);
+
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('wowdjfestival');
+  }, []);
   return (
     <Container>
       <Title>와우 디제이 페스티벌</Title>

@@ -1,21 +1,14 @@
 import styled from 'styled-components';
-import React, { useEffect } from 'react';
+import React from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
 import moveTopBtnIcon from '@/assets/icons/moveTopBtnIcon.svg';
-import { useRecoilState } from 'recoil';
-import { pageState } from '@/libs/store';
-
 function WowDigitalFestival() {
-  const [page, isPage] = useRecoilState(pageState);
-
-  useEffect(() => {
-    isPage('wowdjfestival');
-  }, []);
-
   const goToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  console.log(page);
 
   return (
     <Container>

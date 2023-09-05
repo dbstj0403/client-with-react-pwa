@@ -5,6 +5,7 @@ import jinhoImg from '@/assets/image/madeby/profile/진호.jpg';
 import youngunImg from '@/assets/image/madeby/profile/용운.jpg';
 import hyeonminImg from '@/assets/image/madeby/profile/현민.jpg';
 import yunseoImg from '@/assets/image/madeby/profile/윤서.jpg';
+import choyeonImg from '@/assets/image/madeby/profile/초연.jpg';
 
 export function Frontend() {
   return (
@@ -44,13 +45,12 @@ export function Frontend() {
       />
       <Spacing height={4.8} />
       <Member
-        profileimg={''}
+        profileimg={choyeonImg}
         name={'김초연'}
         major={'컴퓨터공학과 21'}
-        inst={''}
+        inst={'멋사 12기 모집 커밍쑨...'}
         insta={'keep_cy'}
-        // github={'choyeon2e'}
-        etc={'https://velog.io/@choyeon2e'}
+        github={'choyeon2e'}
       />
       <Spacing height={4.8} />
       <Member

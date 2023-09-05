@@ -2,14 +2,23 @@ import FacilityCardsWrapper from '@/components/facilities/FacilityCardsWrapper';
 import FacilityMapWrapper from '@/components/facilities/FacilityMapWrapper';
 import FacilitySubTitle from '@/components/facilities/FacilitySubTitle';
 import { facilitiesCategory } from '@/constants/FacilitiesCategory';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 export default function Facilities() {
   const [categoryState, setCategoryState] = useState(0);
   const categoryClicked = (index) => {
     setCategoryState(index);
   };
+
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('facilities');
+  }, []);
+
   return (
     <FacilitiesPageWrapper>
       <FacilitiesPageTitle>
