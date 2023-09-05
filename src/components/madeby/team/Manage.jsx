@@ -1,6 +1,7 @@
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 import { Member } from '../Member';
+import hanahImg from '@/assets/image/madeby/profile/한아.jpg';
 
 export function Manage() {
   return (
@@ -17,7 +18,13 @@ export function Manage() {
       <Spacing height={6} />
       <Member profileimg={''} name={'박신영'} major={'예술학과 17'} inst={'여기까지가 20자입니다 여러분 여기까'} />
       <Spacing height={4.8} />
-      <Member profileimg={''} name={'주한아'} major={'경영학과 19'} inst={'여기까지가 20자입니다 여러분 여기까'} />
+      <Member
+        profileimg={hanahImg}
+        name={'주한아'}
+        major={'경영학과 19'}
+        inst={'ESFJ 기획자'}
+        insta={'lesensdehanah'}
+      />
     </TeamInst>
   );
 }

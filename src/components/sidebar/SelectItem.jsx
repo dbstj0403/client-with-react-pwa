@@ -20,6 +20,9 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('stage')} active={page === 'stage' ? 1 : 0}>
         무대
       </SelectOption>
+      <SelectOption onClick={() => handleSelectOptionClick('entrance')} active={page === 'entrance' ? 1 : 0}>
+        관람석 및 운동장 입출구
+      </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('hongikzone')} active={page === 'hongikzone' ? 1 : 0}>
         홍익존
       </SelectOption>
@@ -68,7 +71,7 @@ const SelectOption = styled.div`
   padding: 1.6rem 0 1.6rem ${(props) => (props.active ? '2.2rem' : '2.4rem')};
   color: ${theme.colors.white};
   box-sizing: border-box;
-  border-left: ${(props) => (props.active ? `0.2rem solid ${theme.colors.green}` : 'none')};
+  border-left: ${(props) => (props.active ? `0.2rem solid ${theme.colors.pink}` : 'none')};
   ${(props) => props.theme.fontStyles.head5};
   &:hover {
     background-color: ${theme.colors.gray800};

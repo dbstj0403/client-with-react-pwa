@@ -4,6 +4,7 @@ import { Member } from '../Member';
 import jinhoImg from '@/assets/image/madeby/profile/진호.jpg';
 import youngunImg from '@/assets/image/madeby/profile/용운.jpg';
 import hyeonminImg from '@/assets/image/madeby/profile/현민.jpg';
+import yunseoImg from '@/assets/image/madeby/profile/윤서.jpg';
 
 export function Frontend() {
   return (
@@ -30,8 +31,9 @@ export function Frontend() {
         profileimg={jinhoImg}
         name={'김진호'}
         major={'경영학과 17'}
-        inst={'contact: jinokim98'}
+        inst={'ESFJ 개발자입니다 흔치 않죠^!^'}
         insta={'jinokim98'}
+        github={'jinhokim98'}
       />
       <Spacing height={4.8} />
       <Member
@@ -51,7 +53,14 @@ export function Frontend() {
         etc={'https://velog.io/@choyeon2e'}
       />
       <Spacing height={4.8} />
-      <Member profileimg={''} name={'원윤서'} major={'컴퓨터공학과 21'} inst={''} />
+      <Member
+        profileimg={yunseoImg}
+        name={'원윤서'}
+        major={'컴퓨터공학과 21'}
+        inst={'뉴진스 우원재… 그리고 멋사 🦁'}
+        insta={'lov2loveluv'}
+        github={'dbstj0403'}
+      />
     </TeamInst>
   );
 }
