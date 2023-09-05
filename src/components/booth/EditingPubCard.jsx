@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import CardAuthBtn from './CardAuthBtn';
 
-export default function EditingBoothCard({ data, setIsEditing }) {
+export default function EditingPubCard({ data, setIsEditing }) {
   const saveBtnClicked = () => {
     alert('저장되었습니다');
     setIsEditing(false);

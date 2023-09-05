@@ -6,7 +6,7 @@ import { ReactComponent as DeleteIcon } from '@/assets/icons/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import CardAuthBtn from './CardAuthBtn';
-import EditingBoothCard from './EditingBoothCard';
+import EditingPubCard from './EditingPubCard';
 
 export default function PubCard({ data }) {
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function PubCard({ data }) {
     },
   ];
   return isEditing ? (
-    <EditingBoothCard data={data} setIsEditing={setIsEditing} />
+    <EditingPubCard data={data} setIsEditing={setIsEditing} />
   ) : (
     <PubCardWrapper data-aos={data.page === 1 ? 'flip-left' : 'flip-right'} data-aos-duration="1500" data-aos-once>
       <PubCardMainContent>

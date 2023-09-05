@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
-import AddingBoothCard from '@/components/booth/AddingBoothCard';
+import AddingPubCard from '@/components/booth/AddingPubCard';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
@@ -85,7 +85,7 @@ export default function Pub() {
           <span>{categoryText} 구역</span>
           <span>14개 부스</span>
         </AreaText>
-        {boothAdding ? <AddingBoothCard /> : null}
+        {boothAdding ? <AddingPubCard /> : null}
 
         <PubCards>
           {boothData.map((booth, index) => {

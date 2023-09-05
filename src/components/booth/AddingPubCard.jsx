@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CardAuthBtn from './CardAuthBtn';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 
-export default function AddingBoothCard() {
+export default function AddingPubCard() {
   const saveBtnClicked = () => {
     alert('저장되었습니다');
   };

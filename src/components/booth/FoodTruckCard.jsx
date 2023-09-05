@@ -1,24 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import CardAuthBtn from './CardAuthBtn';
 import { ReactComponent as DeleteIcon } from '@/assets/icons/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
+import EdittingFoodTruckCard from './EdittingFoodTruckCard';
 
 export default function FoodTruckCard({ data }) {
   useEffect(() => {
     AOS.init();
   });
+  const [editting, setEditting] = useState(false);
   const deleteBtnClicked = () => {
     alert('삭제하시겠습니까?');
   };
   const editBtnClicked = () => {
-    alert('수정되었습니다');
+    setEditting(true);
   };
   const isAuth = true;
-  const deleteBtn = [{ icon: DeleteIcon, text: '삭제', onClick: deleteBtnClicked }];
-  const editBtn = [{ icon: EditIcon, text: '수정', onClick: editBtnClicked }];
-  return (
+  const deleteBtn = [{ icon: DeleteIcon, text: '삭제', active: true, onClick: deleteBtnClicked }];
+  const editBtn = [{ icon: EditIcon, text: '수정', active: true, onClick: editBtnClicked }];
+  return editting ? (
+    <EdittingFoodTruckCard data={data} />
+  ) : (
     <CardWrapper isAuth={isAuth} data-aos="fade-up" data-aos-duration="800" data-aos-once>
       <BoothText>
         <BoothNumber>
@@ -83,5 +87,3 @@ const BoothIntroduction = styled.p`
   border-image: linear-gradient(to right, white, black);
   border-image-slice: 1;
 `;
-
-const AuthBtnWrapper = styled.div``;
