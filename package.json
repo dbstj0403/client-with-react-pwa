@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanstack/react-query": "^4.33.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "aos": "^2.3.4",
     "axios": "^1.4.0",
+    "framer-motion": "^10.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
+    "recoil": "^0.7.7",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.7",
+    "styled-reset": "^4.5.1",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.6.0",
     "workbox-broadcast-update": "^6.6.0",
@@ -28,10 +35,10 @@
     "workbox-streams": "^6.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "format": "prettier --write src"
   },
   "eslintConfig": {
     "extends": [
@@ -52,12 +59,16 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.4",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.0.1",
-    "prop-types": "^15.8.1"
-  }
+    "prettier": "2.8.8",
+    "prop-types": "^15.8.1",
+    "vite": "^4.4.9",
+    "vite-plugin-svgr": "^3.2.0"
+  },
+  "packageManager": "yarn@3.6.3"
 }

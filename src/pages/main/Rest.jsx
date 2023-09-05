@@ -1,0 +1,24 @@
+import React from 'react';
+import RoadMap from './Roadmap';
+import Schedule from './Schedule';
+import Slogan from './Slogan';
+import OperatingTime from './OperatingTime';
+import styled from 'styled-components';
+
+function Rest() {
+  return (
+    <Container>
+      <Slogan />
+      <RoadMap />
+      <Schedule />
+      <OperatingTime />
+    </Container>
+  );
+}
+
+export default Rest;
+
+const Container = styled.div`
+  position: relative;
+  top: 110rem;
+`;
