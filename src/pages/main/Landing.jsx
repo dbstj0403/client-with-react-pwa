@@ -16,7 +16,17 @@ function Landing(props) {
       setTop(-props.scroll + 260);
     } else {
       setFix(true);
-      setTop(-80);
+      setTop(100);
+    }
+  };
+
+  const calculateTop = () => {
+    if (window.innerWidth < 450) {
+      return '-6rem';
+    } else if (window.innerWidth < 600) {
+      return '-3rem';
+    } else {
+      return '0';
     }
   };
 
@@ -25,7 +35,7 @@ function Landing(props) {
   }, [props.scroll]);
 
   return (
-    <Container scroll={top} fix={fix ? 1 : 0} display={props.scroll < 1800 ? 1 : 0}>
+    <Container scroll={top} top={calculateTop()} fix={fix ? 1 : 0} display={props.scroll < 1800 ? 1 : 0}>
       <TitleSection>
         <Background>
           <Year>{year}</Year>
@@ -44,10 +54,11 @@ function Landing(props) {
 export default Landing;
 
 const Container = styled.section`
+  max-width: 76.8em;
   width: 100%;
   display: ${(props) => (props.display ? 'block' : 'none')};
   position: ${(props) => (props.fix ? 'fixed' : 'relative')};
-  top: ${(props) => (!props.fix ? `${props.scroll / 10}rem` : '-6rem')};
+  top: ${(props) => (!props.fix ? `${props.scroll / 10}rem` : props.top)};
   height: 84rem;
 
   padding: 8.9rem 3.4rem 10.8rem 3.4rem;

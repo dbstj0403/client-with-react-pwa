@@ -33,5 +33,6 @@ export default Home;
 
 const Container = styled.div`
   position: relative;
+  max-width: 76.8em;
   height: 530rem;
 `;
