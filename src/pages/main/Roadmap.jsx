@@ -35,6 +35,7 @@ export default RoadMap;
 const Container = styled.section`
   height: 72rem;
   padding: 0 2rem;
+  background-color: ${theme.colors.background};
 `;
 
 const Title = styled.h1`
