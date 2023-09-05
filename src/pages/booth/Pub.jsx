@@ -70,7 +70,7 @@ export default function Pub() {
         <span>주점</span>
       </PubPageTitle>
       <PubMapWrapper>
-        <PubMainMap alt={'주점 지도1'} src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" />
+        <PubMainMap />
         <PubCategory categories={pubCategory} setCategoryText={setCategoryText} />
       </PubMapWrapper>
       {isAuth ? (
@@ -138,9 +138,11 @@ const AddBooth = styled.div`
   }
 `;
 
-const PubMainMap = styled.img`
+const PubMainMap = styled.div`
   width: 33rem;
   height: 21.3rem;
+  background: url('/img/pubMainMap.png');
+  background-size: cover;
 `;
 
 const PubBooths = styled.div`
