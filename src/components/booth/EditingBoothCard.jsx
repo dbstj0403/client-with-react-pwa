@@ -11,6 +11,7 @@ export default function EditingBoothCard({ data, setIsEditing }) {
   };
   const [saveActive, setSaveActive] = useState(false);
   const [pubOwnerInput, setPubOwnerInput] = useState(data.owns);
+  const [pubPageInput, setPubPageInput] = useState('');
   const [pubPositionNum, setPubPositionNum] = useState(data.position);
   const [pubMainMenu, setPubMainMenu] = useState(data.mainMenu);
   const [pubIntroduce, setPubIntroduce] = useState(data.introduction);
@@ -19,6 +20,9 @@ export default function EditingBoothCard({ data, setIsEditing }) {
   };
   const pubPositionChange = (e) => {
     setPubPositionNum(e.target.value);
+  };
+  const pubPageChange = (e) => {
+    setPubPageInput(e.target.value);
   };
   const pubMainMenuChange = (e) => {
     setPubMainMenu(e.target.value);
@@ -52,9 +56,7 @@ export default function EditingBoothCard({ data, setIsEditing }) {
         <PubCardTextWrapper>
           <PubOwner value={pubOwnerInput} onChange={pubOwnerChange} />
           <PubPosition>
-            <PubPage isPageOne={data.page === 1}>
-              <span>Page {data.page}</span>
-            </PubPage>
+            <PubPage value={data.page === 1 ? 1 : 2} onChange={pubPageChange} />
             <DevideCircle />
             <PositionNum value={pubPositionNum} onChange={pubPositionChange} />
           </PubPosition>
@@ -113,15 +115,14 @@ const PubPosition = styled.div`
   }
 `;
 
-const PubPage = styled.div`
-  span {
-    color: ${(props) => (props.isPageOne ? props.theme.colors.green : '#FF89D7')};
-    ${(props) => props.theme.fontStyles.body3}
-    font-weight:400;
-  }
+const PubPage = styled.input`
   padding: 0 0.4rem;
+  width: 4.1rem;
   border-radius: 0.2rem;
-  background-color: ${(props) => (props.isPageOne ? 'rgba(66, 207, 97, 0.20)' : 'rgba(255, 137, 215, 0.20)')};
+  color: ${(props) => props.theme.colors.white};
+  background-color: transparent;
+  border: none;
+  ${(props) => props.theme.fontStyles.body4}
 `;
 
 const DevideCircle = styled.div`
