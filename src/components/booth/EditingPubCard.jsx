@@ -11,7 +11,7 @@ export default function EditingPubCard({ data, setIsEditing }) {
   };
   const [saveActive, setSaveActive] = useState(false);
   const [pubOwnerInput, setPubOwnerInput] = useState(data.owns);
-  const [pubPageInput, setPubPageInput] = useState('');
+  const [pubPageInput, setPubPageInput] = useState(data.page);
   const [pubPositionNum, setPubPositionNum] = useState(data.position);
   const [pubMainMenu, setPubMainMenu] = useState(data.mainMenu);
   const [pubIntroduce, setPubIntroduce] = useState(data.introduction);
@@ -40,15 +40,16 @@ export default function EditingPubCard({ data, setIsEditing }) {
   ];
   useEffect(() => {
     if (
-      pubOwnerInput !== data.owns ||
-      pubPositionNum !== data.position ||
-      pubMainMenu !== data.mainMenu ||
-      pubIntroduce !== data.introduction
+      (pubOwnerInput !== data.owns && pubOwnerInput !== '') ||
+      (pubPageInput !== data.page && pubPageInput !== '') ||
+      (pubPositionNum !== data.position && pubPositionNum !== '') ||
+      (pubMainMenu !== data.mainMenu && pubMainMenu !== '') ||
+      (pubIntroduce !== data.introduction && pubIntroduce !== '')
     ) {
       setSaveActive(true);
       return;
     } else setSaveActive(false);
-  }, [pubOwnerInput, pubPositionNum, pubMainMenu, pubIntroduce]);
+  }, [pubOwnerInput, pubPageInput, pubPositionNum, pubMainMenu, pubIntroduce]);
   return (
     <PubCardWrapper>
       <PubCardMainContent>
@@ -56,7 +57,7 @@ export default function EditingPubCard({ data, setIsEditing }) {
         <PubCardTextWrapper>
           <PubOwner value={pubOwnerInput} onChange={pubOwnerChange} />
           <PubPosition>
-            <PubPage value={data.page === 1 ? 1 : 2} onChange={pubPageChange} />
+            <PubPage value={pubPageInput} onChange={pubPageChange} />
             <DevideCircle />
             <PositionNum value={pubPositionNum} onChange={pubPositionChange} />
           </PubPosition>
