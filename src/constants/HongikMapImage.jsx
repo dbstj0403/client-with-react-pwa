@@ -8,7 +8,7 @@ function HongikMapImage(props) {
 
   const handleSelectOptionClick = (selectedPage) => {
     isPage(selectedPage);
-    window.location.replace(`${selectedPage}`);
+    window.location.replace(`/${selectedPage}`);
   };
 
   const mapEnum = {
@@ -51,28 +51,28 @@ function HongikMapImage(props) {
   const goDetail = () => {
     switch (props.index) {
       case 1:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('booth/profit');
         break;
       case 2:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('stage');
         break;
       case 3:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('entrance');
         break;
       case 4:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('hongikzone');
         break;
       case 5:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('booth/pub');
         break;
       case 6:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('booth/foodtruck');
         break;
       case 7:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('facilities');
         break;
       case 8:
-        handleSelectOptionClick('/');
+        handleSelectOptionClick('wowdjfestival');
         break;
     }
   };
