@@ -22,6 +22,7 @@ jobs:
         with:
           images: brian990614/2023hiufestainfo-client
           tag-semver: |
+            latest
             {{version}}
             {{major}}.{{minor}}
 
@@ -35,7 +36,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # 도커이미지 빌드하고 허브로 푸쉬
+      # 도커이미지 빌드하고 허브로 푸쉬a
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -43,5 +44,5 @@ jobs:
           file: ./Dockerfile.prod
           platforms: linux/amd64
           push: true
-          tags: latest
+          tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
