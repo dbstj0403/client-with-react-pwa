@@ -21,10 +21,9 @@ jobs:
         uses: crazy-max/ghaction-docker-meta@v1
         with:
           images: brian990614/2023hiufestainfo-client
-          # tag-semver: |
-          #   latest
-          #   {{version}}
-          #   {{major}}.{{minor}}
+          tag-semver: |
+            {{version}}
+            {{major}}.{{minor}}
 
       # 도커 빌드 관련 셋업
       - name: Set up Docker Buildx
@@ -44,4 +43,5 @@ jobs:
           file: ./Dockerfile.prod
           platforms: linux/amd64
           push: true
-          tags: latest
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
