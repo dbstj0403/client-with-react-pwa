@@ -5,7 +5,7 @@ function Campus(props) {
   return (
     <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 300 ? 1 : 0}>
       <Backdrop scroll={props.scroll} />
-      <CampusImage src="/img/hongikview.jpg" alt="hongik" />
+      <CampusImage src="/img/hongikview/hongikview.jpg" alt="hongik" />
     </Container>
   );
 }
