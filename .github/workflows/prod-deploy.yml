@@ -41,5 +41,5 @@ jobs:
           file: ./Dockerfile.prod
           platforms: linux/amd64
           push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
+          tags: latest
           labels: ${{ steps.docker_meta.outputs.labels }}
