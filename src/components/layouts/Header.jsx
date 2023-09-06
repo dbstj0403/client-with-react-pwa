@@ -1,10 +1,9 @@
-import { DrawerIcon } from '@/assets/icons/DrawerIcon';
-import { HongikLogo } from '@/assets/image/HongikLogo';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import SideBar from '../sidebar/SideBar';
 import { useRecoilState } from 'recoil';
 import { sideState } from '@/libs/store';
+import { DrawerIcon } from '@/assets/icons/DrawerIcon';
+import { HongikLogo } from '@/assets/image/HongikLogo';
 
 function Header() {
   const [isOpen, setIsOpen] = useRecoilState(sideState);

@@ -24,6 +24,7 @@ function HongikZone() {
           <InfoParagraph>구역입니다.</InfoParagraph>
         </InfoWrapper>
       </MapGuide>
+      <Detail />
     </MainSection>
   );
 }
@@ -41,10 +42,21 @@ const Title = styled.p`
   ${theme.fontStyles.head1};
 `;
 
-const Map = styled.div`
-  border: 1px solid white;
+const PhotoSize = styled.div`
   width: 33.5rem;
-  height: 27.8rem;
+  height: 20rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
+const Detail = styled(PhotoSize)`
+  background-image: url('img/hongikzone/hongikzone-detail.jpg');
+
+  margin-top: 6rem;
+  margin-bottom: 28rem;
+`;
+const Map = styled(PhotoSize)`
+  background-image: url('img/hongikzone/hongikzone-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.3rem;
@@ -59,7 +71,6 @@ const MapGuide = styled.div`
   height: 8rem;
 
   padding: 1.8rem 2rem;
-  margin-bottom: 28rem;
 
   border-radius: 1px;
 
