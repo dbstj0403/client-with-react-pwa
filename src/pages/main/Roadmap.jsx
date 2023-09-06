@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 import { menuName } from '../../constants/menuName';
+import HongikMapImage from '@/constants/HongikMapImage';
 
 function RoadMap() {
   const [current, setCurrent] = useState(0);
@@ -10,13 +11,43 @@ function RoadMap() {
       <Title>전체 로드맵</Title>
       <HorizonBar />
       <MemuBox>
-        {menuName.map((menu, idx) => (
-          <MenuItem key={`button${idx}`} idx={idx} active={current === idx ? 1 : 0} onClick={() => setCurrent(idx)}>
-            {menu}
-          </MenuItem>
-        ))}
+        <Row>
+          <Item active={current === 0 ? 1 : 0} onClick={() => setCurrent(0)}>
+            {menuName[0]}
+          </Item>
+          <Item active={current === 1 ? 1 : 0} onClick={() => setCurrent(1)}>
+            {menuName[1]}
+          </Item>
+          <Item active={current === 2 ? 1 : 0} onClick={() => setCurrent(2)}>
+            {menuName[2]}
+          </Item>
+        </Row>
+        <Row>
+          <Item active={current === 3 ? 1 : 0} onClick={() => setCurrent(3)}>
+            {menuName[3]}
+          </Item>
+          <Item active={current === 4 ? 1 : 0} onClick={() => setCurrent(4)}>
+            {menuName[4]}
+          </Item>
+        </Row>
+        <Row>
+          <Item active={current === 5 ? 1 : 0} onClick={() => setCurrent(5)}>
+            {menuName[5]}
+          </Item>
+          <Item active={current === 6 ? 1 : 0} onClick={() => setCurrent(6)}>
+            {menuName[6]}
+          </Item>
+          <Item active={current === 7 ? 1 : 0} onClick={() => setCurrent(7)}>
+            {menuName[7]}
+          </Item>
+        </Row>
+        <Row>
+          <Item active={current === 8 ? 1 : 0} onClick={() => setCurrent(8)}>
+            {menuName[8]}
+          </Item>
+        </Row>
       </MemuBox>
-      <HongikMap src="/img/hongikmap.png" alt="hongikmap" />
+      <HongikMapImage index={current} />
       <MapGuide>
         <LocationDot />
         <Guide>
@@ -32,8 +63,10 @@ function RoadMap() {
 export default RoadMap;
 
 const Container = styled.section`
+  width: 100%;
   height: 72rem;
   padding: 0 2rem;
+  background-color: ${theme.colors.background};
 `;
 
 const Title = styled.h1`
@@ -50,29 +83,25 @@ const HorizonBar = styled.hr`
 `;
 
 const MemuBox = styled.div`
-  display: grid;
-  grid-template-areas:
-    'button0 button1 button2 button3'
-    'button4 button5 button6 button6'
-    'button7 button7 button7 button7';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   margin: 1.6rem 0 3.6rem 0;
-  padding: 0 2.35rem;
 `;
 
-const MenuItem = styled.span`
+const Row = styled.div`
+  display: flex;
+`;
+
+const Item = styled.span`
   grid-area: ${(props) => `button${props.idx}`};
   padding: 1.2rem;
   color: ${(props) => (props.active ? theme.colors.white : theme.colors.gray700)};
   ${(props) => (props.active ? theme.fontStyles.head4 : theme.fontStyles.head5)};
   text-align: center;
   white-space: nowrap;
-`;
-
-const HongikMap = styled.img`
-  width: 100%;
-  height: 19rem;
-  margin-bottom: 1.6rem;
-  object-fit: contain;
 `;
 
 const MapGuide = styled.div`

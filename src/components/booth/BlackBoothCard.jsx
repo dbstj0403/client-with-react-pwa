@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AOS from 'aos';
 
 export default function BlackBoothCard({ data }) {
+  console.log(data.number);
   useEffect(() => {
     AOS.init();
   });
@@ -48,8 +49,9 @@ const BoothNumber = styled.div`
   align-items: center;
   margin-bottom: 0.8rem;
   span {
-    ${(props) => props.theme.fontStyles.subHead1}
+    ${(props) => props.theme.fontStyles.subHead1};
     line-height: 1.6rem;
+    color: ${(props) => props.theme.colors.black};
   }
 `;
 

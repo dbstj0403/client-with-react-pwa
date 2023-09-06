@@ -1,7 +1,10 @@
+import { GithubLogo } from '@/assets/icons/GithubLogo';
+import { InstagramLogo } from '@/assets/icons/InstagramLogo';
+import { EtcLogo } from '@/assets/icons/EtcLogo';
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 
-export function Member({ profileimg, name, major, inst }) {
+export function Member({ profileimg, name, major, inst, insta, github, etc }) {
   return (
     <Container>
       <ProfileImg img={profileimg} />
@@ -18,6 +21,12 @@ export function Member({ profileimg, name, major, inst }) {
         <Spacing height={2.8} />
         <Inst>{inst}</Inst>
       </InstWrap>
+      <Spacing height={1.4} />
+      <SnsWrap>
+        <InstagramLogo id={insta} />
+        <GithubLogo id={github} />
+        <EtcLogo id={etc} />
+      </SnsWrap>
     </Container>
   );
 }
@@ -25,7 +34,7 @@ export function Member({ profileimg, name, major, inst }) {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 20rem;
+  height: 24.6rem;
   width: 25.1rem;
   justify-content: center;
   align-items: center;
@@ -40,12 +49,11 @@ const ProfileImg = styled.div`
   background-image: url(${(props) => props.img});
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 `;
 
 const Spacing = styled.div`
-  width: 1rem;
-  height: ${(props) => props.height + 'rem'};
+  width: ${(props) => (props.width ? `${props.width}` + 'rem' : '1rem')};
+  height: ${(props) => (props.height ? `${props.height}` + 'rem' : 0)};
 `;
 
 const Name = styled.div`
@@ -86,4 +94,8 @@ const Green = styled.div`
 const Inst = styled.div`
   ${theme.fontStyles.body1};
   color: #8a8a8a;
+`;
+
+const SnsWrap = styled.div`
+  display: flex;
 `;

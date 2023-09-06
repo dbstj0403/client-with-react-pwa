@@ -8,16 +8,17 @@ import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 
 export default function Facilities() {
+  const [categoryState, setCategoryState] = useState(0);
+  const categoryClicked = (index) => {
+    setCategoryState(index);
+  };
+
   const [page, isPage] = useRecoilState(pageState);
 
   useEffect(() => {
     isPage('facilities');
   }, []);
 
-  const [categoryState, setCategoryState] = useState(0);
-  const categoryClicked = (index) => {
-    setCategoryState(index);
-  };
   return (
     <FacilitiesPageWrapper>
       <FacilitiesPageTitle>

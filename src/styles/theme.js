@@ -5,6 +5,7 @@ const theme = {
     black: '#000000',
     background: '#000000',
     green: '#42CF61',
+    pink: '#FF89D7',
     white: '#FFFFFF',
     gray200: '#BEBEBE',
     gray300: '#A4A4A4 ',
@@ -69,8 +70,15 @@ const theme = {
           font-size: 1.6rem;
           font-weight: 400;
           font-style: normal;
-          line-height: 2.4rem;  
-    `,
+          line-height: 2.4rem;
+        `,
+    subHead4: `
+          font-family: "Pretendard Variable", sans-serif;
+          font-size: 1.6rem;
+          font-weight: 600;
+          font-style: normal;
+          line-height: 1.6rem;
+        `,
     body1: `
           font-family: "Pretendard Variable", sans-serif;
           font-size: 1.6rem;
