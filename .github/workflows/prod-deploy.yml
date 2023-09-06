@@ -10,20 +10,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # 도커 이미지에 env 파일 포함
-      - name: Create .env file
-        run: |
-          touch .env
+      # # 도커 이미지에 env 파일 포함
+      # - name: Create .env file
+      #   run: |
+      #     touch .env
 
-      # 도커 메타
-      - name: Docker meta
-        id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
-        with:
-          images: brian990614/hongik-festival
-          tag-semver: |
-            {{version}}
-            {{major}}.{{minor}}
+      # # 도커 메타
+      # - name: Docker meta
+      #   id: docker_meta
+      #   uses: crazy-max/ghaction-docker-meta@v1
+      #   with:
+      #     images: brian990614/hongik-festival
+      #     tag-semver: |
+      #       {{version}}
+      #       {{major}}.{{minor}}
 
       # 도커 빌드 관련 셋업
       - name: Set up Docker Buildx
@@ -43,5 +43,5 @@ jobs:
           file: ./Dockerfile.prod
           platforms: linux/amd64
           push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          # tags: ${{ steps.docker_meta.outputs.tags }}
+          # labels: ${{ steps.docker_meta.outputs.labels }}
