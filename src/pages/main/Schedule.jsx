@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 import ScheduleTable from '@/components/schedule/ScheduleTable';
+import { scheduleData } from '@/constants/ScheduleData';
 
 function Schedule() {
   return (
@@ -9,9 +10,9 @@ function Schedule() {
       <MiddleImage />
       <BottomImage />
       <Title>일정 소개</Title>
-      <ScheduleTable />
-      <ScheduleTable />
-      <ScheduleTable />
+      {scheduleData.map((schedule, idx) => (
+        <ScheduleTable key={`schedule${idx}`} schedule={schedule} />
+      ))}
     </Container>
   );
 }
