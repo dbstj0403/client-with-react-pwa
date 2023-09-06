@@ -13,7 +13,7 @@ export default function PubCard({ data }) {
     AOS.init();
   });
   const [isEditing, setIsEditing] = useState(false);
-  const isAuth = true;
+  const isAuth = false;
   const deleteBtnClicked = () => {
     alert('삭제하시겠습니까?');
   };
@@ -44,20 +44,24 @@ export default function PubCard({ data }) {
     <PubCardWrapper data-aos={data.page === 1 ? 'flip-left' : 'flip-right'} data-aos-duration="1500" data-aos-once>
       <PubCardMainContent>
         <PubCardImage image={data.image}>
-          {data.page === 1 ? (
+          {data.page === 'A' ? (
             <PubCardFold1>
               <span>{data.position}</span>
             </PubCardFold1>
-          ) : (
+          ) : data.page === 'B' ? (
             <PubCardFold2>
               <span>{data.position}</span>
             </PubCardFold2>
+          ) : (
+            <PubCardFold3>
+              <span>{data.position}</span>
+            </PubCardFold3>
           )}
         </PubCardImage>
         <PubCardTextWrapper>
           <PubOwner>{data.owns}</PubOwner>
           <PubPosition>
-            <PubPage isPageOne={data.page === 1}>
+            <PubPage pageSection={data.page}>
               <span>Page {data.page}</span>
             </PubPage>
             <DevideCircle />
@@ -94,24 +98,7 @@ const PubCardImage = styled.div`
 const PubCardFold1 = styled.div`
   width: 0px;
   height: 0px;
-  border-right: 3.6rem solid ${(props) => props.theme.colors.green};
-  border-left: 0px solid transparent;
-  border-top: 3.6rem solid ${(props) => props.theme.colors.background};
-  span {
-    ${(props) => props.theme.fontStyles.subHead1}
-    font-size:1rem;
-    line-height: 1rem;
-    color: ${(props) => props.theme.colors.white};
-    position: absolute;
-    top: 2.5rem;
-    left: 2.7rem;
-  }
-`;
-
-const PubCardFold2 = styled.div`
-  width: 0px;
-  height: 0px;
-  border-top: 3.6rem solid #ff89d7;
+  border-top: 3.6rem solid ${(props) => props.theme.colors.green};
   border-left: 0px solid transparent;
   border-right: 3.6rem solid ${(props) => props.theme.colors.background};
   position: absolute;
@@ -125,6 +112,40 @@ const PubCardFold2 = styled.div`
     position: absolute;
     bottom: 2.4rem;
     left: 0.2rem;
+  }
+`;
+
+const PubCardFold2 = styled.div`
+  width: 0px;
+  height: 0px;
+  border-right: 3.6rem solid ${(props) => props.theme.colors.pink};
+  border-left: 0px solid transparent;
+  border-top: 3.6rem solid ${(props) => props.theme.colors.background};
+  span {
+    ${(props) => props.theme.fontStyles.subHead1}
+    font-size:1rem;
+    line-height: 1rem;
+    color: ${(props) => props.theme.colors.white};
+    position: absolute;
+    top: 2.5rem;
+    left: 2.7rem;
+  }
+`;
+
+const PubCardFold3 = styled.div`
+  width: 0px;
+  height: 0px;
+  border-right: 3.6rem solid ${(props) => props.theme.colors.purple};
+  border-left: 0px solid transparent;
+  border-top: 3.6rem solid ${(props) => props.theme.colors.background};
+  span {
+    ${(props) => props.theme.fontStyles.subHead1}
+    font-size:1rem;
+    line-height: 1rem;
+    color: ${(props) => props.theme.colors.white};
+    position: absolute;
+    top: 2.5rem;
+    left: 2.7rem;
   }
 `;
 
@@ -153,13 +174,19 @@ const PubPosition = styled.div`
 
 const PubPage = styled.div`
   span {
-    color: ${(props) => (props.isPageOne ? props.theme.colors.green : '#FF89D7')};
+    color: ${(props) =>
+      props.pageSection === 'A'
+        ? props.theme.colors.green
+        : props.pageSection === 'B'
+        ? props.theme.colors.pink
+        : props.theme.colors.purple};
     ${(props) => props.theme.fontStyles.body3}
     font-weight:400;
   }
   padding: 0 0.4rem;
   border-radius: 0.2rem;
-  background-color: ${(props) => (props.isPageOne ? 'rgba(66, 207, 97, 0.20)' : 'rgba(255, 137, 215, 0.20)')};
+  background-color: ${(props) =>
+    props.pageSection === 'A' ? '#42CF6133' : props.pageSection === 'B' ? '#FF89D733' : '#D291F033'};
 `;
 
 const DevideCircle = styled.div`

@@ -7,12 +7,14 @@ import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 import AddingPubCard from '@/components/booth/AddingPubCard';
+import useGetPubs from '@/query/get/useGetPubs';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
+  const [categoryEngText, setCategoryEngText] = useState('all');
   const [page, isPage] = useRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
-  const isAuth = true;
+  const isAuth = false;
   const addBoothClicked = () => {
     setBoothAdding(true);
   };
@@ -21,11 +23,13 @@ export default function Pub() {
     isPage('booth/pub');
   }, []);
 
+  const { getPubs, isLoading, error } = useGetPubs(categoryEngText);
+
   const boothData = [
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '예술학과 주점',
-      page: 1,
+      page: 'A',
       position: 1,
       mainMenu: '국물떡볶이',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
@@ -33,7 +37,7 @@ export default function Pub() {
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '컴퓨터공학과 주점',
-      page: 1,
+      page: 'B',
       position: 2,
       mainMenu: '감자튀김',
       introduction:
@@ -42,7 +46,7 @@ export default function Pub() {
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '경영학과 주점',
-      page: 2,
+      page: 'C',
       position: 1,
       mainMenu: '닭꼬치',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
@@ -50,7 +54,7 @@ export default function Pub() {
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '화학공학과 주점',
-      page: 2,
+      page: 'A',
       position: 2,
       mainMenu: '계란말이',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
@@ -58,7 +62,7 @@ export default function Pub() {
     {
       image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
       owns: '화학공학과 주점',
-      page: 2,
+      page: 'B',
       position: 2,
       mainMenu: '계란말이',
       introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
@@ -71,7 +75,11 @@ export default function Pub() {
       </PubPageTitle>
       <PubMapWrapper>
         <PubMainMap />
-        <PubCategory categories={pubCategory} setCategoryText={setCategoryText} />
+        <PubCategory
+          categories={pubCategory}
+          setCategoryText={setCategoryText}
+          setCategoryEngText={setCategoryEngText}
+        />
       </PubMapWrapper>
       {isAuth ? (
         <AddBooth onClick={addBoothClicked}>
@@ -139,8 +147,8 @@ const AddBooth = styled.div`
 `;
 
 const PubMainMap = styled.div`
-  width: 33rem;
-  height: 21.3rem;
+  width: 33.5rem;
+  height: 33.5rem;
   background: url('/img/pubMainMap.png');
   background-size: cover;
 `;
