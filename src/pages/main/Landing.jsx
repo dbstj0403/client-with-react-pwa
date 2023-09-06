@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { title, slogan1, year, period } from '../../constants/slogan';
 import theme from '../../styles/theme';
 
-function Landing() {
+function Landing(props) {
+  const [top, setTop] = useState(0);
+  const [fix, setFix] = useState(false);
+
+  const handleScroll = () => {
+    if (props.scroll >= 0 && props.scroll <= 20) {
+      setFix(false);
+      setTop(0);
+    } else if (props.scroll > 20 && props.scroll <= 160) {
+      setFix(false);
+      setTop(-props.scroll + 260);
+    } else {
+      setFix(true);
+      setTop(100);
+    }
+  };
+
+  const calculateTop = () => {
+    if (window.innerWidth < 450) {
+      return '-6rem';
+    } else if (window.innerWidth < 600) {
+      return '-3rem';
+    } else {
+      return '0';
+    }
+  };
+
+  useEffect(() => {
+    handleScroll();
+  }, [props.scroll]);
+
   return (
-    <Container>
+    <Container scroll={top} top={calculateTop()} fix={fix ? 1 : 0} display={props.scroll < 1800 ? 1 : 0}>
       <TitleSection>
+        <Hwayangyeonhwa src="/img/Hwayangyeonhwa.png" />
         <Background>
           <Year>{year}</Year>
           <Title>{title}</Title>
@@ -24,7 +55,11 @@ function Landing() {
 export default Landing;
 
 const Container = styled.section`
-  position: relative;
+  max-width: 76.8em;
+  width: 100%;
+  display: ${(props) => (props.display ? 'block' : 'none')};
+  position: ${(props) => (props.fix ? 'fixed' : 'relative')};
+  top: ${(props) => (!props.fix ? `${props.scroll / 10}rem` : props.top)};
   height: 84rem;
 
   padding: 8.9rem 3.4rem 10.8rem 3.4rem;
@@ -32,7 +67,15 @@ const Container = styled.section`
 `;
 
 const TitleSection = styled.section`
+  position: relative;
   width: 100%;
+`;
+
+const Hwayangyeonhwa = styled.img`
+  position: absolute;
+  top: 84%;
+  width: 100%;
+  z-index: 4;
 `;
 
 const Background = styled.div`
@@ -85,7 +128,7 @@ const SloganSection = styled.section`
 `;
 
 const Aside = styled.aside`
-  width: 30.3rem;
+  width: 100%;
   height: 24.8rem;
   padding: 0 0.0133rem 0.0351rem 0.1rem;
 `;

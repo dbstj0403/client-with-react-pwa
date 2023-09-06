@@ -1,4 +1,5 @@
 import OperatingTimeItem from '@/components/schedule/OperatingTimeItem';
+import { operatingData } from '@/constants/OperatingData';
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 
@@ -10,13 +11,9 @@ function OperatingTime() {
       <BottomImage />
       <Title>운영시간</Title>
       <ItemContainer>
-        <OperatingTimeItem />
-        <OperatingTimeItem />
-        <OperatingTimeItem />
-        <OperatingTimeItem />
-        <OperatingTimeItem />
-        <OperatingTimeItem />
-        <OperatingTimeItem />
+        {operatingData.map((data, idx) => (
+          <OperatingTimeItem key={`operate${idx}`} number={idx + 1} data={data} />
+        ))}
       </ItemContainer>
     </Container>
   );
@@ -30,6 +27,7 @@ const Container = styled.section`
   padding: 0 2rem;
 
   overflow: hidden;
+  background-color: ${theme.colors.background};
 `;
 
 const ItemContainer = styled.div``;
@@ -71,15 +69,13 @@ const MiddleImage = styled.div`
 
 const BottomImage = styled.div`
   position: absolute;
-  top: 87rem;
-  right: -5.7rem;
+  top: 86.4rem;
+  right: -1.1rem;
   z-index: 1;
 
   width: 24.7rem;
   height: 30.8rem;
 
-  transform: rotate(55deg);
-
-  background: url('/img/page2.png') center center no-repeat;
+  background: url('/img/page9.png') center center no-repeat;
   background-blend-mode: hard-light;
 `;
