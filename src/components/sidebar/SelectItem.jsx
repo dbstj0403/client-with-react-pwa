@@ -29,12 +29,6 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('booth/profit')} active={page === 'booth/profit' ? 1 : 0}>
         수익 부스
       </SelectOption>
-      <SelectOption
-        onClick={() => handleSelectOptionClick('booth/promotion')}
-        active={page === 'booth/promotion' ? 1 : 0}
-      >
-        프로모션 부스
-      </SelectOption>
       <SelectOption onClick={() => handleSelectOptionClick('booth/pub')} active={page === 'booth/pub' ? 1 : 0}>
         주점
       </SelectOption>
