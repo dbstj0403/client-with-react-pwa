@@ -2,8 +2,8 @@ import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import hiInst from '@/assets/image/madeby/hiInst.svg';
-import hiLogo from '@/assets/image/madeby/hilogoinst.svg';
+import scInst from '@/assets/image/semicolon/scInst.svg';
+import scLogo from '@/assets/image/semicolon/sclogo.svg';
 
 import { SemicolonInst } from '@/components/semicolon/SemicolonInst';
 import { Chairman } from '@/components/semicolon/team/Chairman';
@@ -69,7 +69,7 @@ const InstText = styled.div`
   position: absolute;
   width: 20.2rem;
   height: 8.4rem;
-  background-image: url(${hiInst});
+  background-image: url(${scInst});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -80,7 +80,7 @@ const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
   margin-top: 18.1rem;
-  background-image: url(${hiLogo});
+  background-image: url(${scLogo});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
