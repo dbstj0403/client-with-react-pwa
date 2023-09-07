@@ -12,10 +12,8 @@ export default function FacilitySubTitle({ categoryState }) {
           {categoryState === 0 ? (
             <RestRoomIcon />
           ) : categoryState === 1 ? (
-            <CigarIcon />
-          ) : categoryState === 2 ? (
             <MedicalIcon />
-          ) : categoryState === 3 ? (
+          ) : categoryState === 2 ? (
             <StudentCouncilIcon />
           ) : null}
         </span>
@@ -25,10 +23,8 @@ export default function FacilitySubTitle({ categoryState }) {
           {categoryState === 0
             ? '주요 화장실 위치'
             : categoryState === 1
-            ? '흡연부스'
-            : categoryState === 2
             ? '의료 시설 안내'
-            : categoryState === 3
+            : categoryState === 2
             ? '총학부스'
             : null}
         </span>

@@ -14,6 +14,10 @@ function Footer() {
     window.location.replace('/madeby');
   };
 
+  const goToSemicolon = () => {
+    window.location.replace('/semicolon');
+  };
+
   return (
     <FooterContainer>
       <Spacing height={3.6} />
@@ -25,6 +29,10 @@ function Footer() {
         만든이들
         <MadeByIcon />
       </GoToMadeBy>
+      <GoToSemicolon issemicolon={page} onClick={goToSemicolon}>
+        SEMICOLON
+        <MadeByIcon />
+      </GoToSemicolon>
       <FooterWrap>
         대동제 채널 바로가기
         <Spacing height={1.2} />
@@ -68,6 +76,14 @@ const Spacing = styled.div`
 
 const GoToMadeBy = styled.div`
   display: ${(props) => (props.ismadeby === 'madeby' ? 'none' : 'flex')};
+  justify-content: center;
+  color: ${theme.colors.green};
+  cursor: pointer;
+  ${theme.fontStyles.body2};
+`;
+
+const GoToSemicolon = styled.div`
+  display: ${(props) => (props.issemicolon === 'semicolon' ? 'none' : 'flex')};
   justify-content: center;
   color: ${theme.colors.green};
   cursor: pointer;
