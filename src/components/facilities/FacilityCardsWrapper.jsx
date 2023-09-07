@@ -1,26 +1,13 @@
 import styled from 'styled-components';
 import FacilityCard1 from './FacilityCard1';
 import FacilityCard2 from './FacilityCard2';
+import FacilityCard3 from './FacilityCard3';
 
 export default function FacilityCardsWrapper({ categoryState }) {
-  const medicalData = [
-    {
-      title: '교내 약국 운영 시간',
-      detail: '18:00 ~ 24:00',
-    },
-    {
-      title: '축제 의료 부스 운영 시간',
-      detail: '5,000만원',
-    },
-    {
-      title: '비상시 응급치료',
-      detail: '~위치에서 응급치료를 받으실 수 있습니다.',
-    },
-  ];
   const studentCouncilData = [
     {
       title: '위치',
-      detail: '7번 학생회관 앞 부스',
+      detail: '대운동장 중앙',
     },
   ];
   const restroomData = [
@@ -79,23 +66,17 @@ export default function FacilityCardsWrapper({ categoryState }) {
   ];
   return (
     <CardsWrapper>
-      {categoryState === 0
-        ? restroomData.map((data) => {
-            return <FacilityCard2 key={data.mapPosition} data={data} />;
-          })
-        : categoryState === 1
-        ? smokingBoothData.map((data) => {
-            return <FacilityCard2 key={data.mapPosition} data={data} />;
-          })
-        : categoryState === 2
-        ? medicalData.map((data) => {
-            return <FacilityCard1 key={data.title} data={data} />;
-          })
-        : categoryState === 3
-        ? studentCouncilData.map((data) => {
-            return <FacilityCard1 key={data.title} data={data} />;
-          })
-        : null}
+      {categoryState === 0 ? (
+        restroomData.map((data) => {
+          return <FacilityCard2 key={data.mapPosition} data={data} />;
+        })
+      ) : categoryState === 1 ? (
+        <FacilityCard3 />
+      ) : categoryState === 2 ? (
+        studentCouncilData.map((data) => {
+          return <FacilityCard1 key={data.title} data={data} />;
+        })
+      ) : null}
     </CardsWrapper>
   );
 }
