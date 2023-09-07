@@ -11,7 +11,7 @@ import useGetPubs from '@/query/get/useGetPubs';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
-  const [department, setDepartment] = useState('all');
+  const [department, setDepartment] = useState('fineArt');
   const [page, isPage] = useRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
   const isAuth = false;
@@ -24,6 +24,7 @@ export default function Pub() {
   }, []);
 
   const { getPubs, isLoading, error } = useGetPubs(department);
+  console.log(getPubs);
 
   const boothData = [
     {
