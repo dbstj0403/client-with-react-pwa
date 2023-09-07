@@ -1,6 +1,6 @@
 export const ImgList = [
   {
-    img: '/img/dj/aster.svg',
+    img: '/img/dj/4xAster.png',
     djName: 'ASTER',
     date: '9.13',
     time: '22:00 - 23:00',

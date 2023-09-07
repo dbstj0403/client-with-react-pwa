@@ -7,11 +7,11 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-function LineUpCard({ img, number, djName, text, date, time }) {
+function LineUpCard({ img, djName, text, date, time }) {
   useEffect(() => {
     AOS.init();
   }, []);
-
+  console.log(img, djName, text, date, time);
   return (
     <Container data-aos="fade-up" data-aos-duration="800">
       <img src={img} alt="" />
