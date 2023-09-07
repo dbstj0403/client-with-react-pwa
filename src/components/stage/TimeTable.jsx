@@ -17,16 +17,6 @@ function TimeTable({ day, onSwipe }) {
       [
         {
           id: 'day1',
-          stage: '학생중앙무대',
-          details: ['유형준', '카이저', '비너스', '익수', '프링글스', '블랙테트라'],
-        },
-        { stage: '학부찬조공연', details: ['공연예술학부 밴드'] },
-        { stage: '연예인 초청무대', details: ['10cm', '유다빈밴드', '윤하'] },
-        { stage: '', details: [] },
-      ],
-      [
-        {
-          id: 'day2',
           stage: '재주꾼선발대회',
           details: ['유지예', '나중에', '샹이니빛이나는솔로', '권영훈', '전자깡패', '에땅쎌', '김예린', '이민규'],
         },
@@ -34,7 +24,16 @@ function TimeTable({ day, onSwipe }) {
         { stage: '연예인 초청무대', details: ['양다일', '나비', 'SURL', '비비', '타이거JK', '윤미래'] },
         { stage: '', details: [] },
       ],
-
+      [
+        {
+          id: 'day2',
+          stage: '학생중앙무대',
+          details: ['유형준', '카이저', '비너스', '익수', '프링글스', '블랙테트라'],
+        },
+        { stage: '학부찬조공연', details: ['공연예술학부 밴드'] },
+        { stage: '연예인 초청무대', details: ['10cm', '유다빈밴드', '윤하'] },
+        { stage: '', details: [] },
+      ],
       [
         {
           id: 'day3',
