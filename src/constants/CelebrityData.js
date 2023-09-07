@@ -46,7 +46,7 @@ export const CelebrityData = {
     {
       name: 'BIBI',
       image: '/img/celeb/비비.jpg',
-      introduce: `트렌디한 목소리로 사람들의 마음을 사로잡은 가수.`,
+      introduce: `트렌디한 목소리로 사람들의 마음을 사로잡은 가수`,
       chartman: false,
       left: false,
       backgroundGradation: '/img/gradation/gradation2.png',
