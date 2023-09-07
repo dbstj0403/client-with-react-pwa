@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 import AddingPubCard from '@/components/booth/AddingPubCard';
 import useGetPubs from '@/query/get/useGetPubs';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
@@ -98,6 +99,7 @@ export default function Pub() {
           })}
         </PubCards>
       </PubBooths>
+      <MoveToTopBtn />
     </PubPageWrapper>
   );
 }

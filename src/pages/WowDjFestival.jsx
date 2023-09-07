@@ -7,6 +7,7 @@ import backgroundImg1 from '../assets/image/FestivalBackground.svg';
 import backgroundImg2 from '../assets/image/InfoCardBackground.svg';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import djFestivalPoster from '../assets/image/djFestivalPoster.svg';
+import wdfMap from '../../public/img/dj/wdfDetail.svg';
 
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
@@ -36,7 +37,7 @@ function WowDigitalFestival() {
           <img src={djFestivalPoster} alt="" />
         </ImgContainer>
         <ImgContainer1>
-          <img src={djFestivalMapImg} alt="" />
+          <img src={wdfMap} alt="" />
         </ImgContainer1>
         <ImgContainer2>
           <img src={backgroundImg1} alt="" />
@@ -116,7 +117,7 @@ const ImgContainer1 = styled.div`
   z-index: 5;
   img {
     width: 33.5rem;
-    height: 48.4rem;
+    height: 33.5rem;
   }
 `;
 const ImgContainer2 = styled.div`
