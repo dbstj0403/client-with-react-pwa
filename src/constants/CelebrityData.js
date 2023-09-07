@@ -7,6 +7,7 @@ export const CelebrityData = {
             당신에게 따뜻한 이야기를 들려주는 밴드`,
       chartman: false,
       left: true,
+      backgroundGradation: '/img/gradation/gradation1.png',
     },
     {
       name: '양다일',
@@ -15,6 +16,7 @@ export const CelebrityData = {
             근육 속에 숨겨진 마성의 목소리`,
       chartman: true,
       left: false,
+      backgroundGradation: '/img/gradation/gradation2.png',
     },
     {
       name: '나비',
@@ -23,6 +25,7 @@ export const CelebrityData = {
             나비처럼 아름다운 목소리의 소유자`,
       chartman: true,
       left: true,
+      backgroundGradation: '/img/gradation/gradation3.png',
     },
     {
       name: '타이거 JK',
@@ -31,6 +34,7 @@ export const CelebrityData = {
             전설 속의 인물이 홍대로 찾아오다`,
       chartman: false,
       left: false,
+      backgroundGradation: '/img/gradation/gradation4.png',
     },
     {
       name: '윤미래',
@@ -39,6 +43,7 @@ export const CelebrityData = {
             그녀만의 바이브를 넘어서지 못한다`,
       chartman: false,
       left: true,
+      backgroundGradation: '/img/gradation/gradation1.png',
     },
     {
       name: 'BIBI',
@@ -46,6 +51,7 @@ export const CelebrityData = {
       introduce: `트렌디한 목소리로 사람들의 마음을 사로잡은 가수.`,
       chartman: false,
       left: false,
+      backgroundGradation: '/img/gradation/gradation2.png',
     },
   ],
   second: [
@@ -55,6 +61,7 @@ export const CelebrityData = {
       introduce: `사람들에게 가장 가까운 마음의 목소리를 전하다`,
       chartman: false,
       left: true,
+      backgroundGradation: '/img/gradation/gradation3.png',
     },
     {
       name: '윤하',
@@ -62,6 +69,7 @@ export const CelebrityData = {
       introduce: `단단하고, 청량하게. 당신의 마음을 울리는 실력파 여성 솔로 가수`,
       chartman: false,
       left: false,
+      backgroundGradation: '/img/gradation/gradation1.png',
     },
     {
       name: '10cm',
@@ -69,6 +77,7 @@ export const CelebrityData = {
       introduce: `커피처럼 달콤쌉싸름한, 생각날 때 계속 찾게되는 가수`,
       chartman: false,
       left: true,
+      backgroundGradation: '/img/gradation/gradation2.png',
     },
   ],
   third: [
@@ -79,6 +88,7 @@ export const CelebrityData = {
       NewJeans의 Hype Boy요`,
       chartman: false,
       left: false,
+      backgroundGradation: '/img/gradation/gradation1.png',
     },
     {
       name: '이승윤',
@@ -87,6 +97,7 @@ export const CelebrityData = {
       스타일을 가미할 줄 아는 가수`,
       chartman: false,
       left: true,
+      backgroundGradation: '/img/gradation/gradation3.png',
     },
     {
       name: '정용화',
@@ -95,6 +106,7 @@ export const CelebrityData = {
       솔로 가수로도 활동하는 싱어송라이터`,
       chartman: false,
       left: false,
+      backgroundGradation: '/img/gradation/gradation2.png',
     },
     {
       name: '릴보이',
@@ -102,6 +114,7 @@ export const CelebrityData = {
       introduce: `Show Me The Money 9의 우승자. 차별없이 다양한 장르를 능숙하게 소화하는 래퍼`,
       chartman: false,
       left: true,
+      backgroundGradation: '/img/gradation/gradation5.png',
     },
   ],
 };
