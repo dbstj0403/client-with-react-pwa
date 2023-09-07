@@ -175,6 +175,7 @@ const MainSection = styled.section`
   border: 1px solid black;
   padding: 10rem 2rem;
 
+  z-index: 10;
   background-image: url('/img/booth/profit/profit-background.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -206,6 +207,7 @@ const MapSize = styled.div`
 
 const BoothMap = styled(MapSize)`
   position: relative;
+  z-index: 1;
   background-image: url('/public/img/booth/promotion/promotion-map.jpg');
 
   margin-top: 3.6rem;
