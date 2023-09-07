@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import scInst from '@/assets/image/semicolon/scInst.svg';
 import scLogo from '@/assets/image/semicolon/sclogo.svg';
-import scstyle from '@/assets/image/Semicolon/scstyle.svg';
+import scstyle from '@/assets/image/semicolon/scstyle.svg';
 import { SemicolonInst } from '@/components/semicolon/SemicolonInst';
 import { Chairman } from '@/components/semicolon/team/Chairman';
 import { Executives } from '@/components/semicolon/team/Executives';
