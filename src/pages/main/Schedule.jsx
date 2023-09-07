@@ -41,6 +41,7 @@ const TopImage = styled.div`
   position: absolute;
   top: 6.7rem;
   right: 5.5rem;
+  z-index: 1;
 
   width: 24.7rem;
   height: 30.8rem;
@@ -53,6 +54,7 @@ const MiddleImage = styled.div`
   position: absolute;
   top: 39.7rem;
   left: -7.5rem;
+  z-index: 1;
 
   width: 24.7rem;
   height: 30.8rem;
@@ -66,6 +68,7 @@ const BottomImage = styled.div`
   position: absolute;
   top: 84rem;
   right: -9.5rem;
+  z-index: 1;
 
   width: 24.7rem;
   height: 30.8rem;

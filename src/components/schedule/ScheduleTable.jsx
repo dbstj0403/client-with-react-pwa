@@ -23,9 +23,11 @@ function ScheduleTable({ schedule }) {
 export default ScheduleTable;
 
 const Container = styled.div`
+  position: relative;
   height: 27.9rem;
 
   margin-bottom: 8rem;
+  z-index: 2;
 
   &:last-child {
     margin-bottom: 0;

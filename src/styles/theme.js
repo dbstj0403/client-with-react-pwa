@@ -14,6 +14,7 @@ const theme = {
     white200: '#FFFFFF33',
     black13: '#0D0D0DE5',
     black19: '#131313E5',
+    purple: '#D291F0',
   },
   fontStyles: {
     head1: `

@@ -11,6 +11,7 @@ import HongikZone from './pages/HongikZone';
 import MadeBy from './pages/MadeBy';
 import Profit from './pages/booth/Profit';
 import Promotion from './pages/booth/Promotion';
+import Semicolon from './pages/Semicolon';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/stage" element={<CentralStage />} />
         <Route path="/hongikzone" element={<HongikZone />} />
         <Route path="/madeby" element={<MadeBy />} />
+        <Route path="/semicolon" element={<Semicolon />} />
       </Route>
     </Routes>
   );

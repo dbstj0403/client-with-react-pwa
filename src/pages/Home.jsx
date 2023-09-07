@@ -3,9 +3,12 @@ import Landing from './main/Landing';
 import Campus from './main/Campus';
 import Rest from './main/Rest';
 import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+import { lineupState } from '@/libs/store';
 
 function Home() {
   const [scroll, setScroll] = useState(0);
+  const isLineupShow = useRecoilValue(lineupState);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +24,7 @@ function Home() {
   }, []);
 
   return (
-    <Container>
+    <Container isLineupShow={isLineupShow ? 1 : 0}>
       <Campus scroll={scroll} />
       <Landing scroll={scroll} />
       <Rest />
@@ -34,5 +37,5 @@ export default Home;
 const Container = styled.div`
   position: relative;
   max-width: 76.8em;
-  height: 530rem;
+  height: ${(props) => (props.isLineupShow ? '1085rem' : '550rem')};
 `;
