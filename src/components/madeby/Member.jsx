@@ -35,7 +35,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 24.6rem;
-  width: 25.1rem;
+  width: 100%;
   justify-content: center;
   align-items: center;
 `;
@@ -77,16 +77,17 @@ const InstWrap = styled.div`
 `;
 
 const BorderWrap = styled.div`
-  width: 0.2rem;
   height: 100%;
 `;
 
 const Pink = styled.div`
+  width: 0.2rem;
   height: 50%;
   background-color: #ff4bb7;
 `;
 
 const Green = styled.div`
+  width: 0.2rem;
   height: 50%;
   background-color: #0efc4b;
 `;
