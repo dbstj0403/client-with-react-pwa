@@ -21,7 +21,10 @@ export default function EdittingFoodTruckCard({ data }) {
     setBoothIntroduction(e.target.value);
   };
   useEffect(() => {
-    if (boothName !== data.name || boothIntroduction !== data.introduce) {
+    if (
+      (boothName !== data.name && boothName !== '') ||
+      (boothIntroduction !== data.introduce && boothIntroduction !== '')
+    ) {
       setActive(true);
     } else setActive(false);
   }, [boothName, boothIntroduction]);
