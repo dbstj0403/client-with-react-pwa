@@ -8,16 +8,17 @@ import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 
 export default function Facilities() {
+  const [categoryState, setCategoryState] = useState(0);
+  const categoryClicked = (index) => {
+    setCategoryState(index);
+  };
+
   const [page, isPage] = useRecoilState(pageState);
 
   useEffect(() => {
     isPage('facilities');
   }, []);
 
-  const [categoryState, setCategoryState] = useState(0);
-  const categoryClicked = (index) => {
-    setCategoryState(index);
-  };
   return (
     <FacilitiesPageWrapper>
       <FacilitiesPageTitle>
@@ -43,7 +44,7 @@ const FacilitiesPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 2rem;
+  padding: 6rem 2rem;
 `;
 
 const FacilitiesPageTitle = styled.div`
@@ -54,21 +55,20 @@ const FacilitiesPageTitle = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #e3e3e3;
 `;
 
 const FacilitiesCategory = styled.div`
-  padding: 2.4rem 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 `;
 
 const CategoryBox = styled.div`
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) => (props.isClicked ? '#000000' : '#C4C4C4')};
+    color:${(props) => (props.isClicked ? props.theme.colors.white : props.theme.colors.gray700)};
     transition: color 0.3s ease;
   }
+  margin-bottom: 2.4rem;
 `;

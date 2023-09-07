@@ -12,7 +12,9 @@ export function Leader() {
         profileimg={taehwiImg}
         name={'이태휘'}
         major={'컴퓨터공학과 18'}
-        inst={'여기까지가 20자입니다 여러분 여기까'}
+        inst={'BTS 봉준호 손흥민 멋사 렛츠고'}
+        insta={'taehwi_lee'}
+        github={'THLcode'}
       />
     </TeamInst>
   );

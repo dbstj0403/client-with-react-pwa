@@ -19,7 +19,7 @@ const FacilityCardWrapper = styled.div`
 
 const CardTitle = styled.div`
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid #e3e3e3;
+  ${(props) => `border-bottom: 1px solid ${props.theme.colors.gray800}`};
   span {
     ${(props) => props.theme.fontStyles.head4}
   }
@@ -27,8 +27,10 @@ const CardTitle = styled.div`
 
 const CardDetail = styled.div`
   padding: 0.8rem 0;
+
   span {
     ${(props) => props.theme.fontStyles.subHead1}
     font-weight: 400;
+    color: #ff89d7;
   }
 `;

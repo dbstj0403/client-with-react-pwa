@@ -9,3 +9,8 @@ export const pageState = atom({
   key: 'pageState',
   default: '',
 });
+
+export const lineupState = atom({
+  key: 'lineupState',
+  default: false,
+});

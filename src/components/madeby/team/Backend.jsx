@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import theme from '@/styles/theme';
 import { Member } from '../Member';
+import hyewonImg from '@/assets/image/madeby/profile/혜원.jpg';
+import hanbiImg from '@/assets/image/madeby/profile/한비.jpg';
+import seulgiImg from '@/assets/image/madeby/profile/슬기.jpg';
 
 export function Backend() {
   return (
@@ -15,11 +18,27 @@ export function Backend() {
         전반적인 Life Cycle을 구성합니다.
       </BodyText>
       <Spacing height={6} />
-      <Member profileimg={''} name={'김슬기'} major={'컴퓨터공학과 19'} inst={'여기까지가 20자입니다 여러분 여기까'} />
+      <Member
+        profileimg={seulgiImg}
+        name={'김슬기'}
+        major={'컴퓨터공학과 19'}
+        inst={'컴퓨터공학과 19학번 김슬기입니다'}
+      />
       <Spacing height={4.8} />
-      <Member profileimg={''} name={'서혜원'} major={'컴퓨터공학과 20'} inst={'여기까지가 20자입니다 여러분 여기까'} />
+      <Member
+        profileimg={hyewonImg}
+        name={'서혜원'}
+        major={'컴퓨터공학과 20'}
+        inst={'20학번 첫 홍대 축제 넘 기대됩니당'}
+      />
       <Spacing height={4.8} />
-      <Member profileimg={''} name={'이한비'} major={'컴퓨터공학과 21'} inst={'여기까지가 20자입니다 여러분 여기까'} />
+      <Member
+        profileimg={hanbiImg}
+        name={'이한비'}
+        major={'컴퓨터공학과 21'}
+        inst={'축제 재밌게 즐기세용'}
+        github={'AlmondBreez3'}
+      />
     </TeamInst>
   );
 }
