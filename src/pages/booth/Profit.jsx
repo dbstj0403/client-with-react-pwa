@@ -1,9 +1,17 @@
 import BlackBoothCard from '@/components/booth/BlackBoothCard';
 import theme from '@/styles/theme';
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 function Profit() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('booth/profit');
+  }, []);
+
   const boothFocus = useRef([]);
 
   const booths = useMemo(

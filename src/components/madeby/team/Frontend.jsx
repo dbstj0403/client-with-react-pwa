@@ -42,6 +42,8 @@ export function Frontend() {
         name={'김현민'}
         major={'컴퓨터공학과 18'}
         inst={'최고가 되고싶은 개발자 김현민입니다.'}
+        insta={'hyeonmin_0614'}
+        github={'wokbjso'}
       />
       <Spacing height={4.8} />
       <Member

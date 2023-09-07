@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import scInst from '@/assets/image/semicolon/scInst.svg';
 import scLogo from '@/assets/image/semicolon/sclogo.svg';
-
+import scstyle from '@/assets/image/Semicolon/scstyle.svg';
 import { SemicolonInst } from '@/components/semicolon/SemicolonInst';
 import { Chairman } from '@/components/semicolon/team/Chairman';
 import { Executives } from '@/components/semicolon/team/Executives';
@@ -29,6 +29,10 @@ function Semicolon() {
         <InstText />
         <InstLogo />
       </Inst>
+      <Spacing height={4} />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <ForStyling />
+      </div>
       <SemicolonInst />
       <Spacing height={12} />
       <Chairman />
@@ -85,6 +89,15 @@ const InstLogo = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1;
+`;
+
+const ForStyling = styled.div`
+  width: 37.5rem;
+  height: 2.4rem;
+  background-image: url(${scstyle});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const Spacing = styled.div`
