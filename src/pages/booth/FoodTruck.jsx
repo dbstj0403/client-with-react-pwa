@@ -6,7 +6,7 @@ import FoodTruckCard from '@/components/booth/FoodTruckCard';
 
 export default function FoodTruck() {
   const [page, isPage] = useRecoilState(pageState);
-
+  const isAuth = true;
   useEffect(() => {
     isPage('booth/foodtruck');
   }, []);
