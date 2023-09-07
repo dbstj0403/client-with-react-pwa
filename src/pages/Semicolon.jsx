@@ -2,9 +2,9 @@ import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import hiInst from '@/assets/image/madeby/hiInst.svg';
-import hiLogo from '@/assets/image/madeby/hilogoinst.svg';
-
+import scInst from '@/assets/image/semicolon/scInst.svg';
+import scLogo from '@/assets/image/semicolon/sclogo.svg';
+import scstyle from '@/assets/image/Semicolon/scstyle.svg';
 import { SemicolonInst } from '@/components/semicolon/SemicolonInst';
 import { Chairman } from '@/components/semicolon/team/Chairman';
 import { Executives } from '@/components/semicolon/team/Executives';
@@ -29,6 +29,11 @@ function Semicolon() {
         <InstText />
         <InstLogo />
       </Inst>
+      <Spacing height={4} />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <ForStyling />
+      </div>
+      <Spacing height={1.2} />
       <SemicolonInst />
       <Spacing height={12} />
       <Chairman />
@@ -69,7 +74,7 @@ const InstText = styled.div`
   position: absolute;
   width: 20.2rem;
   height: 8.4rem;
-  background-image: url(${hiInst});
+  background-image: url(${scInst});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -80,11 +85,20 @@ const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
   margin-top: 18.1rem;
-  background-image: url(${hiLogo});
+  background-image: url(${scLogo});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1;
+`;
+
+const ForStyling = styled.div`
+  width: 37.5rem;
+  height: 2.4rem;
+  background-image: url(${scstyle});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const Spacing = styled.div`

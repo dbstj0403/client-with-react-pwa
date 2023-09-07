@@ -1,9 +1,17 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import BlackBoothCard from '@/components/booth/BlackBoothCard';
 
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 export default function Promotion() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('booth/promotion');
+  }, []);
+
   const boothFocus = useRef([]);
 
   const pointers = useMemo(
