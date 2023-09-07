@@ -15,7 +15,7 @@ RUN yarn install --immutable
 
 # Copies everything over to Docker environment
 COPY . .
-RUN yarn vite build
+RUN yarn build
 
 #Stage 2
 #######################################
