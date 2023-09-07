@@ -1,12 +1,24 @@
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 
-function OperatingTimeItem(props) {
+function OperatingTimeItem({ number, data }) {
   return (
     <OperatingBox>
-      <Number>1</Number>
-      <OperatingTitle>메인무대 운영시간</OperatingTitle>
-      <OperatingTime>18:00 ~ 24:00</OperatingTime>
+      <Number>{number}</Number>
+      <OperatingTitle>{`${data.operate} 운영시간`}</OperatingTitle>
+      {data.second === null ? (
+        <OperatingTime>
+          {`${data.start} ~ ${data.end}`}
+          {data.desc !== null ? <Desc>{`\n${data.desc}`}</Desc> : null}
+        </OperatingTime>
+      ) : (
+        <OperatingTimeSecond>
+          <Order first={1}>{data.second.startLabel} </Order>
+          {`${data.start} ~ ${data.end}\n`}
+          <Order first={0}>{data.second.endLabel} </Order>
+          {`${data.second.start} ~ ${data.second.end}\n`}
+        </OperatingTimeSecond>
+      )}
     </OperatingBox>
   );
 }
@@ -14,6 +26,8 @@ function OperatingTimeItem(props) {
 export default OperatingTimeItem;
 
 const OperatingBox = styled.div`
+  position: relative;
+  z-index: 2;
   padding: 2.4rem 2.8rem 2.4rem 2rem;
   background: ${theme.colors.black13};
   backdrop-filter: blur(0.6rem);
@@ -23,7 +37,6 @@ const OperatingBox = styled.div`
   }
 `;
 
-// typeface guide에 없어서 임시로 line height 설정
 const Number = styled.div`
   display: flex;
   justify-content: center;
@@ -35,8 +48,7 @@ const Number = styled.div`
   background-color: ${theme.colors.white200};
 
   color: ${theme.colors.black};
-  ${theme.fontStyles.subHead1};
-  line-height: 1.6rem;
+  ${theme.fontStyles.subHead4};
 `;
 
 const OperatingTitle = styled.div`
@@ -45,10 +57,30 @@ const OperatingTitle = styled.div`
   ${theme.fontStyles.head5};
 `;
 
-// typeface guide에 없어서 임시로 body2로 설정
 const OperatingTime = styled.div`
   padding: 0.8rem 0;
   border-top: 0.1rem solid ${theme.colors.gray800};
   color: ${theme.colors.gray200};
-  ${theme.fontStyles.body2};
+  ${theme.fontStyles.subHead3};
+
+  white-space: pre-line;
+`;
+
+const Desc = styled.span`
+  color: ${theme.colors.pink};
+  ${theme.fontStyles.subHead3};
+`;
+
+const OperatingTimeSecond = styled.div`
+  padding: 0.8rem 0;
+  border-top: 0.1rem solid ${theme.colors.gray800};
+  color: ${theme.colors.gray200};
+  ${theme.fontStyles.subHead3};
+
+  white-space: pre-line;
+`;
+
+const Order = styled.span`
+  color: ${(props) => (props.first ? theme.colors.pink : theme.colors.green)};
+  ${theme.fontStyles.subHead3};
 `;

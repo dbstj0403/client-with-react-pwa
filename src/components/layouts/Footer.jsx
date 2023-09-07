@@ -7,11 +7,16 @@ import { Instagram } from '@/assets/icons/footer/Instagram';
 import { GoThrough } from '@/assets/icons/footer/GoThrough';
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
+import { SemicolonIcon } from '@/assets/icons/footer/SemicolonIcon';
 
 function Footer() {
   const [page, isPage] = useRecoilState(pageState);
   const goToMadeBy = () => {
     window.location.replace('/madeby');
+  };
+
+  const goToSemicolon = () => {
+    window.location.replace('/semicolon');
   };
 
   return (
@@ -25,6 +30,11 @@ function Footer() {
         만든이들
         <MadeByIcon />
       </GoToMadeBy>
+      <Spacing height={0.4} />
+      <GoToSemicolon issemicolon={page} onClick={goToSemicolon}>
+        SEMICOLON
+        <SemicolonIcon />
+      </GoToSemicolon>
       <FooterWrap>
         대동제 채널 바로가기
         <Spacing height={1.2} />
@@ -70,6 +80,14 @@ const GoToMadeBy = styled.div`
   display: ${(props) => (props.ismadeby === 'madeby' ? 'none' : 'flex')};
   justify-content: center;
   color: ${theme.colors.green};
+  cursor: pointer;
+  ${theme.fontStyles.body2};
+`;
+
+const GoToSemicolon = styled.div`
+  display: ${(props) => (props.issemicolon === 'semicolon' ? 'none' : 'flex')};
+  justify-content: center;
+  color: ${theme.colors.pink};
   cursor: pointer;
   ${theme.fontStyles.body2};
 `;

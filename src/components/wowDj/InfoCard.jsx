@@ -1,18 +1,33 @@
 import styled from 'styled-components';
 import React from 'react';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function InfoCard() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <InfoContainer>
+    <InfoContainer data-aos="zoom-in-down" data-aos-duration="800">
       <InfoBox height="15rem" backgroundColor="rgb(13,13,13,0.9)">
         <InfouNumber>1</InfouNumber>
         <InfoTitle>진행 시간</InfoTitle>
         <InfoText>각 일 19시 ~ 24시</InfoText>
       </InfoBox>
-      <InfoBox height="15rem" backgroundColor="rgb(19,19,19, 0.9)">
+      <InfoBox height="25.4rem" backgroundColor="rgb(19,19,19,0.9)">
         <InfouNumber>2</InfouNumber>
         <InfoTitle>입장 가격</InfoTitle>
-        <InfoText>홍익대학교 재학생, 휴학생 및 졸업 유예생 5000원 / 외부인 20000원</InfoText>
+        <TextWrapper>
+          <InfoText spanColor="rgba(66, 207, 97, 1)">
+            홍익대학교 재학생, 휴학생 및 졸업 유예생 <br /> <span>5000원</span>
+          </InfoText>
+
+          <InfoText spanColor="rgba(255, 137, 215, 1)">
+            외부인 <br />
+            <span>20000원</span>
+          </InfoText>
+        </TextWrapper>
       </InfoBox>
       <InfoBox backgroundColor="rgb(13,13,13,0.9)">
         <InfouNumber>3</InfouNumber>
@@ -25,10 +40,10 @@ function InfoCard() {
 export default InfoCard;
 const InfoContainer = styled.div`
   margin: 0 auto;
-  margin-top: 13rem;
-  z-index: 1;
+  margin-top: 7rem;
   width: 33.5rem;
   position: relative;
+  z-index: 5;
 `;
 
 const InfoBox = styled.div`
@@ -67,4 +82,19 @@ const InfoText = styled.div`
   margin-top: 0.3rem;
   padding-top: 0.5rem;
   color: ${(props) => props.theme.colors.gray300};
+  span {
+    font-family: Pretendard Variable;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    letter-spacing: 0em;
+    color: ${(props) => props.spanColor};
+  }
+`;
+const TextWrapper = styled.div`
+  width: 28.7rem;
+  height: 13.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;

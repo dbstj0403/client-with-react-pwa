@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import moveTopBtnIcon from '@/assets/icons/moveToTopBtnIcon.svg';
 import { useState, useEffect } from 'react';
+import theme from '@/styles/theme';
 
 function MoveToTopBtn() {
   const [showBtn, setShowBtn] = useState(false);
@@ -56,10 +57,6 @@ const Btn = styled.button`
   justify-content: space-between;
 `;
 const BtnText = styled.p`
-  font-family: Pretendard;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 2.55rem;
-  letter-spacing: 0em;
+  ${theme.fontStyles.subHead1};
   text-align: left;
 `;

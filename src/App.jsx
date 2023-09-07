@@ -9,6 +9,10 @@ import FoodTruck from './pages/booth/FoodTruck';
 import CentralStage from './pages/CentralStage';
 import HongikZone from './pages/HongikZone';
 import MadeBy from './pages/MadeBy';
+import Entrance from './pages/Entrance';
+import Profit from './pages/booth/Profit';
+import Promotion from './pages/booth/Promotion';
+import Semicolon from './pages/Semicolon';
 
 function App() {
   return (
@@ -16,12 +20,16 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/wowdjfestival" element={<WowDjFestival />} />
+        <Route path="/entrance" element={<Entrance />} />
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/booth/pub" element={<Pub />} />
+        <Route path="/booth/profit" element={<Profit />} />
+        <Route path="/booth/promotion" element={<Promotion />} />
         <Route path="/booth/foodtruck" element={<FoodTruck />} />
         <Route path="/stage" element={<CentralStage />} />
         <Route path="/hongikzone" element={<HongikZone />} />
         <Route path="/madeby" element={<MadeBy />} />
+        <Route path="/semicolon" element={<Semicolon />} />
       </Route>
     </Routes>
   );

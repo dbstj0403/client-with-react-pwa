@@ -42,13 +42,15 @@ export function Frontend() {
         name={'김현민'}
         major={'컴퓨터공학과 18'}
         inst={'최고가 되고싶은 개발자 김현민입니다.'}
+        insta={'hyeonmin_0614'}
+        github={'wokbjso'}
       />
       <Spacing height={4.8} />
       <Member
         profileimg={choyeonImg}
         name={'김초연'}
         major={'컴퓨터공학과 21'}
-        inst={'멋사 12기 모집 커밍쑨...'}
+        inst={'설 & 유다빈밴드 짱!'}
         insta={'keep_cy'}
         github={'choyeon2e'}
       />
@@ -57,7 +59,7 @@ export function Frontend() {
         profileimg={yunseoImg}
         name={'원윤서'}
         major={'컴퓨터공학과 21'}
-        inst={'뉴진스 우원재… 그리고 멋사 🦁'}
+        inst={'윤하 뉴진스… 그리고 멋사 🦁✨'}
         insta={'lov2loveluv'}
         github={'dbstj0403'}
       />
