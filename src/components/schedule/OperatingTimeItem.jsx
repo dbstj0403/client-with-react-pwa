@@ -13,9 +13,9 @@ function OperatingTimeItem({ number, data }) {
         </OperatingTime>
       ) : (
         <OperatingTimeSecond>
-          <Order first={1}>{`1차: `} </Order>
+          <Order first={1}>{data.second.startLabel} </Order>
           {`${data.start} ~ ${data.end}\n`}
-          <Order first={0}>{`2차: `} </Order>
+          <Order first={0}>{data.second.endLabel} </Order>
           {`${data.second.start} ~ ${data.second.end}\n`}
         </OperatingTimeSecond>
       )}
@@ -26,6 +26,8 @@ function OperatingTimeItem({ number, data }) {
 export default OperatingTimeItem;
 
 const OperatingBox = styled.div`
+  position: relative;
+  z-index: 2;
   padding: 2.4rem 2.8rem 2.4rem 2rem;
   background: ${theme.colors.black13};
   backdrop-filter: blur(0.6rem);
