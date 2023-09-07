@@ -190,6 +190,8 @@ const MainSection = styled.section`
   background-image: url('/img/booth/profit/profit-background.png');
   background-repeat: no-repeat;
   background-size: cover;
+
+  z-index: 10;
 `;
 
 const Title = styled.h1`
@@ -225,12 +227,14 @@ const BoothMap = styled(MapSize)`
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
+  z-index: 2;
 `;
 const BoothDetail = styled(MapSize)`
   position: relative;
   background-image: url('/public/img/booth/profit/booth-profit-detail.jpg');
 
   margin-bottom: 8rem;
+  z-index: 2;
 `;
 
 const BoothSummaryWrapper = styled.div`

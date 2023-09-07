@@ -11,7 +11,7 @@ import useGetPubs from '@/query/get/useGetPubs';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
-  const [categoryEngText, setCategoryEngText] = useState('all');
+  const [department, setDepartment] = useState('fineArt');
   const [page, isPage] = useRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
   const isAuth = false;
@@ -23,7 +23,8 @@ export default function Pub() {
     isPage('booth/pub');
   }, []);
 
-  const { getPubs, isLoading, error } = useGetPubs(categoryEngText);
+  const { getPubs, isLoading, error } = useGetPubs(department);
+  console.log(getPubs);
 
   const boothData = [
     {
@@ -75,11 +76,7 @@ export default function Pub() {
       </PubPageTitle>
       <PubMapWrapper>
         <PubMainMap />
-        <PubCategory
-          categories={pubCategory}
-          setCategoryText={setCategoryText}
-          setCategoryEngText={setCategoryEngText}
-        />
+        <PubCategory categories={pubCategory} setCategoryText={setCategoryText} setCategoryEngText={setDepartment} />
       </PubMapWrapper>
       {isAuth ? (
         <AddBooth onClick={addBoothClicked}>

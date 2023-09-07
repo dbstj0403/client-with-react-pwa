@@ -5,7 +5,8 @@ function Campus(props) {
   return (
     <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 300 ? 1 : 0}>
       <Backdrop scroll={props.scroll} />
-      <CampusImage src="/img/hongikview/hongikview.jpg" alt="hongik" />
+      <Gradient />
+      <CampusImage src="/img/hongikview/hongikview.gif" alt="hongik" />
     </Container>
   );
 }
@@ -24,13 +25,24 @@ const Container = styled.div`
 const Backdrop = styled.div`
   position: absolute;
   width: 100%;
+  z-index: 2;
 
   height: 24rem;
   background-color: ${theme.colors.background};
   opacity: ${(props) => (props.scroll > 20 && props.scroll < 160 ? (props.scroll - 20) / 100 : 0)};
 `;
 
+const Gradient = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 24rem;
+  z-index: 1;
+
+  background: linear-gradient(#00000000, #000000);
+`;
+
 const CampusImage = styled.img`
+  position: relative;
   width: 100%;
   height: 24rem;
   object-fit: fill;

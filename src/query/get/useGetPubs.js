@@ -1,7 +1,8 @@
 import { axiosInstance } from '@/axios/axios';
 import { useQuery } from '@tanstack/react-query';
 
-export default function useGetPubs({ department }) {
+export default function useGetPubs(department) {
+  console.log(department);
   const { data, isLoading, error } = useQuery({
     queryKey: ['getPubs', department],
     queryFn: async () => {

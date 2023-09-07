@@ -6,7 +6,7 @@ import FoodTruckCard from '@/components/booth/FoodTruckCard';
 
 export default function FoodTruck() {
   const [page, isPage] = useRecoilState(pageState);
-  const isAuth = true;
+  const isAuth = false;
 
   useEffect(() => {
     isPage('booth/foodtruck');
@@ -14,29 +14,79 @@ export default function FoodTruck() {
 
   const foodTruckData = [
     {
-      image: 'https://cdn.pixabay.com/photo/2015/10/22/18/58/chicken-1001767_1280.jpg',
       number: 1,
-      name: 'KFC',
-      introduce: '치킨을 판매하는 브랜드입니다.',
+      name: '에이치컴퍼니',
+      introduce: '야끼소바',
     },
     {
-      image: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
       number: 2,
-      name: '맘스터치',
-      introduce: '햄버거를 판매하는 브랜드입니다.',
+      name: '스낵런',
+      introduce: '탕후루',
     },
     {
-      image:
-        'https://media.istockphoto.com/id/1394500853/ko/%EC%82%AC%EC%A7%84/%EC%BD%98%ED%81%AC%EB%A6%AC%ED%8A%B8-%EB%B0%B0%EA%B2%BD-%EC%9C%84%EC%97%90-%EA%B3%B5%EC%98%88-%EC%A2%85%EC%9D%B4%EC%97%90-%EB%91%90-%EA%B0%9C%EC%9D%98-%EB%A7%9B%EC%9E%88%EB%8A%94-%ED%95%AB%EB%8F%84%EA%B7%B8.webp?b=1&s=612x612&w=0&k=20&c=ImxCfRkWMQ1PIXLR0ztp75qZ57HxLGHQ_5s-umXDhec=',
-      number: 1,
-      name: '명랑핫도그',
-      introduce: '핫도그를 판매하는 브랜드입니다.',
+      number: 3,
+      name: '웍커',
+      introduce: '크림새우3종',
     },
     {
-      image: 'https://cdn.pixabay.com/photo/2019/11/01/05/57/ramen-4593402_1280.jpg',
-      number: 1,
-      name: '인생라면',
-      introduce: '라면',
+      number: 4,
+      name: '와사바리',
+      introduce: '닭강정',
+    },
+    {
+      number: 5,
+      name: '탑클래스',
+      introduce: '자이언트케밥, 빅소세지',
+    },
+    {
+      number: 6,
+      name: '짱츄닭',
+      introduce: '닭꼬치',
+    },
+    {
+      number: 7,
+      name: '월드푸드',
+      introduce: '수제츄러스, 아이스크림츄러스',
+    },
+    {
+      number: 8,
+      name: '비포',
+      introduce: '커피, 음료, 칵테일',
+    },
+    {
+      number: 9,
+      name: '에이셉피자',
+      introduce: '피자 3종(A$AP, 페퍼로니, 치즈)',
+    },
+    {
+      number: 10,
+      name: '하하푸드트럭',
+      introduce: '부침개 / 두부김치',
+    },
+    {
+      number: 11,
+      name: '체리블라썸',
+      introduce: '타코야끼, 소떡',
+    },
+    {
+      number: 12,
+      name: '블랙스테이크',
+      introduce: '스테이크, 스테이크덮밥',
+    },
+    {
+      number: 13,
+      name: '곱창좋은날',
+      introduce: '순대곱창볶음',
+    },
+    {
+      number: 14,
+      name: '꿈',
+      introduce: '크레페',
+    },
+    {
+      number: 15,
+      name: '그레잇',
+      introduce: '포테이토 5종, 회오리감자',
     },
   ];
 
@@ -45,13 +95,12 @@ export default function FoodTruck() {
       <FoodTruckPageTitle>
         <span>푸드트럭</span>
       </FoodTruckPageTitle>
-      <FoodTruckMap
-        alt={'푸드트럭 이미지'}
-        src="https://media.istockphoto.com/id/1415170044/ko/%EC%82%AC%EC%A7%84/%EC%95%BC%EC%99%B8-%EA%B1%B0%EB%A6%AC-%EC%9D%8C%EC%8B%9D-%EC%B6%95%EC%A0%9C-%EC%95%BC%EC%99%B8-%EC%B2%A0%ED%8C%90%EC%97%90%EC%84%9C-%EC%9A%94%EB%A6%AC%ED%95%98%EB%8A%94-%EC%86%8C%EC%8B%9C%EC%A7%80-%EA%B3%A0%EA%B8%B0-%EB%B0%8F-%EA%B0%90%EC%9E%90-%EC%9A%94%EB%A6%AC-%EC%88%98%EC%84%9D.webp?b=1&s=612x612&w=0&k=20&c=aKzeRd3r6ZOexBKV4i5QSqDESh6pSc_1CxtX1XoIr1I="
-      />
-      <FoodTruckCount>
-        <span>16개 부스</span>
-      </FoodTruckCount>
+      <FoodTruckMainMap />
+      <FoodTruckSubMap />
+      <AlertMsg>
+        <div />
+        <p>푸드 트럭은 축제 당일 들어오는 순서대로 자리가 변동될 수 있습니다.</p>
+      </AlertMsg>
       <FoodTruckBooths>
         {foodTruckData.map((foodTruck) => {
           return <FoodTruckCard key={foodTruck.name} data={foodTruck} />;
@@ -67,6 +116,9 @@ const FoodTruckPageWrapper = styled.div`
   align-items: center;
   padding: 0 2rem;
   padding-top: 6rem;
+  background-image: url('/img/booth/profit/profit-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const FoodTruckPageTitle = styled.div`
@@ -79,19 +131,46 @@ const FoodTruckPageTitle = styled.div`
   justify-content: center;
 `;
 
-const FoodTruckMap = styled.img`
+const FoodTruckMainMap = styled.div`
   width: 33.5rem;
   height: 19rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3.6rem;
+  background: url('/img/foodTruckMainMap.png');
+  background-size: cover;
 `;
 
-const FoodTruckCount = styled.div`
-  span {
-    ${(props) => props.theme.fontStyles.subHead2}
-    font-size:2.8rem;
-    line-height: 3.6rem;
+const FoodTruckSubMap = styled.div`
+  width: 33.5rem;
+  height: 19rem;
+  background: url('/img/foodTruckSubMap.png');
+  background-size: contain;
+`;
+
+const AlertMsg = styled.div`
+  width: 100%;
+  height: 8rem;
+  padding: 1.8rem 2rem;
+  margin: 2.4rem 0;
+  display: flex;
+  align-items: center;
+  border-radius: 1px;
+  background: rgba(16, 16, 16, 0.9);
+  backdrop-filter: blur(4px);
+  div {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/img/icon-pin-location-mono.png');
+    margin-right: 1.6rem;
   }
+  p {
+    color: ${(props) => props.theme.colors.gray200};
+    ${(props) => props.theme.fontStyles.body3}
+  }
+`;
+
+const FoodTruckBooths = styled.div`
   width: 100%;
 `;
-
-const FoodTruckBooths = styled.div``;
