@@ -116,6 +116,9 @@ const FoodTruckPageWrapper = styled.div`
   align-items: center;
   padding: 0 2rem;
   padding-top: 6rem;
+  background-image: url('/img/booth/profit/profit-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const FoodTruckPageTitle = styled.div`
