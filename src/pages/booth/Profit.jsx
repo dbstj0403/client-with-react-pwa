@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function Profit() {
   const [page, isPage] = useRecoilState(pageState);
@@ -173,6 +174,7 @@ function Profit() {
           <BlackBoothCard data={booth} variant="secondary" />
         </div>
       ))}
+      <MoveToTopBtn />
     </MainSection>
   );
 }
@@ -223,7 +225,7 @@ const MapSize = styled.div`
 `;
 
 const BoothMap = styled(MapSize)`
-  background-image: url('/public/img/booth/profit/booth-profit-map.jpg');
+  background-image: url('/public/img/booth/profit/booth-profit-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
@@ -231,7 +233,7 @@ const BoothMap = styled(MapSize)`
 `;
 const BoothDetail = styled(MapSize)`
   position: relative;
-  background-image: url('/public/img/booth/profit/booth-profit-detail.jpg');
+  background-image: url('/public/img/booth/profit/booth-profit-detail.png');
 
   margin-bottom: 8rem;
   z-index: 2;
