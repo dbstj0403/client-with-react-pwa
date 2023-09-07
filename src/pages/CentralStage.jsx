@@ -3,6 +3,7 @@ import { pageState } from '@/libs/store';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function CentralStage() {
   const isPage = useSetRecoilState(pageState);
@@ -104,6 +105,7 @@ function CentralStage() {
           <PageIconCenter rotateSize={schedulePageIconRotateSize} />
           <PageIconCorner />
         </ScheduleWrapper>
+        <MoveToTopBtn />
       </MainSection>
     </>
   );
