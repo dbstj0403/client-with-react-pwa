@@ -33,6 +33,7 @@ function Semicolon() {
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <ForStyling />
       </div>
+      <Spacing height={1.2} />
       <SemicolonInst />
       <Spacing height={12} />
       <Chairman />
