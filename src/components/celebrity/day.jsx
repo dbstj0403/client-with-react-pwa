@@ -11,6 +11,8 @@ function Day({ day, info }) {
         <Card key={`celeb-${day}-${idx}`}>
           <CelebImageContainer>
             <CelebImage src={celeb.image} />
+            {celeb.left ? <LeftTriangle src="/img/left.png" /> : <Rightriangle src="/img/right.png" />}
+            <GradientImage />
             {celeb.chartman ? (
               <ChartMan>
                 본 아티스트는 <ChartManIcon src="/img/chartman.png" />과 함께합니다.
@@ -61,6 +63,39 @@ const CelebImageContainer = styled.div`
 const CelebImage = styled.img`
   width: 100%;
   height: 21.6rem;
+
+  object-fit: cover;
+`;
+
+const LeftTriangle = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 19.8rem;
+  height: 4.6rem;
+`;
+
+const Rightriangle = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  width: 19.8rem;
+  height: 4.6rem;
+`;
+
+const GradientImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 21.6rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
 `;
 
 const Introduction = styled.div`
@@ -114,7 +149,7 @@ const ChartMan = styled.div`
   align-items: center;
   position: absolute;
   bottom: 0;
-
+  z-index: 3;
   width: 100%;
   height: 4rem;
   padding-left: 1.6rem;
