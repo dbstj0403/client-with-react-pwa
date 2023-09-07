@@ -11,7 +11,11 @@ function Day({ day, info }) {
         <Card key={`celeb-${day}-${idx}`}>
           <CelebImageContainer>
             <CelebImage src={celeb.image} />
-            {celeb.left ? <LeftTriangle src="/img/left.png" /> : <Rightriangle src="/img/right.png" />}
+            {celeb.left === true ? (
+              <LeftTriangle src="/img/left.png" />
+            ) : celeb.left === false ? (
+              <Rightriangle src="/img/right.png" />
+            ) : null}
             <GradientImage />
             {celeb.chartman ? (
               <ChartMan>

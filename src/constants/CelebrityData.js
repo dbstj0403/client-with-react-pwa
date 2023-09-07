@@ -28,8 +28,7 @@ export const CelebrityData = {
     {
       name: '타이거 JK',
       image: '/img/celeb/TigerJK.jpg',
-      introduce: `대한민국 힙합계의 아버지.
-            전설 속의 인물이 홍대로 찾아오다`,
+      introduce: `전설 속의 인물이 홍대로 찾아오다`,
       chartman: false,
       left: false,
       backgroundGradation: '/img/gradation/gradation4.png',
@@ -37,8 +36,7 @@ export const CelebrityData = {
     {
       name: '윤미래',
       image: '/img/celeb/윤미래.jpg',
-      introduce: `대한민국 힙합계의 어머니. 현재까지 아무도
-            그녀만의 바이브를 넘어서지 못하고 있다`,
+      introduce: `현재까지 아무도 그녀만의 바이브를 넘어서지 못하고 있다`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation1.png',
@@ -70,7 +68,7 @@ export const CelebrityData = {
       backgroundGradation: '/img/gradation/gradation1.png',
     },
     {
-      name: '10cm',
+      name: '10CM',
       image: '/img/celeb/10cm.jpg',
       introduce: `커피처럼 달콤쌉싸름한, 생각날 때 계속 찾게되는 가수`,
       chartman: false,
@@ -85,7 +83,7 @@ export const CelebrityData = {
       introduce: `저 혹시, 홍대가려면 어떻게 가야돼요?
       NewJeans의 Hype Boy요`,
       chartman: false,
-      left: false,
+      left: null,
       backgroundGradation: '/img/gradation/gradation1.png',
     },
     {
@@ -100,8 +98,7 @@ export const CelebrityData = {
     {
       name: '정용화',
       image: '/img/celeb/정용화.jpg',
-      introduce: `우리들의 추억 속 밴드의 메인보컬이자
-      솔로 가수로도 활동하는 싱어송라이터`,
+      introduce: `모던락의 선두주자 CNBLUE 메인 보컬이자 솔로 가수로도 활동하는 싱어송라이터`,
       chartman: false,
       left: false,
       backgroundGradation: '/img/gradation/gradation2.png',
