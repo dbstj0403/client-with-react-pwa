@@ -12,7 +12,7 @@ import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
-  const [department, setDepartment] = useState('fineArt');
+  const [department, setDepartment] = useState('all');
   const [page, isPage] = useRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
   const isAuth = false;
@@ -25,51 +25,6 @@ export default function Pub() {
   }, []);
 
   const { getPubs, isLoading, error } = useGetPubs(department);
-  console.log(getPubs);
-
-  const boothData = [
-    {
-      image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
-      owns: '예술학과 주점',
-      page: 'A',
-      position: 1,
-      mainMenu: '국물떡볶이',
-      introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
-    },
-    {
-      image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
-      owns: '컴퓨터공학과 주점',
-      page: 'B',
-      position: 2,
-      mainMenu: '감자튀김',
-      introduction:
-        '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.서비스 많이 드립니다.서비스 많이 드립니다.',
-    },
-    {
-      image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
-      owns: '경영학과 주점',
-      page: 'C',
-      position: 1,
-      mainMenu: '닭꼬치',
-      introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
-    },
-    {
-      image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
-      owns: '화학공학과 주점',
-      page: 'A',
-      position: 2,
-      mainMenu: '계란말이',
-      introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
-    },
-    {
-      image: 'https://cdn.pixabay.com/photo/2023/04/27/10/22/cat-7954262_1280.jpg',
-      owns: '화학공학과 주점',
-      page: 'B',
-      position: 2,
-      mainMenu: '계란말이',
-      introduction: '가장 맛있는 주점입니다. 많이많이 놀러오세요!! 서비스 많이 드립니다.',
-    },
-  ];
   return (
     <PubPageWrapper>
       <PubPageTitle>
@@ -88,15 +43,17 @@ export default function Pub() {
 
       <PubBooths>
         <AreaText>
-          <span>{categoryText} 구역</span>
-          <span>14개 부스</span>
+          <span>{categoryText}구역</span>
+          <span>{!isLoading ? getPubs.pub.length : null} 부스</span>
         </AreaText>
         {boothAdding ? <AddingPubCard /> : null}
 
         <PubCards>
-          {boothData.map((booth, index) => {
-            return <PubCard key={booth.owns + index} data={booth} />;
-          })}
+          {!isLoading
+            ? getPubs.pub.map((booth, index) => {
+                return <PubCard key={booth.department + index} data={booth} />;
+              })
+            : null}
         </PubCards>
       </PubBooths>
       <MoveToTopBtn />
