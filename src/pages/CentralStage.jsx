@@ -1,4 +1,5 @@
 import { DaySelector, TimeTable } from '@/components/stage';
+import CelabLineUp from '@/components/stage/CelabLineUp';
 import { pageState } from '@/libs/store';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -9,12 +10,14 @@ function CentralStage() {
 
   const [schedulePageIconRotateSize, setRotate] = useState(0);
 
+  const festivalDays = useMemo(() => [1, 2, 3], []);
+
   useEffect(() => {
     isPage('stage');
   }, []);
 
   /** 축제 시작 날짜 */
-  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-08-29').getTime() / 1000.0), []);
+  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-09-07').getTime() / 1000.0), []);
 
   const [day, setDay] = useState(() => {
     const todayDate = new Date();
@@ -26,7 +29,8 @@ function CentralStage() {
     const currentDays = (todaySeconds - festivalStartDate) / 86400;
 
     if (currentDays < 1) {
-      return -30;
+      setRotate(-30);
+      return 0;
     }
     if (currentDays < 2) {
       setRotate(0);
@@ -94,11 +98,16 @@ function CentralStage() {
     <>
       <MainSection>
         <Title>중앙무대</Title>
-
         <Map />
+
+        <Title>라인업</Title>
+        {festivalDays.map((day) => (
+          <CelabLineUp key={day} day={day} />
+        ))}
+
         <ScheduleWrapper>
           <StageSchedule>중앙무대 일정</StageSchedule>
-          <DaySelector selectedDay={day} onClick={(day) => onClickDay(day)} />
+          <DaySelector selectedDay={day} />
           <TimeTable day={day} onSwipe={onSwipe} />
 
           <PageIconCenter rotateSize={schedulePageIconRotateSize} />
@@ -121,11 +130,12 @@ const MainSection = styled.section`
 
 const Map = styled.div`
   width: 33.5rem;
-  height: 18.9rem;
+  height: 20rem;
 
-  border: 1px solid white;
+  background-image: url('/img/stage/central-stage-map.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  margin-top: 3.6rem;
   margin-bottom: 16rem;
 `;
 
@@ -173,10 +183,14 @@ const ScheduleWrapper = styled.div`
 
   width: 37.5rem;
   min-height: 84.3rem;
+
+  margin-top: 22rem;
 `;
 
 const Title = styled.header`
   width: 100%;
+
+  margin-bottom: 3.6rem;
 
   text-align: center;
   ${({ theme }) => theme.fontStyles.head1}

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 import ScheduleTable from '@/components/schedule/ScheduleTable';
+import { scheduleData } from '@/constants/ScheduleData';
 
 function Schedule() {
   return (
@@ -9,9 +10,9 @@ function Schedule() {
       <MiddleImage />
       <BottomImage />
       <Title>일정 소개</Title>
-      <ScheduleTable />
-      <ScheduleTable />
-      <ScheduleTable />
+      {scheduleData.map((schedule, idx) => (
+        <ScheduleTable key={`schedule${idx}`} schedule={schedule} />
+      ))}
     </Container>
   );
 }
@@ -40,6 +41,7 @@ const TopImage = styled.div`
   position: absolute;
   top: 6.7rem;
   right: 5.5rem;
+  z-index: 1;
 
   width: 24.7rem;
   height: 30.8rem;
@@ -52,6 +54,7 @@ const MiddleImage = styled.div`
   position: absolute;
   top: 39.7rem;
   left: -7.5rem;
+  z-index: 1;
 
   width: 24.7rem;
   height: 30.8rem;
@@ -65,6 +68,7 @@ const BottomImage = styled.div`
   position: absolute;
   top: 84rem;
   right: -9.5rem;
+  z-index: 1;
 
   width: 24.7rem;
   height: 30.8rem;
