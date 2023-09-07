@@ -12,8 +12,7 @@ export const CelebrityData = {
     {
       name: '양다일',
       image: '/img/celeb/양다일.png',
-      introduce: `미안해, 더는 널 바라보지 않아.
-            근육 속에 숨겨진 마성의 목소리`,
+      introduce: `전통 진성 가수들과는 차별화된 믹스보이스 창법의 가수`,
       chartman: true,
       left: false,
       backgroundGradation: '/img/gradation/gradation2.png',
@@ -21,8 +20,7 @@ export const CelebrityData = {
     {
       name: '나비',
       image: '/img/celeb/나비.png',
-      introduce: `WSG 워너비의 멤버,
-            나비처럼 아름다운 목소리의 소유자`,
+      introduce: `차트를 휩쓸었던 WSG 워너비의 멤버로, 나비처럼 아름다운 목소리의 소유자`,
       chartman: true,
       left: true,
       backgroundGradation: '/img/gradation/gradation3.png',
@@ -40,7 +38,7 @@ export const CelebrityData = {
       name: '윤미래',
       image: '/img/celeb/윤미래.jpg',
       introduce: `대한민국 힙합계의 어머니. 현재까지 아무도
-            그녀만의 바이브를 넘어서지 못한다`,
+            그녀만의 바이브를 넘어서지 못하고 있다`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation1.png',
@@ -58,7 +56,7 @@ export const CelebrityData = {
     {
       name: '유다빈밴드',
       image: '/img/celeb/유다빈밴드.png',
-      introduce: `사람들에게 가장 가까운 마음의 목소리를 전하다`,
+      introduce: `사람들에게 가장 가까운 마음의 목소리를 전하는 차세대 혼성 밴드`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation3.png',
