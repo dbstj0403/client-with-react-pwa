@@ -1,39 +1,21 @@
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 
-function ScheduleTable(props) {
+function ScheduleTable({ schedule }) {
   return (
     <Container>
-      <Title>9.13</Title>
-      <Item>
-        <Number>1</Number>
-        <Time>
-          <TimeDesc>18:00</TimeDesc>-<TimeDesc>20:00</TimeDesc>
-        </Time>
-        <ScheduleDescContainer>
-          <ScheduleDesc>수익부스사업</ScheduleDesc>
-        </ScheduleDescContainer>
-      </Item>
-      <Item>
-        <Number>2</Number>
-        <Time>
-          <TimeDesc>18:00</TimeDesc>-<TimeDesc>20:00</TimeDesc>
-        </Time>
-        <ScheduleDescContainer>
-          <ScheduleDesc>수익부스사업</ScheduleDesc>
-          <ScheduleDesc>수익부스사업</ScheduleDesc>
-        </ScheduleDescContainer>
-      </Item>
-      <Item>
-        <Number>3</Number>
-        <Time>
-          <TimeDesc>18:00</TimeDesc>-<TimeDesc>20:00</TimeDesc>
-        </Time>
-        <ScheduleDescContainer>
-          <ScheduleDesc>수익부스사업</ScheduleDesc>
-          <ScheduleDesc>수익부스사업</ScheduleDesc>
-        </ScheduleDescContainer>
-      </Item>
+      <Title>{schedule.date}</Title>
+      {schedule.detail.map((time, idx) => (
+        <Item key={`${schedule.date}-${idx}`}>
+          <Number>{idx + 1}</Number>
+          <Time>
+            <TimeDesc>{time.start}</TimeDesc>~<TimeDesc>{time.end}</TimeDesc>
+          </Time>
+          <ScheduleDescContainer>
+            <ScheduleDesc>{time.name}</ScheduleDesc>
+          </ScheduleDescContainer>
+        </Item>
+      ))}
     </Container>
   );
 }
@@ -41,23 +23,22 @@ function ScheduleTable(props) {
 export default ScheduleTable;
 
 const Container = styled.div`
-  width: 33.5rem;
+  position: relative;
   height: 27.9rem;
 
   margin-bottom: 8rem;
+  z-index: 2;
 
   &:last-child {
     margin-bottom: 0;
   }
 `;
 
-// typo에 스타일이 없어서 임시로 적어둠
-// font도 SUIT로 해야하지만 임시로
 const Title = styled.header`
   padding-left: 0.8rem;
   margin-bottom: 2.4rem;
 
-  color: ${theme.colors.white};
+  color: ${theme.colors.green};
   font-family: 'SUIT Variable';
   font-size: 2.8rem;
   font-weight: 600;
@@ -70,7 +51,9 @@ const Item = styled.div`
 
   padding: 0.8rem 1.2rem;
   border-top: 0.1rem solid ${theme.colors.gray800};
-  border-bottom: 0.1rem solid ${theme.colors.gray800};
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
 
   &:last-child {
     border-bottom: none;
@@ -116,8 +99,4 @@ const ScheduleDesc = styled.div`
 
   color: ${theme.colors.white};
   ${theme.fontStyles.body1};
-
-  &:not(:first-child) {
-    margin-top: 0.8rem;
-  }
 `;
