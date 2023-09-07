@@ -223,7 +223,7 @@ const MapSize = styled.div`
 `;
 
 const BoothMap = styled(MapSize)`
-  background-image: url('/public/img/booth/profit/booth-profit-map.jpg');
+  background-image: url('/public/img/booth/profit/booth-profit-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
@@ -231,7 +231,7 @@ const BoothMap = styled(MapSize)`
 `;
 const BoothDetail = styled(MapSize)`
   position: relative;
-  background-image: url('/public/img/booth/profit/booth-profit-detail.jpg');
+  background-image: url('/public/img/booth/profit/booth-profit-detail.png');
 
   margin-bottom: 8rem;
   z-index: 2;
