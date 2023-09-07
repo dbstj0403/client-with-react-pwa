@@ -37,6 +37,7 @@ function Landing(props) {
   return (
     <Container scroll={top} top={calculateTop()} fix={fix ? 1 : 0} display={props.scroll < 1800 ? 1 : 0}>
       <TitleSection>
+        <Hwayangyeonhwa src="/img/Hwayangyeonhwa.png" />
         <Background>
           <Year>{year}</Year>
           <Title>{title}</Title>
@@ -66,7 +67,15 @@ const Container = styled.section`
 `;
 
 const TitleSection = styled.section`
+  position: relative;
   width: 100%;
+`;
+
+const Hwayangyeonhwa = styled.img`
+  position: absolute;
+  top: 84%;
+  width: 100%;
+  z-index: 4;
 `;
 
 const Background = styled.div`
@@ -119,7 +128,7 @@ const SloganSection = styled.section`
 `;
 
 const Aside = styled.aside`
-  width: 30.3rem;
+  width: 100%;
   height: 24.8rem;
   padding: 0 0.0133rem 0.0351rem 0.1rem;
 `;
