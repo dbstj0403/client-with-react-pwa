@@ -201,7 +201,7 @@ const Pointer = styled.div`
   width: 2rem;
   height: 2rem;
   ${({ left, top }) => `left: ${left}; top:${top};`}
-  background-image: ${({ number }) => `url(/img/booth/profit/pointer${number}.png)`};
+  background-image: ${({ number }) => `url(/img/booth/pointer${number}.png)`};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
