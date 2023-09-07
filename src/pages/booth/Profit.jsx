@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function Profit() {
   const [page, isPage] = useRecoilState(pageState);
@@ -173,6 +174,7 @@ function Profit() {
           <BlackBoothCard data={booth} variant="secondary" />
         </div>
       ))}
+      <MoveToTopBtn />
     </MainSection>
   );
 }

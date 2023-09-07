@@ -5,7 +5,7 @@ import Rest from './main/Rest';
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import { lineupState } from '@/libs/store';
-
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 function Home() {
   const [scroll, setScroll] = useState(0);
   const isLineupShow = useRecoilValue(lineupState);
@@ -28,6 +28,7 @@ function Home() {
       <Campus scroll={scroll} />
       <Landing scroll={scroll} />
       <Rest />
+      <MoveToTopBtn />
     </Container>
   );
 }
@@ -38,4 +39,8 @@ const Container = styled.div`
   position: relative;
   max-width: 76.8em;
   height: ${(props) => (props.isLineupShow ? '1085rem' : '550rem')};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

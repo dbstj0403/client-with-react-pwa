@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
 import FoodTruckCard from '@/components/booth/FoodTruckCard';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 export default function FoodTruck() {
   const [page, isPage] = useRecoilState(pageState);
@@ -106,6 +107,7 @@ export default function FoodTruck() {
           return <FoodTruckCard key={foodTruck.name} data={foodTruck} />;
         })}
       </FoodTruckBooths>
+      <MoveToTopBtn />
     </FoodTruckPageWrapper>
   );
 }

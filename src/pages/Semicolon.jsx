@@ -16,6 +16,7 @@ import { Finance } from '@/components/semicolon/team/Finance';
 import { Right } from '@/components/semicolon/team/Right';
 import { Student } from '@/components/semicolon/team/Student';
 import { Graduate } from '@/components/semicolon/team/Graduate';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function Semicolon() {
   const [page, isPage] = useRecoilState(pageState);
@@ -56,13 +57,19 @@ function Semicolon() {
       <Spacing height={14.8} />
       <Graduate />
       <Spacing height={32} />
+      <MoveToTopBtn />
     </MadeByContainer>
   );
 }
 
 export default Semicolon;
 
-const MadeByContainer = styled.div``;
+const MadeByContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Inst = styled.div`
   display: flex;
