@@ -149,11 +149,6 @@ function Profit() {
 
       <BoothMap />
       <BoothDetail>
-        <BoothSummaryWrapper>
-          {booths.map((booth) => (
-            <p key={booth.number}>{booth.boothName}</p>
-          ))}
-        </BoothSummaryWrapper>
         {pointers.map((pointer) => (
           <Pointer
             key={`pointer${pointer.number}`}
