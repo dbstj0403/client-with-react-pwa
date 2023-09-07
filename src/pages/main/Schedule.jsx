@@ -11,7 +11,7 @@ function Schedule() {
       <BottomImage />
       <Title>일정 소개</Title>
       {scheduleData.map((schedule, idx) => (
-        <ScheduleTable key={`schedule${idx}`} schedule={schedule} />
+        <ScheduleTable key={`schedule${idx}`} idx={idx} schedule={schedule} />
       ))}
     </Container>
   );
