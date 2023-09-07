@@ -48,7 +48,7 @@ export function Frontend() {
         profileimg={choyeonImg}
         name={'김초연'}
         major={'컴퓨터공학과 21'}
-        inst={'멋사 12기 모집 커밍쑨...'}
+        inst={'설 & 유다빈밴드 짱!'}
         insta={'keep_cy'}
         github={'choyeon2e'}
       />
@@ -57,7 +57,7 @@ export function Frontend() {
         profileimg={yunseoImg}
         name={'원윤서'}
         major={'컴퓨터공학과 21'}
-        inst={'뉴진스 우원재… 그리고 멋사 🦁'}
+        inst={'윤하 뉴진스… 그리고 멋사 🦁✨'}
         insta={'lov2loveluv'}
         github={'dbstj0403'}
       />

@@ -53,6 +53,9 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('madeby')} active={page === 'madeby' ? 1 : 0}>
         만든이들
       </SelectOption>
+      <SelectOption onClick={() => handleSelectOptionClick('semicolon')} active={page === 'semicolon' ? 1 : 0}>
+        SEMICOLON
+      </SelectOption>
     </Wrapper>
   );
 };
@@ -68,10 +71,10 @@ const SelectOption = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 1.6rem 0 1.6rem ${(props) => (props.active ? '2.2rem' : '2.4rem')};
+  padding: 1.6rem 0 1.6rem ${(props) => (props.active ? '2.1rem' : '2.4rem')};
   color: ${theme.colors.white};
   box-sizing: border-box;
-  border-left: ${(props) => (props.active ? `0.2rem solid ${theme.colors.pink}` : 'none')};
+  border-left: ${(props) => (props.active ? `0.3rem solid ${theme.colors.pink}` : 'none')};
   ${(props) => props.theme.fontStyles.head5};
   &:hover {
     background-color: ${theme.colors.gray800};
