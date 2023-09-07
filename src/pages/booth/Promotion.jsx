@@ -208,7 +208,7 @@ const MapSize = styled.div`
 const BoothMap = styled(MapSize)`
   position: relative;
   z-index: 1;
-  background-image: url('/public/img/booth/promotion/promotion-map.jpg');
+  background-image: url('/public/img/booth/promotion/promotion-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
