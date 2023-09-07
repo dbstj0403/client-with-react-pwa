@@ -20,8 +20,8 @@ function Day({ day, info }) {
             ) : null}
           </CelebImageContainer>
 
-          <Introduction>
-            <GraditionLayer />
+          <Introduction backgroundGradation={celeb.backgroundGradation}>
+            <GradationLayer />
             <Celeb>{celeb.name}</Celeb>
             <Desc>{celeb.introduce}</Desc>
           </Introduction>
@@ -104,14 +104,12 @@ const Introduction = styled.div`
   height: 15rem;
   padding: 1.8rem 2.8rem 2rem 2rem;
 
-  background-image: url('/img/gradation.png');
-  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%), url('/img/gradation.png');
-  background-position-y: -23.3rem;
+  background-image: url(${(props) => props.backgroundGradation});
   background-size: cover;
   background-repeat: no-repeat;
 `;
 
-const GraditionLayer = styled.div`
+const GradationLayer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
