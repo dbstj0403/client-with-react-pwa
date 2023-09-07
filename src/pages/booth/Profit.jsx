@@ -1,9 +1,18 @@
 import BlackBoothCard from '@/components/booth/BlackBoothCard';
 import theme from '@/styles/theme';
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function Profit() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('booth/profit');
+  }, []);
+
   const boothFocus = useRef([]);
 
   const booths = useMemo(
@@ -149,11 +158,6 @@ function Profit() {
 
       <BoothMap />
       <BoothDetail>
-        <BoothSummaryWrapper>
-          {booths.map((booth) => (
-            <p key={booth.number}>{booth.boothName}</p>
-          ))}
-        </BoothSummaryWrapper>
         {pointers.map((pointer) => (
           <Pointer
             key={`pointer${pointer.number}`}
@@ -170,6 +174,7 @@ function Profit() {
           <BlackBoothCard data={booth} variant="secondary" />
         </div>
       ))}
+      <MoveToTopBtn />
     </MainSection>
   );
 }
@@ -187,6 +192,8 @@ const MainSection = styled.section`
   background-image: url('/img/booth/profit/profit-background.png');
   background-repeat: no-repeat;
   background-size: cover;
+
+  z-index: 10;
 `;
 
 const Title = styled.h1`
@@ -218,16 +225,18 @@ const MapSize = styled.div`
 `;
 
 const BoothMap = styled(MapSize)`
-  background-image: url('/public/img/booth/profit/booth-profit-map.jpg');
+  background-image: url('/public/img/booth/profit/booth-profit-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
+  z-index: 2;
 `;
 const BoothDetail = styled(MapSize)`
   position: relative;
-  background-image: url('/public/img/booth/profit/booth-profit-detail.jpg');
+  background-image: url('/public/img/booth/profit/booth-profit-detail.png');
 
   margin-bottom: 8rem;
+  z-index: 2;
 `;
 
 const BoothSummaryWrapper = styled.div`

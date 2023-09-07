@@ -1,9 +1,17 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import BlackBoothCard from '@/components/booth/BlackBoothCard';
-
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 export default function Promotion() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('booth/promotion');
+  }, []);
+
   const boothFocus = useRef([]);
 
   const pointers = useMemo(
@@ -153,6 +161,7 @@ export default function Promotion() {
           <BlackBoothCard data={booth} variant="primary" />
         </div>
       ))}
+      <MoveToTopBtn />
     </MainSection>
   );
 }
@@ -167,6 +176,7 @@ const MainSection = styled.section`
   border: 1px solid black;
   padding: 10rem 2rem;
 
+  z-index: 10;
   background-image: url('/img/booth/profit/profit-background.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -198,7 +208,8 @@ const MapSize = styled.div`
 
 const BoothMap = styled(MapSize)`
   position: relative;
-  background-image: url('/public/img/booth/promotion/promotion-map.jpg');
+  z-index: 1;
+  background-image: url('/public/img/booth/promotion/promotion-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;

@@ -17,7 +17,7 @@ export default function PubCategory({ categories, setCategoryText, setCategoryEn
             <span
               onClick={() => {
                 categoryClicked(index);
-                setCategoryText(category.name);
+                setCategoryText(category.name === '디경융' ? '디지털경영융합' : category.name);
                 setPageSection(category.page);
                 setCategoryEngText(category.engName);
               }}
