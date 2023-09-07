@@ -97,6 +97,7 @@ export default function FoodTruck() {
       </FoodTruckPageTitle>
       <FoodTruckMainMap />
       <FoodTruckSubMap />
+      <FoodTruckThirdMap />
       <AlertMsg>
         <div />
         <p>푸드 트럭은 축제 당일 들어오는 순서대로 자리가 변동될 수 있습니다.</p>
@@ -133,16 +134,23 @@ const FoodTruckPageTitle = styled.div`
 
 const FoodTruckMainMap = styled.div`
   width: 33.5rem;
-  height: 19rem;
-  margin-bottom: 3.6rem;
+  height: 23.6rem;
   background: url('/img/foodTruckMainMap.png');
   background-size: cover;
 `;
 
 const FoodTruckSubMap = styled.div`
   width: 33.5rem;
-  height: 19rem;
+  height: 27.6rem;
+  margin: 3.6rem 0;
   background: url('/img/foodTruckSubMap.png');
+  background-size: contain;
+`;
+
+const FoodTruckThirdMap = styled.div`
+  width: 33.5rem;
+  height: 18rem;
+  background: url('/img/foodTruckThirdMap.png');
   background-size: contain;
 `;
 
