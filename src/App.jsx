@@ -10,6 +10,7 @@ import CentralStage from './pages/CentralStage';
 import HongikZone from './pages/HongikZone';
 import MadeBy from './pages/MadeBy';
 import Profit from './pages/booth/Profit';
+import Promotion from './pages/booth/Promotion';
 import Semicolon from './pages/Semicolon';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/booth/pub" element={<Pub />} />
         <Route path="/booth/profit" element={<Profit />} />
+        <Route path="/booth/promotion" element={<Promotion />} />
         <Route path="/booth/foodtruck" element={<FoodTruck />} />
         <Route path="/stage" element={<CentralStage />} />
         <Route path="/hongikzone" element={<HongikZone />} />
