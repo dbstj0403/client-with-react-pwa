@@ -22,12 +22,6 @@ export default defineConfig({
     outDir: 'build',
   },
   server: {
-    proxy: {
-      '/api': {
-        target: 'https://stag.2023hiufestainfo.com',
-        changeOrigin: true,
-      },
-    },
     port: 3000,
     open: true,
   },
