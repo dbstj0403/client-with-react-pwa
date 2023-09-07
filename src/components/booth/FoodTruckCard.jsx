@@ -41,7 +41,7 @@ export default function FoodTruckCard({ data }) {
 }
 
 const CardWrapper = styled.div`
-  background: rgba(29, 29, 29, 0.6);
+  background: ${(props) => props.theme.colors.background};
   backdrop-filter: blur(6px);
   width: 100%;
   height: ${(props) => (props.isAuth ? '24.6rem' : '15.6rem')};
@@ -55,7 +55,7 @@ const BoothText = styled.div`
 const BoothName = styled.div`
   margin-bottom: 0.8rem;
   span {
-    color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.green};
     ${(props) => props.theme.fontStyles.head5}
   }
 `;
