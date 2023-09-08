@@ -3,17 +3,22 @@ import styled from 'styled-components';
 import AOS from 'aos';
 import PropTypes from 'prop-types';
 
-BlackBoothCard.propTypes = {
+PromotionBoothCard.propTypes = {
+  index: PropTypes.number.isRequired,
   data: PropTypes.shape({
-    number: PropTypes.number.isRequired,
-    boothName: PropTypes.string.isRequired,
-    hosted: PropTypes.string,
-    intro: PropTypes.string,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    introduction: PropTypes.string,
   }),
   variant: PropTypes.string.isRequired,
 };
 
-export default function BlackBoothCard({ data, variant }) {
+/**
+ * @param {number} index: api response에 프로모션 부스 번호가 없기 때문에 배열 인덱스를 통해 번호 부여
+ * @param {object} data: propTypes 참고
+ * @param {string} variant: primary - 초록색 secondary - 붉은색
+ */
+export default function PromotionBoothCard({ index, data, variant }) {
   useEffect(() => {
     AOS.init();
   });
@@ -22,15 +27,12 @@ export default function BlackBoothCard({ data, variant }) {
     <CardWrapper data-aos="fade-up" data-aos-duration="800">
       <BoothText>
         <BoothNumber>
-          <span>{data.number}</span>
+          <span>{index}</span>
         </BoothNumber>
         <BoothName variant={variant}>
-          <span>{data.boothName}</span>
+          <span>{data.name}</span>
         </BoothName>
-        <BoothHosted>
-          <span>{data.hosted}</span>
-        </BoothHosted>
-        <BoothIntroduction>{data.intro}</BoothIntroduction>
+        <BoothIntroduction>{data.introduction}</BoothIntroduction>
       </BoothText>
     </CardWrapper>
   );
@@ -69,14 +71,6 @@ const BoothName = styled.div`
   span {
     color: ${(props) => (props.variant === 'primary' ? props.theme.colors.green : props.theme.colors.pink)};
     ${(props) => props.theme.fontStyles.head5};
-  }
-`;
-
-const BoothHosted = styled.div`
-  margin-bottom: 0.8rem;
-  span {
-    color: ${(props) => props.theme.colors.white};
-    ${(props) => props.theme.fontStyles.subHead2};
   }
 `;
 
