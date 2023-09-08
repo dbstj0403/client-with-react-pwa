@@ -57,22 +57,3 @@ const OperatingTime = styled.div`
 
   white-space: pre-line;
 `;
-
-const Desc = styled.span`
-  color: ${theme.colors.pink};
-  ${theme.fontStyles.subHead3};
-`;
-
-const OperatingTimeSecond = styled.div`
-  padding: 0.8rem 0;
-  border-top: 0.1rem solid ${theme.colors.gray800};
-  color: ${theme.colors.gray200};
-  ${theme.fontStyles.subHead3};
-
-  white-space: pre-line;
-`;
-
-const Order = styled.span`
-  color: ${(props) => (props.first ? theme.colors.pink : theme.colors.green)};
-  ${theme.fontStyles.subHead3};
-`;
