@@ -1,11 +1,21 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 import { menuName } from '../../constants/menuName';
 import HongikMapImage from '@/constants/HongikMapImage';
+import { roadmapState } from '@/libs/store';
+import { useEffect } from 'react';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 
 function RoadMap() {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useRecoilState(roadmapState);
+  const resetCurrentState = useResetRecoilState(roadmapState);
+
+  useEffect(() => {
+    return () => {
+      resetCurrentState();
+    };
+  }, []);
+
   return (
     <Container>
       <Title>전체 로드맵</Title>

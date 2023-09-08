@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSetRecoilState } from 'recoil';
-import { pageState } from '@/libs/store';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { pageState, roadmapState } from '@/libs/store';
 
-function HongikMapImage(props) {
+function HongikMapImage() {
   const isPage = useSetRecoilState(pageState);
+  const current = useRecoilValue(roadmapState);
 
   const handleSelectOptionClick = (selectedPage) => {
     isPage(selectedPage);
@@ -23,8 +24,8 @@ function HongikMapImage(props) {
     8: 'F',
   };
 
-  const getOffset = () => {
-    switch (props.index) {
+  const getOffset = (current) => {
+    switch (current) {
       case 1:
         return { top: '1.57rem', left: '15.71rem', size: '2rem' };
       case 2:
@@ -44,12 +45,17 @@ function HongikMapImage(props) {
     }
   };
 
-  const imgSrc = `/img/hongikmap/hongikmap${mapEnum[props.index]}.png`;
-  const markerSrc = `/img/icon/${mapEnum[props.index]}.png`;
+  const imgList = [];
+
+  // 지도
+  for (let i = 0; i < 9; i++) {
+    const img = { map: `/img/hongikmap/hongikmap${mapEnum[i]}.png`, marker: `/img/icon/${mapEnum[i]}.png` };
+    imgList.push(img);
+  }
 
   // 어디로 링크를 넣어줄 지만 정하면 끝
-  const goDetail = () => {
-    switch (props.index) {
+  const goDetail = (current) => {
+    switch (current) {
       case 1:
         handleSelectOptionClick('booth/profit');
         break;
@@ -79,25 +85,53 @@ function HongikMapImage(props) {
 
   return (
     <Container>
-      <Map img={imgSrc}>
-        {props.index !== 0 ? <Marker src={markerSrc} alt="hongikIcon" offset={getOffset()} onClick={goDetail} /> : null}
-      </Map>
+      {imgList.map((img, idx) => (
+        <Map img={img.map} show={current === idx}>
+          {current !== 0 ? (
+            <Marker
+              src={img.marker}
+              alt="hongikIcon"
+              show={current === idx}
+              offset={getOffset(current)}
+              onClick={() => goDetail(current)}
+            />
+          ) : (
+            imgList
+              .slice(1)
+              .map((marker, idx) => (
+                <Marker
+                  src={marker.marker}
+                  alt="hongikIcon"
+                  show={1}
+                  offset={getOffset(idx + 1)}
+                  onClick={() => goDetail(idx + 1)}
+                />
+              ))
+          )}
+        </Map>
+      ))}
     </Container>
   );
 }
 
+/**(
+            <Marker src={img.marker} alt="hongikPin" offset={getOffset(idx + 1)} onClick={goDetail} />
+          ) */
+
 export default HongikMapImage;
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
+  height: 19rem;
 `;
 
-// 이미지를 아에 반응형으로 하지않고 고정시켜버리면
-// 마커의 위치 문제가 사라지는데 고민....
-// 이미지가 커지면서 마커가 위치를 잡지 못하는 버그가 있음.
 const Map = styled.div`
-  position: relative;
+  position: absolute;
+
+  z-index: ${(props) => (props.show ? 1 : -1)};
   max-width: 33.7rem;
+  width: 33.7rem;
   height: 19rem;
   margin: 0 auto;
   margin-bottom: 1.6rem;
@@ -110,10 +144,13 @@ const Map = styled.div`
 
 const Marker = styled.img`
   position: absolute;
+  z-index: ${(props) => (props.show ? 2 : -1)};
+
   top: ${(props) => props.offset.top};
   left: ${(props) => props.offset.left};
   z-index: 3;
   width: ${(props) => props.offset.size};
+  opacity: 0;
 
   &:hover {
     cursor: pointer;
