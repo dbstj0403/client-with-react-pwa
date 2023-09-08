@@ -91,7 +91,7 @@ const InstText = styled.div`
 const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
-  margin-top: 18.1rem;
+  margin-top: 19.6rem;
   background-image: url(${scLogo});
   background-size: contain;
   background-repeat: no-repeat;

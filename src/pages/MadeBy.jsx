@@ -76,7 +76,7 @@ const InstText = styled.div`
 const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
-  margin-top: 18.1rem;
+  margin-top: 18.8rem;
   background-image: url(${hiLogo});
   background-size: contain;
   background-repeat: no-repeat;
