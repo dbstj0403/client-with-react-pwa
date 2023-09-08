@@ -11,7 +11,7 @@ function LineUpCard({ img, djName, text, date, time }) {
   useEffect(() => {
     AOS.init();
   }, []);
-  console.log(img, djName, text, date, time);
+  // console.log(img, djName, text, date, time);
   return (
     <Container data-aos="fade-up" data-aos-duration="800">
       <img src={img} alt="" />

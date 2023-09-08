@@ -7,9 +7,6 @@ function WowDigitalFestival() {
   const goToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  console.log(page);
-
   return (
     <Container>
       <Title>와우 디제잉 페스티벌</Title>

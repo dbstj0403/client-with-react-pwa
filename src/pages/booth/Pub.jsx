@@ -25,7 +25,7 @@ export default function Pub() {
   }, []);
 
   const { getPubs, isLoading, error } = useGetPubs(department);
-  console.log(getPubs);
+  // console.log(getPubs);
 
   const boothData = [
     {
