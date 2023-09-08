@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import hiInst from '@/assets/image/madeby/hiInst.svg';
-import hiLogo from '@/assets/image/madeby/hilogoinst.svg';
+import hiLogo from '@/assets/image/madeby/hilogo.png';
 import histyle from '@/assets/image/madeby/forstylemadeby.svg';
 import { LikelionInst } from '@/components/madeby/LikelionInst';
 import { Manage } from '@/components/madeby/team/Manage';

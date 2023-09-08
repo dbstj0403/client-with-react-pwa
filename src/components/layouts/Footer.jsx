@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '@/styles/theme';
-import footerimg from '@/assets/image/footerimg.svg';
+import footerimg from '@/assets/image/footerimg.png';
 import { MadeByIcon } from '@/assets/icons/footer/MadeByIcon';
 import { Instagram } from '@/assets/icons/footer/Instagram';
 import { GoThrough } from '@/assets/icons/footer/GoThrough';
