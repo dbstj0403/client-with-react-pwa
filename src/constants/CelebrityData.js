@@ -28,7 +28,8 @@ export const CelebrityData = {
     {
       name: '타이거 JK',
       image: '/img/celeb/TigerJK.jpg',
-      introduce: `전설 속의 인물이 홍대로 찾아오다`,
+      introduce: `래퍼들의 우상. 
+      전설 속의 인물이 홍대로 찾아오다`,
       chartman: false,
       left: false,
       backgroundGradation: '/img/gradation/gradation4.png',
@@ -36,7 +37,8 @@ export const CelebrityData = {
     {
       name: '윤미래',
       image: '/img/celeb/윤미래.jpg',
-      introduce: `현재까지 아무도 그녀만의 바이브를 넘어서지 못하고 있다`,
+      introduce: `독보적인 음색의 여성 래퍼.
+      현재까지 아무도 그녀만의 바이브를 넘어서지 못하고 있다`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation1.png',
@@ -44,7 +46,8 @@ export const CelebrityData = {
     {
       name: 'BIBI',
       image: '/img/celeb/비비.jpg',
-      introduce: `트렌디한 목소리로 사람들의 마음을 사로잡은 가수`,
+      introduce: `트렌디한 목소리로
+      사람들의 마음을 사로잡은 가수`,
       chartman: false,
       left: false,
       backgroundGradation: '/img/gradation/gradation2.png',
@@ -62,7 +65,8 @@ export const CelebrityData = {
     {
       name: '윤하',
       image: '/img/celeb/윤하.jpg',
-      introduce: `단단하고, 청량하게. 당신의 마음을 울리는 실력파 여성 솔로 가수`,
+      introduce: `단단하고, 청량하게.
+      당신의 마음을 울리는 실력파 여성 솔로 가수`,
       chartman: false,
       left: false,
       backgroundGradation: '/img/gradation/gradation1.png',
@@ -70,7 +74,8 @@ export const CelebrityData = {
     {
       name: '10CM',
       image: '/img/celeb/10cm.jpg',
-      introduce: `커피처럼 달콤쌉싸름한, 생각날 때 계속 찾게되는 가수`,
+      introduce: `커피처럼 달콤쌉싸름한,
+      생각날 때 계속 찾게되는 가수`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation2.png',
@@ -89,8 +94,8 @@ export const CelebrityData = {
     {
       name: '이승윤',
       image: '/img/celeb/이승윤.jpg',
-      introduce: `메탈, 알앤비 등 폭 넓은 스펙트럼에 본인만의
-      스타일을 가미할 줄 아는 가수`,
+      introduce: `메탈, 알앤비 등 폭 넓은 스펙트럼에
+      본인만의 스타일을 가미할 줄 아는 가수`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation3.png',
@@ -106,7 +111,8 @@ export const CelebrityData = {
     {
       name: '릴보이',
       image: '/img/celeb/릴보이.jpg',
-      introduce: `Show Me The Money 9의 우승자. 차별없이 다양한 장르를 능숙하게 소화하는 래퍼`,
+      introduce: `Show Me The Money 9의 우승자.
+      차별없이 다양한 장르를 능숙하게 소화하는 래퍼`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation5.png',

@@ -2,10 +2,10 @@ import React from 'react';
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 
-function Day({ day, info }) {
+function Day({ day, color, info }) {
   return (
     <Container>
-      <Title>{day}</Title>
+      <Title color={color}>{day}</Title>
 
       {info.map((celeb, idx) => (
         <Card key={`celeb-${day}-${idx}`}>
@@ -43,7 +43,7 @@ const Container = styled.div``;
 const Title = styled.h1`
   margin-bottom: 3.6rem;
 
-  color: ${theme.colors.green};
+  color: ${(props) => props.color};
   font-family: 'SUIT Variable';
   font-size: 2.8rem;
   font-weight: 600;
@@ -143,6 +143,7 @@ const Desc = styled.div`
 
   color: ${theme.colors.white};
   ${theme.fontStyles.subHead1};
+  font-size: 1.54rem;
   white-space: pre-line;
 `;
 
