@@ -161,4 +161,7 @@ const ChartMan = styled.div`
   ${theme.fontStyles.body5};
 `;
 
-const ChartManIcon = styled.img``;
+const ChartManIcon = styled.img`
+  width: 4.5rem;
+  height: 4.5rem;
+`;

@@ -3,8 +3,7 @@ export const CelebrityData = {
     {
       name: 'SURL',
       image: '/img/celeb/SURL.png',
-      introduce: `록 음악, 블루스 기반의 동갑내기 4인조.
-            당신에게 따뜻한 이야기를 들려주는 밴드`,
+      introduce: `비로소 발화된 Young & Alive, 경계 없는 움직임`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation1.png',
@@ -94,8 +93,8 @@ export const CelebrityData = {
     {
       name: '이승윤',
       image: '/img/celeb/이승윤.jpg',
-      introduce: `메탈, 알앤비 등 폭 넓은 스펙트럼에
-      본인만의 스타일을 가미할 줄 아는 가수`,
+      introduce: `메탈, 알앤비, 팝, 록 등 폭 넓은 스펙트럼에
+      본인만의 스타일을 가미할 줄 아는 싱어송라이터`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation3.png',
