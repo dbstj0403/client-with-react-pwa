@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { pageState, roadmapState } from '@/libs/store';
+import { useNavigate } from 'react-router-dom';
 
 function HongikMapImage() {
   const isPage = useSetRecoilState(pageState);
   const current = useRecoilValue(roadmapState);
 
+  const navigate = useNavigate();
+
   const handleSelectOptionClick = (selectedPage) => {
     isPage(selectedPage);
-    window.location.replace(`/${selectedPage}`);
+    navigate(`/${selectedPage}`);
   };
 
   const mapEnum = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/layouts/Layout';
 import WowDjFestival from './pages/WowDjFestival';
 import Home from './pages/Home';
@@ -13,8 +13,15 @@ import Entrance from './pages/Entrance';
 import Profit from './pages/booth/Profit';
 import Promotion from './pages/booth/Promotion';
 import Semicolon from './pages/Semicolon';
+import { useEffect } from 'react';
 
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <Routes>
       <Route element={<Layout />}>

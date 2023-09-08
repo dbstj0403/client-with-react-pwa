@@ -32,7 +32,7 @@ export default function PromotionBoothCard({ index, data, variant }) {
         <BoothName variant={variant}>
           <span>{data.name}</span>
         </BoothName>
-        <BoothIntroduction>{data.introduction}</BoothIntroduction>
+        <BoothIntroduction>운영요일: {data.introduction}</BoothIntroduction>
       </BoothText>
     </CardWrapper>
   );
