@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import BlackBoothCard from '../booth/BlackBoothCard';
+import { ProfitBoothCard } from '../booth/profit';
 
 export default function WristbandsInfo() {
   const informations = useMemo(
@@ -26,7 +26,7 @@ export default function WristbandsInfo() {
   return informations.map((information) => (
     <>
       {information.map}
-      <BlackBoothCard key={information.number} variant="secondary" data={information} />
+      <ProfitBoothCard key={information.number} variant="secondary" data={information} />
     </>
   ));
 }
