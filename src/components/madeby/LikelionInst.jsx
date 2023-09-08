@@ -29,7 +29,7 @@ export function LikelionInst() {
   );
 }
 const Likelion = styled.div`
-  margin-top: 7.6rem;
+  margin-top: 1.2rem;
   height: 28.8rem;
   text-align: center;
 `;

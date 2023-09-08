@@ -1,8 +1,16 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useEffect } from 'react';
 import mapImg from '../assets/image/entrance.jpg';
+import { useRecoilState } from 'recoil';
+import { pageState } from '@/libs/store';
 
 function Entrance() {
+  const [page, isPage] = useRecoilState(pageState);
+
+  useEffect(() => {
+    isPage('entrance');
+  }, []);
+
   return (
     <Container>
       <Title>관람석 및 공연장 입출구</Title>

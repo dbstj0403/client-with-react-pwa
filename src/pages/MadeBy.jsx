@@ -4,12 +4,14 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import hiInst from '@/assets/image/madeby/hiInst.svg';
 import hiLogo from '@/assets/image/madeby/hilogoinst.svg';
+import histyle from '@/assets/image/madeby/forstylemadeby.svg';
 import { LikelionInst } from '@/components/madeby/LikelionInst';
 import { Manage } from '@/components/madeby/team/Manage';
 import { Design } from '@/components/madeby/team/Design';
 import { Frontend } from '@/components/madeby/team/Frontend';
 import { Backend } from '@/components/madeby/team/Backend';
 import { Leader } from '@/components/madeby/team/Leader';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function MadeBy() {
   const [page, isPage] = useRecoilState(pageState);
@@ -23,6 +25,11 @@ function MadeBy() {
         <InstText />
         <InstLogo />
       </Inst>
+      <Spacing height={4} />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <ForStyling />
+      </div>
+      <Spacing height={1.2} />
       <LikelionInst />
       <Spacing height={12} />
       <Leader />
@@ -35,13 +42,19 @@ function MadeBy() {
       <Spacing height={14.8} />
       <Backend />
       <Spacing height={32} />
+      <MoveToTopBtn />
     </MadeByContainer>
   );
 }
 
 export default MadeBy;
 
-const MadeByContainer = styled.div``;
+const MadeByContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Inst = styled.div`
   display: flex;
@@ -69,6 +82,15 @@ const InstLogo = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1;
+`;
+
+const ForStyling = styled.div`
+  width: 37.5rem;
+  height: 2.4rem;
+  background-image: url(${histyle});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const Spacing = styled.div`

@@ -17,7 +17,7 @@ export default function FoodTruckCard({ data }) {
   const editBtnClicked = () => {
     setEditting(true);
   };
-  const isAuth = true;
+  const isAuth = false;
   const deleteBtn = [{ icon: DeleteIcon, text: '삭제', active: true, onClick: deleteBtnClicked }];
   const editBtn = [{ icon: EditIcon, text: '수정', active: true, onClick: editBtnClicked }];
   return editting ? (
@@ -25,9 +25,6 @@ export default function FoodTruckCard({ data }) {
   ) : (
     <CardWrapper isAuth={isAuth} data-aos="fade-up" data-aos-duration="800" data-aos-once>
       <BoothText>
-        <BoothNumber>
-          <span>{data.number}</span>
-        </BoothNumber>
         <BoothName>
           <span>{data.name}</span>
         </BoothName>
@@ -44,8 +41,9 @@ export default function FoodTruckCard({ data }) {
 }
 
 const CardWrapper = styled.div`
-  background-color: ${(props) => props.theme.colors.background};
-  width: 33.5rem;
+  background: ${(props) => props.theme.colors.background};
+  backdrop-filter: blur(6px);
+  width: 100%;
   height: ${(props) => (props.isAuth ? '24.6rem' : '15.6rem')};
   margin-top: 2.4rem;
 `;
@@ -54,26 +52,10 @@ const BoothText = styled.div`
   padding: 1.8rem 2rem;
 `;
 
-const BoothNumber = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
-  background-color: ${(props) => props.theme.colors.white};
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.8rem;
-  span {
-    ${(props) => props.theme.fontStyles.subHead1};
-    line-height: 1.6rem;
-    color: ${(props) => props.theme.colors.black};
-  }
-`;
-
 const BoothName = styled.div`
   margin-bottom: 0.8rem;
   span {
-    color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.green};
     ${(props) => props.theme.fontStyles.head5}
   }
 `;
