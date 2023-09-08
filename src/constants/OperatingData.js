@@ -1,11 +1,4 @@
 export const operatingData = [
-  {
-    operate: '메인무대',
-    start: '12:00',
-    end: '17:00 (체험형부스로 사용가능합니다.)',
-    second: { start: '17:00', end: '23:00 주점부스로 운영', startLabel: '낮 : ', endLabel: '밤 : ' },
-    desc: null,
-  },
   { operate: '수익부스', start: '10:00', end: '18:00', second: null, desc: null },
   {
     operate: '주점부스',

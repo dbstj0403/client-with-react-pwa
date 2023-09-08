@@ -1,4 +1,5 @@
 import OperatingTimeItem from '@/components/schedule/OperatingTimeItem';
+import OperatingTimeItemMain from '@/components/schedule/OperatingTimeItemMain';
 import { operatingData } from '@/constants/OperatingData';
 import theme from '@/styles/theme';
 import styled from 'styled-components';
@@ -11,8 +12,9 @@ function OperatingTime() {
       <BottomImage />
       <Title>운영시간</Title>
       <ItemContainer>
+        <OperatingTimeItemMain />
         {operatingData.map((data, idx) => (
-          <OperatingTimeItem key={`operate${idx}`} number={idx + 1} data={data} />
+          <OperatingTimeItem key={`operate${idx}`} number={idx + 2} data={data} />
         ))}
       </ItemContainer>
     </Container>
