@@ -27,21 +27,21 @@ function HongikMapImage() {
   const getOffset = (current) => {
     switch (current) {
       case 1:
-        return { top: '1.57rem', left: '15.71rem', size: '2rem' };
+        return { top: 'calc(50% - 8rem)', left: 'calc(50% - 1.2rem)', size: '2rem' };
       case 2:
-        return { top: '11rem', left: '10rem', size: '2rem' };
+        return { top: 'calc(50% + 1.5rem)', left: 'calc(50% - 7rem)', size: '2rem' };
       case 3:
-        return { top: '5.3rem', left: '16.5rem', size: '2.3rem' };
+        return { top: 'calc(50% - 4rem)', left: 'calc(50%)', size: '2.3rem' };
       case 4:
-        return { top: '9.57rem', left: '13.71rem', size: '2rem' };
+        return { top: 'calc(50%)', left: 'calc(50% - 3rem)', size: '2rem' };
       case 5:
-        return { top: '10.15rem', left: '19.05rem', size: '2rem' };
+        return { top: 'calc(50% + 1rem)', left: 'calc(50% + 2rem)', size: '2rem' };
       case 6:
-        return { top: '4.6rem', left: '8.8rem', size: '2rem' };
+        return { top: 'calc(50% - 4.5rem)', left: 'calc(50% - 7.8rem)', size: '2rem' };
       case 7:
-        return { top: '8.76rem', left: '2.51rem', size: '2rem' };
+        return { top: 'calc(50% - 0.7rem)', left: 'calc(50% - 14.5rem)', size: '2rem' };
       case 8:
-        return { top: '10.5rem', left: '27.45rem', size: '2.2rem' };
+        return { top: 'calc(50% + 1.5rem)', left: 'calc(50% + 10.7rem)', size: '2.2rem' };
     }
   };
 
@@ -130,8 +130,7 @@ const Map = styled.div`
   position: absolute;
 
   z-index: ${(props) => (props.show ? 1 : -1)};
-  max-width: 33.7rem;
-  width: 33.7rem;
+  width: 100%;
   height: 19rem;
   margin: 0 auto;
   margin-bottom: 1.6rem;
