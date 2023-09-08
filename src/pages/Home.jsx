@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import { lineupState } from '@/libs/store';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
+
 function Home() {
   const [scroll, setScroll] = useState(0);
   const isLineupShow = useRecoilValue(lineupState);
