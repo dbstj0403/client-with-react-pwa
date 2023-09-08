@@ -80,7 +80,7 @@ function Profit() {
       <BoothMap />
 
       <BoothDetail>
-        <MapMarker booths={booths} markers={markers} onClick={onClickPointer} />
+        <MapMarker booths={1} markers={markers} onClick={onClickPointer} />
       </BoothDetail>
 
       {booths.map((booth) => (
@@ -122,12 +122,12 @@ const MapSize = styled.div`
   width: 33.5rem;
   height: 20rem;
 
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 `;
 
 const BoothMap = styled(MapSize)`
-  background-image: url('/public/img/booth/profit/booth-profit-map.png');
+  background-image: url('/img/booth/profit/booth-profit-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
@@ -135,7 +135,7 @@ const BoothMap = styled(MapSize)`
 `;
 const BoothDetail = styled(MapSize)`
   position: relative;
-  background-image: url('/public/img/booth/profit/booth-profit-detail.png');
+  background-image: url('/img/booth/profit/booth-profit-detail.png');
 
   margin-bottom: 8rem;
   z-index: 2;

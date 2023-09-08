@@ -153,14 +153,14 @@ const MapSize = styled.div`
   width: 33.5rem;
   height: 20rem;
 
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 `;
 
 const BoothMap = styled(MapSize)`
   position: relative;
   z-index: 1;
-  background-image: url('/public/img/booth/promotion/promotion-map.png');
+  background-image: url('/img/booth/promotion/promotion-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
