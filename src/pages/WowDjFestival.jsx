@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
-import djFestivalMapImg from '../assets/image/djFestivalMapImg.png';
+
 import backgroundImg1 from '../assets/image/FestivalBackground.svg';
 import backgroundImg2 from '../assets/image/InfoCardBackground.svg';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
-import djFestivalPoster from '../assets/image/djFestivalPoster.svg';
+import wdfPoster from '../../public/img/dj/wdfPoster.png';
+import wdfMap from '../../public/img/dj/wdfMap.png';
 
 import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
@@ -33,10 +34,10 @@ function WowDigitalFestival() {
 
       <ImgWrapper>
         <ImgContainer>
-          <img src={djFestivalPoster} alt="" />
+          <img src={wdfPoster} alt="" />
         </ImgContainer>
         <ImgContainer1>
-          <img src={djFestivalMapImg} alt="" />
+          <img src={wdfMap} alt="" />
         </ImgContainer1>
         <ImgContainer2>
           <img src={backgroundImg1} alt="" />
@@ -116,7 +117,7 @@ const ImgContainer1 = styled.div`
   z-index: 5;
   img {
     width: 33.5rem;
-    height: 48.4rem;
+    height: 33.5rem;
   }
 `;
 const ImgContainer2 = styled.div`

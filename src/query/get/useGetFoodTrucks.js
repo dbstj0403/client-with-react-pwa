@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { axiosInstance } from '@/axios/axios';
 
 export default function useGetFoodTrucks() {
   const { data, isLoading, error } = useQuery({

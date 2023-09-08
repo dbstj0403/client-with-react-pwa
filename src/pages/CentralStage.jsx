@@ -1,9 +1,12 @@
+import BlackBoothCard from '@/components/booth/BlackBoothCard';
+import FoodTruckCard from '@/components/booth/FoodTruckCard';
 import { DaySelector, TimeTable } from '@/components/stage';
 import CelabLineUp from '@/components/stage/CelabLineUp';
 import { pageState } from '@/libs/store';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function CentralStage() {
   const isPage = useSetRecoilState(pageState);
@@ -99,6 +102,27 @@ function CentralStage() {
       <MainSection>
         <Title>중앙무대</Title>
         <Map />
+        <Title>팔찌부스 안내</Title>
+        <PrevWrist />
+        <BlackBoothCard
+          variant="secondary"
+          data={{
+            number: 1,
+            boothName: '사전 배부 일시',
+            hosted: '2023년 09월 12일',
+            intro: '11:00 ~ 13:00 / 14:00 ~ 18:00',
+          }}
+        />
+        <DDayWrist />
+        <BlackBoothCard
+          variant="secondary"
+          data={{
+            number: 2,
+            boothName: '현장 배부 일시',
+            hosted: '2023년 09월 13일 ~ 15일',
+            intro: '09:00 ~ 13:00 / 14:00 ~ 18:00',
+          }}
+        />
 
         <Title>라인업</Title>
         {festivalDays.map((day) => (
@@ -113,6 +137,7 @@ function CentralStage() {
           <PageIconCenter rotateSize={schedulePageIconRotateSize} />
           <PageIconCorner />
         </ScheduleWrapper>
+        <MoveToTopBtn />
       </MainSection>
     </>
   );
@@ -185,6 +210,24 @@ const ScheduleWrapper = styled.div`
   min-height: 84.3rem;
 
   margin-top: 22rem;
+`;
+
+const PrevWrist = styled.div`
+  width: 33.5rem;
+  height: 20rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/img/stage/prev-wrist.jpg');
+`;
+
+const DDayWrist = styled.div`
+  width: 33.5rem;
+  height: 20rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/img/stage/d-day-wrist.jpg');
 `;
 
 const Title = styled.header`
