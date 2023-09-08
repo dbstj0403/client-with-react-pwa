@@ -14,7 +14,7 @@ export const ImgList = [
     text: '탁월한 무대센스와 깔끔한 믹싱 스타일.러블리하고 상큼한 에너지를 무대에서 빵빵 터트리는 DJ',
   },
   {
-    img: '/img/dj/4xwooxi.png',
+    img: '/img/dj/4xWooxi.png',
     djName: 'WOOXI',
     date: '9.14',
     time: '22:00 - 23:00',
