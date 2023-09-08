@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 DaySelector.propTypes = {
   selectedDay: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
-function DaySelector({ selectedDay }) {
+function DaySelector({ selectedDay, onClick }) {
   const [days] = useState(() => {
     return [
       {
@@ -30,7 +31,7 @@ function DaySelector({ selectedDay }) {
   return (
     <Container>
       {days.map((day, index) => (
-        <Label key={day.id} selected={index === selectedDay}>
+        <Label key={day.id} selected={index === selectedDay} onClick={() => onClick(day.id)}>
           {day.title} {index === selectedDay && day.date}
         </Label>
       ))}

@@ -1,4 +1,5 @@
 import OperatingTimeItem from '@/components/schedule/OperatingTimeItem';
+import OperatingTimeItemMain from '@/components/schedule/OperatingTimeItemMain';
 import { operatingData } from '@/constants/OperatingData';
 import theme from '@/styles/theme';
 import styled from 'styled-components';
@@ -11,8 +12,9 @@ function OperatingTime() {
       <BottomImage />
       <Title>운영시간</Title>
       <ItemContainer>
+        <OperatingTimeItemMain />
         {operatingData.map((data, idx) => (
-          <OperatingTimeItem key={`operate${idx}`} number={idx + 1} data={data} />
+          <OperatingTimeItem key={`operate${idx}`} number={idx + 2} data={data} />
         ))}
       </ItemContainer>
     </Container>
@@ -71,9 +73,11 @@ const MiddleImage = styled.div`
 
 const BottomImage = styled.div`
   position: absolute;
-  top: 88.8rem;
-  right: -1.1rem;
-  z-index: 3;
+
+  top: 93.6rem;
+  right: -1rem;
+
+  z-index: 0;
 
   width: 24.7rem;
   height: 30.8rem;

@@ -1,13 +1,14 @@
+import { dayColor } from '@/constants/DayColor';
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 
-function ScheduleTable({ schedule }) {
+function ScheduleTable({ schedule, idx }) {
   return (
     <Container>
-      <Title>{schedule.date}</Title>
+      <Title color={dayColor[idx]}>{schedule.date}</Title>
       {schedule.detail.map((time, idx) => (
         <Item key={`${schedule.date}-${idx}`}>
-          <Number>{idx + 1}</Number>
+          <Number>{idx}</Number>
           <Time>
             <TimeDesc>{time.start}</TimeDesc>~<TimeDesc>{time.end}</TimeDesc>
           </Time>
@@ -38,7 +39,7 @@ const Title = styled.header`
   padding-left: 0.8rem;
   margin-bottom: 2.4rem;
 
-  color: ${theme.colors.green};
+  color: ${(props) => props.color};
   font-family: 'SUIT Variable';
   font-size: 2.8rem;
   font-weight: 600;

@@ -8,25 +8,49 @@ function Landing(props) {
   const [fix, setFix] = useState(false);
 
   const handleScroll = () => {
-    if (props.scroll >= 0 && props.scroll <= 20) {
-      setFix(false);
-      setTop(0);
-    } else if (props.scroll > 20 && props.scroll <= 160) {
-      setFix(false);
-      setTop(-props.scroll + 260);
+    if (window.innerWidth < 450) {
+      if (props.scroll >= 0 && props.scroll <= 20) {
+        setFix(false);
+        setTop(0);
+      } else if (props.scroll > 20 && props.scroll <= 190) {
+        setFix(false);
+        setTop(-props.scroll + 850);
+      } else {
+        setFix(true);
+        setTop(100);
+      }
+    } else if (window.innerWidth < 600) {
+      if (props.scroll >= 0 && props.scroll <= 20) {
+        setFix(false);
+        setTop(0);
+      } else if (props.scroll > 20 && props.scroll <= 250) {
+        setFix(false);
+        setTop(-props.scroll + 850);
+      } else {
+        setFix(true);
+        setTop(100);
+      }
     } else {
-      setFix(true);
-      setTop(100);
+      if (props.scroll >= 0 && props.scroll <= 20) {
+        setFix(false);
+        setTop(0);
+      } else if (props.scroll > 20 && props.scroll <= 270) {
+        setFix(false);
+        setTop(-props.scroll + 850);
+      } else {
+        setFix(true);
+        setTop(100);
+      }
     }
   };
 
   const calculateTop = () => {
     if (window.innerWidth < 450) {
-      return '-6rem';
+      return '-1rem';
     } else if (window.innerWidth < 600) {
       return '-3rem';
     } else {
-      return '0';
+      return '-0.5rem';
     }
   };
 
@@ -35,7 +59,7 @@ function Landing(props) {
   }, [props.scroll]);
 
   return (
-    <Container scroll={top} top={calculateTop()} fix={fix ? 1 : 0} display={props.scroll < 1800 ? 1 : 0}>
+    <Container scroll={top} top={calculateTop()} fix={fix ? 1 : 0} display={props.scroll < 1530 ? 1 : 0}>
       <TitleSection>
         <Hwayangyeonhwa src="/img/Hwayangyeonhwa.png" />
         <Background>
@@ -59,7 +83,7 @@ const Container = styled.section`
   width: 100%;
   display: ${(props) => (props.display ? 'block' : 'none')};
   position: ${(props) => (props.fix ? 'fixed' : 'relative')};
-  top: ${(props) => (!props.fix ? `${props.scroll / 10}rem` : props.top)};
+  top: ${(props) => (!props.fix ? `${props.scroll / 35}rem` : props.top)};
   height: 84rem;
 
   padding: 8.9rem 3.4rem 10.8rem 3.4rem;

@@ -38,9 +38,5 @@ export default Home;
 const Container = styled.div`
   position: relative;
   max-width: 76.8em;
-  height: ${(props) => (props.isLineupShow ? '1085rem' : '550rem')};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: ${(props) => (props.isLineupShow ? '1100rem' : '560rem')};
 `;

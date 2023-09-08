@@ -44,7 +44,7 @@ const TextContainer = styled.div`
   padding: 1.8rem 2.8rem 2rem 2rem;
 `;
 const InfoDate = styled.div`
-  ${theme.fontStyles.head4};
+  ${theme.fontStyles.head5};
   color: ${(props) =>
     props.date === '9.13'
       ? 'rgba(66, 207, 97, 1)'
