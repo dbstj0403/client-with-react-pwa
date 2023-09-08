@@ -80,7 +80,7 @@ function Profit() {
       <BoothMap />
 
       <BoothDetail>
-        <MapMarker booths={1} markers={markers} onClick={onClickPointer} />
+        <MapMarker booths={booths} markers={markers} onClick={onClickPointer} />
       </BoothDetail>
 
       {booths.map((booth) => (
