@@ -3,7 +3,8 @@ export const CelebrityData = {
     {
       name: 'SURL',
       image: '/img/celeb/SURL.png',
-      introduce: `비로소 발화된 Young & Alive, 경계 없는 움직임`,
+      introduce: `비로소 발화된 Young & Alive,
+      경계 없는 움직임`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation1.png',
@@ -11,7 +12,8 @@ export const CelebrityData = {
     {
       name: '양다일',
       image: '/img/celeb/양다일.png',
-      introduce: `전통 진성 가수들과는 차별화된 믹스보이스 창법의 가수`,
+      introduce: `전통 진성 가수들과는 차별화된
+      믹스보이스 창법의 가수`,
       chartman: true,
       left: false,
       backgroundGradation: '/img/gradation/gradation2.png',
@@ -19,7 +21,8 @@ export const CelebrityData = {
     {
       name: '나비',
       image: '/img/celeb/나비.png',
-      introduce: `차트를 휩쓸었던 WSG 워너비의 멤버로, 나비처럼 아름다운 목소리의 소유자`,
+      introduce: `차트를 휩쓸었던 WSG 워너비의 멤버로,
+      나비처럼 아름다운 목소리의 소유자`,
       chartman: true,
       left: true,
       backgroundGradation: '/img/gradation/gradation3.png',
@@ -36,8 +39,8 @@ export const CelebrityData = {
     {
       name: '윤미래',
       image: '/img/celeb/윤미래.jpg',
-      introduce: `독보적인 음색의 여성 래퍼.
-      현재까지 아무도 그녀만의 바이브를 넘어서지 못하고 있다`,
+      introduce: `독보적인 음색의 여성 래퍼. 현재까지 아무도
+      그녀만의 바이브를 넘어서지 못하고 있다`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation1.png',
@@ -56,7 +59,7 @@ export const CelebrityData = {
     {
       name: '유다빈밴드',
       image: '/img/celeb/유다빈밴드.png',
-      introduce: `사람들에게 가장 가까운 마음의 목소리를 전하는 차세대 혼성 밴드`,
+      introduce: `사람들에게 가장 가까운 마음의 목소리를 전하다`,
       chartman: false,
       left: true,
       backgroundGradation: '/img/gradation/gradation3.png',
@@ -93,7 +96,7 @@ export const CelebrityData = {
     {
       name: '이승윤',
       image: '/img/celeb/이승윤.jpg',
-      introduce: `메탈, 알앤비, 팝, 록 등 폭 넓은 스펙트럼에
+      introduce: `팝, 록 등 폭 넓은 스펙트럼에
       본인만의 스타일을 가미할 줄 아는 싱어송라이터`,
       chartman: false,
       left: true,
@@ -102,7 +105,8 @@ export const CelebrityData = {
     {
       name: '정용화',
       image: '/img/celeb/정용화.jpg',
-      introduce: `모던락의 선두주자 CNBLUE 메인 보컬이자 솔로 가수로도 활동하는 싱어송라이터`,
+      introduce: `모던락의 선두주자 CNBLUE 메인 보컬이자
+      솔로 가수로도 활동하는 싱어송라이터`,
       chartman: false,
       left: false,
       backgroundGradation: '/img/gradation/gradation2.png',
