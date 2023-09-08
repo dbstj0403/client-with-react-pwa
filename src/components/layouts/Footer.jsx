@@ -93,7 +93,7 @@ const GoToSemicolon = styled.div`
 `;
 
 const FooterWrap = styled.div`
-  width: 13.3rem;
+  width: 30rem;
   margin-top: 9.6rem;
   margin-left: 2.8rem;
   color: #e2e2e2;

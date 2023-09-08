@@ -1,19 +1,16 @@
-import BlackBoothCard from '@/components/booth/BlackBoothCard';
-import FoodTruckCard from '@/components/booth/FoodTruckCard';
-import { DaySelector, TimeTable } from '@/components/stage';
-import CelabLineUp from '@/components/stage/CelabLineUp';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
+import { CelabLineUpList, DaySelector, TimeTable, WristbandsInfo } from '@/components/stage';
 import { pageState } from '@/libs/store';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function CentralStage() {
   const isPage = useSetRecoilState(pageState);
 
   const [schedulePageIconRotateSize, setRotate] = useState(0);
 
-  const festivalDays = useMemo(() => [1, 2, 3], []);
+  const sliderRef = useRef();
 
   useEffect(() => {
     isPage('stage');
@@ -47,26 +44,6 @@ function CentralStage() {
     }
   });
 
-  /** Day 선택에 따른 이미지 회전률 설정 및 선택 날짜 설정 */
-  const onClickDay = (day) => {
-    switch (day) {
-      case 'day1':
-        setRotate(-30);
-        setDay(0);
-        break;
-      case 'day2':
-        setRotate(0);
-        setDay(1);
-        break;
-      case 'day3':
-        setRotate(30);
-        setDay(2);
-        break;
-      default:
-        break;
-    }
-  };
-
   const onSwipe = (direction) => {
     switch (direction) {
       case 'right':
@@ -97,42 +74,45 @@ function CentralStage() {
     }
   };
 
+  /** Day 선택에 따른 이미지 회전률 설정 및 선택 날짜 설정 */
+  const onClickDay = (day) => {
+    switch (day) {
+      case 'day1':
+        sliderRef.current.slickGoTo(0);
+        setRotate(-30);
+        setDay(0);
+        break;
+      case 'day2':
+        sliderRef.current.slickGoTo(1);
+        setRotate(0);
+        setDay(1);
+        break;
+      case 'day3':
+        sliderRef.current.slickGoTo(2);
+        setRotate(30);
+        setDay(2);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       <MainSection>
         <Title>중앙무대</Title>
-        <Map />
+        <CentralStageMap />
+
         <Title>팔찌부스 안내</Title>
-        <PrevWrist />
-        <BlackBoothCard
-          variant="secondary"
-          data={{
-            number: 1,
-            boothName: '사전 배부 일시',
-            hosted: '2023년 09월 12일',
-            intro: '11:00 ~ 13:00 / 14:00 ~ 18:00',
-          }}
-        />
-        <DDayWrist />
-        <BlackBoothCard
-          variant="secondary"
-          data={{
-            number: 2,
-            boothName: '현장 배부 일시',
-            hosted: '2023년 09월 13일 ~ 15일',
-            intro: '09:00 ~ 13:00 / 14:00 ~ 18:00',
-          }}
-        />
+        <WristbandsInfo />
 
         <Title>라인업</Title>
-        {festivalDays.map((day) => (
-          <CelabLineUp key={day} day={day} />
-        ))}
+        <CelabLineUpList />
 
         <ScheduleWrapper>
           <StageSchedule>중앙무대 일정</StageSchedule>
-          <DaySelector selectedDay={day} />
-          <TimeTable day={day} onSwipe={onSwipe} />
+          <DaySelector selectedDay={day} onClick={onClickDay} />
+          <TimeTable day={day} onSwipe={onSwipe} sliderRef={sliderRef} />
 
           <PageIconCenter rotateSize={schedulePageIconRotateSize} />
           <PageIconCorner />
@@ -153,7 +133,7 @@ const MainSection = styled.section`
   padding: 10rem 2rem;
 `;
 
-const Map = styled.div`
+const CentralStageMap = styled.div`
   width: 33.5rem;
   height: 20rem;
 
@@ -210,24 +190,6 @@ const ScheduleWrapper = styled.div`
   min-height: 84.3rem;
 
   margin-top: 22rem;
-`;
-
-const PrevWrist = styled.div`
-  width: 33.5rem;
-  height: 20rem;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('/img/stage/prev-wrist.jpg');
-`;
-
-const DDayWrist = styled.div`
-  width: 33.5rem;
-  height: 20rem;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('/img/stage/d-day-wrist.jpg');
 `;
 
 const Title = styled.header`

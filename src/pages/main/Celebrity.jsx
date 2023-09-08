@@ -6,6 +6,7 @@ import Day from '@/components/celebrity/day';
 import { CelebrityData } from '@/constants/CelebrityData';
 import { lineupState } from '@/libs/store';
 import { useRecoilState } from 'recoil';
+import { dayColor } from '@/constants/DayColor';
 
 function Celebrity() {
   const [show, setShow] = useRecoilState(lineupState);
@@ -28,9 +29,9 @@ function Celebrity() {
       <Title show={show ? 1 : 0}>라인업</Title>
       <ShowMoreButton src="/img/icon-arrow-down-small-mono.png" show={show ? 0 : 1} onClick={showMore} />
       <DayContainer show={show ? 1 : 0}>
-        <Day day={`9.13 수`} info={CelebrityData.first} />
-        <Day day={`9.14 목`} info={CelebrityData.second} />
-        <Day day={`9.15 금`} info={CelebrityData.third} />
+        <Day day={`9.13 수`} color={dayColor[0]} info={CelebrityData.first} />
+        <Day day={`9.14 목`} color={dayColor[1]} info={CelebrityData.second} />
+        <Day day={`9.15 금`} color={dayColor[2]} info={CelebrityData.third} />
       </DayContainer>
       <ShowCloseButton show={show ? 1 : 0} onClick={showClose}>
         <ShowCloseIcon src="/img/icon-arrow-down-small-mono.png" />

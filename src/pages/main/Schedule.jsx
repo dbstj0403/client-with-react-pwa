@@ -6,12 +6,14 @@ import { scheduleData } from '@/constants/ScheduleData';
 function Schedule() {
   return (
     <Container>
-      <TopImage />
       <MiddleImage />
       <BottomImage />
-      <Title>일정 소개</Title>
+      <Title>
+        일정 소개
+        <TopImage />
+      </Title>
       {scheduleData.map((schedule, idx) => (
-        <ScheduleTable key={`schedule${idx}`} schedule={schedule} />
+        <ScheduleTable key={`schedule${idx}`} idx={idx} schedule={schedule} />
       ))}
     </Container>
   );
@@ -29,6 +31,7 @@ const Container = styled.section`
 `;
 
 const Title = styled.h1`
+  position: relative;
   padding: 6rem 2rem 8rem 2rem;
   color: ${theme.colors.white};
 
@@ -42,6 +45,9 @@ const TopImage = styled.div`
   top: 6.7rem;
   right: 5.5rem;
   z-index: 1;
+
+  top: calc(50% - 2rem);
+  right: calc(50% - 13.35rem);
 
   width: 24.7rem;
   height: 30.8rem;
