@@ -2,9 +2,18 @@ import theme from '@/styles/theme';
 import styled from 'styled-components';
 
 function Campus(props) {
+  const getWidth = () => {
+    if (window.innerWidth < 450) {
+      return 190;
+    } else if (window.innerWidth < 600) {
+      return 250;
+    } else {
+      return 270;
+    }
+  };
   return (
     <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 300 ? 1 : 0}>
-      <Backdrop scroll={props.scroll} />
+      <Backdrop scroll={props.scroll} width={getWidth()} />
       <Gradient />
       <CampusImage src="/img/hongikview/hongikview.gif" alt="hongik" />
     </Container>
@@ -29,7 +38,8 @@ const Backdrop = styled.div`
 
   height: 24rem;
   background-color: ${theme.colors.background};
-  opacity: ${(props) => (props.scroll > 20 && props.scroll < 160 ? (props.scroll - 20) / 100 : 0)};
+  opacity: ${(props) =>
+    props.scroll > 20 && props.scroll < props.width ? (props.scroll - 20) / (props.width - 20) : 0};
 `;
 
 const Gradient = styled.div`

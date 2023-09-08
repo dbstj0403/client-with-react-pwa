@@ -1,15 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from './../../styles/theme';
-import { useRecoilState } from 'recoil';
-import { pageState } from '@/libs/store';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { pageState, sideState } from '@/libs/store';
+import { useNavigate } from 'react-router-dom';
 
 const SelectItem = () => {
   const [page, isPage] = useRecoilState(pageState);
+  const setIsOpen = useSetRecoilState(sideState);
+
+  const navigate = useNavigate();
 
   const handleSelectOptionClick = (selectedPage) => {
     isPage(selectedPage);
-    window.location.replace(`/${selectedPage}`);
+    navigate(`/${selectedPage}`);
+    setIsOpen(false);
   };
 
   return (
