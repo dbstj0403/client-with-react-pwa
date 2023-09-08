@@ -73,9 +73,11 @@ const MiddleImage = styled.div`
 
 const BottomImage = styled.div`
   position: absolute;
+
   top: 93.6rem;
   right: -1rem;
-  z-index: 3;
+
+  z-index: 0;
 
   width: 24.7rem;
   height: 30.8rem;
