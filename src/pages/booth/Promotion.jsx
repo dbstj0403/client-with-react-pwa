@@ -1,19 +1,16 @@
-import React, { useEffect, useMemo, useRef } from 'react';
-import BlackBoothCard from '@/components/booth/BlackBoothCard';
+import { PromotionBoothCard } from '@/components/booth/promotion';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
-import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
+import useGetPromotionBooths from '@/query/get/useGetPromotionBooths';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { useRecoilState } from 'recoil';
+import styled from 'styled-components';
 
 export default function Promotion() {
   const [page, isPage] = useRecoilState(pageState);
 
-  useEffect(() => {
-    isPage('booth/promotion');
-  }, []);
-
   const boothFocus = useRef([]);
-
+  const { booths } = useGetPromotionBooths();
   const pointers = useMemo(
     () => [
       {
@@ -85,60 +82,14 @@ export default function Promotion() {
     []
   );
 
-  const booths = useMemo(
-    () => [
-      {
-        number: 1,
-        boothName: '포토에이스',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 2,
-        boothName: '질레트',
-        intro: '운영날짜 수/목금',
-      },
-      {
-        number: 3,
-        boothName: '밝은눈안과',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 4,
-        boothName: '몬스터',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 5,
-        boothName: '예거',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 6,
-        boothName: '켈리',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 7,
-        boothName: '링티',
-        intro: '운영날짜: 금',
-      },
-      {
-        number: 8,
-        boothName: '상쾌한',
-        intro: '운영날짜: 금',
-      },
-      {
-        number: 9,
-        boothName: '렌즈미',
-        intro: '운영날짜: 금',
-      },
-    ],
-    []
-  );
+  useEffect(() => {
+    isPage('booth/promotion');
+  }, []);
 
   const onClickPointer = (number) => {
     boothFocus.current[number].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
   };
+
   return (
     <MainSection>
       <Title>프로모션 부스</Title>
@@ -156,9 +107,9 @@ export default function Promotion() {
         ))}
       </BoothMap>
 
-      {booths.map((booth) => (
-        <div ref={(el) => (boothFocus.current[booth.number] = el)} key={booth.number}>
-          <BlackBoothCard data={booth} variant="primary" />
+      {booths.map((booth, index) => (
+        <div ref={(el) => (boothFocus.current[index + 1] = el)} key={index + 1}>
+          <PromotionBoothCard index={index + 1} data={booth} variant="primary" />
         </div>
       ))}
       <MoveToTopBtn />
@@ -202,14 +153,14 @@ const MapSize = styled.div`
   width: 33.5rem;
   height: 20rem;
 
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 `;
 
 const BoothMap = styled(MapSize)`
   position: relative;
   z-index: 1;
-  background-image: url('/public/img/booth/promotion/promotion-map.png');
+  background-image: url('/img/booth/promotion/promotion-map.png');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
