@@ -153,7 +153,7 @@ const MapSize = styled.div`
   width: 33.5rem;
   height: 20rem;
 
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 `;
 
