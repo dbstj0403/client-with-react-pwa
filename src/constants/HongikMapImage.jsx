@@ -89,7 +89,7 @@ function HongikMapImage() {
   return (
     <Container>
       {imgList.map((img, idx) => (
-        <Map img={img.map} show={current === idx}>
+        <Map key={`hongikmap-${idx}`} img={img.map} show={current === idx ? 1 : 0}>
           {current !== 0 ? (
             <Marker
               src={img.marker}
@@ -103,6 +103,7 @@ function HongikMapImage() {
               .slice(1)
               .map((marker, idx) => (
                 <Marker
+                  key={`marker-${idx}`}
                   src={marker.marker}
                   alt="hongikIcon"
                   show={1}
@@ -116,10 +117,6 @@ function HongikMapImage() {
     </Container>
   );
 }
-
-/**(
-            <Marker src={img.marker} alt="hongikPin" offset={getOffset(idx + 1)} onClick={goDetail} />
-          ) */
 
 export default HongikMapImage;
 
