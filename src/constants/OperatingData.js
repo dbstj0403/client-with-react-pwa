@@ -1,5 +1,4 @@
 export const operatingData = [
-  { operate: '메인무대', start: '18:00', end: '각 일별 종료시간', second: null, desc: null },
   { operate: '수익부스', start: '10:00', end: '18:00', second: null, desc: null },
   {
     operate: '주점부스',
@@ -17,5 +16,13 @@ export const operatingData = [
     second: { start: '14:00', end: '18:00', startLabel: '1부 : ', endLabel: '2부 : ' },
     desc: null,
   },
-  { operate: '홍익존', start: '14:00', end: '각 일별 종료시간', second: null, desc: null },
+  {
+    operate: '홍익존',
+    start: null,
+    end: null,
+    second: null,
+    desc: null,
+    first: '16:30 시팅존 입장',
+    second: '17:00 스탠딩존 입장',
+  },
 ];
