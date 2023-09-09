@@ -13,7 +13,7 @@ const SelectItem = () => {
 
   const handleSelectOptionClick = (selectedPage) => {
     isPage(selectedPage);
-    navigate(`/${selectedPage}`);
+    navigate(`/${selectedPage}`, { state: { isRoadmapClick: selectedPage === '' } });
     setIsOpen(false);
   };
 
