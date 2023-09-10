@@ -51,8 +51,8 @@ export default function Promotion() {
       },
       {
         number: 4,
-        top: '8.65rem',
-        left: '21.65rem',
+        top: '7.35rem',
+        left: '13.6rem',
       },
       {
         number: 5,
@@ -167,7 +167,7 @@ const MapSize = styled.div`
 const BoothMap = styled(MapSize)`
   position: relative;
   z-index: 1;
-  background-image: url('/img/booth/promotion/promotion-map.png');
+  background-image: url('/img/booth/promotion/promotion-map.jpeg');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;
