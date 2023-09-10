@@ -1,12 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-export default function MapMarker({ booths, markers, onClick }) {
-  const markerInformations = markers.map((marker, index) => ({
-    ...marker,
-    number: booths[index].boothNum,
-  }));
-  return markerInformations.map((info) => (
+MapMarker.propTypes = {
+  markers: PropTypes.arrayOf(
+    PropTypes.shape({
+      number: PropTypes.string.isRequired,
+      top: PropTypes.string.isRequired,
+      left: PropTypes.string.isRequired,
+    })
+  ),
+  onClick: PropTypes.func,
+};
+
+export default function MapMarker({ markers, onClick }) {
+  return markers.map((info) => (
     <Pointer
       key={`pointer${info.number}`}
       number={info.number}

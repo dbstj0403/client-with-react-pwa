@@ -31,20 +31,18 @@ export default function WristbandsInfo() {
   ));
 }
 
-const PrevWrist = styled.div`
-  width: 33.5rem;
+const MapSize = styled.div`
+  width: 100%;
   height: 20rem;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+`;
+
+const PrevWrist = styled(MapSize)`
   background-image: url('/img/stage/prev-wrist.jpg');
 `;
 
-const DDayWrist = styled.div`
-  width: 33.5rem;
-  height: 20rem;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+const DDayWrist = styled(MapSize)`
   background-image: url('/img/stage/d-day-wrist.jpg');
 `;

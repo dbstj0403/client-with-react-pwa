@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 ProfitBoothCard.propTypes = {
   data: PropTypes.shape({
-    boothNum: PropTypes.number.isRequired,
+    boothNum: PropTypes.string.isRequired,
     boothName: PropTypes.string.isRequired,
     host: PropTypes.string,
     intro: PropTypes.string,
