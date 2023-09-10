@@ -3,13 +3,19 @@ import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { pageState } from '@/libs/store';
 import useGetPromotionBooths from '@/query/get/useGetPromotionBooths';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 export default function Promotion() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
+  /** 지도 포인터 눌렀을 때 포커싱 주기위한 ref */
   const boothFocus = useRef([]);
+
+  /**
+   * booths: 부스 정보 (서버로부터 받아옴)
+   * pointers: 지도 상에 나타나는 포인터 고정 좌표
+   */
   const { booths } = useGetPromotionBooths();
   const pointers = useMemo(
     () => [
@@ -86,6 +92,7 @@ export default function Promotion() {
     isPage('booth/promotion');
   }, []);
 
+  /** 포인터 눌렀을 때 해당 포인터 번호에 해당하는 카드로 이동 */
   const onClickPointer = (number) => {
     boothFocus.current[number].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
   };
@@ -95,9 +102,9 @@ export default function Promotion() {
       <Title>프로모션 부스</Title>
 
       <BoothMap>
-        {pointers.map((pointer) => (
+        {pointers.map((pointer, index) => (
           <Pointer
-            key={`pointer${pointer.number}`}
+            key={`pointer${index}`}
             src={`/img/booth/pointer${pointer.number}.png`}
             number={pointer.number}
             left={pointer.left}
@@ -107,9 +114,9 @@ export default function Promotion() {
         ))}
       </BoothMap>
 
-      {booths.map((booth, index) => (
-        <div ref={(el) => (boothFocus.current[index + 1] = el)} key={index + 1}>
-          <PromotionBoothCard index={index + 1} data={booth} variant="primary" />
+      {booths.map((booth) => (
+        <div ref={(el) => (boothFocus.current[booth.booth_num] = el)} key={booth.booth_num + 1}>
+          <PromotionBoothCard data={booth} variant="primary" />
         </div>
       ))}
       <MoveToTopBtn />
