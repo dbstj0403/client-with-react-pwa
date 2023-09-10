@@ -62,6 +62,7 @@ export default Home;
 const Container = styled.div`
   position: relative;
   max-width: 76.8em;
+  width: 100%;
   height: ${(props) => (props.islineupshow ? '1100rem' : '560rem')};
 
   display: flex;

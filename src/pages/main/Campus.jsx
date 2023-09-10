@@ -4,15 +4,15 @@ import styled from 'styled-components';
 function Campus(props) {
   const getWidth = () => {
     if (window.innerWidth < 450) {
-      return 190;
+      return 220;
     } else if (window.innerWidth < 600) {
-      return 250;
+      return 295;
     } else {
-      return 270;
+      return 340;
     }
   };
   return (
-    <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 300 ? 1 : 0}>
+    <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 400 ? 1 : 0}>
       <Backdrop scroll={props.scroll} width={getWidth()} />
       <Gradient />
       <CampusImage src="/img/hongikview/hongikview.gif" alt="hongik" />
