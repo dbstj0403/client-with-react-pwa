@@ -3,14 +3,15 @@ import Landing from './main/Landing';
 import Campus from './main/Campus';
 import Rest from './main/Rest';
 import styled from 'styled-components';
-import { useRecoilValue } from 'recoil';
-import { lineupState } from '@/libs/store';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { lineupState, pageState } from '@/libs/store';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { useLocation } from 'react-router-dom';
 
 function Home() {
   const [scroll, setScroll] = useState(0);
   const isLineupShow = useRecoilValue(lineupState);
+  const isPage = useSetRecoilState(pageState);
   const location = useLocation();
 
   useEffect(() => {
@@ -46,6 +47,10 @@ function Home() {
       return 2750;
     }
   };
+
+  useEffect(() => {
+    isPage('');
+  }, []);
 
   return (
     <Container islineupshow={isLineupShow ? 1 : 0}>

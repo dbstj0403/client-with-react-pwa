@@ -3,11 +3,11 @@ import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { pageState } from '@/libs/store';
 import useGetPromotionBooths from '@/query/get/useGetPromotionBooths';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 export default function Promotion() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
   const boothFocus = useRef([]);
   const { booths } = useGetPromotionBooths();
