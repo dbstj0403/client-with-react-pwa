@@ -15,7 +15,7 @@ export default function Pub() {
   const [department, setDepartment] = useState('all');
   const [page, isPage] = useRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
-  const isAuth = false;
+  const isAuth = true;
   const addBoothClicked = () => {
     setBoothAdding(true);
   };
@@ -25,6 +25,7 @@ export default function Pub() {
   }, []);
 
   const { getPubs, isLoading, error } = useGetPubs(department);
+  console.log(getPubs);
   return (
     <PubPageWrapper>
       <PubPageTitle>

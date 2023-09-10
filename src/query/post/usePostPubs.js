@@ -1,3 +1,4 @@
+import { axiosInstance } from '@/axios/axios';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function usePostPubs() {
