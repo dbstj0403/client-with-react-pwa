@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import EditBtn from '@/components/common/btn/EditBtn';
+import usePatchProfitBooths from '@/query/patch/usePatchProfitBooths';
+import useDeleteProfitBooths from '@/query/delete/useDeleteProfitBooths';
 
 EditingProfitBoothCard.propTypes = {
   data: PropTypes.shape({
@@ -14,14 +16,20 @@ EditingProfitBoothCard.propTypes = {
 };
 
 export default function EditingProfitBoothCard({ data }) {
+  /** 카드가 수정 모드일 경우 true */
   const [isModify, setModifyMode] = useState(false);
+  /** 수정을 위한 request */
   const [request, setRequest] = useState({
-    boothNum: '',
-    boothName: '',
-    host: '',
-    intro: '',
+    ...data,
   });
+
+  /** 모든 정보가 채워졌는지 확인하는 state */
   const [requireFulfilled, setRequireFulfilled] = useState(false);
+
+  /** 카드 수정 관련 useMutation hook */
+  const { patchProfitBooth } = usePatchProfitBooths(data);
+  /** 카드 삭제 관련 useMutation hook */
+  const { deleteProfitBooth } = useDeleteProfitBooths(data);
 
   useEffect(() => {
     /** 모든 input 채워졌는지 확인 */
@@ -40,13 +48,17 @@ export default function EditingProfitBoothCard({ data }) {
       [name]: value,
     }));
   };
-  const onSave = () => {
+
+  /** 카드 수정 내용 반영 */
+  const onModifyCard = () => {
+    patchProfitBooth(request);
     setModifyMode(false);
   };
 
-  const onDelete = () => {
+  /** 카드 삭제 */
+  const onDeleteCard = () => {
     if (window.confirm('정말 삭제합니까?')) {
-      alert('삭제되었습니다.');
+      deleteProfitBooth();
     } else {
       alert('취소합니다.');
     }
@@ -58,8 +70,8 @@ export default function EditingProfitBoothCard({ data }) {
         <BoothNumber isModify={isModify}>
           <input
             type="text"
-            name={'booth_num'}
-            value={request.booth_num}
+            value={request.boothNum}
+            name={'boothNum'}
             placeholder="위치 번호"
             maxLength={2}
             onChange={onChange}
@@ -68,8 +80,8 @@ export default function EditingProfitBoothCard({ data }) {
         <BoothName>
           <input
             type="text"
-            name={'name'}
-            value={request.name}
+            value={request.boothName}
+            name={'boothName'}
             placeholder="부스 이름"
             maxLength={40}
             onChange={onChange}
@@ -78,8 +90,8 @@ export default function EditingProfitBoothCard({ data }) {
         <BoothHosted>
           <input
             type="text"
-            name={'host'}
             value={request.host}
+            name={'host'}
             placeholder="주최 정보"
             maxLength={40}
             onChange={onChange}
@@ -88,15 +100,15 @@ export default function EditingProfitBoothCard({ data }) {
         <BoothIntroduction>
           <textarea
             type="text"
-            name={'introduction'}
-            value={request.introduction}
+            value={request.intro}
+            name={'intro'}
             placeholder="30자 이내 설명"
             maxLength={30}
             onChange={onChange}
           />
         </BoothIntroduction>
-        <EditBtn title={'저장'} type={'add'} onClick={onSave} disabled={!requireFulfilled} />
-        <EditBtn title={'삭제'} type={'delete'} onClick={onDelete} />
+        <EditBtn title={'저장'} type={'add'} onClick={onModifyCard} disabled={!requireFulfilled} />
+        <EditBtn title={'삭제'} type={'delete'} onClick={onDeleteCard} />
       </BoothText>
     </CardWrapper>
   ) : (
@@ -113,7 +125,7 @@ export default function EditingProfitBoothCard({ data }) {
         </BoothHosted>
         <BoothIntroduction>{data.intro}</BoothIntroduction>
         <EditBtn title={'수정'} type={'modify'} onClick={() => setModifyMode(true)} />
-        <EditBtn title={'삭제'} type={'delete'} onClick={onDelete} />
+        <EditBtn title={'삭제'} type={'delete'} onClick={onDeleteCard} />
       </BoothText>
     </CardWrapper>
   );

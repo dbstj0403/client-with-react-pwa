@@ -10,9 +10,11 @@ PromotionCardList.propTypes = {
 export default function PromotionCardList({ cardRef }) {
   const { booths } = useGetPromotionBooths();
 
-  return booths.map((booth, index) => (
-    <div ref={(el) => (cardRef.current[index + 1] = el)} key={index + 1}>
-      <PromotionBoothCard index={index + 1} data={booth} variant="primary" />
+  booths.sort((boothPrev, boothNext) => parseInt(boothPrev.booth_num) - parseInt(boothNext.booth_num));
+
+  return booths.map((booth) => (
+    <div ref={(el) => (cardRef.current[booth.booth_num] = el)} key={booth.booth_num}>
+      <PromotionBoothCard data={booth} variant="primary" />
     </div>
   ));
 }

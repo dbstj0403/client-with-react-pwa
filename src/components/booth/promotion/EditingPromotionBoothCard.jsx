@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import EditBtn from '@/components/common/btn/EditBtn';
+import usePatchPromotionBooths from '@/query/patch/usePatchPromotionBooths';
+import useDeletePromotionBooths from '@/query/delete/useDeletePromotionBooths';
 
 EditingPromotionBoothCard.propTypes = {
   data: PropTypes.shape({
@@ -13,14 +15,20 @@ EditingPromotionBoothCard.propTypes = {
 };
 
 export default function EditingPromotionBoothCard({ data }) {
+  /** 카드가 수정 모드일 경우 true */
   const [isModify, setModifyMode] = useState(false);
+  /** 수정을 위한 request */
+
   const [request, setRequest] = useState({
-    booth_num: '',
-    name: '',
-    introduction: '',
+    ...data,
   });
+  /** 모든 정보가 채워졌는지 확인하는 state */
   const [requireFulfilled, setRequireFulfilled] = useState(false);
 
+  /** 카드 수정 관련 useMutation hook */
+  const { patchPromotionBooth } = usePatchPromotionBooths(data);
+  /** 카드 삭제 관련 useMutation hook */
+  const { deletePromotionBooth } = useDeletePromotionBooths(data);
   useEffect(() => {
     /** 모든 input 채워졌는지 확인 */
     let flag = true;
@@ -38,13 +46,17 @@ export default function EditingPromotionBoothCard({ data }) {
       [name]: value,
     }));
   };
-  const onSave = () => {
+
+  /** 카드 수정 내용 반영 */
+  const onModifyCard = () => {
+    patchPromotionBooth(request);
     setModifyMode(false);
   };
 
-  const onDelete = () => {
+  /** 카드 삭제 */
+  const onDeleteCard = () => {
     if (window.confirm('정말 삭제합니까?')) {
-      alert('삭제되었습니다.');
+      deletePromotionBooth();
     } else {
       alert('취소합니다.');
     }
@@ -83,8 +95,8 @@ export default function EditingPromotionBoothCard({ data }) {
             onChange={onChange}
           />
         </BoothIntroduction>
-        <EditBtn title={'저장'} type={'add'} onClick={onSave} disabled={!requireFulfilled} />
-        <EditBtn title={'삭제'} type={'delete'} onClick={onDelete} />
+        <EditBtn title={'저장'} type={'add'} onClick={onModifyCard} disabled={!requireFulfilled} />
+        <EditBtn title={'삭제'} type={'delete'} onClick={onDeleteCard} />
       </BoothText>
     </CardWrapper>
   ) : (
@@ -98,7 +110,7 @@ export default function EditingPromotionBoothCard({ data }) {
         </BoothName>
         <BoothIntroduction>운영요일: {data.introduction}</BoothIntroduction>
         <EditBtn title={'수정'} type={'modify'} onClick={() => setModifyMode(true)} />
-        <EditBtn title={'삭제'} type={'delete'} onClick={onDelete} />
+        <EditBtn title={'삭제'} type={'delete'} onClick={onDeleteCard} />
       </BoothText>
     </CardWrapper>
   );
