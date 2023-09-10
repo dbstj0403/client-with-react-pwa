@@ -4,7 +4,7 @@ import FacilitySubTitle from '@/components/facilities/FacilitySubTitle';
 import { facilitiesCategory } from '@/constants/FacilitiesCategory';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 
 export default function Facilities() {
@@ -13,7 +13,7 @@ export default function Facilities() {
     setCategoryState(index);
   };
 
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
   useEffect(() => {
     isPage('facilities');

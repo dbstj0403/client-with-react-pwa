@@ -1,11 +1,11 @@
 import { pageState } from '@/libs/store';
 import theme from '@/styles/theme';
 import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 function HongikZone() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
   useEffect(() => {
     isPage('hongikzone');

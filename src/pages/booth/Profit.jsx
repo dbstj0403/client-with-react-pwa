@@ -5,11 +5,11 @@ import { pageState } from '@/libs/store';
 import useGetProfitBooths from '@/query/get/useGetProfitBooths';
 import theme from '@/styles/theme';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 function Profit() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   const boothFocus = useRef([]);
   const { booths, isLoading } = useGetProfitBooths();
 

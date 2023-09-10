@@ -24,7 +24,7 @@ function Day({ day, color, info }) {
             ) : null}
           </CelebImageContainer>
 
-          <Introduction backgroundGradation={celeb.backgroundGradation}>
+          <Introduction backgroundgradation={celeb.backgroundGradation}>
             <GradationLayer />
             <Celeb>{celeb.name}</Celeb>
             <Desc>{celeb.introduce}</Desc>
@@ -108,7 +108,7 @@ const Introduction = styled.div`
   height: 15rem;
   padding: 1.8rem 2.8rem 2rem 2rem;
 
-  background-image: url(${(props) => props.backgroundGradation});
+  background-image: url(${(props) => props.backgroundgradation});
   background-size: cover;
   background-repeat: no-repeat;
 `;
