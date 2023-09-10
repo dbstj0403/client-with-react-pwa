@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import PropTypes from 'prop-types';
+import EditingPromotionBoothCard from './EditingPromotionBoothCard';
 
 PromotionBoothCard.propTypes = {
   index: PropTypes.number.isRequired,
@@ -23,7 +24,11 @@ export default function PromotionBoothCard({ index, data, variant }) {
     AOS.init();
   });
 
-  return (
+  const isAdmin = true;
+
+  return isAdmin ? (
+    <EditingPromotionBoothCard data={data} />
+  ) : (
     <CardWrapper data-aos="fade-up" data-aos-duration="800">
       <BoothText>
         <BoothNumber>

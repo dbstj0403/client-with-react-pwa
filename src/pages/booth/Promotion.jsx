@@ -1,7 +1,6 @@
-import { PromotionBoothCard } from '@/components/booth/promotion';
+import { PromotionCardList } from '@/components/booth/promotion';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { pageState } from '@/libs/store';
-import useGetPromotionBooths from '@/query/get/useGetPromotionBooths';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
@@ -10,7 +9,7 @@ export default function Promotion() {
   const [page, isPage] = useRecoilState(pageState);
 
   const boothFocus = useRef([]);
-  const { booths } = useGetPromotionBooths();
+
   const pointers = useMemo(
     () => [
       {
@@ -95,9 +94,9 @@ export default function Promotion() {
       <Title>프로모션 부스</Title>
 
       <BoothMap>
-        {pointers.map((pointer) => (
+        {pointers.map((pointer, index) => (
           <Pointer
-            key={`pointer${pointer.number}`}
+            key={`pointer${index}`}
             src={`/img/booth/pointer${pointer.number}.png`}
             number={pointer.number}
             left={pointer.left}
@@ -107,11 +106,8 @@ export default function Promotion() {
         ))}
       </BoothMap>
 
-      {booths.map((booth, index) => (
-        <div ref={(el) => (boothFocus.current[index + 1] = el)} key={index + 1}>
-          <PromotionBoothCard index={index + 1} data={booth} variant="primary" />
-        </div>
-      ))}
+      <PromotionCardList cardRef={boothFocus} />
+
       <MoveToTopBtn />
     </MainSection>
   );
