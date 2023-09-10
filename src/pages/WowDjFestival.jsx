@@ -9,13 +9,13 @@ import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import wdfPoster from '../../public/img/dj/wdfPoster.png';
 import wdfMap from '../../public/img/dj/wdfMap.png';
 
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 
 function WowDigitalFestival() {
   const [isAuth, setIsAuth] = useState(false);
 
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
   useEffect(() => {
     isPage('wowdjfestival');

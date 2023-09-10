@@ -1,19 +1,25 @@
 import theme from '@/styles/theme';
 import styled from 'styled-components';
 import { Member } from '../Member';
+import yeojinImg from '@/assets/image/madeby/profile/여진.jpg';
 
 export function Design() {
   return (
     <TeamInst>
       <HeadTitle>디자인</HeadTitle>
       <Spacing height={0.8} />
-      <BodyText>내용을 채우겠습니다!</BodyText>
+      <BodyText>
+        사용자 중심 사고를 바탕으로 <br />
+        UX/UI 디자인을 설계하여 기획자, 개발자와 함께
+        <br />
+        새로운 서비스를 제작합니다.
+      </BodyText>
       <Spacing height={6} />
       <Member
-        profileimg={''}
+        profileimg={yeojinImg}
         name={'윤여진'}
         major={'시각디자인학과 18'}
-        inst={'여기까지가 20자입니다 여러분 여기까'}
+        inst={'마지막 축제네요… 힘내서 졸업하겠습니다!'}
       />
     </TeamInst>
   );

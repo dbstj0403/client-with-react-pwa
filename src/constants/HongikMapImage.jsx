@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { pageState, roadmapState } from '@/libs/store';
 import { useNavigate } from 'react-router-dom';
+import { mapEnum } from './Roadmap/MapEnum';
+import getOffset from './Roadmap/GetOffset';
+import goDetail from './Roadmap/GoDetail';
+import { useRef } from 'react';
+import useLazyLoading from '@/hooks/useLazyLoading';
 
 function HongikMapImage() {
-  const isPage = useSetRecoilState(pageState);
   const current = useRecoilValue(roadmapState);
 
+  const isPage = useSetRecoilState(pageState);
   const navigate = useNavigate();
 
   const handleSelectOptionClick = (selectedPage) => {
@@ -15,38 +20,10 @@ function HongikMapImage() {
     navigate(`/${selectedPage}`);
   };
 
-  const mapEnum = {
-    0: '',
-    1: 'A',
-    2: 'B',
-    3: 'G',
-    4: 'C',
-    5: 'D',
-    6: 'E',
-    7: 'H',
-    8: 'F',
-  };
-
-  const getOffset = (current) => {
-    switch (current) {
-      case 1:
-        return { top: 'calc(50% - 8rem)', left: 'calc(50% - 1.2rem)', size: '2rem' };
-      case 2:
-        return { top: 'calc(50% + 1.5rem)', left: 'calc(50% - 7rem)', size: '2rem' };
-      case 3:
-        return { top: 'calc(50% - 4rem)', left: 'calc(50%)', size: '2.3rem' };
-      case 4:
-        return { top: 'calc(50%)', left: 'calc(50% - 3rem)', size: '2rem' };
-      case 5:
-        return { top: 'calc(50% + 1rem)', left: 'calc(50% + 2rem)', size: '2rem' };
-      case 6:
-        return { top: 'calc(50% - 4.5rem)', left: 'calc(50% - 7.8rem)', size: '2rem' };
-      case 7:
-        return { top: 'calc(50% - 0.7rem)', left: 'calc(50% - 14.5rem)', size: '2rem' };
-      case 8:
-        return { top: 'calc(50% + 1.5rem)', left: 'calc(50% + 10.7rem)', size: '2.2rem' };
-    }
-  };
+  // 이미지 lazy loading을 처리하기 위해
+  // 이 두 줄과 Container ref props 참고하시면 됩니다~~!!
+  const observerRef = useRef(null);
+  const loading = useLazyLoading(observerRef);
 
   const imgList = [];
 
@@ -56,70 +33,39 @@ function HongikMapImage() {
     imgList.push(img);
   }
 
-  // 어디로 링크를 넣어줄 지만 정하면 끝
-  const goDetail = (current) => {
-    switch (current) {
-      case 1:
-        handleSelectOptionClick('booth/profit');
-        break;
-      case 2:
-        handleSelectOptionClick('stage');
-        break;
-      case 3:
-        handleSelectOptionClick('entrance');
-        break;
-      case 4:
-        handleSelectOptionClick('hongikzone');
-        break;
-      case 5:
-        handleSelectOptionClick('booth/pub');
-        break;
-      case 6:
-        handleSelectOptionClick('booth/foodtruck');
-        break;
-      case 7:
-        handleSelectOptionClick('facilities');
-        break;
-      case 8:
-        handleSelectOptionClick('wowdjfestival');
-        break;
-    }
-  };
-
   return (
-    <Container>
-      {imgList.map((img, idx) => (
-        <Map img={img.map} show={current === idx}>
-          {current !== 0 ? (
+    <Container ref={observerRef}>
+      {loading ? (
+        <Skeleton src="/img/skeleton.png" />
+      ) : (
+        imgList.map((img, idx) => <Map key={`hongikmap-${idx}`} src={img.map} show={current === idx ? 1 : 0} />)
+      )}
+      {current !== 0
+        ? imgList.map((img, idx) => (
             <Marker
+              key={`marker-${idx}`}
               src={img.marker}
               alt="hongikIcon"
-              show={current === idx}
+              show={current === idx ? 1 : 0}
               offset={getOffset(current)}
-              onClick={() => goDetail(current)}
+              onClick={() => goDetail(current, handleSelectOptionClick)}
             />
-          ) : (
-            imgList
-              .slice(1)
-              .map((marker, idx) => (
-                <Marker
-                  src={marker.marker}
-                  alt="hongikIcon"
-                  show={1}
-                  offset={getOffset(idx + 1)}
-                  onClick={() => goDetail(idx + 1)}
-                />
-              ))
-          )}
-        </Map>
-      ))}
+          ))
+        : imgList
+            .slice(1)
+            .map((marker, idx) => (
+              <Marker
+                key={`marker-${idx}`}
+                src={marker.marker}
+                alt="hongikIcon"
+                show={1}
+                offset={getOffset(idx + 1)}
+                onClick={() => goDetail(idx + 1, handleSelectOptionClick)}
+              />
+            ))}
     </Container>
   );
 }
-
-/**(
-            <Marker src={img.marker} alt="hongikPin" offset={getOffset(idx + 1)} onClick={goDetail} />
-          ) */
 
 export default HongikMapImage;
 
@@ -129,7 +75,7 @@ const Container = styled.div`
   height: 19rem;
 `;
 
-const Map = styled.div`
+const Map = styled.img`
   position: absolute;
 
   z-index: ${(props) => (props.show ? 1 : -1)};
@@ -138,10 +84,8 @@ const Map = styled.div`
   margin: 0 auto;
   margin-bottom: 1.6rem;
 
-  background-image: url(${(props) => props.img});
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  object-fit: contain;
+  object-position: center center;
 `;
 
 const Marker = styled.img`
@@ -157,4 +101,11 @@ const Marker = styled.img`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const Skeleton = styled.img`
+  width: 100%;
+  height: 19rem;
+  object-fit: contain;
+  object-position: center center;
 `;

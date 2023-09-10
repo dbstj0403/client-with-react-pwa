@@ -11,6 +11,16 @@ import { dayColor } from '@/constants/DayColor';
 function Celebrity() {
   const [show, setShow] = useRecoilState(lineupState);
 
+  const getScrollTo = () => {
+    if (window.innerWidth < 450) {
+      return 2300;
+    } else if (window.innerWidth < 600) {
+      return 3100;
+    } else {
+      return 3900;
+    }
+  };
+
   const showMore = () => {
     setShow(true);
   };
@@ -18,7 +28,7 @@ function Celebrity() {
   const showClose = () => {
     setShow(false);
     window.scrollTo({
-      top: 2300,
+      top: getScrollTo(),
       behavior: 'smooth',
     });
   };

@@ -2,12 +2,13 @@ import { PromotionCardList } from '@/components/booth/promotion';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { pageState } from '@/libs/store';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 export default function Promotion() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
+  /** 지도 포인터 눌렀을 때 포커싱 주기위한 ref */
   const boothFocus = useRef([]);
 
   const pointers = useMemo(
@@ -44,8 +45,8 @@ export default function Promotion() {
       },
       {
         number: 4,
-        top: '8.65rem',
-        left: '21.65rem',
+        top: '7.35rem',
+        left: '13.6rem',
       },
       {
         number: 5,
@@ -85,6 +86,7 @@ export default function Promotion() {
     isPage('booth/promotion');
   }, []);
 
+  /** 포인터 눌렀을 때 해당 포인터 번호에 해당하는 카드로 이동 */
   const onClickPointer = (number) => {
     boothFocus.current[number].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
   };
@@ -156,7 +158,7 @@ const MapSize = styled.div`
 const BoothMap = styled(MapSize)`
   position: relative;
   z-index: 1;
-  background-image: url('/img/booth/promotion/promotion-map.png');
+  background-image: url('/img/booth/promotion/promotion-map.jpeg');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;

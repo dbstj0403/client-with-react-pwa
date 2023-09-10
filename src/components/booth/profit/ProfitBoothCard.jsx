@@ -6,7 +6,7 @@ import EditingProfitBoothCard from './EditingProfitBoothCard';
 
 ProfitBoothCard.propTypes = {
   data: PropTypes.shape({
-    boothNum: PropTypes.number.isRequired,
+    boothNum: PropTypes.string.isRequired,
     boothName: PropTypes.string.isRequired,
     host: PropTypes.string,
     intro: PropTypes.string,

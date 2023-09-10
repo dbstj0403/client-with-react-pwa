@@ -1,6 +1,6 @@
 import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import scInst from '@/assets/image/semicolon/scInst.svg';
 import scLogo from '@/assets/image/semicolon/sclogo.png';
@@ -19,7 +19,7 @@ import { Graduate } from '@/components/semicolon/team/Graduate';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function Semicolon() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   useEffect(() => {
     isPage('semicolon');
   }, []);
