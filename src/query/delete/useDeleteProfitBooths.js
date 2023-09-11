@@ -6,7 +6,7 @@ export default function useDeleteProfitBooths({ id }) {
   const { mutate, data, isLoading, error, isSuccess } = useMutation({
     mutationKey: ['deleteProfitBooth'],
     mutationFn: async () => {
-      const res = await axiosInstance.delete(`​/api​/booth​/${id}`);
+      const res = await axiosInstance.delete(`/api/booth/${id}`);
       return res.data;
     },
     onSuccess: () => {
