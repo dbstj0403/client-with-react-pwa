@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import scInst from '@/assets/image/semicolon/scInst.svg';
-import scLogo from '@/assets/image/semicolon/sclogo.png';
-import scstyle from '@/assets/image/semicolon/scstyle.svg';
 import { SemicolonInst } from '@/components/semicolon/SemicolonInst';
 import { Chairman } from '@/components/semicolon/team/Chairman';
 import { Executives } from '@/components/semicolon/team/Executives';
@@ -92,7 +90,7 @@ const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
   margin-top: 19.6rem;
-  background-image: url(${scLogo});
+  background-image: url('https://storage.2023hiufestainfo.com/client/sclogo.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -102,7 +100,7 @@ const InstLogo = styled.div`
 const ForStyling = styled.div`
   width: 37.5rem;
   height: 2.4rem;
-  background-image: url(${scstyle});
+  background-image: url('https://storage.2023hiufestainfo.com/client/scstyle.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
