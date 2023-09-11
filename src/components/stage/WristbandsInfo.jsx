@@ -1,22 +1,22 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { ProfitBoothCard } from '../booth/profit';
+import Card from '../common/Card';
 
 export default function WristbandsInfo() {
   const informations = useMemo(
     () => [
       {
-        boothNum: 1,
-        boothName: '사전 배부 일시',
-        hosted: '2023년 09월 12일',
-        intro: '11:00 ~ 13:00 / 14:00 ~ 18:00',
+        number: 1,
+        title: '사전 배부 일시',
+        date: '2023년 09월 12일',
+        time: '11:00 ~ 13:00 / 14:00 ~ 18:00',
         map: <PrevWrist />,
       },
       {
-        boothNum: 2,
-        boothName: '현장 배부 일시',
-        hosted: '2023년 09월 13일 ~ 15일',
-        intro: '09:00 ~ 13:00 / 14:00 ~ 18:00',
+        number: 2,
+        title: '현장 배부 일시',
+        date: '2023년 09월 13일 ~ 15일',
+        time: '09:00 ~ 13:00 / 14:00 ~ 18:00',
         map: <DDayWrist />,
       },
     ],
@@ -26,7 +26,7 @@ export default function WristbandsInfo() {
   return informations.map((information) => (
     <>
       {information.map}
-      <ProfitBoothCard key={information.number} variant="secondary" data={information} />
+      <Card key={information.number} variant="secondary" data={information} />
     </>
   ));
 }

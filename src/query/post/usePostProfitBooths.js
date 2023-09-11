@@ -1,12 +1,12 @@
 import { axiosInstance } from '@/axios/axios';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-export default function useDeleteProfitBooths({ id }) {
+export default function usePostProfitBooths() {
   const queryClient = useQueryClient();
-  const { mutate, data, isLoading, error, isSuccess } = useMutation({
-    mutationKey: ['deleteProfitBooth'],
-    mutationFn: async () => {
-      const res = await axiosInstance.delete(`/api/booth/${id}`);
+  const { mutate, data, isLoading, error, isSuccess, isError } = useMutation({
+    mutationKey: ['addProfitBooth'],
+    mutationFn: async (data) => {
+      const res = await axiosInstance.post('/api/booth', data);
       return res.data;
     },
     onSuccess: () => {
@@ -17,10 +17,11 @@ export default function useDeleteProfitBooths({ id }) {
   });
 
   return {
-    deleteProfitBooth: mutate,
+    addProfitBooth: mutate,
     isLoading,
     isSuccess,
     error,
     data,
+    isError,
   };
 }

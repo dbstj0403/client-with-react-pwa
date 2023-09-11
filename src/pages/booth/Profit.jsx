@@ -1,5 +1,5 @@
 import MapMarker from '@/components/booth/MapMarker';
-import { ProfitBoothCard } from '@/components/booth/profit';
+import { ProfitCardList } from '@/components/booth/profit';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { pageState } from '@/libs/store';
 import useGetProfitBooths from '@/query/get/useGetProfitBooths';
@@ -94,11 +94,7 @@ function Profit() {
         <MapMarker booths={booths} markers={markers} onClick={onClickPointer} />
       </BoothDetail>
 
-      {booths.map((booth) => (
-        <div ref={(el) => (boothFocus.current[booth.boothNum] = el)} key={booth.boothNum}>
-          <ProfitBoothCard data={booth} variant="secondary" />
-        </div>
-      ))}
+      <ProfitCardList cardRef={boothFocus} />
 
       <MoveToTopBtn />
     </MainSection>
