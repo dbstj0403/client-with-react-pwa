@@ -4,6 +4,7 @@ import theme from './../../styles/theme';
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
 import { adminState, pageState, roadmapClickState, sideState } from '@/libs/store';
 import { useNavigate } from 'react-router-dom';
+import getScrollTo from '@/constants/Roadmap/GetScrollTo';
 
 const SelectItem = () => {
   const [page, isPage] = useRecoilState(pageState);
@@ -16,6 +17,12 @@ const SelectItem = () => {
   const handleSelectOptionClick = (selectedPage) => {
     isPage(selectedPage);
     navigate(`/${selectedPage}`);
+    if (selectedPage === '') {
+      window.scrollTo({
+        top: getScrollTo(),
+        behavior: 'smooth',
+      });
+    }
     setIsRoadmapClick(selectedPage === '');
     setIsOpen(false);
   };

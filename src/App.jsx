@@ -26,8 +26,14 @@ function App() {
   const isRoadmapClick = useRecoilValue(roadmapClickState);
 
   useEffect(() => {
-    if (!isRoadmapClick) window.scrollTo(0, 0);
-  }, [pathname]);
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+
+    if (!isRoadmapClick) {
+      window.scrollTo(0, 0);
+    }
+  }, [isRoadmapClick, pathname]);
 
   return (
     <Routes>
