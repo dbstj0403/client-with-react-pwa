@@ -4,7 +4,7 @@ import PubCategory from '@/components/booth/PubCategory';
 import { pubCategory } from '@/constants/pubCategoryState';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 import AddingPubCard from '@/components/booth/AddingPubCard';
 import useGetPubs from '@/query/get/useGetPubs';

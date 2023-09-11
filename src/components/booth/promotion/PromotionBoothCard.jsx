@@ -2,32 +2,38 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import PropTypes from 'prop-types';
+import EditingPromotionBoothCard from './EditingPromotionBoothCard';
+import { adminState } from '@/libs/store';
+import { useRecoilValue } from 'recoil';
 
 PromotionBoothCard.propTypes = {
-  index: PropTypes.number.isRequired,
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    introduction: PropTypes.string,
+    introduction: PropTypes.string.isRequired,
+    booth_num: PropTypes.string.isRequired,
   }),
   variant: PropTypes.string.isRequired,
 };
 
 /**
- * @param {number} index: api response에 프로모션 부스 번호가 없기 때문에 배열 인덱스를 통해 번호 부여
  * @param {object} data: propTypes 참고
  * @param {string} variant: primary - 초록색 secondary - 붉은색
  */
-export default function PromotionBoothCard({ index, data, variant }) {
+export default function PromotionBoothCard({ data, variant }) {
+  const isAdmin = useRecoilValue(adminState);
+
   useEffect(() => {
     AOS.init();
   });
 
-  return (
+  return isAdmin ? (
+    <EditingPromotionBoothCard data={data} />
+  ) : (
     <CardWrapper data-aos="fade-up" data-aos-duration="800">
       <BoothText>
         <BoothNumber>
-          <span>{index}</span>
+          <span>{data.booth_num}</span>
         </BoothNumber>
         <BoothName variant={variant}>
           <span>{data.name}</span>

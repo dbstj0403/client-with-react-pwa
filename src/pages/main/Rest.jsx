@@ -22,5 +22,6 @@ export default Rest;
 
 const Container = styled.div`
   position: relative;
+  width: 100%;
   top: 110rem;
 `;
