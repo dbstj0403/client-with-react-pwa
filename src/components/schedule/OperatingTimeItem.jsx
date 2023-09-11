@@ -11,6 +11,11 @@ function OperatingTimeItem({ number, data }) {
           {`${data.start} ~ ${data.end}`}
           {data.desc !== null ? <Desc>{`\n${data.desc}`}</Desc> : null}
         </OperatingTime>
+      ) : data.start === null ? (
+        <OperatingTime>
+          {`${data.first}\n`}
+          {`${data.second}`}
+        </OperatingTime>
       ) : (
         <OperatingTimeSecond>
           <Order first={1}>{data.second.startLabel} </Order>

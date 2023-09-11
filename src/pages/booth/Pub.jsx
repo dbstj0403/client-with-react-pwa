@@ -4,15 +4,16 @@ import PubCategory from '@/components/booth/PubCategory';
 import { pubCategory } from '@/constants/pubCategoryState';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 import AddingPubCard from '@/components/booth/AddingPubCard';
 import useGetPubs from '@/query/get/useGetPubs';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 export default function Pub() {
   const [categoryText, setCategoryText] = useState('전체');
   const [department, setDepartment] = useState('fineArt');
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
   const isAuth = false;
   const addBoothClicked = () => {
@@ -24,7 +25,7 @@ export default function Pub() {
   }, []);
 
   const { getPubs, isLoading, error } = useGetPubs(department);
-  console.log(getPubs);
+  // console.log(getPubs);
 
   const boothData = [
     {
@@ -98,6 +99,7 @@ export default function Pub() {
           })}
         </PubCards>
       </PubBooths>
+      <MoveToTopBtn />
     </PubPageWrapper>
   );
 }

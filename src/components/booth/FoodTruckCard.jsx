@@ -17,7 +17,7 @@ export default function FoodTruckCard({ data }) {
   const editBtnClicked = () => {
     setEditting(true);
   };
-  const isAuth = false;
+  const isAuth = true;
   const deleteBtn = [{ icon: DeleteIcon, text: '삭제', active: true, onClick: deleteBtnClicked }];
   const editBtn = [{ icon: EditIcon, text: '수정', active: true, onClick: editBtnClicked }];
   return editting ? (

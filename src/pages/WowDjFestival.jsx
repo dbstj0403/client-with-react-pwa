@@ -2,19 +2,15 @@ import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
-import djFestivalMapImg from '../assets/image/djFestivalMapImg.png';
-import backgroundImg1 from '../assets/image/FestivalBackground.svg';
-import backgroundImg2 from '../assets/image/InfoCardBackground.svg';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
-import djFestivalPoster from '../assets/image/djFestivalPoster.svg';
 
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 
 function WowDigitalFestival() {
   const [isAuth, setIsAuth] = useState(false);
 
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
   useEffect(() => {
     isPage('wowdjfestival');
@@ -33,30 +29,30 @@ function WowDigitalFestival() {
 
       <ImgWrapper>
         <ImgContainer>
-          <img src={djFestivalPoster} alt="" />
+          <img src="https://storage.2023hiufestainfo.com/client/wdfPoster.png" alt="" />
         </ImgContainer>
         <ImgContainer1>
-          <img src={djFestivalMapImg} alt="" />
+          <img src="https://storage.2023hiufestainfo.com/client/wdfMap.svg" alt="" />
         </ImgContainer1>
         <ImgContainer2>
-          <img src={backgroundImg1} alt="" />
+          <img src="/img/dj/wdfBackground.svg" alt="" />
         </ImgContainer2>
       </ImgWrapper>
 
       <ImgWrapper>
         <InfoCard />
         <ImgContainer3>
-          <img src={backgroundImg2} alt="" />
+          <img src="/img/dj/wdfInfoCardBackground.svg" alt="" />
         </ImgContainer3>
       </ImgWrapper>
 
       <ImgWrapper>
         <ImgContainer5>
-          <img src={backgroundImg2} alt="" />
+          <img src="/img/dj/wdfInfoCardBackground.svg" alt="" />
         </ImgContainer5>
         <LineUp />
         <ImgContainer4>
-          <img src={backgroundImg2} alt="" />
+          <img src="img/dj/wdfInfoCardBackground.svg" alt="" />
         </ImgContainer4>
       </ImgWrapper>
 
@@ -116,7 +112,7 @@ const ImgContainer1 = styled.div`
   z-index: 5;
   img {
     width: 33.5rem;
-    height: 48.4rem;
+    height: 33.5rem;
   }
 `;
 const ImgContainer2 = styled.div`
@@ -161,8 +157,5 @@ const ImgContainer5 = styled.div`
     width: 38.8rem;
     height: 34.4rem;
     transform: rotate(-40deg);
-
-    //transform: scaleX(-1);
-    //mix-blend-mode: exclusion;
   }
 `;

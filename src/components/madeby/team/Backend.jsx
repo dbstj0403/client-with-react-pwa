@@ -37,6 +37,7 @@ export function Backend() {
         name={'이한비'}
         major={'컴퓨터공학과 21'}
         inst={'축제 재밌게 즐기세용'}
+        insta={'_hanbxx_'}
         github={'AlmondBreez3'}
       />
     </TeamInst>

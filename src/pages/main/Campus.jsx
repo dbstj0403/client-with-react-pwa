@@ -2,10 +2,20 @@ import theme from '@/styles/theme';
 import styled from 'styled-components';
 
 function Campus(props) {
+  const getWidth = () => {
+    if (window.innerWidth < 450) {
+      return 220;
+    } else if (window.innerWidth < 600) {
+      return 295;
+    } else {
+      return 340;
+    }
+  };
   return (
-    <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 300 ? 1 : 0}>
-      <Backdrop scroll={props.scroll} />
-      <CampusImage src="/img/hongikview/hongikview.jpg" alt="hongik" />
+    <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 400 ? 1 : 0}>
+      <Backdrop scroll={props.scroll} width={getWidth()} />
+      <Gradient />
+      <CampusImage src="https://storage.2023hiufestainfo.com/client/hongikview.gif" alt="hongik" />
     </Container>
   );
 }
@@ -24,13 +34,25 @@ const Container = styled.div`
 const Backdrop = styled.div`
   position: absolute;
   width: 100%;
+  z-index: 2;
 
   height: 24rem;
   background-color: ${theme.colors.background};
-  opacity: ${(props) => (props.scroll > 20 && props.scroll < 160 ? (props.scroll - 20) / 100 : 0)};
+  opacity: ${(props) =>
+    props.scroll > 20 && props.scroll < props.width ? (props.scroll - 20) / (props.width - 20) : 0};
+`;
+
+const Gradient = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 24rem;
+  z-index: 1;
+
+  background: linear-gradient(#00000000, #000000);
 `;
 
 const CampusImage = styled.img`
+  position: relative;
   width: 100%;
   height: 24rem;
   object-fit: fill;

@@ -8,47 +8,65 @@ import 'slick-carousel/slick/slick-theme.css';
 TimeTable.propTypes = {
   day: PropTypes.number.isRequired,
   onSwipe: PropTypes.func.isRequired,
+  sliderRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
 };
 
-function TimeTable({ day, onSwipe }) {
-  /** 더미 데이터 */
+function TimeTable({ day, onSwipe, sliderRef }) {
+  /** 중앙무대 일정
+   * type: 무대의 타입, 디자인상 타입 별로 색이 다름
+   * stage: 무대 이름
+   * time: 무대 진행 시간
+   * details: 무대 진행하는 팀 이름
+   *
+   * react lick 라이브러리 rows로 설정해주는 크기에 따라서
+   * rows의 크기를 채우지 못 할 경우 마지막에 아무 정보도 없는 더미가 들어가야 함
+   */
   const schedules = useMemo(
     () => [
       [
         {
-          id: 'day1',
+          type: 'hongikCentral',
           stage: '재주꾼선발대회',
-          details: ['유지예', '나중에', '샹이니빛이나는솔로', '권영훈', '전자깡패', '에땅쎌', '김예린', '이민규'],
+          time: '18:00 ~ 20:10',
+          details: ['유지예', '나중에', '샤이니빛이나는솔로', '권영훈', '전자깡패', '에땅쎌', '김예린', '이민규'],
         },
-        { stage: '학부찬조공연', details: ['공연예술학부 뮤지컬'] },
-        { stage: '연예인 초청무대', details: ['양다일', '나비', 'SURL', '비비', '타이거JK', '윤미래'] },
+        { type: 'undergraduate', stage: '학부찬조공연', time: '20:10 ~ 20:40', details: ['공연예술학부 뮤지컬'] },
+        {
+          type: 'celab',
+          stage: '연예인 초청무대',
+          time: '20:40 -',
+          details: ['양다일', '나비', 'SURL', '비비', '타이거JK', '윤미래'],
+        },
         { stage: '', details: [] },
       ],
       [
         {
-          id: 'day2',
+          type: 'hongikCentral',
           stage: '학생중앙무대',
+          time: '17:30 ~ 19:30',
           details: ['유형준', '카이저', '비너스', '익수', '프링글스', '블랙테트라'],
         },
-        { stage: '학부찬조공연', details: ['공연예술학부 밴드'] },
-        { stage: '연예인 초청무대', details: ['10cm', '유다빈밴드', '윤하'] },
+        { type: 'undergraduate', stage: '학부찬조공연', time: '19:30 ~ 20:10', details: ['공연예술학부 밴드'] },
+        { type: 'celab', stage: '연예인 초청무대', time: '20:10 -', details: ['10cm', '유다빈밴드', '윤하'] },
         { stage: '', details: [] },
       ],
       [
         {
-          id: 'day3',
+          type: 'hongikCentral',
           stage: '학생중앙무대',
+          time: '17:30 ~ 19:50',
           details: ['조용찬', '캐드', '강은서밴드', '오픈런', '소리얼', '오현성콰트로치즈와퍼', '브레인스워즈'],
         },
-        { stage: '연예인 초청무대', details: ['NewJeans'] },
-        { stage: '학생중앙무대', details: ['비츠플로우'] },
-        { stage: '연예인 초청무대', details: ['정용화', '이승윤', '릴보이'] },
+        { type: 'celab', stage: '연예인 초청무대', time: '19:50 - ', details: ['NewJeans'] },
+        { type: 'hongikCentral', stage: '학생중앙무대', details: ['비츠플로우'] },
+        { type: 'celab', stage: '연예인 초청무대', details: ['정용화', '이승윤', '릴보이'] },
       ],
     ],
 
     []
   );
 
+  /** react slick 옵션 */
   const settings = {
     dots: false,
     arrows: false,
@@ -57,14 +75,14 @@ function TimeTable({ day, onSwipe }) {
   };
 
   return (
-    <Container {...settings} onSwipe={onSwipe} initialSlide={day}>
+    <Container {...settings} onSwipe={onSwipe} initialSlide={day} ref={sliderRef}>
       {schedules.map((day) =>
-        day.map((schedule, index) => (
+        day.map((schedule) => (
           <>
             <Schedule key={schedule.stage} isEmpty={schedule.stage === ''}>
-              <TimeLine>
-                <span id="index">{index + 1}</span>
+              <TimeLine type={schedule.type}>
                 <span>{schedule.stage}</span>
+                <span id="time">{schedule.time}</span>
               </TimeLine>
               <Stages>
                 {schedule.details.map((detail) => (
@@ -120,20 +138,22 @@ const Schedule = styled.ul`
 
 const TimeLine = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
 
   width: 13.1rem;
-  height: 3.2rem;
 
   span {
-    color: ${({ theme }) => theme.colors.gray400};
-    ${({ theme }) => theme.fontStyles.body4};
+    color: ${({ type, theme }) =>
+      type === 'hongikCentral'
+        ? `${theme.colors.pink}`
+        : type === 'undergraduate'
+        ? `${theme.colors.purple}`
+        : `${theme.colors.green}`};
+    ${({ theme }) => theme.fontStyles.body1};
   }
 
-  span#index {
-    color: ${({ theme }) => theme.colors.white};
-    ${({ theme }) => theme.fontStyles.head5};
+  span#time {
+    color: ${({ theme }) => theme.colors.gray400};
   }
 `;
 
@@ -141,14 +161,11 @@ const Stages = styled.ul`
   display: flex;
   flex-direction: column;
 
-  padding-top: 0.6rem;
-
   width: 16rem;
-  min-height: 7.8rem;
 `;
 
 const Stage = styled.li`
-  ${({ theme }) => theme.fontStyles.body4};
+  ${({ theme }) => theme.fontStyles.body1};
   margin-bottom: 0.8rem;
 
   &:last-child {

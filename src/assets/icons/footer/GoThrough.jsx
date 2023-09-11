@@ -1,8 +1,35 @@
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 export const GoThrough = () => {
+  /** pwa 설치 관련 */
+  const [supportsPWA, setSupportsPWA] = useState(false);
+  const [promptInstall, setPromptInstall] = useState(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setSupportsPWA(true);
+      setPromptInstall(e);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+
+    return () => window.removeEventListener('transitionend', handler);
+  }, []);
+
+  const onClick = (evt) => {
+    evt.preventDefault();
+    if (!promptInstall) {
+      return;
+    }
+    promptInstall.prompt();
+  };
+  if (!supportsPWA) {
+    return null;
+  }
+
   return (
-    <Wrapper>
+    <Wrapper className="link-button" id="setup_button" aria-label="Install app" onClick={onClick}>
       <svg width="3.2rem" height="3.2rem" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="32" height="32" rx="16" fill="#373737" />
         <g clipPath="url(#clip0_975_15039)">

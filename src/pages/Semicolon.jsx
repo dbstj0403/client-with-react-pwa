@@ -1,10 +1,8 @@
 import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import scInst from '@/assets/image/semicolon/scInst.svg';
-import scLogo from '@/assets/image/semicolon/sclogo.svg';
-import scstyle from '@/assets/image/Semicolon/scstyle.svg';
 import { SemicolonInst } from '@/components/semicolon/SemicolonInst';
 import { Chairman } from '@/components/semicolon/team/Chairman';
 import { Executives } from '@/components/semicolon/team/Executives';
@@ -16,9 +14,10 @@ import { Finance } from '@/components/semicolon/team/Finance';
 import { Right } from '@/components/semicolon/team/Right';
 import { Student } from '@/components/semicolon/team/Student';
 import { Graduate } from '@/components/semicolon/team/Graduate';
+import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function Semicolon() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   useEffect(() => {
     isPage('semicolon');
   }, []);
@@ -56,13 +55,19 @@ function Semicolon() {
       <Spacing height={14.8} />
       <Graduate />
       <Spacing height={32} />
+      <MoveToTopBtn />
     </MadeByContainer>
   );
 }
 
 export default Semicolon;
 
-const MadeByContainer = styled.div``;
+const MadeByContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Inst = styled.div`
   display: flex;
@@ -84,8 +89,8 @@ const InstText = styled.div`
 const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
-  margin-top: 18.1rem;
-  background-image: url(${scLogo});
+  margin-top: 19.6rem;
+  background-image: url('https://storage.2023hiufestainfo.com/client/sclogo.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -95,7 +100,7 @@ const InstLogo = styled.div`
 const ForStyling = styled.div`
   width: 37.5rem;
   height: 2.4rem;
-  background-image: url(${scstyle});
+  background-image: url('https://storage.2023hiufestainfo.com/client/scstyle.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

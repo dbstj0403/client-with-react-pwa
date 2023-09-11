@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '@/styles/theme';
-import footerimg from '@/assets/image/footerimg.svg';
 import { MadeByIcon } from '@/assets/icons/footer/MadeByIcon';
 import { Instagram } from '@/assets/icons/footer/Instagram';
 import { GoThrough } from '@/assets/icons/footer/GoThrough';
@@ -66,7 +65,7 @@ const ImgWrap = styled.div`
 const FooterLogo = styled.div`
   width: 27.1rem;
   height: 14.2rem;
-  background-image: url(${footerimg});
+  background-image: url('https://storage.2023hiufestainfo.com/client/footerimg.svg');
   background-size: cover;
   background-repeat: no-repeat;
 `;
@@ -93,7 +92,7 @@ const GoToSemicolon = styled.div`
 `;
 
 const FooterWrap = styled.div`
-  width: 13.3rem;
+  width: 30rem;
   margin-top: 9.6rem;
   margin-left: 2.8rem;
   color: #e2e2e2;
