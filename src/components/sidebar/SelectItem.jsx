@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from './../../styles/theme';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { pageState, sideState } from '@/libs/store';
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
+import { adminState, pageState, sideState } from '@/libs/store';
 import { useNavigate } from 'react-router-dom';
 
 const SelectItem = () => {
   const [page, isPage] = useRecoilState(pageState);
   const setIsOpen = useSetRecoilState(sideState);
+  const isAdmin = useRecoilValue(adminState);
 
   const navigate = useNavigate();
 
@@ -15,6 +16,16 @@ const SelectItem = () => {
     isPage(selectedPage);
     navigate(`/${selectedPage}`, { state: { isRoadmapClick: selectedPage === '' } });
     setIsOpen(false);
+  };
+
+  /** 관리자 로그아웃 기능 */
+  const handleAdminLogout = () => {
+    alert('로그아웃 되었습니다.');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('isAdmin');
+
+    setIsOpen(false);
+    location.reload();
   };
 
   return (
@@ -61,6 +72,7 @@ const SelectItem = () => {
       <SelectOption onClick={() => handleSelectOptionClick('semicolon')} active={page === 'semicolon' ? 1 : 0}>
         SEMICOLON
       </SelectOption>
+      {isAdmin && <SelectOption onClick={handleAdminLogout}>로그아웃</SelectOption>}
     </Wrapper>
   );
 };

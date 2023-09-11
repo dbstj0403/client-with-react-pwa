@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import PropTypes from 'prop-types';
+import EditingPromotionBoothCard from './EditingPromotionBoothCard';
+import { adminState } from '@/libs/store';
+import { useRecoilValue } from 'recoil';
 
 PromotionBoothCard.propTypes = {
   data: PropTypes.shape({
@@ -18,11 +21,15 @@ PromotionBoothCard.propTypes = {
  * @param {string} variant: primary - 초록색 secondary - 붉은색
  */
 export default function PromotionBoothCard({ data, variant }) {
+  const isAdmin = useRecoilValue(adminState);
+
   useEffect(() => {
     AOS.init();
   });
 
-  return (
+  return isAdmin ? (
+    <EditingPromotionBoothCard data={data} />
+  ) : (
     <CardWrapper data-aos="fade-up" data-aos-duration="800">
       <BoothText>
         <BoothNumber>
