@@ -1,21 +1,21 @@
 import { adminState } from '@/libs/store';
-import useGetPromotionBooths from '@/query/get/useGetPromotionBooths';
+import useGetProfitBooths from '@/query/get/useGetProfitBooths';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import AddPromotionBoothCard from './AddPromotionBoothCard';
-import PromotionBoothCard from './PromotionBoothCard';
+import AddProfitBoothCard from './AddProfitBoothCard';
+import ProfitBoothCard from './ProfitBoothCard';
 
-PromotionCardList.propTypes = {
+ProfitCardList.propTypes = {
   cardRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
 };
 
-export default function PromotionCardList({ cardRef }) {
-  const { booths } = useGetPromotionBooths();
+export default function ProfitCardList({ cardRef }) {
+  const { booths } = useGetProfitBooths();
   const isAdmin = useRecoilValue(adminState);
-
   const [addCard, setAddCard] = useState(false);
+
   booths.sort((boothPrev, boothNext) => parseInt(boothPrev.booth_num) - parseInt(boothNext.booth_num));
 
   return (
@@ -26,11 +26,11 @@ export default function PromotionCardList({ cardRef }) {
           <span id="plus">+</span>
         </AddButton>
       )}
-      {addCard && <AddPromotionBoothCard closeForm={() => setAddCard(false)} />}
+      {addCard && <AddProfitBoothCard closeForm={() => setAddCard(false)} />}
 
       {booths.map((booth) => (
         <div ref={(el) => (cardRef.current[booth.booth_num] = el)} key={booth.booth_num}>
-          <PromotionBoothCard data={booth} variant="primary" />
+          <ProfitBoothCard data={booth} variant="primary" />
         </div>
       ))}
     </Wrapper>
