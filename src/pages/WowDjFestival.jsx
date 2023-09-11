@@ -29,10 +29,10 @@ function WowDigitalFestival() {
 
       <ImgWrapper>
         <ImgContainer>
-          <img src="/img/dj/wdfPoster.png" alt="" />
+          <img src="https://storage.2023hiufestainfo.com/client/wdfPoster.png" alt="" />
         </ImgContainer>
         <ImgContainer1>
-          <img src="/img/dj/wdfMap.svg" alt="" />
+          <img src="https://storage.2023hiufestainfo.com/client/wdfMap.svg" alt="" />
         </ImgContainer1>
         <ImgContainer2>
           <img src="/img/dj/wdfBackground.svg" alt="" />
