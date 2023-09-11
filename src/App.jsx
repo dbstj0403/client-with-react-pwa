@@ -18,11 +18,15 @@ import AdminLogin from './pages/auth/AdminLogin';
 import KakaoLogin from './pages/auth/KakaoLogin';
 import AuthManager from './utils/AuthManager';
 
+import { useRecoilValue } from 'recoil';
+import { roadmapClickState } from './libs/store';
+
 function App() {
   const { pathname } = useLocation();
+  const isRoadmapClick = useRecoilValue(roadmapClickState);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (!isRoadmapClick) window.scrollTo(0, 0);
   }, [pathname]);
 
   return (

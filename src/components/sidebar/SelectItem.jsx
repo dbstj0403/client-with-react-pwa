@@ -2,19 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import theme from './../../styles/theme';
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
-import { adminState, pageState, sideState } from '@/libs/store';
+import { adminState, pageState, roadmapClickState, sideState } from '@/libs/store';
 import { useNavigate } from 'react-router-dom';
 
 const SelectItem = () => {
   const [page, isPage] = useRecoilState(pageState);
   const setIsOpen = useSetRecoilState(sideState);
   const isAdmin = useRecoilValue(adminState);
+  const setIsRoadmapClick = useSetRecoilState(roadmapClickState);
 
   const navigate = useNavigate();
 
   const handleSelectOptionClick = (selectedPage) => {
     isPage(selectedPage);
-    navigate(`/${selectedPage}`, { state: { isRoadmapClick: selectedPage === '' } });
+    navigate(`/${selectedPage}`);
+    setIsRoadmapClick(selectedPage === '');
     setIsOpen(false);
   };
 
