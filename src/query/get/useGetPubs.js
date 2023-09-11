@@ -10,6 +10,7 @@ export default function useGetPubs(department) {
       return res.data;
     },
     staleTime: Infinity, // 1분 동안 캐시된 데이터를 사용
+    cacheTime: Infinity,
   });
 
   return {

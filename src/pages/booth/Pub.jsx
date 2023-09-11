@@ -1,5 +1,4 @@
-import React from 'react';
-import PubCard from '@/components/booth/PubCard';
+import React, { Suspense, lazy } from 'react';
 import PubCategory from '@/components/booth/PubCategory';
 import { pubCategory } from '@/constants/pubCategoryState';
 import { useEffect, useState } from 'react';
@@ -11,9 +10,10 @@ import useGetPubs from '@/query/get/useGetPubs';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 export default function Pub() {
+  const PubCard = lazy(() => import('@/components/booth/PubCard'));
   const [categoryText, setCategoryText] = useState('전체');
   const [department, setDepartment] = useState('all');
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
   const isAuth = true;
   const addBoothClicked = () => {
@@ -52,7 +52,11 @@ export default function Pub() {
         <PubCards>
           {!isLoading
             ? getPubs.pub.map((booth, index) => {
-                return <PubCard key={booth.department + index} data={booth} />;
+                return (
+                  <Suspense fallback={null}>
+                    <PubCard key={booth.department + index} data={booth} />
+                  </Suspense>
+                );
               })
             : null}
         </PubCards>

@@ -47,9 +47,7 @@ export default function PubCard({ data }) {
       data-aos-once
     >
       <PubCardMainContent>
-        <PubCardImage
-          image={data.imageUrl ? data.imageUrl : 'https://cdn.pixabay.com/photo/2017/05/18/10/48/pork-2323228_1280.jpg'}
-        >
+        <PubCardImage image={data.imageUrl ? data.imageUrl : '/img/skeleton1.png'}>
           {data.section === 'A' ? <PubCardFold1 /> : data.section === 'B' ? <PubCardFold2 /> : <PubCardFold3 />}
         </PubCardImage>
         <PubCardTextWrapper>
