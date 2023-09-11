@@ -2,12 +2,7 @@ import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
 import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
-
-import backgroundImg1 from '../assets/image/FestivalBackground.svg';
-import backgroundImg2 from '../assets/image/InfoCardBackground.svg';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
-import wdfPoster from '../../public/img/dj/wdfPoster.png';
-import wdfMap from '../../public/img/dj/wdfMap.png';
 
 import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
@@ -34,30 +29,30 @@ function WowDigitalFestival() {
 
       <ImgWrapper>
         <ImgContainer>
-          <img src={wdfPoster} alt="" />
+          <img src="/img/dj/wdfPoster.png" alt="" />
         </ImgContainer>
         <ImgContainer1>
-          <img src={wdfMap} alt="" />
+          <img src="/img/dj/wdfMap.svg" alt="" />
         </ImgContainer1>
         <ImgContainer2>
-          <img src={backgroundImg1} alt="" />
+          <img src="/img/dj/wdfBackground.svg" alt="" />
         </ImgContainer2>
       </ImgWrapper>
 
       <ImgWrapper>
         <InfoCard />
         <ImgContainer3>
-          <img src={backgroundImg2} alt="" />
+          <img src="/img/dj/wdfInfoCardBackground.svg" alt="" />
         </ImgContainer3>
       </ImgWrapper>
 
       <ImgWrapper>
         <ImgContainer5>
-          <img src={backgroundImg2} alt="" />
+          <img src="/img/dj/wdfInfoCardBackground.svg" alt="" />
         </ImgContainer5>
         <LineUp />
         <ImgContainer4>
-          <img src={backgroundImg2} alt="" />
+          <img src="img/dj/wdfInfoCardBackground.svg" alt="" />
         </ImgContainer4>
       </ImgWrapper>
 
@@ -162,8 +157,5 @@ const ImgContainer5 = styled.div`
     width: 38.8rem;
     height: 34.4rem;
     transform: rotate(-40deg);
-
-    //transform: scaleX(-1);
-    //mix-blend-mode: exclusion;
   }
 `;
