@@ -3,11 +3,12 @@ import PubCategory from '@/components/booth/PubCategory';
 import { pubCategory } from '@/constants/pubCategoryState';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useSetRecoilState } from 'recoil';
-import { pageState } from '@/libs/store';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { adminState, pageState } from '@/libs/store';
 import AddingPubCard from '@/components/booth/AddingPubCard';
 import useGetPubs from '@/query/get/useGetPubs';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
+import usePostPubs from '@/query/post/usePostPubs';
 
 export default function Pub() {
   const PubCard = lazy(() => import('@/components/booth/PubCard'));
@@ -15,7 +16,7 @@ export default function Pub() {
   const [department, setDepartment] = useState('all');
   const isPage = useSetRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
-  const isAuth = true;
+  const isAdmin = useRecoilValue(adminState);
   const addBoothClicked = () => {
     setBoothAdding(true);
   };
@@ -35,7 +36,7 @@ export default function Pub() {
         <PubMainMap />
         <PubCategory categories={pubCategory} setCategoryText={setCategoryText} setDepartment={setDepartment} />
       </PubMapWrapper>
-      {isAuth ? (
+      {isAdmin ? (
         <AddBooth onClick={addBoothClicked}>
           <span>부스 추가</span>
           <span>+</span>
@@ -47,7 +48,7 @@ export default function Pub() {
           <span>{categoryText}구역</span>
           <span>{!isLoading ? getPubs.pub.length : null} 부스</span>
         </AreaText>
-        {boothAdding ? <AddingPubCard /> : null}
+        {boothAdding ? <AddingPubCard department={department} /> : null}
 
         <PubCards>
           {!isLoading

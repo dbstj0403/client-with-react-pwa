@@ -4,16 +4,14 @@ import CardAuthBtn from './CardAuthBtn';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import usePostPubs from '@/query/post/usePostPubs';
 
-export default function AddingPubCard() {
+export default function AddingPubCard({ department }) {
   const saveBtnClicked = () => {
     alert('저장되었습니다');
     addPub({
       department: pubDepartmentInput,
-      imageUrl: '',
       intro: pubIntroduce,
       major: pubOwnerInput,
       menu: pubMainMenu,
-      pubNum: '100',
       section: pubPageInput,
     });
   };
@@ -23,7 +21,7 @@ export default function AddingPubCard() {
   const [pubPageInput, setPubPageInput] = useState('');
   const [pubMainMenu, setPubMainMenu] = useState('');
   const [pubIntroduce, setPubIntroduce] = useState('');
-  const { addPub, isLoading, isSuccess, error, data } = usePostPubs();
+  const { addPub, isLoading, isSuccess, error, data } = usePostPubs(department);
 
   const pubDepartmentChange = (e) => {
     setPubDepartmentInput(e.target.value);

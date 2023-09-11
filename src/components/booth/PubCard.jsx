@@ -7,13 +7,15 @@ import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import CardAuthBtn from './CardAuthBtn';
 import EditingPubCard from './EditingPubCard';
+import { adminState } from '@/libs/store';
+import { useRecoilValue } from 'recoil';
 
 export default function PubCard({ data }) {
   useEffect(() => {
     AOS.init();
   });
   const [isEditing, setIsEditing] = useState(false);
-  const isAuth = false;
+  const isAdmin = useRecoilValue(adminState);
   const deleteBtnClicked = () => {
     alert('삭제하시겠습니까?');
   };
@@ -61,7 +63,7 @@ export default function PubCard({ data }) {
           <PubIntroduce>{data.intro}</PubIntroduce>
         </PubCardTextWrapper>
       </PubCardMainContent>
-      {isAuth ? <CardAuthBtn contents={deleteAndEdit} /> : null}
+      {isAdmin ? <CardAuthBtn contents={deleteAndEdit} /> : null}
     </PubCardWrapper>
   );
 }
