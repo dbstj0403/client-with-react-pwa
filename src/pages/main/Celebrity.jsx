@@ -7,6 +7,8 @@ import { CelebrityData } from '@/constants/CelebrityData';
 import { lineupState } from '@/libs/store';
 import { useRecoilState } from 'recoil';
 import { dayColor } from '@/constants/DayColor';
+import ArrowDown from '@/assets/icons/ArrowDown';
+import ArrowUp from '@/assets/icons/ArrowUp';
 
 function Celebrity() {
   const [show, setShow] = useRecoilState(lineupState);
@@ -37,14 +39,16 @@ function Celebrity() {
     <Container>
       <Gradient show={show ? 1 : 0} />
       <Title show={show ? 1 : 0}>라인업</Title>
-      <ShowMoreButton src="/img/icon-arrow-down-small-mono.png" show={show ? 0 : 1} onClick={showMore} />
+      <ShowMoreButton show={show ? 0 : 1} onClick={showMore}>
+        <ArrowDown />
+      </ShowMoreButton>
       <DayContainer show={show ? 1 : 0}>
         <Day day={`9.13 수`} color={dayColor[0]} info={CelebrityData.first} />
         <Day day={`9.14 목`} color={dayColor[1]} info={CelebrityData.second} />
         <Day day={`9.15 금`} color={dayColor[2]} info={CelebrityData.third} />
       </DayContainer>
       <ShowCloseButton show={show ? 1 : 0} onClick={showClose}>
-        <ShowCloseIcon src="/img/icon-arrow-down-small-mono.png" />
+        <ArrowUp />
         접어두기
       </ShowCloseButton>
     </Container>
@@ -86,24 +90,15 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const ShowMoreButton = styled.img`
+const ShowMoreButton = styled.div`
   display: ${(props) => (props.show ? 'block' : 'none')};
   position: relative;
   z-index: 2;
-  width: 4rem;
-  height: 4rem;
   margin-bottom: 2rem;
 
   &:hover {
     cursor: pointer;
   }
-`;
-
-const ShowCloseIcon = styled.img`
-  width: 2rem;
-  height: 2rem;
-
-  transform: rotate(180deg);
 `;
 
 const DayContainer = styled.div`
