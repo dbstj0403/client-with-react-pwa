@@ -16,7 +16,7 @@ export default function ProfitCardList({ cardRef }) {
   const isAdmin = useRecoilValue(adminState);
   const [addCard, setAddCard] = useState(false);
 
-  booths.sort((boothPrev, boothNext) => parseInt(boothPrev.booth_num) - parseInt(boothNext.booth_num));
+  booths.sort((boothPrev, boothNext) => parseInt(boothPrev.boothNum) - parseInt(boothNext.boothNum));
 
   return (
     <Wrapper>
