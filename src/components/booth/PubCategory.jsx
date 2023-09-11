@@ -3,7 +3,7 @@ import useGetPubs from '@/query/get/useGetPubs';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function PubCategory({ categories, setCategoryText, setCategoryEngText }) {
+export default function PubCategory({ categories, setCategoryText, setDepartment }) {
   const [categoryState, setCategoryState] = useState(0);
   const [pageSection, setPageSection] = useState('ALL');
   const categoryClicked = (index) => {
@@ -19,7 +19,7 @@ export default function PubCategory({ categories, setCategoryText, setCategoryEn
                 categoryClicked(index);
                 setCategoryText(category.name === '디경융' ? '디지털경영융합' : category.name);
                 setPageSection(category.page);
-                setCategoryEngText(category.engName);
+                setDepartment(category.engName);
               }}
             >
               {category.name}

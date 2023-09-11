@@ -33,7 +33,7 @@ export default function Pub() {
       </PubPageTitle>
       <PubMapWrapper>
         <PubMainMap />
-        <PubCategory categories={pubCategory} setCategoryText={setCategoryText} setCategoryEngText={setDepartment} />
+        <PubCategory categories={pubCategory} setCategoryText={setCategoryText} setDepartment={setDepartment} />
       </PubMapWrapper>
       {isAuth ? (
         <AddBooth onClick={addBoothClicked}>
