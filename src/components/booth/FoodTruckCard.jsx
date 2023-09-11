@@ -1,34 +1,61 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import CardAuthBtn from './CardAuthBtn';
 import { ReactComponent as DeleteIcon } from '@/assets/icons/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
 import EdittingFoodTruckCard from './EdittingFoodTruckCard';
+import PropTypes from 'prop-types';
+import { useRecoilValue } from 'recoil';
+import { adminState } from '@/libs/store';
+import useDeleteFoodTrucks from '@/query/delete/useDeleteFoodTrucks';
+
+FoodTruckCard.propTypes = {
+  data: PropTypes.shape({
+    brandName: PropTypes.string,
+    introduction: PropTypes.string,
+  }),
+};
 
 export default function FoodTruckCard({ data }) {
+  const isAuth = useRecoilValue(adminState);
+
+  const { deleteFoodTruck, isError: deleteError } = useDeleteFoodTrucks(data);
+  const [editting, setEditting] = useState(false);
+
   useEffect(() => {
     AOS.init();
   });
-  const [editting, setEditting] = useState(false);
+
+  useEffect(() => {
+    if (deleteError) alert('삭제하기 에러 발생! 관리자에게 문의주세요');
+  }, [deleteError]);
+
   const deleteBtnClicked = () => {
-    alert('삭제하시겠습니까?');
+    deleteFoodTruck();
+    if (window.confirm('정말 삭제합니까?')) {
+      deleteFoodTruck();
+    } else {
+      alert('취소합니다.');
+    }
+    setEditting(false);
   };
   const editBtnClicked = () => {
     setEditting(true);
   };
-  const isAuth = true;
+
   const deleteBtn = [{ icon: DeleteIcon, text: '삭제', active: true, onClick: deleteBtnClicked }];
   const editBtn = [{ icon: EditIcon, text: '수정', active: true, onClick: editBtnClicked }];
+
   return editting ? (
-    <EdittingFoodTruckCard data={data} />
+    <EdittingFoodTruckCard data={data} closeEdit={() => setEditting(false)} />
   ) : (
     <CardWrapper isAuth={isAuth} data-aos="fade-up" data-aos-duration="800" data-aos-once>
       <BoothText>
         <BoothName>
-          <span>{data.name}</span>
+          <span>{data.brandName}</span>
         </BoothName>
-        <BoothIntroduction>{data.introduce}</BoothIntroduction>
+        <BoothIntroduction>{data.introduction}</BoothIntroduction>
       </BoothText>
       {isAuth ? (
         <>
