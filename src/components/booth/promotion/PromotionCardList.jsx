@@ -29,7 +29,7 @@ export default function PromotionCardList({ cardRef }) {
       {addCard && <AddPromotionBoothCard closeForm={() => setAddCard(false)} />}
 
       {booths.map((booth) => (
-        <div ref={(el) => (cardRef.current[booth.booth_num] = el)} key={booth.booth_num}>
+        <div ref={(el) => (cardRef.current[booth.booth_num] = el)} key={booth.name}>
           <PromotionBoothCard data={booth} variant="primary" />
         </div>
       ))}

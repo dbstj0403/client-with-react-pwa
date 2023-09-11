@@ -16,8 +16,7 @@ export default function ProfitCardList({ cardRef }) {
   const isAdmin = useRecoilValue(adminState);
   const [addCard, setAddCard] = useState(false);
 
-  booths.sort((boothPrev, boothNext) => parseInt(boothPrev.boothNum) - parseInt(boothNext.boothNum));
-
+  console.log(booths);
   return (
     <Wrapper>
       {isAdmin && (
@@ -28,11 +27,13 @@ export default function ProfitCardList({ cardRef }) {
       )}
       {addCard && <AddProfitBoothCard closeForm={() => setAddCard(false)} />}
 
-      {booths.map((booth) => (
-        <div ref={(el) => (cardRef.current[booth.booth_num] = el)} key={booth.booth_num}>
-          <ProfitBoothCard data={booth} variant="primary" />
-        </div>
-      ))}
+      {booths
+        .sort((boothPrev, boothNext) => parseInt(boothPrev.boothNum) - parseInt(boothNext.boothNum))
+        .map((booth) => (
+          <div ref={(el) => (cardRef.current[booth.boothNum] = el)} key={booth.boothName}>
+            <ProfitBoothCard data={booth} variant="primary" />
+          </div>
+        ))}
     </Wrapper>
   );
 }
