@@ -32,7 +32,6 @@ export default function FoodTruckCard({ data }) {
   }, [deleteError]);
 
   const deleteBtnClicked = () => {
-    deleteFoodTruck();
     if (window.confirm('정말 삭제합니까?')) {
       deleteFoodTruck();
     } else {
