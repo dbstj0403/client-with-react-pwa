@@ -20,7 +20,9 @@ export default function EditingPromotionBoothCard({ data }) {
   /** 수정을 위한 request */
 
   const [request, setRequest] = useState({
-    ...data,
+    name: data.name,
+    booth_num: data.booth_num,
+    introduction: data.introduction,
   });
   /** 모든 정보가 채워졌는지 확인하는 state */
   const [requireFulfilled, setRequireFulfilled] = useState(false);

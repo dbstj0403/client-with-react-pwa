@@ -20,7 +20,10 @@ export default function EditingProfitBoothCard({ data }) {
   const [isModify, setModifyMode] = useState(false);
   /** 수정을 위한 request */
   const [request, setRequest] = useState({
-    ...data,
+    boothNum: data.boothNum,
+    boothName: data.boothName,
+    host: data.host,
+    intro: data.intro,
   });
 
   /** 모든 정보가 채워졌는지 확인하는 state */
