@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import PropTypes from 'prop-types';
+import EditingProfitBoothCard from './EditingProfitBoothCard';
+import { useRecoilValue } from 'recoil';
+import { adminState } from '@/libs/store';
 
 ProfitBoothCard.propTypes = {
   data: PropTypes.shape({
@@ -14,11 +17,15 @@ ProfitBoothCard.propTypes = {
 };
 
 export default function ProfitBoothCard({ data, variant }) {
+  const isAdmin = useRecoilValue(adminState);
+
   useEffect(() => {
     AOS.init();
   });
 
-  return (
+  return isAdmin ? (
+    <EditingProfitBoothCard data={data} />
+  ) : (
     <CardWrapper data-aos="fade-up" data-aos-duration="800">
       <BoothText>
         <BoothNumber>

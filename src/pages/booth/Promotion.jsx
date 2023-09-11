@@ -1,7 +1,6 @@
-import { PromotionBoothCard } from '@/components/booth/promotion';
+import { PromotionCardList } from '@/components/booth/promotion';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { pageState } from '@/libs/store';
-import useGetPromotionBooths from '@/query/get/useGetPromotionBooths';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
@@ -12,11 +11,6 @@ export default function Promotion() {
   /** 지도 포인터 눌렀을 때 포커싱 주기위한 ref */
   const boothFocus = useRef([]);
 
-  /**
-   * booths: 부스 정보 (서버로부터 받아옴)
-   * pointers: 지도 상에 나타나는 포인터 고정 좌표
-   */
-  const { booths } = useGetPromotionBooths();
   const pointers = useMemo(
     () => [
       {
@@ -114,11 +108,8 @@ export default function Promotion() {
         ))}
       </BoothMap>
 
-      {booths.map((booth) => (
-        <div ref={(el) => (boothFocus.current[booth.booth_num] = el)} key={booth.booth_num + 1}>
-          <PromotionBoothCard data={booth} variant="primary" />
-        </div>
-      ))}
+      <PromotionCardList cardRef={boothFocus} />
+
       <MoveToTopBtn />
     </MainSection>
   );

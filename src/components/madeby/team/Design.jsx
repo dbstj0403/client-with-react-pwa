@@ -18,7 +18,7 @@ export function Design() {
       <Member
         profileimg={yeojinImg}
         name={'윤여진'}
-        major={'시각디자인학과 18'}
+        major={'시각디자인과 18'}
         inst={'마지막 축제네요… 힘내서 졸업하겠습니다!'}
       />
     </TeamInst>
