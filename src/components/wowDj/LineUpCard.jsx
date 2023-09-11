@@ -11,16 +11,17 @@ function LineUpCard({ img, djName, text, date, time }) {
   useEffect(() => {
     AOS.init();
   }, []);
-  console.log(img, djName, text, date, time);
+
   return (
     <Container data-aos="fade-up" data-aos-duration="800">
       <img src={img} alt="" />
       <TextContainer>
         <InfoDate date={date}>{date}</InfoDate>
-        <Hrdiv />
+
         <InfoTitle>
           {djName} | {time}
         </InfoTitle>
+        <Hrdiv />
         <InfoText>{text}</InfoText>
       </TextContainer>
     </Container>
@@ -54,7 +55,8 @@ const InfoDate = styled.div`
 `;
 const InfoTitle = styled.div`
   ${(props) => props.theme.fontStyles.head5}
-  margin-top: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0.7rem;
 `;
 const InfoText = styled.div`
   font-family: Pretendard Variable;
@@ -63,12 +65,12 @@ const InfoText = styled.div`
   line-height: 2.4rem;
   letter-spacing: 0em;
   text-align: left;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
   padding-top: 0.5rem;
   color: ${(props) => props.theme.colors.gray300};
 `;
 const Hrdiv = styled.div`
-  margin-top: 2rem;
+  margin-top: 0rem;
   width: 33.5rem;
   height: 0.1rem;
   background: linear-gradient(to right, white, black);
