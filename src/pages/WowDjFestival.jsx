@@ -4,13 +4,13 @@ import InfoCard from '@/components/wowDj/InfoCard';
 import LineUp from '@/components/wowDj/LineUp';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 
 function WowDigitalFestival() {
   const [isAuth, setIsAuth] = useState(false);
 
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
   useEffect(() => {
     isPage('wowdjfestival');

@@ -12,9 +12,9 @@ function Landing(props) {
       if (props.scroll >= 0 && props.scroll <= 20) {
         setFix(false);
         setTop(0);
-      } else if (props.scroll > 20 && props.scroll <= 190) {
+      } else if (props.scroll > 20 && props.scroll <= 220) {
         setFix(false);
-        setTop(-props.scroll + 850);
+        setTop(-props.scroll + 2400);
       } else {
         setFix(true);
         setTop(100);
@@ -23,9 +23,9 @@ function Landing(props) {
       if (props.scroll >= 0 && props.scroll <= 20) {
         setFix(false);
         setTop(0);
-      } else if (props.scroll > 20 && props.scroll <= 250) {
+      } else if (props.scroll > 20 && props.scroll <= 295) {
         setFix(false);
-        setTop(-props.scroll + 850);
+        setTop(-props.scroll + 2400);
       } else {
         setFix(true);
         setTop(100);
@@ -34,9 +34,9 @@ function Landing(props) {
       if (props.scroll >= 0 && props.scroll <= 20) {
         setFix(false);
         setTop(0);
-      } else if (props.scroll > 20 && props.scroll <= 270) {
+      } else if (props.scroll > 20 && props.scroll <= 340) {
         setFix(false);
-        setTop(-props.scroll + 850);
+        setTop(-props.scroll + 2400);
       } else {
         setFix(true);
         setTop(100);
@@ -83,7 +83,7 @@ const Container = styled.section`
   width: 100%;
   display: ${(props) => (props.display ? 'block' : 'none')};
   position: ${(props) => (props.fix ? 'fixed' : 'relative')};
-  top: ${(props) => (!props.fix ? `${props.scroll / 35}rem` : props.top)};
+  top: ${(props) => (!props.fix ? `${props.scroll / 100}rem` : props.top)};
   height: 84rem;
 
   padding: 8.9rem 3.4rem 10.8rem 3.4rem;

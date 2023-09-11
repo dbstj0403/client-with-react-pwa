@@ -1,10 +1,10 @@
 import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import scInst from '@/assets/image/semicolon/scInst.svg';
-import scLogo from '@/assets/image/semicolon/sclogo.svg';
-import scstyle from '@/assets/image/Semicolon/scstyle.svg';
+import scLogo from '@/assets/image/semicolon/sclogo.png';
+import scstyle from '@/assets/image/semicolon/scstyle.svg';
 import { SemicolonInst } from '@/components/semicolon/SemicolonInst';
 import { Chairman } from '@/components/semicolon/team/Chairman';
 import { Executives } from '@/components/semicolon/team/Executives';
@@ -19,7 +19,7 @@ import { Graduate } from '@/components/semicolon/team/Graduate';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function Semicolon() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   useEffect(() => {
     isPage('semicolon');
   }, []);
@@ -91,7 +91,7 @@ const InstText = styled.div`
 const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
-  margin-top: 18.1rem;
+  margin-top: 19.6rem;
   background-image: url(${scLogo});
   background-size: contain;
   background-repeat: no-repeat;

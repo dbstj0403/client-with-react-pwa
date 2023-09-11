@@ -1,19 +1,22 @@
-import React, { useEffect, useMemo, useRef } from 'react';
-import BlackBoothCard from '@/components/booth/BlackBoothCard';
+import { PromotionBoothCard } from '@/components/booth/promotion';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
-import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
+import useGetPromotionBooths from '@/query/get/useGetPromotionBooths';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { useSetRecoilState } from 'recoil';
+import styled from 'styled-components';
 
 export default function Promotion() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
-  useEffect(() => {
-    isPage('booth/promotion');
-  }, []);
-
+  /** 지도 포인터 눌렀을 때 포커싱 주기위한 ref */
   const boothFocus = useRef([]);
 
+  /**
+   * booths: 부스 정보 (서버로부터 받아옴)
+   * pointers: 지도 상에 나타나는 포인터 고정 좌표
+   */
+  const { booths } = useGetPromotionBooths();
   const pointers = useMemo(
     () => [
       {
@@ -48,8 +51,8 @@ export default function Promotion() {
       },
       {
         number: 4,
-        top: '8.65rem',
-        left: '21.65rem',
+        top: '7.35rem',
+        left: '13.6rem',
       },
       {
         number: 5,
@@ -85,68 +88,23 @@ export default function Promotion() {
     []
   );
 
-  const booths = useMemo(
-    () => [
-      {
-        number: 1,
-        boothName: '포토에이스',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 2,
-        boothName: '질레트',
-        intro: '운영날짜 수/목금',
-      },
-      {
-        number: 3,
-        boothName: '밝은눈안과',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 4,
-        boothName: '몬스터',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 5,
-        boothName: '예거',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 6,
-        boothName: '켈리',
-        intro: '운영날짜: 수/목/금',
-      },
-      {
-        number: 7,
-        boothName: '링티',
-        intro: '운영날짜: 금',
-      },
-      {
-        number: 8,
-        boothName: '상쾌한',
-        intro: '운영날짜: 금',
-      },
-      {
-        number: 9,
-        boothName: '렌즈미',
-        intro: '운영날짜: 금',
-      },
-    ],
-    []
-  );
+  useEffect(() => {
+    isPage('booth/promotion');
+  }, []);
 
+  /** 포인터 눌렀을 때 해당 포인터 번호에 해당하는 카드로 이동 */
   const onClickPointer = (number) => {
     boothFocus.current[number].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
   };
+
   return (
     <MainSection>
       <Title>프로모션 부스</Title>
 
       <BoothMap>
-        {pointers.map((pointer) => (
+        {pointers.map((pointer, index) => (
           <Pointer
-            key={`pointer${pointer.number}`}
+            key={`pointer${index}`}
             src={`/img/booth/pointer${pointer.number}.png`}
             number={pointer.number}
             left={pointer.left}
@@ -157,8 +115,8 @@ export default function Promotion() {
       </BoothMap>
 
       {booths.map((booth) => (
-        <div ref={(el) => (boothFocus.current[booth.number] = el)} key={booth.number}>
-          <BlackBoothCard data={booth} variant="primary" />
+        <div ref={(el) => (boothFocus.current[booth.booth_num] = el)} key={booth.booth_num + 1}>
+          <PromotionBoothCard data={booth} variant="primary" />
         </div>
       ))}
       <MoveToTopBtn />
@@ -209,7 +167,7 @@ const MapSize = styled.div`
 const BoothMap = styled(MapSize)`
   position: relative;
   z-index: 1;
-  background-image: url('/public/img/booth/promotion/promotion-map.png');
+  background-image: url('/img/booth/promotion/promotion-map.jpeg');
 
   margin-top: 3.6rem;
   margin-bottom: 3.6rem;

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import React, { useEffect } from 'react';
 import mapImg from '../assets/image/entrance.jpg';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { pageState } from '@/libs/store';
 
 function Entrance() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
 
   useEffect(() => {
     isPage('entrance');
