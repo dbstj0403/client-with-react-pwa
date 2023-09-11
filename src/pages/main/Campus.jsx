@@ -15,7 +15,7 @@ function Campus(props) {
     <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 400 ? 1 : 0}>
       <Backdrop scroll={props.scroll} width={getWidth()} />
       <Gradient />
-      <CampusImage src="/img/hongikview/hongikview.gif" alt="hongik" />
+      <CampusImage src="https://storage.2023hiufestainfo.com/client/hongikview.gif" alt="hongik" />
     </Container>
   );
 }
