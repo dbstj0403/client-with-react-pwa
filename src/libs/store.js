@@ -25,3 +25,8 @@ export const adminState = atom({
   key: 'adminState',
   default: false,
 });
+
+export const roadmapClickState = atom({
+  key: 'roadmapClickState',
+  default: false,
+});
