@@ -29,7 +29,10 @@ function HongikMapImage() {
 
   // 지도
   for (let i = 0; i < 9; i++) {
-    const img = { map: `/img/hongikmap/hongikmap${mapEnum[i]}.png`, marker: `/img/icon/${mapEnum[i]}.png` };
+    const img = {
+      map: `https://storage.2023hiufestainfo.com/client/hongikmap${mapEnum[i]}.png`,
+      marker: `/img/icon/${mapEnum[i]}.png`,
+    };
     imgList.push(img);
   }
 
