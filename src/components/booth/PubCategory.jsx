@@ -13,7 +13,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
     <PubCategoryWrapper>
       <Categories>
         {categories.map((category, index) => (
-          <CategoryTextBox key={category.name} isClicked={index === categoryState} pageSection={category.page}>
+          <CategoryTextBox key={category.name} isClicked={index === categoryState} category={category}>
             <span
               onClick={() => {
                 categoryClicked(index);
@@ -46,29 +46,12 @@ const Categories = styled.div`
 const CategoryTextBox = styled.div`
   padding: 0.8rem 1.2rem;
   border-radius: 0.2rem;
-  background-color: ${(props) =>
-    props.isClicked
-      ? props.pageSection === 'A'
-        ? '#42CF6133'
-        : props.pageSection === 'B'
-        ? '#FF89D733'
-        : props.pageSection === 'C'
-        ? '#D291F033'
-        : '#FFFFFF1A'
-      : null};
-  transition: background-color 0.25s ease;
+  background-color: ${(props) => (props.isClicked ? props.category.backgroundColor : null)};
+  transition: all 0.25s ease;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) =>
-      props.isClicked
-        ? props.pageSection === 'A'
-          ? props.theme.colors.green
-          : props.pageSection === 'B'
-          ? props.theme.colors.pink
-          : props.pageSection === 'C'
-          ? props.theme.colors.purple
-          : props.theme.colors.white
-        : props.theme.colors.gray700};
+    color:${(props) => (props.isClicked ? props.category.textColor : props.theme.colors.gray700)};
+    transition: all 0.25s ease;
   }
 `;
 
