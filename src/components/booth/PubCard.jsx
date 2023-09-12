@@ -7,13 +7,15 @@ import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import CardAuthBtn from './CardAuthBtn';
 import EditingPubCard from './EditingPubCard';
+import { adminState } from '@/libs/store';
+import { useRecoilValue } from 'recoil';
 
 export default function PubCard({ data }) {
   useEffect(() => {
     AOS.init();
   });
   const [isEditing, setIsEditing] = useState(false);
-  const isAuth = false;
+  const isAdmin = useRecoilValue(adminState);
   const deleteBtnClicked = () => {
     alert('삭제하시겠습니까?');
   };
@@ -41,37 +43,27 @@ export default function PubCard({ data }) {
   return isEditing ? (
     <EditingPubCard data={data} setIsEditing={setIsEditing} />
   ) : (
-    <PubCardWrapper data-aos={data.page === 1 ? 'flip-left' : 'flip-right'} data-aos-duration="1500" data-aos-once>
+    <PubCardWrapper
+      data-aos={data.section === 'A' ? 'flip-left' : data.section === 'B' ? 'flip-right' : 'flip-up'}
+      data-aos-duration="1500"
+      data-aos-once
+    >
       <PubCardMainContent>
-        <PubCardImage image={data.image}>
-          {data.page === 'A' ? (
-            <PubCardFold1>
-              <span>{data.position}</span>
-            </PubCardFold1>
-          ) : data.page === 'B' ? (
-            <PubCardFold2>
-              <span>{data.position}</span>
-            </PubCardFold2>
-          ) : (
-            <PubCardFold3>
-              <span>{data.position}</span>
-            </PubCardFold3>
-          )}
+        <PubCardImage image={data.imageUrl ? data.imageUrl : '/img/skeleton1.png'}>
+          {data.section === 'A' ? <PubCardFold1 /> : data.section === 'B' ? <PubCardFold2 /> : <PubCardFold3 />}
         </PubCardImage>
         <PubCardTextWrapper>
-          <PubOwner>{data.owns}</PubOwner>
+          <PubOwner>{data.major} 부스</PubOwner>
           <PubPosition>
-            <PubPage pageSection={data.page}>
-              <span>Page {data.page}</span>
+            <PubPage pageSection={data.section}>
+              <span>Page {data.section}</span>
             </PubPage>
-            <DevideCircle />
-            <span>{data.position}</span>
           </PubPosition>
-          <PubMainMenu>{data.mainMenu}</PubMainMenu>
-          <PubIntroduce>{data.introduction}</PubIntroduce>
+          <PubMainMenu>{data.menu}</PubMainMenu>
+          <PubIntroduce>{data.intro}</PubIntroduce>
         </PubCardTextWrapper>
       </PubCardMainContent>
-      {isAuth ? <CardAuthBtn contents={deleteAndEdit} /> : null}
+      {isAdmin ? <CardAuthBtn contents={deleteAndEdit} /> : null}
     </PubCardWrapper>
   );
 }
@@ -104,15 +96,6 @@ const PubCardFold1 = styled.div`
   position: absolute;
   right: 0;
   bottom: 0;
-  span {
-    ${(props) => props.theme.fontStyles.subHead1}
-    font-size:1rem;
-    line-height: 1rem;
-    color: ${(props) => props.theme.colors.white};
-    position: absolute;
-    bottom: 2.4rem;
-    left: 0.2rem;
-  }
 `;
 
 const PubCardFold2 = styled.div`
@@ -121,32 +104,16 @@ const PubCardFold2 = styled.div`
   border-right: 3.6rem solid ${(props) => props.theme.colors.pink};
   border-left: 0px solid transparent;
   border-top: 3.6rem solid ${(props) => props.theme.colors.background};
-  span {
-    ${(props) => props.theme.fontStyles.subHead1}
-    font-size:1rem;
-    line-height: 1rem;
-    color: ${(props) => props.theme.colors.white};
-    position: absolute;
-    top: 2.5rem;
-    left: 2.7rem;
-  }
 `;
 
 const PubCardFold3 = styled.div`
   width: 0px;
   height: 0px;
-  border-right: 3.6rem solid ${(props) => props.theme.colors.purple};
+  border-bottom: 3.6rem solid ${(props) => props.theme.colors.purple};
   border-left: 0px solid transparent;
-  border-top: 3.6rem solid ${(props) => props.theme.colors.background};
-  span {
-    ${(props) => props.theme.fontStyles.subHead1}
-    font-size:1rem;
-    line-height: 1rem;
-    color: ${(props) => props.theme.colors.white};
-    position: absolute;
-    top: 2.5rem;
-    left: 2.7rem;
-  }
+  border-right: 3.6rem solid ${(props) => props.theme.colors.background};
+  position: absolute;
+  right: 0;
 `;
 
 const PubCardTextWrapper = styled.div`

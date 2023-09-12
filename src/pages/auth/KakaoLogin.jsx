@@ -43,6 +43,7 @@ export default function KakaoLogin() {
           .then((res) => {
             const { isRegistered, accessToken } = res.data.data;
 
+            console.log(res);
             /** 등록된 관리자가 아닐 경우 */
             if (!isRegistered) {
               alert('등록되지 않은 관리자입니다. 관리자에게 등록을 요청해 주세요.');
