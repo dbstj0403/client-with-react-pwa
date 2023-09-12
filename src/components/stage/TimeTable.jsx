@@ -24,10 +24,11 @@ function TimeTable({ day, onSwipe, sliderRef }) {
   const schedules = useMemo(
     () => [
       [
+        { type: 'undergraduate', stage: '학부찬조공연', time: '17:30 ~ 18:00', details: ['공연예술학부 뮤지컬'] },
         {
           type: 'hongikCentral',
           stage: '재주꾼선발대회',
-          time: '18:00 ~ 20:10',
+          time: '18:00 ~ 20:20',
           details: [
             '유지예',
             '나중에',
@@ -40,11 +41,10 @@ function TimeTable({ day, onSwipe, sliderRef }) {
             '고스락',
           ],
         },
-        { type: 'undergraduate', stage: '학부찬조공연', time: '20:10 ~ 20:40', details: ['공연예술학부 뮤지컬'] },
         {
           type: 'celab',
           stage: '연예인 초청무대',
-          time: '20:40 -',
+          time: '20:20 ~ 22:30',
           details: ['양다일', '나비', 'SURL', '비비', '타이거JK', '윤미래'],
         },
         { stage: '', details: [] },
@@ -53,23 +53,37 @@ function TimeTable({ day, onSwipe, sliderRef }) {
         {
           type: 'hongikCentral',
           stage: '학생중앙무대',
-          time: '17:30 ~ 19:30',
+          time: '17:00 ~ 19:20',
           details: ['유형준', '카이저', '비너스', '익수', '프링글스', '블랙테트라'],
         },
-        { type: 'undergraduate', stage: '학부찬조공연', time: '19:30 ~ 20:10', details: ['공연예술학부 밴드'] },
-        { type: 'celab', stage: '연예인 초청무대', time: '20:10 -', details: ['10cm', '유다빈밴드', '윤하'] },
+        { type: 'undergraduate', stage: '학부찬조공연', time: '19:20 ~ 20:00', details: ['공연예술학부 밴드'] },
+        { type: 'celab', stage: '연예인 초청무대', time: '20:00 ~ 22:10', details: ['10cm', '유다빈밴드', '윤하'] },
         { stage: '', details: [] },
       ],
       [
         {
           type: 'hongikCentral',
           stage: '학생중앙무대',
-          time: '17:30 ~ 19:50',
-          details: ['조용찬', '캐드', '강은서밴드', '오픈런', '소리얼', '오현성콰트로치즈와퍼', '브레인스워즈'],
+          time: '17:00 ~ 20:10',
+          details: [
+            '조용찬',
+            '캐드',
+            '오픈런',
+            '강은서밴드',
+            '소리얼',
+            '오현성콰트로치즈와퍼',
+            '브레인스워즈',
+            '비츠플로우',
+          ],
         },
-        { type: 'celab', stage: '연예인 초청무대', time: '19:50 - ', details: ['NewJeans'] },
-        { type: 'hongikCentral', stage: '학생중앙무대', details: ['비츠플로우'] },
-        { type: 'celab', stage: '연예인 초청무대', details: ['정용화', '이승윤', '릴보이'] },
+        {
+          type: 'celab',
+          stage: '연예인 초청무대',
+          time: '20:10 ~ 22:20',
+          details: ['NewJeans', '정용화', '이승윤', '릴보이'],
+        },
+        { type: '', stage: '', details: [] },
+        { type: '', stage: '', details: [] },
       ],
     ],
 
