@@ -6,6 +6,7 @@ import styled from 'styled-components';
 export default function PubCategory({ categories, setCategoryText, setDepartment }) {
   const [categoryState, setCategoryState] = useState(0);
   const [pageSection, setPageSection] = useState('ALL');
+  const [subImage, setSubImage] = useState(null);
   const categoryClicked = (index) => {
     setCategoryState(index);
   };
@@ -17,6 +18,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
             <span
               onClick={() => {
                 categoryClicked(index);
+                setSubImage(category.image);
                 setCategoryText(category.name === '디경융' ? '디지털경영융합' : category.name);
                 setPageSection(category.page);
                 setDepartment(category.engName);
@@ -27,7 +29,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
           </CategoryTextBox>
         ))}
       </Categories>
-      <SubMapImage page_section={pageSection} />
+      <SubMapImage image={subImage} />
     </PubCategoryWrapper>
   );
 }
@@ -58,13 +60,6 @@ const CategoryTextBox = styled.div`
 const SubMapImage = styled.div`
   width: 33.5rem;
   height: 33.5rem;
-  background: url(${(props) =>
-    props.page_section === 'A'
-      ? '/img/pubSectionA.png'
-      : props.page_section === 'B'
-      ? '/img/pubSectionB.png'
-      : props.page_section === 'C'
-      ? '/img/pubSectionC.png'
-      : null});
+  background: url(${(props) => props.image});
   background-size: cover;
 `;
