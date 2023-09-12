@@ -1,7 +1,12 @@
 import theme from '@/styles/theme';
 import styled from 'styled-components';
+import { useRef } from 'react';
+import useLazyLoading from '@/hooks/useLazyLoading';
 
 function Campus(props) {
+  const observerRef = useRef(null);
+  const loading = useLazyLoading(observerRef);
+
   const getWidth = () => {
     if (window.innerWidth < 450) {
       return 220;
@@ -12,10 +17,16 @@ function Campus(props) {
     }
   };
   return (
-    <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 400 ? 1 : 0}>
-      <Backdrop scroll={props.scroll} width={getWidth()} />
-      <Gradient />
-      <CampusImage src="https://storage.2023hiufestainfo.com/client/hongikview.gif" alt="hongik" />
+    <Container ref={observerRef} fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 400 ? 1 : 0}>
+      {loading ? (
+        <Skeleton src="/img/skeleton1.png" />
+      ) : (
+        <>
+          <Backdrop scroll={props.scroll} width={getWidth()} />
+          <Gradient />
+          <CampusImage src="https://storage.2023hiufestainfo.com/client/hongikview.gif" alt="hongik" />
+        </>
+      )}
     </Container>
   );
 }
@@ -56,4 +67,11 @@ const CampusImage = styled.img`
   width: 100%;
   height: 24rem;
   object-fit: fill;
+`;
+
+const Skeleton = styled.img`
+  width: 100%;
+  height: 19rem;
+  object-fit: cover;
+  object-position: center center;
 `;
