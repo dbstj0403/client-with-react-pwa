@@ -24,10 +24,10 @@ export default function WristbandsInfo() {
   );
 
   return informations.map((information) => (
-    <>
+    <React.Fragment key={information.number}>
       {information.map}
-      <Card key={information.number} variant="secondary" data={information} />
-    </>
+      <Card variant="secondary" data={information} />
+    </React.Fragment>
   ));
 }
 

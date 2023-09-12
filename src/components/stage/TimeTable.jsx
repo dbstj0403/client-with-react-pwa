@@ -79,7 +79,7 @@ function TimeTable({ day, onSwipe, sliderRef }) {
       {schedules.map((day) =>
         day.map((schedule) => (
           <>
-            <Schedule key={schedule.stage} isEmpty={schedule.stage === ''}>
+            <Schedule key={schedule.stage} isempty={schedule.stage === '' ? 1 : 0}>
               <TimeLine type={schedule.type}>
                 <span>{schedule.stage}</span>
                 <span id="time">{schedule.time}</span>
@@ -119,7 +119,7 @@ const Container = styled(Slider)`
 `;
 
 const Schedule = styled.ul`
-  display: ${({ isEmpty }) => (isEmpty ? 'none' : 'flex')};
+  display: ${({ isempty }) => (isempty ? 'none' : 'flex')};
 
   justify-content: space-around;
   padding: 1.4rem 0.8rem;
