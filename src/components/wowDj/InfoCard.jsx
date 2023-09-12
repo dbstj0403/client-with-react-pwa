@@ -10,26 +10,26 @@ function InfoCard() {
   }, []);
   return (
     <InfoContainer data-aos="zoom-in-down" data-aos-duration="800">
-      <InfoBox height="15rem" backgroundColor="rgb(13,13,13,0.9)">
+      <InfoBox height="15rem" background_color="rgb(13,13,13,0.9)">
         <InfouNumber>1</InfouNumber>
         <InfoTitle>진행 시간</InfoTitle>
         <InfoText>각 일 19시 ~ 24시</InfoText>
       </InfoBox>
-      <InfoBox height="25.4rem" backgroundColor="rgb(19,19,19,0.9)">
+      <InfoBox height="25.4rem" background_color="rgb(19,19,19,0.9)">
         <InfouNumber>2</InfouNumber>
         <InfoTitle>입장 가격</InfoTitle>
         <TextWrapper>
-          <InfoText spanColor="rgba(66, 207, 97, 1)">
+          <InfoText span_color="rgba(66, 207, 97, 1)">
             홍익대학교 재학생, 휴학생 및 졸업 유예생 <br /> <span>5000원</span>
           </InfoText>
 
-          <InfoText spanColor="rgba(255, 137, 215, 1)">
+          <InfoText span_color="rgba(255, 137, 215, 1)">
             외부인 <br />
             <span>20000원</span>
           </InfoText>
         </TextWrapper>
       </InfoBox>
-      <InfoBox backgroundColor="rgb(13,13,13,0.9)">
+      <InfoBox background_color="rgb(13,13,13,0.9)">
         <InfouNumber>3</InfouNumber>
         <InfoTitle>주의사항</InfoTitle>
         <InfoText>과음 / 흡연 금지</InfoText>
@@ -47,7 +47,7 @@ const InfoContainer = styled.div`
 `;
 
 const InfoBox = styled.div`
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.background_color};
   width: 33.5rem;
   height: ${(props) => props.height};
   display: flex;
@@ -88,7 +88,7 @@ const InfoText = styled.div`
     font-weight: 400;
     line-height: 2.4rem;
     letter-spacing: 0em;
-    color: ${(props) => props.spanColor};
+    color: ${(props) => props.span_color};
   }
 `;
 const TextWrapper = styled.div`

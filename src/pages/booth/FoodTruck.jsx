@@ -28,8 +28,8 @@ export default function FoodTruck() {
         <p>푸드 트럭은 축제 당일 들어오는 순서대로 자리가 변동될 수 있습니다.</p>
       </AlertMsg>
       <FoodTruckBooths>
-        {foodTruckData.map((foodTruck) => {
-          return <FoodTruckCard key={foodTruck.name} data={foodTruck} />;
+        {foodTruckData.map((foodTruck, index) => {
+          return <FoodTruckCard key={index} data={foodTruck} />;
         })}
       </FoodTruckBooths>
       <MoveToTopBtn />

@@ -26,7 +26,7 @@ export default function Pub() {
   }, []);
 
   const { getPubs, isLoading, error } = useGetPubs(department);
-  console.log(getPubs);
+
   return (
     <PubPageWrapper>
       <PubPageTitle>
@@ -54,7 +54,7 @@ export default function Pub() {
           {!isLoading
             ? getPubs.pub.map((booth, index) => {
                 return (
-                  <Suspense fallback={null}>
+                  <Suspense fallback={null} key={booth.department + index}>
                     <PubCard key={booth.department + index} data={booth} />
                   </Suspense>
                 );

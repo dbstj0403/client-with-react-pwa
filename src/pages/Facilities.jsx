@@ -27,7 +27,7 @@ export default function Facilities() {
       <FacilitiesCategory>
         {facilitiesCategory.map((category, index) => {
           return (
-            <CategoryBox key={category} isClicked={categoryState === index}>
+            <CategoryBox key={category} is_clicked={categoryState === index ? 1 : 0}>
               <span onClick={() => categoryClicked(index)}>{category}</span>
             </CategoryBox>
           );
@@ -67,7 +67,7 @@ const CategoryBox = styled.div`
   padding: 0.8rem;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) => (props.isClicked ? props.theme.colors.white : props.theme.colors.gray700)};
+    color:${(props) => (props.is_clicked ? props.theme.colors.white : props.theme.colors.gray700)};
     transition: color 0.3s ease;
   }
   margin-bottom: 2.4rem;
