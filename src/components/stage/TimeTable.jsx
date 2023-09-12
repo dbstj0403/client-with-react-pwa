@@ -28,7 +28,17 @@ function TimeTable({ day, onSwipe, sliderRef }) {
           type: 'hongikCentral',
           stage: '재주꾼선발대회',
           time: '18:00 ~ 20:10',
-          details: ['유지예', '나중에', '샤이니빛이나는솔로', '권영훈', '전자깡패', '에땅쎌', '김예린', '이민규'],
+          details: [
+            '유지예',
+            '나중에',
+            '(샤이니)빛이 나는 솔로',
+            '권영훈',
+            '전자깡패',
+            '이민규',
+            '에땅쎌',
+            '김예린',
+            '고스락',
+          ],
         },
         { type: 'undergraduate', stage: '학부찬조공연', time: '20:10 ~ 20:40', details: ['공연예술학부 뮤지컬'] },
         {
