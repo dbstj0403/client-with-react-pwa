@@ -1,11 +1,12 @@
+import { axiosInstance } from '@/axios/axios';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function usePatchFoodTrucks({ id }) {
   const queryClient = useQueryClient();
-  const { mutate, data, isLoading, error, isSuccess } = useMutation({
+  const { mutate, data, isLoading, error, isSuccess, isError } = useMutation({
     mutationKey: ['patchFoodTruck'],
     mutationFn: async (data) => {
-      const res = await axiosInstance.patch(`/api/foodtrucks${id}`, data);
+      const res = await axiosInstance.patch(`/api/api/foodtrucks/${id}`, data);
       return res.data;
     },
     onSuccess: () => {
@@ -19,6 +20,7 @@ export default function usePatchFoodTrucks({ id }) {
     patchFoodTruck: mutate,
     isLoading,
     isSuccess,
+    isError,
     error,
     data,
   };

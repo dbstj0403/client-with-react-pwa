@@ -16,7 +16,6 @@ export default function ProfitCardList({ cardRef }) {
   const isAdmin = useRecoilValue(adminState);
   const [addCard, setAddCard] = useState(false);
 
-  console.log(booths);
   return (
     <Wrapper>
       {isAdmin && (
