@@ -32,7 +32,7 @@ function WowDigitalFestival() {
           <img src="https://storage.2023hiufestainfo.com/client/wdfPoster.png" alt="" />
         </ImgContainer>
         <ImgContainer1>
-          <img src="https://storage.2023hiufestainfo.com/client/wdfMap.svg" alt="" />
+          <img src="/img/dj/wdfMap.png" alt="" />
         </ImgContainer1>
         <ImgContainer2>
           <img src="/img/dj/wdfBackground.svg" alt="" />

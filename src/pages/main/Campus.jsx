@@ -34,7 +34,7 @@ const Container = styled.div`
 const Backdrop = styled.div`
   position: absolute;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 
   height: 24rem;
   background-color: ${theme.colors.background};
@@ -46,7 +46,7 @@ const Gradient = styled.div`
   position: absolute;
   width: 100%;
   height: 24rem;
-  z-index: 1;
+  z-index: 2;
 
   background: linear-gradient(#00000000, #000000);
 `;
@@ -55,5 +55,6 @@ const CampusImage = styled.img`
   position: relative;
   width: 100%;
   height: 24rem;
+  z-index: 1;
   object-fit: fill;
 `;

@@ -35,7 +35,7 @@ export const pubCategory = [
     image: '/img/pubSectionA.png',
   },
   {
-    name: '건축',
+    name: '건축도시',
     engName: 'architecture',
     page: 'C',
     textColor: theme.colors.purple,
@@ -91,7 +91,7 @@ export const pubCategory = [
     image: '/img/pubSectionA.png',
   },
   {
-    name: '총동아리연합',
+    name: '총동아리연합회',
     engName: 'union',
     page: 'A',
     textColor: theme.colors.green,

@@ -19,7 +19,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
               onClick={() => {
                 categoryClicked(index);
                 setSubImage(category.image);
-                setCategoryText(category.name === '디경융' ? '디지털경영융합' : category.name);
+                setCategoryText(category.name === '디경융' ? '디자인경영융합' : category.name);
                 setPageSection(category.page);
                 setDepartment(category.engName);
               }}
