@@ -19,7 +19,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
               onClick={() => {
                 categoryClicked(index);
                 setSubImage(category.image);
-                setCategoryText(category.name === '디경융' ? '디지털경영융합' : category.name);
+                setCategoryText(category.name === '디경융' ? '디자인경영융합' : category.name);
                 setPageSection(category.page);
                 setDepartment(category.engName);
               }}
@@ -48,11 +48,11 @@ const Categories = styled.div`
 const CategoryTextBox = styled.div`
   padding: 0.8rem 1.2rem;
   border-radius: 0.2rem;
-  background-color: ${(props) => (props.isClicked ? props.category.backgroundColor : null)};
+  background-color: ${(props) => (props.isclicked ? props.category.backgroundColor : null)};
   transition: all 0.25s ease;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) => (props.isClicked ? props.category.textColor : props.theme.colors.gray700)};
+    color:${(props) => (props.isclicked ? props.category.textColor : props.theme.colors.gray700)};
     transition: all 0.25s ease;
   }
 `;
