@@ -113,7 +113,7 @@ function CentralStage() {
         <DaySelector selectedDay={day} onClick={onClickDay} />
         <TimeTable day={day} onSwipe={onSwipe} sliderRef={sliderRef} />
 
-        <PageIconCenter rotateSize={schedulePageIconRotateSize} />
+        <PageIconCenter rotatesize={schedulePageIconRotateSize} />
         <PageIconCorner />
       </ScheduleWrapper>
       <MoveToTopBtn />
@@ -157,7 +157,7 @@ const PageIconCenter = styled.div`
   height: 29.3169rem;
 
   transition: all ease 1s;
-  transform: ${({ rotateSize }) => `rotate(${rotateSize}deg)`};
+  transform: ${({ rotatesize }) => `rotate(${rotatesize}deg)`};
   flex-shrink: 0;
   background-size: auto;
   background-position: center;
