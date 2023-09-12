@@ -17,7 +17,7 @@ function CentralStage() {
   }, []);
 
   /** 축제 시작 날짜 */
-  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-09-07').getTime() / 1000.0), []);
+  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-09-13').getTime() / 1000.0), []);
 
   const [day, setDay] = useState(() => {
     const todayDate = new Date();
