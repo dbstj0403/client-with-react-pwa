@@ -8,7 +8,7 @@ export const operatingData = [
     desc: null,
   },
   { operate: '푸드트럭', start: '12:00', end: '24:00', second: null, desc: '재료 소진 시 조기 마감될 수 있습니다.' },
-  { operate: '와우 디제잉 페스티벌', start: '19:00', end: '24:00', second: null, desc: null },
+  { operate: '와우 디제이 페스티벌', start: '19:00', end: '24:00', second: null, desc: null },
   {
     operate: '팔찌 배부 부스',
     start: '09:00',
