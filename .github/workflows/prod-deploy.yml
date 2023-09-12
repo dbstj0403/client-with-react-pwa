@@ -43,4 +43,4 @@ jobs:
           file: ./Dockerfile.prod
           platforms: linux/amd64
           push: true
-          tags: brian990614/2023hiufestainfo-client:latest
+          tags: brian990614/2023hiufestainfo-client-prod:latest
