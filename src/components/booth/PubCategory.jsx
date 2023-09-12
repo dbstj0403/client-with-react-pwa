@@ -13,7 +13,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
     <PubCategoryWrapper>
       <Categories>
         {categories.map((category, index) => (
-          <CategoryTextBox key={category.name} isClicked={index === categoryState} category={category}>
+          <CategoryTextBox key={category.name} isclicked={index === categoryState ? 1 : 0} category={category}>
             <span
               onClick={() => {
                 categoryClicked(index);
@@ -27,7 +27,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
           </CategoryTextBox>
         ))}
       </Categories>
-      <SubMapImage pageSection={pageSection} />
+      <SubMapImage page_section={pageSection} />
     </PubCategoryWrapper>
   );
 }
@@ -46,11 +46,11 @@ const Categories = styled.div`
 const CategoryTextBox = styled.div`
   padding: 0.8rem 1.2rem;
   border-radius: 0.2rem;
-  background-color: ${(props) => (props.isClicked ? props.category.backgroundColor : null)};
+  background-color: ${(props) => (props.isclicked ? props.category.backgroundColor : null)};
   transition: all 0.25s ease;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) => (props.isClicked ? props.category.textColor : props.theme.colors.gray700)};
+    color:${(props) => (props.isclicked ? props.category.textColor : props.theme.colors.gray700)};
     transition: all 0.25s ease;
   }
 `;
@@ -59,11 +59,11 @@ const SubMapImage = styled.div`
   width: 33.5rem;
   height: 33.5rem;
   background: url(${(props) =>
-    props.pageSection === 'A'
+    props.page_section === 'A'
       ? '/img/pubSectionA.png'
-      : props.pageSection === 'B'
+      : props.page_section === 'B'
       ? '/img/pubSectionB.png'
-      : props.pageSection === 'C'
+      : props.page_section === 'C'
       ? '/img/pubSectionC.png'
       : null});
   background-size: cover;
