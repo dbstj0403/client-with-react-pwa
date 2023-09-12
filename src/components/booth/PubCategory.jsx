@@ -49,10 +49,12 @@ const CategoryTextBox = styled.div`
   padding: 0.8rem 1.2rem;
   border-radius: 0.2rem;
   background-color: ${(props) => (props.isClicked ? props.category.backgroundColor : null)};
-  transition: background-color 0.25s ease;
+  transition: all 0.25s ease;
   span {
     ${(props) => props.theme.fontStyles.head5}
-    color:${(props) => (props.isClicked ? props.category.textColor : props.theme.colors.gray700)}
+    color:${(props) => (props.isClicked ? props.category.textColor : props.theme.colors.gray700)};
+    transition: all 0.25s ease;
+  }
 `;
 
 const SubMapImage = styled.div`

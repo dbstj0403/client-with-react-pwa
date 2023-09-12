@@ -9,6 +9,7 @@ import CardAuthBtn from './CardAuthBtn';
 import EditingPubCard from './EditingPubCard';
 import { adminState } from '@/libs/store';
 import { useRecoilValue } from 'recoil';
+import useDeletePubs from '@/query/delete/useDeletePubs';
 
 export default function PubCard({ data }) {
   useEffect(() => {
@@ -16,15 +17,15 @@ export default function PubCard({ data }) {
   });
   const [isEditing, setIsEditing] = useState(false);
   const isAdmin = useRecoilValue(adminState);
+  const { deletePub, isLoading, isSuccess, error, data: deleteData } = useDeletePubs(data.id);
   const deleteBtnClicked = () => {
-    alert('삭제하시겠습니까?');
+    const confirmation = confirm('삭제하시겠습니까?');
+    if (confirmation) {
+      deletePub();
+    }
   };
   const editBtnClicked = () => {
     setIsEditing(true);
-  };
-  const saveBtnClicked = () => {
-    alert('저장되었습니다');
-    setIsEditing(false);
   };
   const deleteAndEdit = [
     {
