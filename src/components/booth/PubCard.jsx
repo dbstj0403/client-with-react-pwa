@@ -56,7 +56,7 @@ export default function PubCard({ data }) {
         <PubCardTextWrapper>
           <PubOwner>{data.major} 부스</PubOwner>
           <PubPosition>
-            <PubPage pageSection={data.section}>
+            <PubPage page_section={data.section}>
               <span>Page {data.section}</span>
             </PubPage>
           </PubPosition>
@@ -143,9 +143,9 @@ const PubPosition = styled.div`
 const PubPage = styled.div`
   span {
     color: ${(props) =>
-      props.pageSection === 'A'
+      props.page_section === 'A'
         ? props.theme.colors.green
-        : props.pageSection === 'B'
+        : props.page_section === 'B'
         ? props.theme.colors.pink
         : props.theme.colors.purple};
     ${(props) => props.theme.fontStyles.body3}
@@ -154,7 +154,7 @@ const PubPage = styled.div`
   padding: 0 0.4rem;
   border-radius: 0.2rem;
   background-color: ${(props) =>
-    props.pageSection === 'A' ? '#42CF6133' : props.pageSection === 'B' ? '#FF89D733' : '#D291F033'};
+    props.page_section === 'A' ? '#42CF6133' : props.page_section === 'B' ? '#FF89D733' : '#D291F033'};
 `;
 
 const DevideCircle = styled.div`

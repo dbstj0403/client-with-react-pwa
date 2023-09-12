@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 DaySelector.propTypes = {
-  selectedDay: PropTypes.string.isRequired,
+  selectedDay: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 

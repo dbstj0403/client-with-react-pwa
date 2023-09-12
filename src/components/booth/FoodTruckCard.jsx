@@ -49,7 +49,7 @@ export default function FoodTruckCard({ data }) {
   return editting ? (
     <EdittingFoodTruckCard data={data} closeEdit={() => setEditting(false)} />
   ) : (
-    <CardWrapper isAuth={isAuth} data-aos="fade-up" data-aos-duration="800" data-aos-once>
+    <CardWrapper is_auth={isAuth ? 1 : 0} data-aos="fade-up" data-aos-duration="800" data-aos-once>
       <BoothText>
         <BoothName>
           <span>{data.brandName}</span>
@@ -70,7 +70,7 @@ const CardWrapper = styled.div`
   background: ${(props) => props.theme.colors.background};
   backdrop-filter: blur(6px);
   width: 100%;
-  height: ${(props) => (props.isAuth ? '24.6rem' : '15.6rem')};
+  height: ${(props) => (props.is_auth ? '24.6rem' : '15.6rem')};
   margin-top: 2.4rem;
 `;
 

@@ -14,7 +14,7 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
     <PubCategoryWrapper>
       <Categories>
         {categories.map((category, index) => (
-          <CategoryTextBox key={category.name} isClicked={index === categoryState} category={category}>
+          <CategoryTextBox key={category.name} isclicked={index === categoryState ? 1 : 0} category={category}>
             <span
               onClick={() => {
                 categoryClicked(index);
