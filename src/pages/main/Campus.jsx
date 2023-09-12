@@ -1,12 +1,7 @@
 import theme from '@/styles/theme';
 import styled from 'styled-components';
-import { useRef } from 'react';
-import useLazyLoading from '@/hooks/useLazyLoading';
 
 function Campus(props) {
-  const observerRef = useRef(null);
-  const loading = useLazyLoading(observerRef);
-
   const getWidth = () => {
     if (window.innerWidth < 450) {
       return 220;
@@ -17,16 +12,10 @@ function Campus(props) {
     }
   };
   return (
-    <Container ref={observerRef} fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 400 ? 1 : 0}>
-      {loading ? (
-        <Skeleton src="/img/skeleton1.png" />
-      ) : (
-        <>
-          <Backdrop scroll={props.scroll} width={getWidth()} />
-          <Gradient />
-          <CampusImage src="https://storage.2023hiufestainfo.com/client/hongikview.gif" alt="hongik" />
-        </>
-      )}
+    <Container fix={props.scroll > 20 ? 1 : 0} display={props.scroll < 400 ? 1 : 0}>
+      <Backdrop scroll={props.scroll} width={getWidth()} />
+      <Gradient />
+      <CampusImage src="https://storage.2023hiufestainfo.com/client/hongikview.gif" alt="hongik" />
     </Container>
   );
 }
@@ -45,7 +34,7 @@ const Container = styled.div`
 const Backdrop = styled.div`
   position: absolute;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 
   height: 24rem;
   background-color: ${theme.colors.background};
@@ -57,7 +46,7 @@ const Gradient = styled.div`
   position: absolute;
   width: 100%;
   height: 24rem;
-  z-index: 1;
+  z-index: 2;
 
   background: linear-gradient(#00000000, #000000);
 `;
@@ -66,12 +55,6 @@ const CampusImage = styled.img`
   position: relative;
   width: 100%;
   height: 24rem;
+  z-index: 1;
   object-fit: fill;
-`;
-
-const Skeleton = styled.img`
-  width: 100%;
-  height: 19rem;
-  object-fit: cover;
-  object-position: center center;
 `;
