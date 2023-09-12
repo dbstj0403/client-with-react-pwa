@@ -2,17 +2,49 @@ import styled from 'styled-components';
 import CardAuthBtn from './CardAuthBtn';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import { ReactComponent as EditIcon } from '@/assets/icons/editIcon.svg';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useRecoilValue } from 'recoil';
+import { adminState } from '@/libs/store';
+import usePatchFoodTrucks from '@/query/patch/usePatchFoodTrucks';
+import useDeleteFoodTrucks from '@/query/delete/useDeleteFoodTrucks';
 
-export default function EdittingFoodTruckCard({ data }) {
-  const [boothName, setBoothName] = useState(data.name);
-  const [boothIntroduction, setBoothIntroduction] = useState(data.introduce);
+EdittingFoodTruckCard.propTypes = {
+  data: PropTypes.shape({
+    brandName: PropTypes.string,
+    introduction: PropTypes.string,
+  }),
+  closeEdit: PropTypes.func,
+};
+
+export default function EdittingFoodTruckCard({ data, closeEdit }) {
+  const isAuth = useRecoilValue(adminState);
+  const [boothName, setBoothName] = useState(data.brandName);
+  const [boothIntroduction, setBoothIntroduction] = useState(data.introduction);
   const [active, setActive] = useState(false);
+
+  /** 푸드트럭 수정 훅 */
+  const { patchFoodTruck, isError: patchError } = usePatchFoodTrucks(data);
+  /** 푸드트럭 삭제 훅 */
+  const { deleteFoodTruck, isError: deleteError } = useDeleteFoodTrucks(data);
+
   const saveBtnClicked = () => {
+    patchFoodTruck({
+      brandName: boothName,
+      introduction: boothIntroduction,
+    });
+
     alert('저장되었습니다?');
+    closeEdit();
   };
   const deleteBtnClicked = () => {
-    alert('삭제하시겠습니까');
+    deleteFoodTruck();
+    if (window.confirm('정말 삭제합니까?')) {
+      deleteFoodTruck();
+    } else {
+      alert('취소합니다.');
+    }
+    closeEdit();
   };
   const boothNameChanged = (e) => {
     setBoothName(e.target.value);
@@ -20,23 +52,24 @@ export default function EdittingFoodTruckCard({ data }) {
   const boothIntroductionChanged = (e) => {
     setBoothIntroduction(e.target.value);
   };
+
+  /** 에러발생 */
   useEffect(() => {
-    if (
-      (boothName !== data.name && boothName !== '') ||
-      (boothIntroduction !== data.introduce && boothIntroduction !== '')
-    ) {
+    if (patchError) alert('수정하기 에러 발생! 관리자에게 문의하세요');
+    if (deleteError) alert('삭제하기 에러 발생! 관리자에게 문의하세요');
+  }, [deleteError, patchError]);
+
+  useEffect(() => {
+    if (boothName !== '' && boothIntroduction !== '') {
       setActive(true);
     } else setActive(false);
   }, [boothName, boothIntroduction]);
-  const isAuth = true;
+
   const saveBtn = [{ icon: SaveIcon, text: '저장', active, onClick: saveBtnClicked }];
   const deleteBtn = [{ icon: EditIcon, text: '삭제', active: true, onClick: deleteBtnClicked }];
   return (
     <CardWrapper>
       <BoothText>
-        <BoothNumber>
-          <span>{data.number}</span>
-        </BoothNumber>
         <BoothName value={boothName} onChange={boothNameChanged} />
         <BoothIntroduction value={boothIntroduction} onChange={boothIntroductionChanged} maxLength={30} />
       </BoothText>
@@ -52,29 +85,13 @@ export default function EdittingFoodTruckCard({ data }) {
 
 const CardWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.background};
-  width: 33.5rem;
+  width: 100%;
   height: 26.6rem;
   margin-top: 2.4rem;
 `;
 
 const BoothText = styled.div`
   padding: 1.8rem 2rem;
-`;
-
-const BoothNumber = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
-  background-color: ${(props) => props.theme.colors.white};
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.8rem;
-  span {
-    ${(props) => props.theme.fontStyles.subHead1};
-    line-height: 1.6rem;
-    color: ${(props) => props.theme.colors.black};
-  }
 `;
 
 const BoothName = styled.input`

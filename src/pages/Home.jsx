@@ -3,12 +3,14 @@ import Landing from './main/Landing';
 import Campus from './main/Campus';
 import Rest from './main/Rest';
 import styled from 'styled-components';
-import { useRecoilValue } from 'recoil';
-import { lineupState } from '@/libs/store';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { lineupState, pageState } from '@/libs/store';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
+
 function Home() {
   const [scroll, setScroll] = useState(0);
   const isLineupShow = useRecoilValue(lineupState);
+  const isPage = useSetRecoilState(pageState);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,8 +25,12 @@ function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    isPage('');
+  }, []);
+
   return (
-    <Container isLineupShow={isLineupShow ? 1 : 0}>
+    <Container islineupshow={isLineupShow ? 1 : 0}>
       <Campus scroll={scroll} />
       <Landing scroll={scroll} />
       <Rest />
@@ -38,7 +44,8 @@ export default Home;
 const Container = styled.div`
   position: relative;
   max-width: 76.8em;
-  height: ${(props) => (props.isLineupShow ? '1100rem' : '560rem')};
+  width: 100%;
+  height: ${(props) => (props.islineupshow ? '1100rem' : '560rem')};
 
   display: flex;
   flex-direction: column;

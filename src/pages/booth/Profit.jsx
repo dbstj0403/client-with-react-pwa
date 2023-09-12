@@ -1,15 +1,15 @@
 import MapMarker from '@/components/booth/MapMarker';
-import { ProfitBoothCard } from '@/components/booth/profit';
+import { ProfitCardList } from '@/components/booth/profit';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import { pageState } from '@/libs/store';
 import useGetProfitBooths from '@/query/get/useGetProfitBooths';
 import theme from '@/styles/theme';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 function Profit() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   const boothFocus = useRef([]);
   const { booths, isLoading } = useGetProfitBooths();
 
@@ -20,46 +20,57 @@ function Profit() {
   const markers = useMemo(
     () => [
       {
+        number: '1',
         top: '10.2rem',
         left: '12.5rem',
       },
       {
+        number: '2',
         top: '10.8rem',
         left: '14.3rem',
       },
       {
+        number: '3',
         top: '11.2rem',
         left: '16rem',
       },
       {
+        number: '4',
         top: '11.7rem',
         left: '17.7rem',
       },
       {
+        number: '5',
         top: '8rem',
         left: '11rem',
       },
       {
+        number: '6',
         top: '12.2rem',
         left: '11.2rem',
       },
       {
+        number: '7',
         top: '12.8rem',
         left: '12.9rem',
       },
       {
+        number: '8',
         top: '14.5rem',
         left: '22.7rem',
       },
       {
+        number: '9',
         top: '14.5rem',
         left: '24.5rem',
       },
       {
+        number: '10',
         top: '14.5rem',
         left: '26.2rem',
       },
       {
+        number: '11',
         top: '14rem',
         left: '17.2rem',
       },
@@ -83,11 +94,7 @@ function Profit() {
         <MapMarker booths={booths} markers={markers} onClick={onClickPointer} />
       </BoothDetail>
 
-      {booths.map((booth) => (
-        <div ref={(el) => (boothFocus.current[booth.boothNum] = el)} key={booth.number}>
-          <ProfitBoothCard data={booth} variant="secondary" />
-        </div>
-      ))}
+      <ProfitCardList cardRef={boothFocus} />
 
       <MoveToTopBtn />
     </MainSection>

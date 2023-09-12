@@ -1,10 +1,8 @@
 import { pageState } from '@/libs/store';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import hiInst from '@/assets/image/madeby/hiInst.svg';
-import hiLogo from '@/assets/image/madeby/hilogo.png';
-import histyle from '@/assets/image/madeby/forstylemadeby.svg';
 import { LikelionInst } from '@/components/madeby/LikelionInst';
 import { Manage } from '@/components/madeby/team/Manage';
 import { Design } from '@/components/madeby/team/Design';
@@ -14,7 +12,7 @@ import { Leader } from '@/components/madeby/team/Leader';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 
 function MadeBy() {
-  const [page, isPage] = useRecoilState(pageState);
+  const isPage = useSetRecoilState(pageState);
   useEffect(() => {
     isPage('madeby');
   }, []);
@@ -77,7 +75,7 @@ const InstLogo = styled.div`
   width: 14.8rem;
   height: 14.8rem;
   margin-top: 18.8rem;
-  background-image: url(${hiLogo});
+  background-image: url('https://storage.2023hiufestainfo.com/client/hilogo.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -87,7 +85,7 @@ const InstLogo = styled.div`
 const ForStyling = styled.div`
   width: 37.5rem;
   height: 2.4rem;
-  background-image: url(${histyle});
+  background-image: url('https://storage.2023hiufestainfo.com/client/forstylemadeby.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

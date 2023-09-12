@@ -14,18 +14,16 @@ const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <BrowserRouter>
-        <RecoilRoot>
-          <QueryClientProvider client={queryClient}>
-            <App />
-          </QueryClientProvider>
-        </RecoilRoot>
-      </BrowserRouter>
-    </ThemeProvider>
-  </React.StrictMode>
+  <ThemeProvider theme={theme}>
+    <GlobalStyles />
+    <BrowserRouter>
+      <RecoilRoot>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </RecoilRoot>
+    </BrowserRouter>
+  </ThemeProvider>
 );
 
 // If you want your app to work offline and load faster, you can change

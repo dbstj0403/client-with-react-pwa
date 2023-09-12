@@ -41,7 +41,7 @@ export function Frontend() {
         profileimg={hyeonminImg}
         name={'김현민'}
         major={'컴퓨터공학과 18'}
-        inst={'최고가 되고싶은 개발자 김현민입니다.'}
+        inst={'축제 재밌게 즐기세요~ '}
         insta={'hyeonmin_0614'}
         github={'wokbjso'}
       />

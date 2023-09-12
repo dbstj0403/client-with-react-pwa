@@ -17,7 +17,7 @@ function CentralStage() {
   }, []);
 
   /** 축제 시작 날짜 */
-  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-09-07').getTime() / 1000.0), []);
+  const festivalStartDate = useMemo(() => Math.floor(new Date('2023-09-13').getTime() / 1000.0), []);
 
   const [day, setDay] = useState(() => {
     const todayDate = new Date();
@@ -98,28 +98,26 @@ function CentralStage() {
   };
 
   return (
-    <>
-      <MainSection>
-        <Title>중앙무대</Title>
-        <CentralStageMap />
+    <MainSection>
+      <Title>중앙무대</Title>
+      <CentralStageMap />
 
-        <Title>팔찌부스 안내</Title>
-        <WristbandsInfo />
+      <Title>팔찌부스 안내</Title>
+      <WristbandsInfo />
 
-        <Title>라인업</Title>
-        <CelabLineUpList />
+      <Title>라인업</Title>
+      <CelabLineUpList />
 
-        <ScheduleWrapper>
-          <StageSchedule>중앙무대 일정</StageSchedule>
-          <DaySelector selectedDay={day} onClick={onClickDay} />
-          <TimeTable day={day} onSwipe={onSwipe} sliderRef={sliderRef} />
+      <ScheduleWrapper>
+        <StageSchedule>중앙무대 일정</StageSchedule>
+        <DaySelector selectedDay={day} onClick={onClickDay} />
+        <TimeTable day={day} onSwipe={onSwipe} sliderRef={sliderRef} />
 
-          <PageIconCenter rotateSize={schedulePageIconRotateSize} />
-          <PageIconCorner />
-        </ScheduleWrapper>
-        <MoveToTopBtn />
-      </MainSection>
-    </>
+        <PageIconCenter rotatesize={schedulePageIconRotateSize} />
+        <PageIconCorner />
+      </ScheduleWrapper>
+      <MoveToTopBtn />
+    </MainSection>
   );
 }
 
@@ -130,17 +128,21 @@ const MainSection = styled.section`
   justify-content: center;
   align-items: center;
 
+  width: 100%;
   padding: 10rem 2rem;
 `;
 
-const CentralStageMap = styled.div`
-  width: 33.5rem;
+const MapSize = styled.div`
+  width: 100%;
   height: 20rem;
 
-  background-image: url('/img/stage/central-stage-map.jpg');
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
+`;
 
+const CentralStageMap = styled(MapSize)`
+  background-image: url('/img/stage/central-stage-map.jpg');
   margin-bottom: 16rem;
 `;
 
@@ -155,7 +157,7 @@ const PageIconCenter = styled.div`
   height: 29.3169rem;
 
   transition: all ease 1s;
-  transform: ${({ rotateSize }) => `rotate(${rotateSize}deg)`};
+  transform: ${({ rotatesize }) => `rotate(${rotatesize}deg)`};
   flex-shrink: 0;
   background-size: auto;
   background-position: center;
@@ -186,7 +188,7 @@ const ScheduleWrapper = styled.div`
 
   align-items: center;
 
-  width: 37.5rem;
+  width: 100%;
   min-height: 84.3rem;
 
   margin-top: 22rem;

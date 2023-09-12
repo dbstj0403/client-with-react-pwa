@@ -19,3 +19,14 @@ export const roadmapState = atom({
   key: 'roadmapState',
   default: 0,
 });
+
+/** 어드민 관련 atom */
+export const adminState = atom({
+  key: 'adminState',
+  default: false,
+});
+
+export const roadmapClickState = atom({
+  key: 'roadmapClickState',
+  default: false,
+});
