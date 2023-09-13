@@ -7,6 +7,7 @@ export default function usePatchPubs(pubId) {
     mutationKey: ['patchPub', pubId],
     mutationFn: async (data) => {
       const res = await axiosInstance.patch(`/api/pubs/${pubId}`, data);
+      console.log(data);
       return res.data;
     },
     onSuccess: () => {
