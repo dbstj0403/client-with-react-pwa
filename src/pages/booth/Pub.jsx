@@ -9,6 +9,7 @@ import AddingPubCard from '@/components/booth/AddingPubCard';
 import useGetPubs from '@/query/get/useGetPubs';
 import MoveToTopBtn from '@/components/common/btn/MoveToTopBtn';
 import usePostPubs from '@/query/post/usePostPubs';
+import Spinner from '../../assets/icons/spinner.gif';
 
 export default function Pub() {
   const PubCard = lazy(() => import('@/components/booth/PubCard'));
@@ -16,6 +17,7 @@ export default function Pub() {
   const [department, setDepartment] = useState('all');
   const isPage = useSetRecoilState(pageState);
   const [boothAdding, setBoothAdding] = useState(false);
+  const [subImage, setSubImage] = useState(null);
   const isAdmin = useRecoilValue(adminState);
   const addBoothClicked = () => {
     setBoothAdding(true);
@@ -34,34 +36,38 @@ export default function Pub() {
       </PubPageTitle>
       <PubMapWrapper>
         <PubMainMap />
-        <PubCategory categories={pubCategory} setCategoryText={setCategoryText} setDepartment={setDepartment} />
+        <PubCategory
+          categories={pubCategory}
+          setCategoryText={setCategoryText}
+          setDepartment={setDepartment}
+          setSubImage={setSubImage}
+        />
       </PubMapWrapper>
-      {isAdmin ? (
-        <AddBooth onClick={addBoothClicked}>
-          <span>부스 추가</span>
-          <span>+</span>
-        </AddBooth>
-      ) : null}
+      <Suspense fallback={<img src={Spinner} alt="로딩" />}>
+        <SubMapImage image={subImage} />
+        {isAdmin ? (
+          <AddBooth onClick={addBoothClicked}>
+            <span>부스 추가</span>
+            <span>+</span>
+          </AddBooth>
+        ) : null}
 
-      <PubBooths>
-        <AreaText>
-          <span>{categoryText}구역</span>
-          <span>{!isLoading ? getPubs.pub.length : null} 부스</span>
-        </AreaText>
-        {boothAdding ? <AddingPubCard department={department} /> : null}
+        <PubBooths>
+          <AreaText>
+            <span>{categoryText}구역</span>
+            <span>{!isLoading ? getPubs.pub.length : null} 부스</span>
+          </AreaText>
+          {boothAdding ? <AddingPubCard department={department} /> : null}
 
-        <PubCards>
-          {!isLoading
-            ? getPubs.pub.map((booth, index) => {
-                return (
-                  <Suspense fallback={null} key={booth.department + index}>
-                    <PubCard key={booth.department + index} data={booth} />
-                  </Suspense>
-                );
-              })
-            : null}
-        </PubCards>
-      </PubBooths>
+          <PubCards>
+            {!isLoading
+              ? getPubs.pub.map((booth, index) => {
+                  return <PubCard key={booth.department + index} data={booth} />;
+                })
+              : null}
+          </PubCards>
+        </PubBooths>
+      </Suspense>
       <MoveToTopBtn />
     </PubPageWrapper>
   );
@@ -90,6 +96,14 @@ const PubMapWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 3.6rem;
+`;
+
+const SubMapImage = styled.div`
+  width: 33.5rem;
+  height: 33.5rem;
+  margin-bottom: 3.6rem;
+  background: url(${(props) => props.image});
+  background-size: cover;
 `;
 
 const AddBooth = styled.div`

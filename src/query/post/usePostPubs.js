@@ -2,6 +2,7 @@ import { axiosInstance } from '@/axios/axios';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function usePostPubs(department) {
+  console.log(department);
   const queryClient = useQueryClient();
   const { mutate, data, isLoading, error, isSuccess } = useMutation({
     mutationKey: ['addPub'],
@@ -11,7 +12,7 @@ export default function usePostPubs(department) {
       return res.data;
     },
     onSuccess: () => {
-      queryClient.refetchQueries({
+      queryClient.invalidateQueries({
         queryKey: ['getPubs', department],
       });
     },
