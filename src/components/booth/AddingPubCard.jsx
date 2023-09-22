@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import CardAuthBtn from './CardAuthBtn';
 import { ReactComponent as SaveIcon } from '@/assets/icons/saveIcon.svg';
 import usePostPubs from '@/query/post/usePostPubs';
 
-export default function AddingPubCard({ department }) {
+export default function AddingPubCard() {
   const saveBtnClicked = () => {
     alert('저장되었습니다');
     addPub({
       department: pubDepartmentInput,
+      imageUrl: image,
       intro: pubIntroduce,
       major: pubOwnerInput,
       menu: pubMainMenu,
@@ -21,8 +22,9 @@ export default function AddingPubCard({ department }) {
   const [pubPageInput, setPubPageInput] = useState('');
   const [pubMainMenu, setPubMainMenu] = useState('');
   const [pubIntroduce, setPubIntroduce] = useState('');
-  const { addPub, isLoading, isSuccess, error, data } = usePostPubs(department);
-
+  const { addPub, isLoading, isSuccess, error, data } = usePostPubs(pubDepartmentInput);
+  const [image, setImage] = useState('/img/skeleton.png');
+  const fileInput = useRef(null);
   const pubDepartmentChange = (e) => {
     setPubDepartmentInput(e.target.value);
   };
@@ -44,6 +46,23 @@ export default function AddingPubCard({ department }) {
       return;
     } else setSaveActive(false);
   }, [pubDepartmentInput, pubOwnerInput, pubPageInput, pubMainMenu, pubIntroduce]);
+  const onChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    } else {
+      //업로드 취소할 시
+      setImage();
+      return;
+    }
+    //화면에 프로필 사진 표시
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
   const save = [
     {
       icon: SaveIcon,
@@ -55,7 +74,21 @@ export default function AddingPubCard({ department }) {
   return (
     <PubCardWrapper>
       <PubCardMainContent>
-        <PubCardImage></PubCardImage>
+        <input
+          type="file"
+          style={{ display: 'none' }}
+          accept="image/jpg,impge/png,image/jpeg"
+          name="profile_img"
+          onChange={onChange}
+          ref={fileInput}
+        />
+        <PubCardImage
+          alt={'부스 추가'}
+          src={image}
+          onClick={() => {
+            fileInput.current.click();
+          }}
+        />
         <PubCardTextWrapper>
           <PubDepartment placeholder="학과" onChange={pubDepartmentChange} />
           <PubOwner placeholder="부스 이름" onChange={pubOwnerChange} />
@@ -82,11 +115,9 @@ const PubCardMainContent = styled.div`
   display: flex;
 `;
 
-const PubCardImage = styled.div`
+const PubCardImage = styled.img`
   width: 11.6rem;
   height: 8rem;
-  background-image: url(${(props) => props.image});
-  background-size: cover;
   position: relative;
 `;
 

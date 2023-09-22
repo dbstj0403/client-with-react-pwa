@@ -1,9 +1,10 @@
+import { axiosInstance } from '@/axios/axios';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-export default function useDeletePubs({ pubId }) {
+export default function useDeletePubs(pubId) {
   const queryClient = useQueryClient();
   const { mutate, data, isLoading, error, isSuccess } = useMutation({
-    mutationKey: ['deletePub', pubId],
+    mutationKey: ['deletePub'],
     mutationFn: async () => {
       const res = await axiosInstance.delete(`/api/pubs/${pubId}`);
       return res.data;

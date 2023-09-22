@@ -3,10 +3,9 @@ import useGetPubs from '@/query/get/useGetPubs';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function PubCategory({ categories, setCategoryText, setDepartment }) {
+export default function PubCategory({ categories, setCategoryText, setDepartment, setSubImage }) {
   const [categoryState, setCategoryState] = useState(0);
   const [pageSection, setPageSection] = useState('ALL');
-  const [subImage, setSubImage] = useState(null);
   const categoryClicked = (index) => {
     setCategoryState(index);
   };
@@ -29,7 +28,6 @@ export default function PubCategory({ categories, setCategoryText, setDepartment
           </CategoryTextBox>
         ))}
       </Categories>
-      <SubMapImage image={subImage} />
     </PubCategoryWrapper>
   );
 }
@@ -42,7 +40,7 @@ const Categories = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 2.4rem 0;
+  margin-top: 2.4rem;
 `;
 
 const CategoryTextBox = styled.div`
@@ -55,11 +53,4 @@ const CategoryTextBox = styled.div`
     color:${(props) => (props.isclicked ? props.category.textColor : props.theme.colors.gray700)};
     transition: all 0.25s ease;
   }
-`;
-
-const SubMapImage = styled.div`
-  width: 33.5rem;
-  height: 33.5rem;
-  background: url(${(props) => props.image});
-  background-size: cover;
 `;
