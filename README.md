@@ -39,14 +39,19 @@ Infra: Aws Ec2, Rds
 ## 홈페이지 스크린샷
 
 ### 메인페이지 - 1 스크린샷
+![main1](https://github.com/HongikUnivFestival/client-with-react-pwa/assets/76439014/0a2b1ea6-5182-4433-acbf-0c7d459cb594)
 
 ### 메인페이지 - 2 스크린샷
+![main2](https://github.com/HongikUnivFestival/client-with-react-pwa/assets/76439014/a131f17b-2591-4d52-aeae-fed0089a2239)
 
 ### 중앙 무대 스크린샷
+![centralStage](https://github.com/HongikUnivFestival/client-with-react-pwa/assets/76439014/a7a73048-ed9c-403f-8d83-6e45e730830e)
 
 ### 수익 부스 스크린샷
+![profitBooth](https://github.com/HongikUnivFestival/client-with-react-pwa/assets/76439014/5533959d-89f7-45a9-b9ee-a9a0391914cc)
 
 ### 프로모션 부스 스크린샷
+![promotionBooth](https://github.com/HongikUnivFestival/client-with-react-pwa/assets/76439014/a2b66d64-2b3d-40c1-bde4-06f3b08f67f7)
 
 # 페이지별 기능 소개
 
@@ -347,6 +352,15 @@ CentralState.jsx 컴포넌트 내에 존재합니다. 이러한 로직들을 use
 ### Card 컴포넌트 compound components 적용
 
 수익 부스 카드와 프로모션 카드의 경우 전체적으로 같은 디자인을 가지고 있고 일부 정보의 유무와 같은 아주 작은 차이점만 존재합니다.
+
+[수익 부스 카드]
+
+![스크린샷 2023-10-02 오후 1 14 12](https://github.com/HongikUnivFestival/client-with-react-pwa/assets/76439014/d6b53977-e092-41f7-bdc3-d25376dadc7f)
+
+
+[프모모션 부스 카드]
+
+![프로모션 부스 카드](https://github.com/HongikUnivFestival/client-with-react-pwa/assets/76439014/f7e64f4a-c69c-4996-ad34-37e357cdcb9a)
 
 하지만 현재 ProfitBoothCard.jsx, PromotionBoothCard.jsx와 같이 페이지별로 카드 컴포넌트를 만들었기 때문에 두 컴포넌트의 코드를 보면 매우 비슷하고, 중복되는 코드가 존재합니다.
 
