@@ -20,7 +20,7 @@ jobs:
       #   id: docker_meta
       #   uses: crazy-max/ghaction-docker-meta@v1
       #   with:
-      #     images: brian990614/2023hiufestainfo-client
+      #     images: brian990614/2023hiufestainfo-client-prod
       #     tag-semver: |
       #       {{version}}
       #       {{major}}.{{minor}}
@@ -43,4 +43,4 @@ jobs:
           file: ./Dockerfile.prod
           platforms: linux/amd64
           push: true
-          tags: brian990614/2023hiufestainfo-client:latest
+          tags: brian990614/2023hiufestainfo-client-prod:latest
